@@ -6,8 +6,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: 'Farm',
+  tagline: 'Supper fast web build tool written in Rust',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -43,7 +43,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/farm-fe/farm-fe.github.io',
         },
         blog: {
           showReadingTime: true,
@@ -65,22 +65,34 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'My Site',
+        title: 'Farm',
         logo: {
           alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          src: 'img/logo.png',
         },
         items: [
           {
             type: 'doc',
-            docId: 'intro',
+            docId: 'quick-start',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Guides',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
-            label: 'GitHub',
+            type: 'doc',
+            docId: 'config/farm-config',
+            position: 'left',
+            label: 'Config',
+          },
+          {
+            type: 'doc',
+            docId: 'plugins/overview',
+            position: 'left',
+            label: 'Plugins',
+          },
+          // {to: '/blog', label: 'Blog', position: 'left'},
+          {
+            href: 'https://github.com/farm-fe/farm',
+            html: '<img src="/img/github-mark.svg" alt="GitHub" style="width: 25px; vertical-align: middle" />',
             position: 'right',
           },
         ],
@@ -92,25 +104,8 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
-              },
-            ],
-          },
-          {
-            title: 'Community',
-            items: [
-              {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
+                label: 'Guilds',
+                to: '/docs/quick-start',
               },
             ],
           },
@@ -123,12 +118,12 @@ const config = {
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/farm-fe/farm',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Farm, Inc. Built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,
