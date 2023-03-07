@@ -1,0 +1,90 @@
+---
+sidebar_position: 1
+---
+
+import CodeBlock from '@theme/CodeBlock';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Quick Start
+:::note
+Farm needs **Node 16 and above**. And if you are using Linux, please make sure your os version is **ubuntu 22** and above(**with GLIBC >= 2.32**).
+:::
+
+## 1. Create a Farm Project
+Package `@farmfe/cli` provide abilities to create, start and build a Farm Project or Farm Plugin. Using `create` command to init a new Farm Project.
+
+```bash
+npx @farmfe/cli@latest create
+```
+:::note
+The `create` command only support to init a simple React project for now, we will make it more powerful in the feature.
+:::
+
+## 2. Start the Project
+Install dependencies First, choose the package manager you like, `npm` or `yarn` or `pnpm`:
+<Tabs>
+<TabItem value="npm" label="npm">
+<CodeBlock>
+cd farm-react && npm install
+</CodeBlock>
+</TabItem>
+<TabItem value="yarn" label="yarn">
+<CodeBlock>
+cd farm-react && yarn
+</CodeBlock>
+</TabItem>
+<TabItem value="pnpm" label="pnpm">
+<CodeBlock>
+cd farm-react && pnpm install
+</CodeBlock>
+</TabItem>
+</Tabs>
+
+Then, start the project:
+
+```bash
+npm start
+```
+
+The project will start at `http://localhost:9000` by default.
+
+## Configuring the Project
+
+The project is configured by `farm.config.ts` file in the root directory of the project.
+
+```ts title="farm.config.ts"
+import { defineConfig } from '@farmfe/core/dist/config';
+
+export default defineConfig({
+  // Options related to the compilation
+  compilation: {
+    input: {
+      // can be a relative path or an absolute path
+      index: './index.html'
+    },
+    output: {
+      path: './build',
+      publicPath: '/'
+    },
+    // ...
+  },
+  // Options related to the dev server
+  server: {
+    port: 9000,
+    // ...
+  },
+  // Additional plugins
+  plugins: [],
+});
+```
+:::note
+Refer to **[Config Reference](/docs/config/farm-config)** for more details of configuring Farm.
+:::
+
+## Next Steps
+
+- [Why Farm?](/docs/why-farm)
+- [Features](/docs/features/html)
+- [Config Reference](/docs/config/farm-config)
+- [Plugins](/docs/plugins/overview)
