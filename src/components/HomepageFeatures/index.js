@@ -8,7 +8,7 @@ const FeatureList = [
     Img: require('@site/static/img/rocket.svg').default,
     description: (
       <>
-        Farm is written in Rust, with multi-threading, persist caching and asynchronous compilation, which makes it super fast.
+        Farm's compiler is written in Rust, with multi-threading, lazy/asynchronous compilation and persist caching, Farm can start a project in milliseconds, perform a HMR update within 10ms.
       </>
     ),
   },
@@ -17,8 +17,7 @@ const FeatureList = [
     Img: require('@site/static/img/toolbox.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Farm support compiling Html, Css, Js/Jsx/Ts/Tsx, Static Assets natively, support lazy compiling, partial bundling and more.
       </>
     ),
   },
@@ -27,8 +26,7 @@ const FeatureList = [
     Img: require('@site/static/img/plug.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Everything inside Farm is powered by plugins, you can achieve anything you want by writing a plugin. Support both Rust and Js plugins.
       </>
     ),
   },
