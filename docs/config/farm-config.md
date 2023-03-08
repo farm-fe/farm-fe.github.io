@@ -153,4 +153,11 @@ export interface JsPlugin {
 
   // load: JsPluginHook<{ filters: { ids: string[] }}>;
 }
+
+export interface UserServerConfig {
+  port?: number;
+  https?: boolean;
+  // http2?: boolean;
+  hmr?: boolean | UserHmrConfig;
+}
 ```
