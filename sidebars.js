@@ -20,9 +20,11 @@ const sidebars = {
   tutorialSidebar: [
     'quick-start',
     'why-farm',
+    // 'concepts',
     {
       type: 'category',
       label: 'Features',
+      collapsed: false,
       items: ['features/html', 'features/css', 'features/script', 'features/static', 'features/lazy-compilation', 'features/partial-bundling'],
     },
     'performance',
