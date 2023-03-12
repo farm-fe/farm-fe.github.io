@@ -55,4 +55,3 @@ export default defineFarmConfig({
 })
 ```
 Farm will compile these pages in parallel.
-

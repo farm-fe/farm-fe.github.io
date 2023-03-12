@@ -27,7 +27,7 @@ const sidebars = {
       collapsed: false,
       items: ['features/html', 'features/css', 'features/script', 'features/static', 'features/lazy-compilation', 'features/partial-bundling'],
     },
-    'performance',
+    'benchmark',
   ],
   configSidebar: [
     'config/farm-config',
