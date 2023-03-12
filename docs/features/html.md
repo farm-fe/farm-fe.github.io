@@ -56,9 +56,3 @@ export default defineFarmConfig({
 ```
 Farm will compile these pages in parallel.
 
-## More features
-More features are under construction:
-* inline script/css
-* minimize runtime
-* lazy compile multi page app
-* ...
