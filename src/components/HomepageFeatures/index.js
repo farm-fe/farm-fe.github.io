@@ -4,7 +4,7 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Supper Fast',
+    title: 'Super Fast',
     Img: require('@site/static/img/rocket.svg').default,
     description: (
       <>

@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Farm',
-  tagline: 'Supper fast web build tool written in Rust',
+  tagline: 'Super fast web build tool written in Rust',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
