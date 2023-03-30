@@ -3,7 +3,7 @@
 Create a new Farm project.
 
 ```bash
-npx @farmfe/cli@latest create
+npx @farmfe/cli@latest create [your project name]
 ```
 
 ## build

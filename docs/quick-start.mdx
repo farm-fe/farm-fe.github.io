@@ -15,37 +15,35 @@ Farm needs **Node 16 and above**. And if you are using Linux, please make sure y
 Package `@farmfe/cli` provide abilities to create, start and build a Farm Project or Farm Plugin. Using `create` command to init a new Farm Project.
 
 ```bash
-npx @farmfe/cli@latest create
+npx @farmfe/cli@latest create [your project name]
 ```
 :::note
-The `create` command only support to init a simple React project for now, we will make it more powerful in the feature.
+The `create` command only support to init a simple React or Vue project for now, we will make it more powerful in the feature.
 :::
 
 ## 2. Start the Project
-Install dependencies First, choose the package manager you like, `npm` or `yarn` or `pnpm`:
+Install dependencies First, choose the package manager you like, `npm` or `yarn` or `pnpm`.
+Then, start the project:
 <Tabs>
 <TabItem value="npm" label="npm">
 <CodeBlock>
-cd farm-react && npm install
+cd farm-react && npm start
 </CodeBlock>
 </TabItem>
 <TabItem value="yarn" label="yarn">
 <CodeBlock>
-cd farm-react && yarn
+cd farm-react && yarn start
 </CodeBlock>
 </TabItem>
 <TabItem value="pnpm" label="pnpm">
 <CodeBlock>
-cd farm-react && pnpm install
+cd farm-react && pnpm start
 </CodeBlock>
 </TabItem>
 </Tabs>
 
-Then, start the project:
 
-```bash
-npm start
-```
+
 
 The project will start at `http://localhost:9000` by default.
 
