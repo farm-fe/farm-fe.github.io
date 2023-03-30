@@ -17,7 +17,7 @@ jobs:
         with:
           node-version: 18
       - name: Install Pnpm
-        run: npm install -g pnpm
+        run: npm install -g pnpm@7
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       - name: Build website
