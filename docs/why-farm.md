@@ -13,7 +13,7 @@ But Unbundled is not perfect, there are still big problem when comes for a large
 * **Inconsistency between Dev and Production**: Native module can not be used in production for most situations, For the compatibility and request numbers. So Unbundled tools choose to bundle in production. This brings inconsistency, when there are production bugs caused by this inconsistency, it's really hard to debug and really painful. And vite is using esbuild in dev and using rollup in production, which enlarged the inconsistency.
 * And Vite is so fast in dev because of esbuild, which is written in go. Go takes advantages of native platform and much faster than Js.
 
-So I thing we just need a fast, powerful, consistent web bundler, which can solve the problems above and fast, then I designed Farm.
+So I think we just need a fast, powerful, consistent web bundler, which can solve the problems above and fast, then I designed Farm.
 
 And Farm is not just a normal bundler re-written in Rust, it has a lot of powerful and progressive designs:
 
