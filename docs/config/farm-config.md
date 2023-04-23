@@ -36,25 +36,35 @@ export default defineFarmConfig({
 });
 
 interface CompilationOptions {
+  coreLibPath?: string;
   input?: Record<string, string>;
   output?: {
     filename?: string;
     path?: string;
     publicPath?: string;
+    assetsFilename?: string;
+    targetEnv?: 'browser' | 'node';
   };
   resolve?: {
     extensions?: string[];
     alias?: Record<string, string>;
     mainFields?: string[];
     conditions?: string[];
-    symlinks: boolean;
+    symlinks?: boolean;
+    strictExports?: boolean;
   };
+  define?: Record<string, string>;
   external?: string[];
   mode?: 'development' | 'production';
+  root?: string;
   runtime?: {
-    plugins?: string[]; // custom runtime plugin
+    path: string;
+    plugins?: string[];
+    swcHelpersPath?: string;
   };
-  // Options parsed to swc
+  assets?: {
+    include?: string[];
+  };
   script?: {
     // specify target es version
     target?:
@@ -78,7 +88,7 @@ interface CompilationOptions {
 
         // babel: `decorators.decoratorsBeforeExport`
         //
-        // Effective only if `decorators` is true.
+        // Effective only if `decorator` is true.
         decoratorsBeforeExport: boolean;
         exportDefaultFrom: boolean;
         // Stage 3.
@@ -96,15 +106,16 @@ interface CompilationOptions {
       };
     };
   };
-  // Specify which modules to be bundled tother
+  sourcemap?: boolean | 'all';
   partialBundling?: {
     moduleBuckets?: {
       name: string;
       test: string[];
     }[];
   };
-  // Enable lazyCompilation or not
   lazyCompilation?: boolean;
+  treeShaking?: boolean;
+  minify?: boolean;
 };
 ```
 
@@ -137,20 +148,60 @@ export type RustPlugin =
   | string
   | [
       string,
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       Record<string, any>
     ];
 
 export interface JsPlugin {
-  resolve: JsPluginHook<
-    {
-      importers: string[];
-      specifiers: string[];
-    },
-    PluginResolveHookParam,
-    PluginResolveHookResult
-  >;
+  name: string;
+  priority?: number;
 
-  // load: JsPluginHook<{ filters: { ids: string[] }}>;
+  config?: object;
+
+  resolve?: {
+    filter: {
+      importers: string[];
+      sources: string[];
+    },
+    executor: (
+      param: { importer: { relativePath: string; queryString: string | null } | null, kind: string, source: string }, 
+      context?: CompilationContext, 
+      hookContext?: { caller?: string; meta: Record<string, unknown> }
+    ) => {
+      resolvedPath: string,
+      external: boolean,
+      sideEffects: boolean,
+      query: [string, string][] | null,
+      meta: Record<string, string> | null,
+    };
+  };
+
+  load?: {
+    filter: {
+      resolvedPaths: string[]
+    },
+    executor: (
+      param: { resolvedPath: string, query: [string, string][], meta: Record<string, string> | null }, 
+      context?: CompilationContext, 
+      hookContext?: { caller?: string; meta: Record<string, unknown> }
+    ) => {
+      content: string;
+      moduleType: string;
+    };
+  };
+
+  transform?: {
+    filter: {
+      resolvedPaths: string[]
+    },
+    executor: (
+      param: { content: string, moduleType: string, resolvedPath: string, query: [string, string][], meta: Record<string, string> | null }, 
+      context?: CompilationContext, 
+      hookContext?: { caller?: string; meta: Record<string, unknown> }
+    ) => {
+      content: string;
+      moduleType?: string;
+      sourceMap?: string | null
+    };
+  };
 }
 ```
