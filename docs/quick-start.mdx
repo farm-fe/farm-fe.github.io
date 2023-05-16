@@ -9,74 +9,71 @@ import TabItem from "@theme/TabItem";
 # Quick Start
 
 :::note
-Farm needs **Node 16 and above**. And if you are using Linux, please make sure your os version is **ubuntu 22** and above(**with GLIBC >= 2.32**).
+Farm needs **Node 16 and above**. And if you are using Linux, please make sure your os version is **ubuntu 22** and above(**or with GLIBC >= 2.32**).
 :::
 
 ## 1. Create a Farm Project
 
-```bash
-$ npm create farm@latest
-```
-
-With Yarn:
-
-```bash
-$ yarn create farm
-```
-
-With PNPM:
-
-```bash
-$ pnpm create farm
-```
+<Tabs>
+  <TabItem value="npm" label="npm">
+    <CodeBlock>npm create farm@latest</CodeBlock>
+  </TabItem>
+  <TabItem value="yarn" label="yarn">
+    <CodeBlock>yarn create farm</CodeBlock>
+  </TabItem>
+  <TabItem value="pnpm" label="pnpm">
+    <CodeBlock>pnpm create farm</CodeBlock>
+  </TabItem>
+</Tabs>
 
 :::note
 Then follow the prompts!
 
-You can also directly specify the project name and the template you want to use via additional command line options run:
+You can also directly specify the project name and the template you want to use via additional command line options:
 :::
 
-```bash
-# npm 6.x
-npm create farm@latest my-vue-app --template react
-
-# npm 7+, extra double-dash is needed:
-npm create farm@latest my-vue-app -- --template vue
-
-# yarn
-yarn create farm my-vue-app --template react
-
-# pnpm
-pnpm create farm my-vue-app --template vue
-```
+<Tabs>
+  <TabItem value="npm 6.x" label="npm 6.x">
+    <CodeBlock>npm create farm@latest my-vue-app --template react</CodeBlock>
+  </TabItem>
+  <TabItem value="npm 7+" label="npm 7+">
+    <CodeBlock>npm create farm@latest my-vue-app -- --template vue</CodeBlock>
+  </TabItem>
+  <TabItem value="yarn" label="yarn">
+    <CodeBlock>yarn create farm my-vue-app --template react</CodeBlock>
+  </TabItem>
+  <TabItem value="pnpm" label="pnpm">
+    <CodeBlock>pnpm create farm my-vue-app --template vue</CodeBlock>
+  </TabItem>
+</Tabs>
 
 ## 2. Start the Project
 
-Install dependencies First, choose the package manager you like, `npm` or `yarn` or `pnpm`.
+Choose the package manager you like, then the dependencies will be installded automatically.
 Then, start the project:
 
 <Tabs>
   <TabItem value="npm" label="npm">
-    <CodeBlock>cd farm-react && npm start</CodeBlock>
+    <CodeBlock>cd farm-project && npm start</CodeBlock>
   </TabItem>
   <TabItem value="yarn" label="yarn">
-    <CodeBlock>cd farm-react && yarn start</CodeBlock>
+    <CodeBlock>cd farm-project && yarn start</CodeBlock>
   </TabItem>
   <TabItem value="pnpm" label="pnpm">
-    <CodeBlock>cd farm-react && pnpm start</CodeBlock>
+    <CodeBlock>cd farm-project && pnpm start</CodeBlock>
   </TabItem>
 </Tabs>
 
 The project will start at `http://localhost:9000` by default.
 
-## Configuring the Project
+## 3. Configuring the Project
 
-The project is configured by `farm.config.ts` file in the root directory of the project.
+The project is configured by `farm.config.ts/js/mjs` file in the root directory of the project.
 
 ```ts title="farm.config.ts"
-import { defineConfig } from "@farmfe/core/dist/config";
+import type { UserConfig } from "@farmfe/core";
 
-export default defineConfig({
+export default <UserConfig>{
   // Options related to the compilation
   compilation: {
     input: {
@@ -96,7 +93,7 @@ export default defineConfig({
   },
   // Additional plugins
   plugins: [],
-});
+};
 ```
 
 :::note

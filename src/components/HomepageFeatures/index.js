@@ -8,7 +8,7 @@ const FeatureList = [
     Img: require('@site/static/img/rocket.svg').default,
     description: (
       <>
-        Farm's compiler is written in Rust, with multi-threading, lazy/asynchronous compilation and persist caching, Farm can start a project in milliseconds, perform a HMR update within 10ms.
+        Farm's compiler is written in Rust, with multi-threading, lazy/asynchronous compilation and persist caching, Farm can start a project in milliseconds, perform a HMR update within 10ms for most scenarios.
       </>
     ),
   },
@@ -17,7 +17,7 @@ const FeatureList = [
     Img: require('@site/static/img/toolbox.svg').default,
     description: (
       <>
-        Farm support compiling Html, Css, Js/Jsx/Ts/Tsx, Static Assets natively, support lazy compiling, partial bundling and more.
+        Farm support compiling Html, Css, Js/Jsx/Ts/Tsx, Json, Static Assets out of box, support sass, less, react-refresh by official plugins, support lazy compiling, partial bundling and more
       </>
     ),
   },
