@@ -1,13 +1,11 @@
 
 # Config Reference
-Farm loads config from `farm.config.ts` or `farm.config.js` file under the project root, recommend to use `farm.config.ts` to get typing support easily.
+Farm loads config from `farm.config.ts|js|mjs` file under the project root. Example:
 
-The config file look like: 
+```ts title="farm.config.ts"
+import type { UserConfig } from '@farmfe/core';
 
-```ts
-import { defineFarmConfig } from '@farmfe/core/dist/config';
-
-export default defineFarmConfig({
+export default <UserConfig>{
   root: process.cwd(), // config project root
   // Options related compilation
   compilation: {
@@ -20,188 +18,161 @@ export default defineFarmConfig({
   },
   // Additional plugins
   plugins: []
-});
-```
-
-## Compilation Options
-> The detail of each option will be completed later
-
-```ts
-import { defineFarmConfig } from '@farmfe/core/dist/config';
-
-export default defineFarmConfig({
-  // Options related compilation
-  compilation: CompilationOptions;
-  // ..
-});
-
-interface CompilationOptions {
-  coreLibPath?: string;
-  input?: Record<string, string>;
-  output?: {
-    filename?: string;
-    path?: string;
-    publicPath?: string;
-    assetsFilename?: string;
-    targetEnv?: 'browser' | 'node';
-  };
-  resolve?: {
-    extensions?: string[];
-    alias?: Record<string, string>;
-    mainFields?: string[];
-    conditions?: string[];
-    symlinks?: boolean;
-    strictExports?: boolean;
-  };
-  define?: Record<string, string>;
-  external?: string[];
-  mode?: 'development' | 'production';
-  root?: string;
-  runtime?: {
-    path: string;
-    plugins?: string[];
-    swcHelpersPath?: string;
-  };
-  assets?: {
-    include?: string[];
-  };
-  script?: {
-    // specify target es version
-    target?:
-      | 'es3'
-      | 'es5'
-      | 'es2015'
-      | 'es2016'
-      | 'es2017'
-      | 'es2018'
-      | 'es2019'
-      | 'es2020'
-      | 'es2021'
-      | 'es2022';
-    // config swc parser
-    parser?: {
-      esConfig?: {
-        jsx?: boolean;
-        fnBind: boolean;
-        // Enable decorators.
-        decorators: boolean;
-
-        // babel: `decorators.decoratorsBeforeExport`
-        //
-        // Effective only if `decorator` is true.
-        decoratorsBeforeExport: boolean;
-        exportDefaultFrom: boolean;
-        // Stage 3.
-        importAssertions: boolean;
-        privateInObject: boolean;
-        allowSuperOutsideMethod: boolean;
-        allowReturnOutsideFunction: boolean;
-      };
-      tsConfig?: {
-        tsx: boolean;
-        decorators: boolean;
-        /// `.d.ts`
-        dts: boolean;
-        noEarlyErrors: boolean;
-      };
-    };
-  };
-  sourcemap?: boolean | 'all';
-  partialBundling?: {
-    moduleBuckets?: {
-      name: string;
-      test: string[];
-    }[];
-  };
-  lazyCompilation?: boolean;
-  treeShaking?: boolean;
-  minify?: boolean;
 };
 ```
 
-## Server Options
+## Compilation Options
 
-```ts
-export default defineFarmConfig({
-  // Options related compilation
-  server: ServerOptions;
+### input
+
+* **type**: `Record<string, string>`
+
+The entry points of your projects. The input can files can be `html`, `ts/js/tsx/jsx`, or other files that support by plugins.
+
+```tsx
+import type { UserConfig } from '@farmfe/core';
+
+export default <UserConfig> {
+  compilation: {
+    input: {
+      index: './index.html',
+      about: './about.html'
+    },
+  }
   // ..
-});
-
-interface ServerOptions {
-  https?: boolean;
-  port?: number;
-  hmr?: boolean;
 }
 ```
+
+
+### output
+* **type**: `OutputOptions`
+```ts
+interface OutputOptions {
+  // filename of the compiled result
+  filename?: string;
+  // output dir path
+  path?: string;
+  // public path to load resources
+  publicPath?: string;
+  // same like filename but for static assets
+  assetsFilename?: string;
+  // target execution env of the compiled result
+  targetEnv?: 'browser' | 'node';
+}
+```
+Configuring the emit of the compilation result - we call the result resources.
+
+#### `output.filename`
+* **defaultValue**: `"[resourceName].[ext]"`
+
+Filename of the generated files. You can use placeholders like `[resourceName]`. All placeholders:
+* `[resourceName]`: The name of this file, the value is a normalized relative path for entry resource, or a hash string for other auto split resources.
+* `[contentHash]`: The content hash of this resource.
+* `[ext]`: internal extension of this resource.
+
+#### `output.path`
+* **defaultValue**: `"dist"`
+
+Output dir path for generated resource.
+
+#### `output.publicPath`
+* **defaultValue**: `"/"`
+
+The base url to load resources. Can be a url like `https://xxxx` or a path like `/xxx`.
+
+#### `output.assetsFileName`
+* **defaultValue**: `"[resourceName].[ext]"`
+
+Same format like `output.filename`. but used to configuring static assets.
+
+#### `output.targetEnv`
+* **defaultValue**: `"browser"`
+
+Target execution environment of the compiled resources, `"browser"` or `"node"`.
+
+### resolve
+* **type**: `ResolveOptions`
+```ts
+interface ResolveOptions {
+  extensions?: string[];
+  alias?: Record<string, string>;
+  mainFields?: string[];
+  conditions?: string[];
+  symlinks?: boolean;
+  strictExports?: boolean;
+};
+```
+#### `resolve.extensions`
+
+#### `resolve.alias`
+
+
+#### `resolve.mainFields`
+
+
+#### `resolve.conditions`
+
+
+#### `resolve.symlinks`
+
+
+#### `resolve.strictExports`
+
+
+### define
+
+### external
+
+
+### mode
+
+
+### root
+
+
+### runtime
+
+
+### assets
+
+### script
+
+### css
+
+### sourcemap
+
+
+### partialBundling
+
+
+### lazyCompilation
+
+### treeShaking
+
+### minify
+
+### presetEnv
+
+## Server Options
+
+### port
+
+### https(WIP)
+
+### hmr
+
+### proxy
+
+### strictPort
+
+### open
+
+### host
+
 
 ## Plugins Options
 
-```ts
-export default defineFarmConfig({
-  // Options related compilation
-  plugins: (RustPlugin | JsPlugin)[];
-  // ..
-});
+### Rust Plugins
 
-export type RustPlugin =
-  | string
-  | [
-      string,
-      Record<string, any>
-    ];
 
-export interface JsPlugin {
-  name: string;
-  priority?: number;
-
-  config?: object;
-
-  resolve?: {
-    filter: {
-      importers: string[];
-      sources: string[];
-    },
-    executor: (
-      param: { importer: { relativePath: string; queryString: string | null } | null, kind: string, source: string }, 
-      context?: CompilationContext, 
-      hookContext?: { caller?: string; meta: Record<string, unknown> }
-    ) => {
-      resolvedPath: string,
-      external: boolean,
-      sideEffects: boolean,
-      query: [string, string][] | null,
-      meta: Record<string, string> | null,
-    };
-  };
-
-  load?: {
-    filter: {
-      resolvedPaths: string[]
-    },
-    executor: (
-      param: { resolvedPath: string, query: [string, string][], meta: Record<string, string> | null }, 
-      context?: CompilationContext, 
-      hookContext?: { caller?: string; meta: Record<string, unknown> }
-    ) => {
-      content: string;
-      moduleType: string;
-    };
-  };
-
-  transform?: {
-    filter: {
-      resolvedPaths: string[]
-    },
-    executor: (
-      param: { content: string, moduleType: string, resolvedPath: string, query: [string, string][], meta: Record<string, string> | null }, 
-      context?: CompilationContext, 
-      hookContext?: { caller?: string; meta: Record<string, unknown> }
-    ) => {
-      content: string;
-      moduleType?: string;
-      sourceMap?: string | null
-    };
-  };
-}
-```
+### Js Plugins
