@@ -1,124 +1,123 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const lightCodeTheme = require("prism-react-renderer/themes/github");
+const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Farm',
-  tagline: 'Super fast web build tool written in Rust',
-  favicon: 'img/favicon.ico',
+  title: "Farm",
+  tagline: "Super fast web build tool written in Rust",
+  favicon: "img/favicon.ico",
 
   // Set the production url of your site here
-  url: 'https://farm-fe.github.io',
+  url: "https://farm-fe.github.io",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: "/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'farm-fe', // Usually your GitHub org/user name.
-  projectName: 'farm-fe.github.io', // Usually your repo name.
-  deploymentBranch: 'gh-pages',
+  organizationName: "farm-fe", // Usually your GitHub org/user name.
+  projectName: "farm-fe.github.io", // Usually your repo name.
+  deploymentBranch: "gh-pages",
 
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "warn",
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: "en",
+    locales: ["en"],
   },
 
   presets: [
     [
-      'classic',
+      "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
+          sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/farm-fe/farm-fe.github.io',
+          editUrl: "https://github.com/farm-fe/farm-fe.github.io",
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve("./src/css/custom.css"),
         },
       }),
     ],
   ],
-
+  // themes: ["@docusaurus/theme-search-algolia"],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      image: "img/docusaurus-social-card.jpg",
       navbar: {
-        title: 'Farm',
+        title: "Farm",
         logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.png',
+          alt: "My Site Logo",
+          src: "img/logo.png",
         },
         items: [
           {
-            type: 'doc',
-            docId: 'quick-start',
-            position: 'left',
-            label: 'Guides',
+            type: "doc",
+            docId: "quick-start",
+            position: "left",
+            label: "Guides",
           },
           {
-            type: 'doc',
-            docId: 'config/farm-config',
-            position: 'left',
-            label: 'Config',
+            type: "doc",
+            docId: "config/farm-config",
+            position: "left",
+            label: "Config",
           },
           {
-            type: 'doc',
-            docId: 'plugins/overview',
-            position: 'left',
-            label: 'Plugins',
+            type: "doc",
+            docId: "plugins/overview",
+            position: "left",
+            label: "Plugins",
           },
           // {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/farm-fe/farm',
+            href: "https://github.com/farm-fe/farm",
             html: '<img src="/img/github-mark.svg" alt="GitHub" style="width: 25px; vertical-align: middle" />',
-            position: 'right',
+            position: "right",
           },
         ],
       },
       footer: {
-        style: 'dark',
+        style: "dark",
         links: [
           {
-            title: 'Docs',
+            title: "Docs",
             items: [
               {
-                label: 'Guilds',
-                to: '/docs/quick-start',
+                label: "Guilds",
+                to: "/docs/quick-start",
               },
             ],
           },
           {
-            title: 'More',
+            title: "More",
             items: [
               {
-                label: 'Blog',
-                to: '/blog',
+                label: "Blog",
+                to: "/blog",
               },
               {
-                label: 'GitHub',
-                href: 'https://github.com/farm-fe/farm',
+                label: "GitHub",
+                href: "https://github.com/farm-fe/farm",
               },
             ],
           },
@@ -128,6 +127,11 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+      },
+      algolia: {
+        appId: "G3J92PUFY2",
+        apiKey: "2b0f3f1f06f381249d44682a21206f4f",
+        indexName: "farm-feio",
       },
     }),
 };
