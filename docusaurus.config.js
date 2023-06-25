@@ -1,4 +1,4 @@
-// @ts-check
+// @ts-nocheck
 // Note: type annotations allow type checking and IDEs autocompletion
 
 const lightCodeTheme = require("prism-react-renderer/themes/github");
@@ -91,38 +91,43 @@ const config = {
           // {to: '/blog', label: 'Blog', position: 'left'},
           {
             href: "https://github.com/farm-fe/farm",
-            html: '<img src="/img/github-mark.svg" alt="GitHub" style="width: 25px; vertical-align: middle" />',
             position: "right",
+            className: "header-github-link",
+            "aria-label": "GitHub repository",
           },
         ],
       },
-      footer: {
-        style: "dark",
-        links: [
-          {
-            title: "Docs",
-            items: [
-              {
-                label: "Guilds",
-                to: "/docs/quick-start",
-              },
-            ],
-          },
-          {
-            title: "More",
-            items: [
-              {
-                label: "Blog",
-                to: "/blog",
-              },
-              {
-                label: "GitHub",
-                href: "https://github.com/farm-fe/farm",
-              },
-            ],
-          },
-        ],
-        copyright: `Copyright © ${new Date().getFullYear()} Farm, Inc. Built with Docusaurus.`,
+      // footer: {
+      //   style: "dark",
+      //   links: [
+      //     {
+      //       title: "Docs",
+      //       items: [
+      //         {
+      //           label: "Guilds",
+      //           to: "/docs/quick-start",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       title: "More",
+      //       items: [
+      //         {
+      //           label: "Blog",
+      //           to: "/blog",
+      //         },
+      //         {
+      //           label: "GitHub",
+      //           href: "https://github.com/farm-fe/farm",
+      //         },
+      //       ],
+      //     },
+      //   ],
+      //   copyright: `Copyright © ${new Date().getFullYear()} Farm, Inc. Built with Docusaurus.`,
+      // },
+      announcementBar: {
+        id: "announcementBar-2", // Increment on change
+        content: `🎉 Farm is in development iteration. If you like Farm, give it a ⭐️ on <a target="_blank" rel="noopener noreferrer" href="https://github.com/farm-fe/farm">GitHub</a>`,
       },
       prism: {
         theme: lightCodeTheme,
