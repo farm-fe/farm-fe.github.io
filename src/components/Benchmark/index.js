@@ -11,16 +11,21 @@ import { useSpring, animated } from "@react-spring/web";
 const BENChMARK_DATA = {
   coldStart: [
     {
+      name: "Farm",
+      // 单位为 s
+      time: 0.2,
+    },
+    {
       name: "Rspack",
       // 单位为 s
       time: 3.79,
     },
     {
-      name: "Webpack (with SWC)",
+      name: "parcel",
       time: 31.25,
     },
     {
-      name: "Webpack (with babel)",
+      name: "Webpack",
       time: 42.61,
     },
   ],
@@ -76,7 +81,7 @@ const MODULE_COUNT_MAP = {
 };
 
 export default function Benchmark() {
-  const SCENE = ["coldStart", "hmrRoot", "hmrLeaf", "coldBuild"];
+  const SCENE = ["Start", "hmrRoot", "hmrLeaf", "Build"];
   const [activeScene, setActiveScene] = useState("coldStart");
   const { ref, inView } = useInView();
   const variants = {
@@ -98,13 +103,13 @@ export default function Benchmark() {
           <>
             <div className="flex flex-center flex-col">
               <h2 className={`${styles.title} font-bold text-2xl sm:text-4xl`}>
-                BenchmarkTitle
+                {/* BenchmarkTitle */}
               </h2>
               <p className="mt-6 mx-6 text-center sm:text-lg text-gray-600 max-w-3xl">
-                BenchmarkDesc
+                {/* BenchmarkDesc */}
               </p>
             </div>
-            <div className="flex flex-col items-center my-4 z-1">
+            <div className={`${styles.tabs} flex flex-col items-center my-4 z-1`}>
               <Tabs
               // values={SCENE.map((item) => ({
               //   label: item,
@@ -146,13 +151,13 @@ export default function Benchmark() {
               <div>
                 <p className="font-medium my-2 text-center text-lg text-gray-500">
                   <span className=" font-normal">moduleCount:</span>{" "}
-                  {MODULE_COUNT_MAP[activeScene]}
+                  {/* {MODULE_COUNT_MAP[activeScene]} */}
                 </p>
                 <a
                   href="misc/benchmark.html"
                   className="hover:text-brand transition-colors duration-300 text-14px font-medium text-gray-500 p-3"
                 >
-                  👉 benchmarkDetail
+                  {/* 👉 benchmarkDetail */}
                 </a>
               </div>
             </div>
