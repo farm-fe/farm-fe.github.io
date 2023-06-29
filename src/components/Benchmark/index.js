@@ -135,7 +135,6 @@ export default function Benchmark() {
                             >
                               {info.name}
                             </p>
-                            {info.time}
                             <ProgressBar
                               value={info.time}
                               max={Math.max(
