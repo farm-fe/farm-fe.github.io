@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useSpring, animated } from "@react-spring/web";
-import useMeasure from "react-use-measure";
 import styles from "./index.module.css";
 
 export function formatTime(time: number, totalTime: number) {
@@ -17,16 +16,14 @@ export function ProgressBar({ value, max }) {
   const isMobile = window.innerWidth < 768;
   const progressBarWidth = isMobile ? 80 : 50;
   const formattedTime = formatTime(elapsedTime, TOTAL_TIME);
-  const [ref, { width }] = useMeasure();
   const props = useSpring({
-    width,
-    // delay: 1000,
+    width: "100%",
+    from: { width: "0%" },
     config: {
       duration: TOTAL_TIME,
     },
     onChange(data) {
-      console.log("data", data);
-      setElapsedTime((data.value.width / 100) * TOTAL_TIME);
+      setElapsedTime((parseFloat(data.value.width) / 100) * TOTAL_TIME);
     },
   });
 
@@ -42,7 +39,6 @@ export function ProgressBar({ value, max }) {
         style={{
           width: `${(value / max) * 0.8 * progressBarWidth}vw`,
         }}
-        ref={ref}
       >
         <animated.div className={styles["progress-bar"]} style={props} />
       </div>

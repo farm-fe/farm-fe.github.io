@@ -1,6 +1,7 @@
 import { ProgressBar } from "./ProgressBar";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
+import Card from "../card/index.tsx";
 import CodeBlock from "@theme/CodeBlock";
 import { useInView } from "react-intersection-observer";
 import styles from "./index.module.css";
@@ -101,6 +102,7 @@ export default function Benchmark() {
       <div ref={ref}>
         {inView && (
           <>
+            <Card />
             <div className="flex flex-center flex-col">
               <h2 className={`${styles.title} font-bold text-2xl sm:text-4xl`}>
                 {/* BenchmarkTitle */}
@@ -109,12 +111,10 @@ export default function Benchmark() {
                 {/* BenchmarkDesc */}
               </p>
             </div>
-            <div className={`${styles.tabs} flex flex-col items-center my-4 z-1`}>
-              <Tabs
-              // values={SCENE.map((item) => ({
-              //   label: item,
-              // }))}
-              >
+            <div
+              className={`${styles.tabs} flex flex-col items-center my-4 z-1`}
+            >
+              <Tabs>
                 {SCENE.map((scene) => (
                   <TabItem
                     value={scene}
@@ -135,6 +135,7 @@ export default function Benchmark() {
                             >
                               {info.name}
                             </p>
+                            {info.time}
                             <ProgressBar
                               value={info.time}
                               max={Math.max(
