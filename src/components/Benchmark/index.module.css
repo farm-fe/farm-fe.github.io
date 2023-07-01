@@ -1,28 +1,23 @@
-.title {
-  background: linear-gradient(to right, #d3c357, #f1a76a, #cc6d2e);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 .progress-bar-container {
   width: 50vw;
-  height: 50px;
-  border-radius: 10px;
+  height: 25px;
+  /* border-radius: 10px; */
   padding: 4px;
-  border: 1px solid #9f1a8f;
   box-sizing: content-box;
+  border: 1px solid #fafafa20;
 }
 
 .progress-bar-inner-container {
-  height: 50px;
+  height: 25px;
   background: #9f1a8f;
-  border-radius: 5px;
+  border-radius: 2px;
 }
+
 
 .progress-bar {
   height: 100%;
   background: linear-gradient(to right, #bf1aaf, #6f1a5f, #4f1a3f);
-  border-radius: 5px;
+  border-radius: 2px;
 }
 
 .font-mono {

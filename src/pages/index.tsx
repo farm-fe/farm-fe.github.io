@@ -3,6 +3,7 @@ import clsx from "clsx";
 import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
+import FarmCard from "../components/Card";
 import HomepageFeatures from "@site/src/components/HomepageFeatures";
 import Benchmark from "../components/Benchmark";
 
@@ -11,12 +12,22 @@ import styles from "./index.module.css";
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
   return (
-    <header className={clsx(" hero--primary", styles.heroBanner)}>
+    <header
+      className={clsx(
+        "grid grid-cols-1 gap-24 relative z-10 lg:grid-cols-2 mx-auto max-w-7xl",
+        styles.heroBanner
+      )}
+    >
       {/* <header> */}
-      <div className="container">
-        <h1 className="hero__title">{siteConfig.title}</h1>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
+      <div className="container w-full flex flex-col items-center justify-center">
+        {/* <h1 className="text-slate-900 font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-center dark:text-white py-4">
+          {siteConfig.title}
+        </h1> */}
+        <p className="text-slate-900 font-extrabold text-4xl sm:text-5xl lg:text-7xl tracking-tight text-center dark:text-white py-4">
+          Super fast <span className={styles.banner}>web build tool</span>{" "}
+          written in <span className={styles.banner}>Rust</span>
+        </p>
+        <div className={clsx(styles.buttons, "my-4")}>
           <Link
             className="button button--secondary button--lg"
             to="/docs/quick-start"
@@ -32,7 +43,7 @@ function HomepageHeader() {
           </Link>
         </div>
       </div>
-      <Benchmark />
+      <Benchmark className="w-full" />
     </header>
   );
 }
@@ -45,8 +56,9 @@ export default function Home() {
       description="Description will go into a meta tag in <head />"
     >
       <HomepageHeader />
-      <main>
-        <HomepageFeatures />
+      <main className="lg:grid-cols-2 mx-auto max-w-7xl">
+        {/* <HomepageFeatures /> */}
+        <FarmCard />
       </main>
     </Layout>
   );

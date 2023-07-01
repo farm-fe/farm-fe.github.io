@@ -70,12 +70,19 @@ div[class^="announcementBar_"] {
   --site-announcement-bar-stripe-color2: hsl(
     var(--ifm-primary-hue-saturation) 95%
   );
-  background: repeating-linear-gradient(
+  /* background: repeating-linear-gradient(
     35deg,
     var(--site-announcement-bar-stripe-color1),
     var(--site-announcement-bar-stripe-color1) 20px,
     var(--site-announcement-bar-stripe-color2) 10px,
     var(--site-announcement-bar-stripe-color2) 40px
+  ); */
+  background: linear-gradient(
+    45deg,
+    rgb(113, 26, 95),
+    rgb(196, 76, 172) 30%,
+    #9f1a8f 60%,
+    #fda7df 80%
   );
   font-weight: bold;
   height: var(--ifm-announcementBar-height);

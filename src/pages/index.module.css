@@ -10,6 +10,14 @@
   overflow: hidden;
 }
 
+.banner {
+  background: linear-gradient(45deg, rgb(113, 26, 95), #fda7df 70%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
 @media screen and (max-width: 996px) {
   .heroBanner {
     padding: 2rem;

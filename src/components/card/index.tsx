@@ -44,8 +44,8 @@ export default function Card() {
 }
 
 const calc = (x, y, rect) => [
-  -(y - rect.top - rect.height / 20) / 5,
-  (x - rect.left - rect.width / 20) / 5,
+  -(y - rect.top - rect.height / 40) / 8,
+  (x - rect.left - rect.width / 40) / 8,
   1.4,
 ];
 
