@@ -6,11 +6,11 @@ import styles from "./index.module.css";
 
 export default function TeamMembersItem({ member }) {
   return (
-    <article className={clsx(styles.VPTeamMembersItem, "medium")}>
-      <div className={styles.profile}>
-        <figure className="avatar">
+    <article className={clsx(styles.VPTeamMembersItem)}>
+      <div className={clsx(styles.profile)}>
+        <figure className={styles.avatar}>
           <img
-            className={styles.avatarImg}
+            className={styles["avatar-img"]}
             src={member.avatar}
             alt={member.name}
           />
@@ -42,13 +42,6 @@ export default function TeamMembersItem({ member }) {
           ) : null}
         </div>
       </div>
-      {member.sponsor ? (
-        <div className={styles.sp}>
-          <a className={styles.spLink} href={member.sponsor}>
-            <div className={styles.spIcon} /> Sponsor
-          </a>
-        </div>
-      ) : null}
     </article>
   );
 }

@@ -8,8 +8,8 @@
 }
 
 .card {
-  width: 20ch;
-  height: 20ch;
+  /* width: 20ch; */
+  /* height: 20ch; */
   border-radius: 8px;
   transition: box-shadow 0.5s;
   will-change: transform;

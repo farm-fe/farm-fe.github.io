@@ -9,13 +9,16 @@ import TeamMembersItem from "../TeamMembersItem";
 export function TeamMembers(props) {
   const { members, size } = props;
   const { siteConfig } = useDocusaurusContext();
-  const classes = clsx(styles.VPTeamMembers, "medium");
+  const classes = clsx(styles.VPTeamMembers, "small");
   return (
     <div className={classes}>
-      <div className="container">
+      <div className={clsx("mt-10", styles.container)}>
         {members.map((member) => (
           <FarmCard>
-            <div key={member.name} className="item">
+            <div
+              key={member.name}
+              className="w-full p-10 item p-2 mx-2 lg:p-4 mx-4 h-80"
+            >
               <TeamMembersItem member={member} />
             </div>
           </FarmCard>
