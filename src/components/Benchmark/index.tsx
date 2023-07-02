@@ -1,6 +1,4 @@
 import { ProgressBar } from "./ProgressBar";
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
 import FarmCard from "../Card";
 import { useInView } from "react-intersection-observer";
 import styles from "./index.module.css";
@@ -76,23 +74,23 @@ const BENChMARK_DATA = {
   ColdBuild: [
     {
       name: "Farm",
-      time: 0.439,
+      time: 0.65,
     },
     {
       name: "Rspack",
-      time: 0.414,
+      time: 0.999,
     },
     {
       name: "Turbopack",
-      time: 2.476,
+      time: 3.865,
     },
     {
       name: "Vite",
-      time: 3.712,
+      time: 5.421,
     },
     {
       name: "Webpack",
-      time: 8.05,
+      time: 15.668,
     },
   ],
 };
@@ -114,19 +112,34 @@ export default function Benchmark() {
 
   function Pill({ section }) {
     return (
-      <div
-        className={clsx(
-          "flex-1 cursor-pointer rounded-md py-2 px-6 text-center font-jakarta text-sm font-semibold",
-          visibleSection === section
-            ? "bg-fuchsia-600 text-white"
-            : "text-black dark:text-white"
-        )}
-        onClick={() => {
-          setVisibleSection(section);
-          setActiveScene(section);
-        }}
-      >
-        {`${section[0].toUpperCase()}${section.substring(1)}`}
+      <div>
+        <div
+          className={clsx(
+            "flex-1 cursor-pointer rounded-md py-2 px-6 text-center font-jakarta text-sm font-semibold",
+            visibleSection === section
+              ? "bg-fuchsia-600 text-white"
+              : "text-black dark:text-white"
+          )}
+          onClick={() => {
+            setVisibleSection(section);
+            setActiveScene(section);
+          }}
+        >
+          {`${section[0].toUpperCase()}${section.substring(1)}`}
+        </div>
+      </div>
+    );
+  }
+
+  function PillTabs({ SCENE, children }) {
+    return (
+      <div>
+        <div className="inline-flex items-center rounded-lg bg-zinc-100 p-2 text-sm dark:bg-zinc-800 lg:text-base">
+          {SCENE.map((item, index) => {
+            return <Pill section={item} key={item}></Pill>;
+          })}
+        </div>
+        <div>{children}</div>
       </div>
     );
   }
@@ -139,35 +152,34 @@ export default function Benchmark() {
               className={`${styles.tabs} flex flex-col items-center my-4 z-1`}
             >
               <div className="mx-auto flex h-20 w-full flex-1 items-center justify-center self-start lg:w-auto lg:justify-end">
-                <div className="inline-flex items-center rounded-lg bg-zinc-100 p-2 text-sm dark:bg-zinc-800 lg:text-base">
-                  {SCENE.map((item, index) => {
-                    return <Pill section={item} key={item} />;
-                  })}
+                <div className="">
+                  <PillTabs SCENE={SCENE}>
+                    {performanceInfoList.map((info) => (
+                      <div
+                        key={info.name}
+                        className="flex flex-center justify-start my-4 flex-col sm:flex-row"
+                      >
+                        {inView && (
+                          <>
+                            <div
+                              className="flex items-center text-gray-500 dark:text-light-500 text-center"
+                              style={{ minWidth: "100px" }}
+                            >
+                              {info.name}
+                            </div>
+                            <ProgressBar
+                              value={info.time}
+                              max={Math.max(
+                                ...performanceInfoList.map((info) => info.time)
+                              )}
+                            />
+                          </>
+                        )}
+                      </div>
+                    ))}
+                  </PillTabs>
                 </div>
               </div>
-              {performanceInfoList.map((info) => (
-                <div
-                  key={info.name}
-                  className="flex flex-center justify-start my-4 flex-col sm:flex-row"
-                >
-                  {inView && (
-                    <>
-                      <p
-                        className="flex items-center text-gray-500 dark:text-light-500"
-                        style={{ minWidth: "80px" }}
-                      >
-                        {info.name}
-                      </p>
-                      <ProgressBar
-                        value={info.time}
-                        max={Math.max(
-                          ...performanceInfoList.map((info) => info.time)
-                        )}
-                      />
-                    </>
-                  )}
-                </div>
-              ))}
             </div>
           </>
         )}

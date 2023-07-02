@@ -24,8 +24,12 @@ function HomepageHeader() {
           {siteConfig.title}
         </h1> */}
         <p className="text-slate-900 font-extrabold text-4xl sm:text-5xl lg:text-7xl tracking-tight text-center dark:text-white py-4">
-          Super fast <span className={styles.banner}>web build tool</span>{" "}
-          written in <span className={styles.banner}>Rust</span>
+          <span>Super fast web</span>
+          <span className={clsx(styles.banner, "my-6", "block")}> build tool</span>
+          <span>
+            written in
+            <span className={styles.banner}> Rust</span>
+          </span>
         </p>
         <div className={clsx(styles.buttons, "my-4")}>
           <Link
@@ -58,7 +62,7 @@ export default function Home() {
       <HomepageHeader />
       <main className="lg:grid-cols-2 mx-auto max-w-7xl">
         {/* <HomepageFeatures /> */}
-        <FarmCard />
+        {/* <FarmCard /> */}
       </main>
     </Layout>
   );
