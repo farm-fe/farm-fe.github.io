@@ -15,7 +15,7 @@ function HomepageHeader() {
   return (
     <header
       className={clsx(
-        "grid grid-cols-1 gap-24 relative z-10 lg:grid-cols-2 mx-auto max-w-7xl",
+        "grid w-90vw grid-cols-1 gap-8 relative z-10 lg:grid-cols-2 mx-auto max-w-8xl",
         styles.heroBanner
       )}
     >
@@ -43,7 +43,7 @@ function HomepageHeader() {
             Quick Start ⏱️
           </Link>
           <Link
-            className={styles['farm-button']}
+            className={styles["farm-button"]}
             style={{ marginLeft: "20px" }}
             to="/docs/why-farm"
           >
@@ -51,7 +51,7 @@ function HomepageHeader() {
           </Link>
         </div>
       </div>
-      <Benchmark className="w-full" />
+      <Benchmark />
     </header>
   );
 }

@@ -13,7 +13,6 @@
   border-radius: 2px;
 }
 
-
 .progress-bar {
   height: 100%;
   background: linear-gradient(to right, #bf1aaf, #6f1a5f, #4f1a3f);
@@ -81,4 +80,5 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  width: 40vw;
 }
