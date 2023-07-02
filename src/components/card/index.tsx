@@ -3,7 +3,7 @@ import { useSpring, animated } from "@react-spring/web";
 import { useControls } from "leva";
 import styled from "./index.module.css";
 
-export default function Card() {
+export default function Card(props) {
   const cardRef = useRef(null);
   const config = useControls({
     mass: 1,
@@ -38,7 +38,7 @@ export default function Card() {
         style={{ transform: xys.to(trans) }}
         onMouseLeave={handleMouseLeave}
         onMouseMove={handleMouseMove}
-      />
+      >{props.children}</animated.div>
     </div>
   );
 }

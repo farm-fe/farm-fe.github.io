@@ -10,7 +10,6 @@
 .card {
   width: 20ch;
   height: 20ch;
-  background-color: #ff6d6d;
   border-radius: 8px;
   transition: box-shadow 0.5s;
   will-change: transform;
