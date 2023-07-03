@@ -14,7 +14,7 @@ export function ProgressBar({ value, max }) {
   const [elapsedTime, setElapsedTime] = useState(0);
   const TOTAL_TIME = value * 1000;
   const isMobile = window.innerWidth < 768;
-  const progressBarWidth = isMobile ? 80 : 20;
+  const progressBarWidth = isMobile ? 80 : 30;
   const formattedTime = formatTime(elapsedTime, TOTAL_TIME);
   const props = useSpring({
     width: "100%",

@@ -9,7 +9,7 @@ import TeamMembersItem from "../TeamMembersItem";
 export function TeamMembers(props) {
   const { members, size } = props;
   const { siteConfig } = useDocusaurusContext();
-  const classes = clsx(styles.VPTeamMembers, "small");
+  const classes = clsx(styles.VPTeamMembers, "small my-40");
   return (
     <div className={classes}>
       <div className={clsx("mt-10", styles.container)}>

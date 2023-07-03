@@ -6,6 +6,15 @@
 }
 
 .featureSvg {
-  height: 100px;
-  width: 100px;
+}
+
+.item {
+  max-width: 1552px;
+  margin: 0 auto;
+}
+
+.card {
+  border: 3px solid #252529;
+  border-radius: 12px;
+  padding: 1rem 2rem;
 }

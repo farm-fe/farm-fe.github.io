@@ -151,7 +151,7 @@ export default function Benchmark() {
             <div
               className={`${styles.tabs} flex flex-col items-center my-4 z-1`}
             >
-              <div className="mx-auto flex h-20 w-full flex-1 items-center justify-center self-start lg:w-auto lg:justify-end">
+              <div className="flex h-20 w-full flex-1 items-center justify-center self-start lg:w-auto lg:justify-end">
                 <div className="">
                   <PillTabs SCENE={SCENE}>
                     {performanceInfoList.map((info) => (

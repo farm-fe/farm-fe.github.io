@@ -25,29 +25,38 @@ function HomepageHeader() {
           {siteConfig.title}
         </h1> */}
         <p className="text-slate-900 font-extrabold text-4xl sm:text-5xl lg:text-7xl tracking-tight text-center dark:text-white py-4">
-          <span>Super fast web</span>
+          <span>Super Fast Web</span>
           <span className={clsx(styles.banner, "my-6", "block")}>
-            {" "}
-            build tool
+            Build Tool
           </span>
           <span>
-            written in
+            Written In
             <span className={styles.banner}> Rust</span>
           </span>
         </p>
         <div className={clsx(styles.buttons, "my-4")}>
-          <Link
-            className="btn btn-primary dark:hover:bg-brand-purple-tint-30 dark:active:bg-brand-purple-tint-35 dark:bg-brand-purple-tint-25 dark:border-brand-purple-tint-25 dark:text-neutrals-light-grey-14 text-center"
-            to="/docs/quick-start"
-          >
-            Quick Start ⏱️
+          <Link to="/docs/quick-start" style={{ textDecoration: "none" }}>
+            <div
+              className={clsx(
+                styles.farmButton,
+                "flex items-center justify-center font-bold"
+              )}
+            >
+              Quick Start
+            </div>
           </Link>
           <Link
-            className={styles["farm-button"]}
-            style={{ marginLeft: "20px" }}
+            style={{ marginLeft: "40px", textDecoration: "none" }}
             to="/docs/why-farm"
           >
-            Why Farm?
+            <div
+              className={clsx(
+                styles.farmButton,
+                "flex items-center justify-center font-bold"
+              )}
+            >
+              Why Farm?
+            </div>
           </Link>
         </div>
       </div>
@@ -65,7 +74,7 @@ export default function Home() {
     >
       <HomepageHeader />
       <main className="">
-        {/* <HomepageFeatures /> */}
+        <HomepageFeatures />
         <TeamMembers members={teamMembers} />
       </main>
     </Layout>

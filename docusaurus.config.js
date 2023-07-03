@@ -97,34 +97,34 @@ const config = {
           },
         ],
       },
-      // footer: {
-      //   style: "dark",
-      //   links: [
-      //     {
-      //       title: "Docs",
-      //       items: [
-      //         {
-      //           label: "Guilds",
-      //           to: "/docs/quick-start",
-      //         },
-      //       ],
-      //     },
-      //     {
-      //       title: "More",
-      //       items: [
-      //         {
-      //           label: "Blog",
-      //           to: "/blog",
-      //         },
-      //         {
-      //           label: "GitHub",
-      //           href: "https://github.com/farm-fe/farm",
-      //         },
-      //       ],
-      //     },
-      //   ],
-      //   copyright: `Copyright © ${new Date().getFullYear()} Farm, Inc. Built with Docusaurus.`,
-      // },
+      footer: {
+        style: "dark",
+        links: [
+          {
+            title: "Docs",
+            items: [
+              {
+                label: "Guilds",
+                to: "/docs/quick-start",
+              },
+            ],
+          },
+          {
+            title: "More",
+            items: [
+              {
+                label: "Blog",
+                to: "/blog",
+              },
+              {
+                label: "GitHub",
+                href: "https://github.com/farm-fe/farm",
+              },
+            ],
+          },
+        ],
+        copyright: `Copyright © ${new Date().getFullYear()} Farm, Inc. Built with Docusaurus.`,
+      },
       announcementBar: {
         id: "announcementBar-2", // Increment on change
         content: `🎉 Farm is in development iteration. If you like Farm, give it a ⭐️ on <a target="_blank" rel="noopener noreferrer" href="https://github.com/farm-fe/farm">GitHub</a>`,
