@@ -30,7 +30,7 @@ const config = {
   // to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: "en",
-    locales: ["en"],
+    locales: ["en", "zh"],
   },
 
   presets: [
@@ -89,6 +89,10 @@ const config = {
             label: "Plugins",
           },
           // {to: '/blog', label: 'Blog', position: 'left'},
+          {
+            type: 'localeDropdown',
+            position: 'right',
+          },
           {
             href: "https://github.com/farm-fe/farm",
             html: '<img src="/img/github-mark.svg" alt="GitHub" style="width: 25px; vertical-align: middle" />',
