@@ -15,7 +15,7 @@ function HomepageHeader() {
   return (
     <header
       className={clsx(
-        "grid w-90vw grid-cols-1 gap-8 relative z-10 lg:grid-cols-2 mx-auto max-w-8xl",
+        "grid w-70vw grid-cols-1 gap-8 relative z-10 lg:grid-cols-2 mx-auto max-w-8xl",
         styles.heroBanner
       )}
     >

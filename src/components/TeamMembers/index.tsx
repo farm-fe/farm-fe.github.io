@@ -14,14 +14,14 @@ export function TeamMembers(props) {
     <div className={classes}>
       <div className={clsx("mt-10", styles.container)}>
         {members.map((member) => (
-          <FarmCard>
-            <div
-              key={member.name}
-              className="w-full p-10 item p-2 mx-2 lg:p-4 mx-4 h-80"
-            >
-              <TeamMembersItem member={member} />
-            </div>
-          </FarmCard>
+          // <FarmCard>
+          <div
+            key={member.name}
+            className="w-full p-10 item p-2 mx-2 lg:p-4 mx-4 h-80"
+          >
+            <TeamMembersItem member={member} />
+          </div>
+          // </FarmCard>
         ))}
       </div>
     </div>

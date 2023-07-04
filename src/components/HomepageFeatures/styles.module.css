@@ -9,12 +9,12 @@
 }
 
 .item {
-  max-width: 1552px;
+  max-width: 1152px;
   margin: 0 auto;
 }
 
 .card {
   border: 3px solid #252529;
   border-radius: 12px;
-  padding: 1rem 2rem;
+  padding: 1rem 1.5rem;
 }
