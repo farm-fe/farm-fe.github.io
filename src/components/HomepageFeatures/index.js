@@ -4,6 +4,9 @@ import clsx from "clsx";
 import Rocket from "@site/static/img/rocket.png";
 import Plug from "@site/static/img/plug.png";
 import FeaturePng from "@site/static/img/feature.png";
+import Box from "@site/static/img/box.png";
+import Compatibility from "@site/static/img/compatible.png";
+import Consistency from "@site/static/img/consistency.png";
 import styles from "./styles.module.css";
 const FeatureList = [
   {
@@ -45,8 +48,8 @@ const FeatureList = [
       " w-full flex h-52 rounded-lg md:block lg:row-start-2 lg:col-span-2 lg:h-auto",
   },
   {
-    title: "Super Fast",
-    Img: Rocket,
+    title: "Partial Bundling",
+    Img: Box,
     description: (
       <>
         Partial Bundling: Bundle your project into a few reasonable bundles,
@@ -57,8 +60,8 @@ const FeatureList = [
       "w-full rounded-lg sm:block sm:col-span-2 md:col-span-1 lg:row-start-2 lg:col-span-2",
   },
   {
-    title: "Rich Features",
-    Img: FeaturePng,
+    title: "Consistency",
+    Img: Consistency,
     description: (
       <>
         Consistency: What you see in development will be the same as what you
@@ -69,8 +72,8 @@ const FeatureList = [
       " w-full rounded-lg sm:block sm:col-span-2 md:col-span-1 lg:row-start-2 lg:col-span-2",
   },
   {
-    title: "Fully Pluggable",
-    Img: Plug,
+    title: "Compatibility",
+    Img: Compatibility,
     description: (
       <>Compatibility: Supports both legacy (ES5) and modern browsers.</>
     ),
@@ -88,16 +91,16 @@ function Feature({ Img, title, description, className }) {
         className
       )}
     >
-      <div className="flex items-center justify-center h-24 w-24">
+      <div className="flex items-center justify-center">
         <img
           src={Img}
-          className={clsx(styles.featureSvg, "text--center w-24 h-24")}
+          className={clsx(styles.featureSvg, "text--center w-16 h-16")}
           role="img"
         />
       </div>
       <div className="p-6 flex-grow flex-shrink">
         <h3 className="text-lg font-bold mt-4 mb-2">{title}</h3>
-        <p className="text-gray-700 text-base">{description}</p>
+        <p className="text-base">{description}</p>
       </div>
     </div>
   );
@@ -112,7 +115,7 @@ export default function FeatureSection() {
             <Feature
               key={index}
               {...feature}
-              className="flex-grow flex-shrink"
+              className="flex-grow flex-shrink my-4"
             />
           ))}
         </div>

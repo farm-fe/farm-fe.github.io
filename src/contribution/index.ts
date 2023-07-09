@@ -45,18 +45,72 @@ const plainTeamMembers: CoreTeam[] = [
     name: "Erkelost",
     github: "Erkelost",
     title: "Rust & Go & Node & Web development  ❤️❤️.",
+    orgLink: "https://github.com/erkelost",
   },
   {
     avatar: "https://github.com/shulandmimi.png",
     name: "shulandmimi",
     github: "shulandmimi",
     title: ".",
+    orgLink: "https://github.com/shulandmimi",
   },
   {
     avatar: "https://github.com/Nirvana-Jie.png",
     name: "Nirvana",
     github: "Nirvana",
     title: "So mush to learn, Just keep working.",
+    orgLink: "https://github.com/Nirvana-Jie",
+  },
+  {
+    avatar: "https://github.com/wjq990112.png",
+    name: "wjq990112",
+    github: "wjq990112",
+    title:
+      "Member of @raxjs, @ice-lab, and @farm-fe. Working at @bytedance, previously at @alibaba.",
+    orgLink: "https://github.com/wjq990112",
+  },
+  {
+    avatar: "https://github.com/callqh.png",
+    name: "callqh",
+    github: "callqh",
+    title: "Javascript & Rust.",
+    orgLink: "https://github.com/callqh",
+  },
+  {
+    avatar: "https://github.com/oblador.png",
+    name: "oblador",
+    github: "oblador",
+    title:
+      "╥━━━━━━━━╭━━╮━━┳ ╢╭╮╭━━━━━┫┃▋▋━▅┣ ╢┃╰┫┈┈┈┈┈┃┃┈┈╰┫┣ ╢╰━┫┈┈┈┈┈╰╯╰┳━╯┣ ╢┊┊┃┏┳┳━━┓┏┳┫┊┊┣ ╨━━┗┛┗┛━━┗┛┗┛━━┻.",
+    orgLink: "https://github.com/oblador",
+  },
+  {
+    avatar: "https://github.com/ysy945.png",
+    name: "ysy945",
+    github: "ysy945",
+    title: "",
+    orgLink: "https://github.com/ysy945",
+  },
+  {
+    avatar: "https://github.com/NaturelLee.png",
+    name: "NaturelLee",
+    github: "NaturelLee",
+    title: "Developer | Lifelong learning.",
+    orgLink: "https://github.com/NaturelLee",
+  },
+  {
+    avatar: "https://github.com/liuliudada-w.png",
+    name: "liuliudada-w",
+    github: "liuliudada-w",
+    title: "myself.",
+    orgLink: "https://github.com/liuliudada-w",
+  },
+  {
+    avatar: "https://github.com/roland-reed.png",
+    name: "Roland Reed",
+    github: "Roland Reed",
+    title: "",
+    orgLink: "https://github.com/roland-reed",
   },
 ];
 

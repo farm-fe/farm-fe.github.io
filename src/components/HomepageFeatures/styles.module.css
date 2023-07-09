@@ -16,5 +16,6 @@
 .card {
   border: 3px solid #252529;
   border-radius: 12px;
-  padding: 1rem 1.5rem;
+  padding: 0 0.5rem;
+  padding-top: 2rem
 }

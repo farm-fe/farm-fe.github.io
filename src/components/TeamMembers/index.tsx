@@ -12,13 +12,12 @@ export function TeamMembers(props) {
   const classes = clsx(styles.VPTeamMembers, "small my-40");
   return (
     <div className={classes}>
+      <div className="flex justify-center my-8 text-2xl font-bold">Our Team</div>
       <div className={clsx("mt-10", styles.container)}>
         {members.map((member) => (
-          // <FarmCard>
-          <div key={member.name} className="w-full p-10 item p-2 h-80">
+          <div key={member.name} className="w-full p-10 item p-2 h-90">
             <TeamMembersItem member={member} />
           </div>
-          // </FarmCard>
         ))}
       </div>
     </div>
