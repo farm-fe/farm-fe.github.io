@@ -5,21 +5,18 @@ import Rocket from "@site/static/img/rocket.png";
 import Plug from "@site/static/img/plug.png";
 import FeaturePng from "@site/static/img/feature.png";
 import styles from "./styles.module.css";
-
 const FeatureList = [
   {
     title: "Super Fast",
     Img: Rocket,
     description: (
       <>
-        Farm's compiler is written in Rust, with multi-threading,
-        lazy/asynchronous compilation and persist caching, Farm can start a
-        project in milliseconds, perform a HMR update within 10ms for most
-        scenarios.
+        Super Fast: Written in Rust, start a React / Vue project in milliseconds
+        and perform an HMR update within 10ms for most situations.
       </>
     ),
     className:
-      "w-full flex h-60 rounded-lg sm:h-52 sm:col-span-2 lg:col-span-full",
+      "w-full rounded-lg sm:block sm:col-span-2 md:col-span-1 lg:row-start-2 lg:col-span-2",
   },
   {
     title: "Rich Features",
@@ -32,16 +29,50 @@ const FeatureList = [
       </>
     ),
     className:
-      " w-full rounded-lg sm:block sm:col-span-2 md:col-span-1 lg:row-start-2 lg:col-span-2",
+      "w-full rounded-lg sm:block sm:col-span-2 md:col-span-1 lg:row-start-2 lg:col-span-2",
   },
   {
     title: "Fully Pluggable",
     Img: Plug,
     description: (
       <>
-        Everything inside Farm is powered by plugins, you can achieve anything
-        you want by writing a plugin. Support both Rust and Js plugins.
+        Fully Pluggable: Everything inside Farm is powered by plugins, achieve
+        anything you want by creating a plugin. Supports both Rust and
+        JavaScript plugins.
       </>
+    ),
+    className:
+      " w-full flex h-52 rounded-lg md:block lg:row-start-2 lg:col-span-2 lg:h-auto",
+  },
+  {
+    title: "Super Fast",
+    Img: Rocket,
+    description: (
+      <>
+        Partial Bundling: Bundle your project into a few reasonable bundles,
+        speeding up resource loading without losing caching granularity.
+      </>
+    ),
+    className:
+      "w-full rounded-lg sm:block sm:col-span-2 md:col-span-1 lg:row-start-2 lg:col-span-2",
+  },
+  {
+    title: "Rich Features",
+    Img: FeaturePng,
+    description: (
+      <>
+        Consistency: What you see in development will be the same as what you
+        get in production.
+      </>
+    ),
+    className:
+      " w-full rounded-lg sm:block sm:col-span-2 md:col-span-1 lg:row-start-2 lg:col-span-2",
+  },
+  {
+    title: "Fully Pluggable",
+    Img: Plug,
+    description: (
+      <>Compatibility: Supports both legacy (ES5) and modern browsers.</>
     ),
     className:
       " w-full flex h-52 rounded-lg md:block lg:row-start-2 lg:col-span-2 lg:h-auto",
@@ -51,29 +82,38 @@ const FeatureList = [
 function Feature({ Img, title, description, className }) {
   return (
     <div
-      className={clsx("items-center gap-6 flex-1", styles.card, className)}
-      style={{ display: "flex" }}
+      className={clsx(
+        "rounded-lg shadow-lg overflow-hidden flex items-center flex-col",
+        styles.card,
+        className
+      )}
     >
-      <img
-        src={Img}
-        className={clsx(styles.featureSvg, "text--center w-24 h-24")}
-        role="img"
-      />
-      <div className=" mt-6 font-display  tracking-tight ">
-        <h3 className="font-bold text-2xl">{title}</h3>
-        <p className="font-extrabold py-8">{description}</p>
+      <div className="flex items-center justify-center h-24 w-24">
+        <img
+          src={Img}
+          className={clsx(styles.featureSvg, "text--center w-24 h-24")}
+          role="img"
+        />
+      </div>
+      <div className="p-6 flex-grow flex-shrink">
+        <h3 className="text-lg font-bold mt-4 mb-2">{title}</h3>
+        <p className="text-gray-700 text-base">{description}</p>
       </div>
     </div>
   );
 }
 
-export default function HomepageFeatures() {
+export default function FeatureSection() {
   return (
-    <section className={styles.features}>
-      <div className={clsx(styles.item, "mx-auto")}>
-        <div class="grid gap-4 col-start-1 col-end-3 row-start-1 sm:mb-6 sm:grid-cols-4 lg:gap-6 lg:col-start-2 lg:row-end-6 lg:row-span-6 lg:mb-0">
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
+    <section className="py-12">
+      <div className="max-w-7xl mx-auto flex">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 flex">
+          {FeatureList.map((feature, index) => (
+            <Feature
+              key={index}
+              {...feature}
+              className="flex-grow flex-shrink"
+            />
           ))}
         </div>
       </div>

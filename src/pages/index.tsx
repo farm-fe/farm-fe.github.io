@@ -7,24 +7,23 @@ import HomepageFeatures from "@site/src/components/HomepageFeatures";
 import Benchmark from "../components/Benchmark";
 import { teamMembers } from "../contribution";
 import styles from "./index.module.css";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import TeamMembersItem from "../components/TeamMembersItem";
 import { TeamMembers } from "../components/TeamMembers";
+// import '../css/home.scss'
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
   return (
     <header
       className={clsx(
-        "grid w-70vw grid-cols-1 gap-8 relative z-10 lg:grid-cols-2 mx-auto max-w-8xl",
+        "grid grid-cols-1 gap-8 relative z-10 mx-auto max-w-8xl py-4 sm:py-6 lg:py-8",
+        "lg:grid-cols-2",
         styles.heroBanner
       )}
     >
-      {/* <header> */}
       <div className="container w-full flex flex-col items-center justify-center">
-        {/* <h1 className="text-slate-900 font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-center dark:text-white py-4">
-          {siteConfig.title}
-        </h1> */}
-        <p className="text-slate-900 font-extrabold text-4xl sm:text-5xl lg:text-7xl tracking-tight text-center dark:text-white py-4">
+        <p className="text-slate-900 font-extrabold text-3xl sm:text-4xl lg:text-6xl tracking-tight text-center dark:text-white">
           <span>Super Fast Web</span>
           <span className={clsx(styles.banner, "my-6", "block")}>
             Build Tool
@@ -34,7 +33,7 @@ function HomepageHeader() {
             <span className={styles.banner}> Rust</span>
           </span>
         </p>
-        <div className={clsx(styles.buttons, "my-4")}>
+        <div className={clsx(styles.buttons, "my-8")}>
           <Link to="/docs/quick-start" style={{ textDecoration: "none" }}>
             <div
               className={clsx(
@@ -46,7 +45,7 @@ function HomepageHeader() {
             </div>
           </Link>
           <Link
-            style={{ marginLeft: "40px", textDecoration: "none" }}
+            style={{ marginLeft: "20px", textDecoration: "none" }}
             to="/docs/why-farm"
           >
             <div
@@ -72,8 +71,8 @@ export default function Home() {
       title={`Hello from ${siteConfig.title}`}
       description="Description will go into a meta tag in <head />"
     >
-      <HomepageHeader />
-      <main className="">
+      <main className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8max-w-6xl">
+        <HomepageHeader />
         <HomepageFeatures />
         <TeamMembers members={teamMembers} />
       </main>

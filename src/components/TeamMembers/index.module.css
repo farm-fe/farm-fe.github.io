@@ -1,5 +1,5 @@
 .VPTeamMembers .container {
-  grid-template-columns: repeat(auto-fit, minmax(224px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(204px, 1fr));
 }
 
 .VPTeamMembers.count-1 .container {
@@ -33,5 +33,5 @@
   display: grid;
   gap: 24px;
   margin: 0 auto;
-  max-width: 1152px;
+  width: 100%;
 }

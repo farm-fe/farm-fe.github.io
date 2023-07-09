@@ -64,6 +64,7 @@ const config = {
       // Replace with your project's social card
       image: "img/docusaurus-social-card.jpg",
       navbar: {
+        style: "dark",
         title: "Farm",
         logo: {
           alt: "My Site Logo",
@@ -140,6 +141,7 @@ const config = {
       },
     }),
   plugins: [
+    "docusaurus-plugin-sass",
     async function myPlugin(context, options) {
       return {
         name: "docusaurus-tailwindcss",

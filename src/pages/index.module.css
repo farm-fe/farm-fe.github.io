@@ -63,11 +63,13 @@
   content: "";
   background: linear-gradient(
     45deg,
-    #ff0000,
     #7a00ff,
     #9f1a8f,
+    #7a00ff,
     #ff00c8,
-    #ff0000
+    #9f1a8f,
+    #7a00ff,
+    #ff00c8
   );
   position: absolute;
   top: -2px;
