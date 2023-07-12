@@ -2,6 +2,7 @@ import { ProgressBar } from "./ProgressBar";
 import FarmCard from "../Card";
 import { useInView } from "react-intersection-observer";
 import styles from "./index.module.css";
+import Link from "@docusaurus/Link";
 import React, { useState } from "react";
 import clsx from "clsx";
 const BENChMARK_DATA = {
@@ -116,9 +117,7 @@ export default function Benchmark() {
         <div
           className={clsx(
             "flex-1 cursor-pointer rounded-md py-2 px-6 text-center font-jakarta text-sm font-semibold",
-            visibleSection === section
-              ? "bg-fuchsia-600 text-white"
-              : "text-black dark:text-white"
+            visibleSection === section ? "bg-fuchsia-600 text-white" : "color-re"
           )}
           onClick={() => {
             setVisibleSection(section);
@@ -134,7 +133,7 @@ export default function Benchmark() {
   function PillTabs({ SCENE, children }) {
     return (
       <div>
-        <div className="inline-flex items-center rounded-lg bg-zinc-100 p-2 text-sm dark:bg-zinc-800 lg:text-base">
+        <div className="inline-flex items-center rounded-lg bg p-2 text-sm  lg:text-base">
           {SCENE.map((item, index) => {
             return <Pill section={item} key={item}></Pill>;
           })}
@@ -178,6 +177,9 @@ export default function Benchmark() {
                       </div>
                     ))}
                   </PillTabs>
+                  <div className="font-bold cursor-pointer">
+                    <Link rel="stylesheet">See benchmark details</Link>
+                  </div>
                 </div>
               </div>
             </div>

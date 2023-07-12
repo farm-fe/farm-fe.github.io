@@ -17,13 +17,13 @@ function HomepageHeader() {
   return (
     <header
       className={clsx(
-        "grid grid-cols-1 gap-8 relative z-10 mx-auto max-w-8xl py-4 sm:py-6 lg:py-8",
+        "grid grid-cols-1 gap-10 relative z-10 mx-auto max-w-8xl py-4 sm:py-6 lg:py-8",
         "lg:grid-cols-2",
         styles.heroBanner
       )}
     >
       <div className="container w-full flex flex-col items-center justify-center">
-        <p className="text-slate-900 font-extrabold text-3xl sm:text-4xl lg:text-6xl tracking-tight text-center dark:text-white">
+        <p className="font-extrabold text-4xl sm:text-5xl lg:text-7xl tracking-tight text-center dark:text-white">
           <span>Super Fast Web</span>
           <span className={clsx(styles.banner, "my-6", "block")}>
             Build Tool

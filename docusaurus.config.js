@@ -102,11 +102,40 @@ const config = {
         style: "dark",
         links: [
           {
-            title: "Docs",
+            title: "Learn",
             items: [
               {
-                label: "Guilds",
-                to: "/docs/quick-start",
+                label: "Introduction",
+                to: "docs",
+              },
+              {
+                label: "Installation",
+                to: "docs/installation",
+              },
+              {
+                label: "Migration from v1 to v2",
+                to: "docs/migration",
+              },
+            ],
+          },
+          {
+            title: "Community",
+            items: [
+              {
+                label: "Stack Overflow",
+                href: "https://stackoverflow.com/questions/tagged/docusaurus",
+              },
+              {
+                label: "Feature Requests",
+                to: "/feature-requests",
+              },
+              {
+                label: "Discord",
+                href: "https://discordapp.com/invite/docusaurus",
+              },
+              {
+                label: "Help",
+                to: "/community/support",
               },
             ],
           },
@@ -115,20 +144,86 @@ const config = {
             items: [
               {
                 label: "Blog",
-                to: "/blog",
+                to: "blog",
+              },
+              {
+                label: "Changelog",
+                to: "/changelog",
               },
               {
                 label: "GitHub",
-                href: "https://github.com/farm-fe/farm",
+                href: "https://github.com/facebook/docusaurus",
+              },
+              {
+                label: "Twitter",
+                href: "https://twitter.com/docusaurus",
+              },
+              {
+                html: `
+              <a href="https://www.netlify.com" target="_blank" rel="noreferrer noopener" aria-label="Deploys by Netlify">
+                <img src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg" alt="Deploys by Netlify" width="114" height="51" />
+              </a>
+            `,
+              },
+            ],
+          },
+          {
+            title: "Legal",
+            // Please don't remove the privacy and terms, it's a legal
+            // requirement.
+            items: [
+              {
+                label: "Privacy",
+                href: "https://opensource.facebook.com/legal/privacy/",
+              },
+              {
+                label: "Terms",
+                href: "https://opensource.facebook.com/legal/terms/",
+              },
+              {
+                label: "Cookie Policy",
+                href: "https://opensource.facebook.com/legal/cookie-policy/",
               },
             ],
           },
         ],
+        logo: {
+          alt: "Farm Logo",
+          src: "/img/logo-farm.png",
+          href: "https://github.com/farm-fe/farm",
+        },
         copyright: `Copyright © ${new Date().getFullYear()} Farm, Inc. Built with Docusaurus.`,
       },
+      // footer: {
+      //   style: "dark",
+      //   links: [
+      //     {
+      //       title: "Docs",
+      //       items: [
+      //         {
+      //           label: "Guilds",
+      //           to: "/docs/quick-start",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       title: "More",
+      //       items: [
+      //         {
+      //           label: "Blog",
+      //           to: "/blog",
+      //         },
+      //         {
+      //           label: "GitHub",
+      //           href: "https://github.com/farm-fe/farm",
+      //         },
+      //       ],
+      //     },
+      //   ],
+      // },
       announcementBar: {
         id: "announcementBar-2", // Increment on change
-        content: `🎉 Farm is in development iteration. If you like Farm, give it a ⭐️ on <a target="_blank" rel="noopener noreferrer" href="https://github.com/farm-fe/farm">GitHub</a>`,
+        content: `🎉 Farm will release the BETA version soon. If you like Farm, give it a ⭐️ on <a target="_blank" rel="noopener noreferrer" href="https://github.com/farm-fe/farm">GitHub</a>`,
       },
       prism: {
         theme: lightCodeTheme,
