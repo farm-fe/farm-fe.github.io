@@ -61,7 +61,6 @@ function HomepageHeader() {
         </div>
       </div>
       <Benchmark />
-      {/* <StarrySky /> */}
     </header>
   );
 }
@@ -73,6 +72,7 @@ export default function Home() {
       title={`Hello from ${siteConfig.title}`}
       description="Description will go into a meta tag in <head />"
     >
+      <StarrySky />
       <main className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8max-w-6xl">
         <HomepageHeader />
         <HomepageFeatures />

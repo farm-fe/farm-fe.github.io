@@ -7,7 +7,7 @@ import {
   PerspectiveCamera,
   Stars,
 } from "@react-three/drei";
-import './index.css'
+import "./index.css";
 // function Model({ url }) {
 //   const { nodes } = useGLTF(url);
 //   return (
@@ -31,9 +31,9 @@ import './index.css'
 export default function App() {
   return (
     <>
-      <div className="bg" />
-      <Canvas dpr={[1.5, 2]} linear shadows>
-        <fog attach="fog" args={["#272730", 16, 30]} />
+      <div className="bg-container" />
+      <Canvas dpr={[1.5, 2]} linear shadows style={{ position: "absolute" }}>
+        {/* <fog attach="fog" args={["#272730", 16, 30]} />
         <ambientLight intensity={0.75} />
         <PerspectiveCamera makeDefault position={[0, 0, 16]} fov={75}>
           <pointLight intensity={1} position={[-10, -25, -10]} />
@@ -46,7 +46,7 @@ export default function App() {
             shadow-mapSize={[1024, 1024]}
             shadow-bias={-0.0001}
           />
-        </PerspectiveCamera>
+        </PerspectiveCamera> */}
         {/* <Suspense fallback={null}>
           <Model url="/scene.glb" />
         </Suspense> */}

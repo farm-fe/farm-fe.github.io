@@ -1,9 +1,5 @@
 @import url("https://rsms.me/inter/inter.css");
 
-html,
-body,
-#root,
-.bg,
 canvas {
   margin: 0;
   padding: 0;
@@ -11,23 +7,21 @@ canvas {
   height: 100%;
 }
 
-body {
-  background: #171717;
-  font-family: "Inter var", sans-serif;
-}
-
-.bg {
+.bg-container {
   position: absolute;
-  background: radial-gradient(
+  top: 0;
+  left: 0;
+  right: 0;
+  /* background: radial-gradient(
     at 50% 100%,
     #873740 0%,
     #272730 40%,
     #171720 80%,
     #070710 100%
-  );
+  ); */
 }
 
-h1 {
+/* h1 {
   position: absolute;
   top: 120px;
   left: 60px;
@@ -38,11 +32,11 @@ h1 {
   line-height: 0.6em;
   letter-spacing: -2px;
   text-align: left;
-}
+} */
 
-h1 > span {
+/* h1 > span {
   white-space: pre;
-}
+} */
 
 .layer {
   position: absolute;
@@ -50,11 +44,11 @@ h1 > span {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
+  /* background: linear-gradient(
     0deg,
     rgba(63, 12, 88, 0.25) 0%,
     transparent 100%
-  );
+  ); */
   pointer-events: none;
 }
 
@@ -71,7 +65,7 @@ span.header {
   left: 50px;
 }
 
-span.header-left {
+/* span.header-left {
   font-family: "Josefin Sans", sans-serif;
   font-weight: 700;
   position: absolute;
@@ -113,4 +107,4 @@ a.bottom-left {
 a.bottom-right {
   bottom: 60px;
   right: 60px;
-}
+} */
