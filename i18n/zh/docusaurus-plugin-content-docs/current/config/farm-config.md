@@ -278,9 +278,9 @@ export default defineConfig({
 ### script
 
 #### `script.target`
-* **默认值**: `ES2023`（根据 Farm 的迭代动态调整）
+* **默认值**: `esnext`（根据 Farm 的迭代动态调整）
 
-配置 Farm 解析 `js/jsx/ts/tsx` 的 AST 以及生成代码时支持的 ES 语法版本。 
+配置 Farm 解析 `js/jsx/ts/tsx` 的 AST 以及生成代码时支持的 ES 语法版本。 可选值：`es5`, `es6`, `es2015` - `es2023`, `esnext`
 
 #### `script.parser`
 * **默认值**: 与 SWC 相同
@@ -293,9 +293,9 @@ export default defineConfig({
 配置 swc 插件数组，数组每一项包含三个字段：
 * **name**：swc 插件的包名
 * **options**: 传给 swc 插件的配置项
-* **filters**: 对哪些模块执行该插件，必须配置，支持 `resolvedPaths` 以及 `moduleTypes` 两个过滤项，两者取并集。
+* **filters**: 对哪些模块执行该插件，必须配置，支持 `resolvedPaths` 和 `moduleTypes` 这两个过滤项，两者如果同时指定，取并集。
 
-配置示例：
+对于 Vue 项目支持 JSX 的配置示例如下：
 
 ```ts
 import jsPluginVue from '@farmfe/js-plugin-vue';
@@ -326,56 +326,365 @@ export default {
 ### css
 
 #### `css.modules`
+配置 Farm CSS Modules。
+
+```ts
+interface FarmCssModulesConfig {
+  // 配置哪些路径会被处理为 css modules，使用正则字符串
+  // 默认为 `.module.css` 或者 `.module.scss` 或者 `.module.less`
+  paths?: string[];
+  // 配置生成的 css 类名，默认为 `[name]-[hash]`
+  indentName?: string;
+}
+```
+
+##### `css.modules.paths`
+* **默认值**: `["\\.module\\.(css|scss|sass|less)"]`
+
+配置哪些路径对应的模块会被视为 CSS Modules。需要配置正则字符串。默认是以 `.module.(css|scss|sass|less)` 结尾的文件。
+
+##### `css.modules.identName`
+* **默认值**: `[name]-[hash]`
+
+配置生成的 CSS Modules 类名，默认是 `[name]-[hash]`，`[name]`, `[hash]` 为占位符（也是目前支持的所有占位符）。`[name]` 表示原始类名，`[hash]` 表示改 css 文件 id 的 hash。
+
 
 #### `css.prefixer`
+配置 CSS 的兼容性前缀，例如 `-webkit-`。
+
+```ts
+interface FarmCssPrefixer {
+   targets?: string[] | string | BrowserTargetsRecord;
+}
+
+type BrowserTargetsRecord = Partial<
+  Record<
+    | 'chrome'
+    | 'opera'
+    | 'edge'
+    | 'firefox'
+    | 'safari'
+    | 'ie'
+    | 'ios'
+    | 'android'
+    | 'node'
+    | 'electron',
+    string
+  >
+> & { [key: string]: string };
+```
+
+##### `css.prefixer.targets`
+* **默认值**: `undefined`
+
+配置对于哪些目标浏览器或者浏览器版本开启，示例：
+
+```ts
+import type { UserConfig } from '@farmfe/core';
+
+function defineConfig(config: UserConfig) {
+  return config;
+}
+
+export default defineConfig({
+  compilation: {
+    css: {
+      prefixer: {
+        targets: ['last 2 versions', 'Firefox ESR', '> 1%', 'ie >= 11']
+      }
+    },
+  },
+});
+```
 
 ### html
 
 #### `html.base`
+* **默认值**: `undefined`
+
+所有的 HTML 入口会继承 `html.base`，详情参考 [指南 - HTML](/docs/features/html)
 
 ### sourcemap
+* **默认值**: `true`
+
+配置是否启用 sourcemap，可选配置项及说明如下：
+* **`true`**：仅对非 `node_modules` 下的文件生成 sourcemap，并且生成单独的 sourcemap 文件
+* **`false`**: 关闭 sourcemap
+* **`inline`**：仅对非 `node_modules` 下的文件生成 sourcemap，并且内联 sourcemap 到产物中，不生成单独的文件
+* **`all`**：对所有文件生成 sourcemap，并且生成单独的 sourcemap 文件
+* **`all-inline`**: 对所有的文件生成 sourcemap，并且内联 sourcemap 到产物中，不生成单独的文件
 
 
 ### partialBundling
+配置 Farm 局部打包的行为，详情可以参考 [局部打包](/docs/features/partial-bundling)
+
+```ts
+export interface FarmPartialBundingConfig {
+  moduleBuckets?: {
+    name: string;
+    test: string[]; // 正则数组
+  }[];
+};
+```
 
 #### `partialBundling.moduleBuckets`
+* **默认值**: `[]`
+
+`moduleBuckets` 用于指定哪些模块为一个整体，这些模块将始终会被组织到同一个产物文件中。例如，如果想最终只生成可以文件，可以做如下配置：
+
+```ts
+import type { UserConfig } from '@farmfe/core';
+
+function defineConfig(config: UserConfig) {
+  return config;
+}
+
+export default defineConfig({
+  compilation: {
+    partialBundling: [
+      {
+        name: 'index-bundle',
+        test: ['.+'] // 使用正则，匹配任意模块路径
+      }
+    ]
+  },
+});
+```
+或者把 react 单独打包，可以使用 `test: ['node_modules/react/', 'node_modules/react-dom/']`。
+
+注意不要使用 `/node_modules/react`，没有前缀 `/`，因为 Farm 是使用的模块相对路径做匹配，`/node_modules` 将匹配不到项目根目录下的 node_modules 目录。
+
+:::warning
+命中了该选项的模块将不会参与内置的模块组织流程，请尽量控制 moduleBuckets 的范围，以免影响资源加载性能
+:::
 
 ### lazyCompilation
+* **默认值**: 在开发模式是 `true`，构建模式是 `false`
+
+是否启用懒编译，配置为 false 关闭。参考 [懒编译](/docs/features/lazy-compilation)。
+
 
 ### treeShaking
+* **默认值**: 在开发模式是 `false`，构建模式是 `true`
+
+是否启用 tree shake，配置为 false 关闭。参考 [Tree Shake](/docs/features/tree-shake)。
 
 ### minify
+* **默认值**: 在开发模式是 `false`，构建模式是 `true`
+
+是否启用压缩，开启后将会对产物进行压缩和混淆。参考 [压缩](/docs/features/tree-shake)。
 
 ### presetEnv
+* **默认值**: 在开发模式是 `false`，构建模式是 `true`
+
+```ts
+type FarmPresetEnvConfig =  boolean | {
+  include?: string[];
+  exclude?: string[];
+  // TODO using swc's config
+  options?: any;
+  assumptions?: any;
+};
+```
+
+默认不会对 node_modules 下的模块注入 polyfill，如果需要，请使用 `include` 添加 polyfill。
 
 #### `presetEnv.include`
+* **默认值**: `[]`
+
+额外包含哪些需要 polyfill 的模块，配置正则字符串，例如 `include: ['node_modules/(es6-package|my-package)/']`
 
 #### `presetEnv.exclude`
+* **默认值**: `['node_modules/']`
+
+配置哪些不需要 polyfill 的模块，配置正则字符串，例如 `exclude: ['custom-path/(es5-package|my-package)/']`。默认 node_modules 被排除，如果需要包含被排除的模块，建议使用 `include`
 
 #### `presetEnv.options`
+* **默认值**: `降级到 ES5`
 
-#### `presetEnv.assuptions`
+传递给 swc preset env 的选项，参考 https://swc.rs/docs/configuration/compilation#env。
 
-## Server Options
+<!-- #### `presetEnv.assuptions` -->
 
+## DevServer 选项 - server
+配置 Farm Dev Server 的行为。示例：
+
+```ts
+import type { UserConfig } from '@farmfe/core';
+
+function defineConfig(config: UserConfig) {
+  return config;
+}
+
+export default defineConfig({
+  // 所有 dev server 选项都在 server 下面
+  server: {
+    port: 9000,
+    // ...
+  }
+});
+```
+
+类型：
+```ts
+export interface UserServerConfig {
+  port?: number;
+  // https?: boolean;
+  protocol?: 'http' | 'https';
+  hostname?: string;
+  // http2?: boolean;
+  hmr?: boolean | UserHmrConfig;
+  proxy?: Record<string, ProxiesOptions>;
+  strictPort?: boolean;
+  open?: boolean;
+  host?: string;
+  cors?: boolean | cors.Options;
+  // whether to serve static assets in spa mode, default to true
+  spa?: boolean;
+  plugins?: DevServerPlugin[];
+  writeToDisk?: boolean;
+}
+```
 ### port
+* **默认值**: `9000`
 
-### https(WIP)
+DevServer 监听的端口。
+<!-- ### https(WIP) -->
 
 ### hmr
+* **默认值**: 对于 start 命令是 `true`，其他命令是 false
+
+启用 HMR，开启后启用 HMR 能力，将会监听编译过程中涉及到的模块的变动，当模块变化时，自动触发重编译并将结果推送给 Farm Runtime 进行更新。也可以通过一个对象来配置 HMR，例如：
+
+```ts
+import type { UserConfig } from '@farmfe/core';
+
+function defineConfig(config: UserConfig) {
+  return config;
+}
+
+export default defineConfig({
+  // 所有 dev server 选项都在 server 下面
+  server: {
+    hmr: {
+      // 配置 web socket 监听的端口
+      port: 9802
+      // 配置 web socket 监听的 host
+      host: 'localhost',
+      // 配置文件监听时，忽略的文件
+      ignores: ['auto_generated/*']
+    }
+    // ...
+  }
+});
+```
+
+#### `hmr.port`
+* **默认值**: `9801`
+
+Web Socket 服务器监听的端口
+
+#### `hmr.host`
+* **默认值**: `localhost`
+
+Web Socket 服务器监听的 Host
 
 ### proxy
+* **默认值**: `undefined`
 
-### strictPort
+配置服务器代理。基于 [koa-proxies](https://www.npmjs.com/package/koa-proxies) 实现，具体选项参考其文档，示例：
+
+```ts
+import type { UserConfig } from '@farmfe/core';
+
+function defineConfig(config: UserConfig) {
+  return config;
+}
+
+export default defineConfig({
+   server: {
+    proxy: {
+      '/api': {
+        target: 'https://music-erkelost.vercel.app/banner',
+        changeOrigin: true,
+        rewrite: (path: any) => path.replace(/^\/api/, ''),
+      },
+    },
+  },
+});
+
+```
+
+
+<!-- ### strictPort
+* **默认值**: `false` -->
 
 ### open
+* **默认值**: `false`
+
+编译完成后自动打开浏览器到对应的页面。
 
 ### host
+* **默认值**: `localhost`
+
+Dev Server 监听的 host。
+
+### plugins
+* **默认值**: `[]`
+
+配置 Farm 的 Dev Server 插件，通过 Dev Server 插件可以扩展 DevServer 的上下文，添加 middleware 等。插件就是一个函数，插件示例如下：
+
+```ts
+export function hmrPlugin(devServer: DevServer) {
+  const { config, logger } = devServer;
+  if (config.hmr) {
+    devServer.ws = new WebSocketServer({
+      port: config.hmr.port,
+      host: config.hmr.host
+    });
+    devServer.app().use(hmr(devServer));
+    devServer.hmrEngine = new HmrEngine(devServer.getCompiler(), devServer, logger);
+  }
+}
+```
+
+然后将该插件配置到 `server.plugins` 中。
 
 
 ## Plugins Options
+配置 Farm 的插件，支持 Rust 插件或者 Js 插件，示例如下：
+
+```ts
+import type { UserConfig } from '@farmfe/core';
+import less from '@farmfe/js-plugin-less';
+
+function defineConfig(config: UserConfig) {
+  return config;
+}
+
+export default defineConfig({
+  plugins: ['@farmfe/plugin-react', '@farmfe/plugin-sass', less()],
+});
+```
 
 ### Rust Plugins
+* **默认值**: `[]`
 
+Rust 插件通过 `插件名`或者 `[插件名, 配置项选项]` 方式配置，如下：
+
+```ts
+import type { UserConfig } from '@farmfe/core';
+
+function defineConfig(config: UserConfig) {
+  return config;
+}
+
+export default defineConfig({
+  plugins: [['@farmfe/plugin-react', { /* options here */}], '@farmfe/plugin-sass'],
+});
+```
 
 ### Js Plugins
+* **默认值**: `[]`
+
+Js 插件就是一个对象，具体可以参考 [Js 插件](/docs/plugins/js-plugin)
