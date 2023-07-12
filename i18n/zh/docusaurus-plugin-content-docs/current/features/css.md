@@ -83,3 +83,37 @@ import './index.less';
 ```
 
 要将 `less` 与 `css modules` 一起使用，请将文件名从 `index.less` 更改为 `index.module.less`，参考 [css modules](#css-modules)
+
+### Postcss
+Farm postcss 插件是一个 JS 插件，在 Farm 中引入 postcss 的步骤如下：
+
+1. 安装依赖
+```sh
+# npm or yarn or pnpm, choose your favorite package manager
+npm install @farmfe/js-plugin-postcss
+```
+
+2. 配置插件
+```ts
+import type { UserConfig } from '@farmfe/core';
+import postcss from '@farmfe/js-plugin-postcss';
+
+export default <UserConfig> {
+  // ...
+  plugins: [postcss()] // pass argument to the less function like `less({ /* your options */ })` to specify less options
+};
+```
+
+3. 配置 `postcss.config.js`，引入需要的 postcss 插件
+
+```js title=postcss.config.js
+module.exports = {
+  plugins: [
+    require('postcss-pxtorem')({
+      rootValue: 16,
+      propList: ['*'],
+    }),
+    require('tailwindcss'),
+  ]
+}
+```

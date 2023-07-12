@@ -4,7 +4,7 @@
     "description": "The label for version current"
   },
   "sidebar.tutorialSidebar.category.Features": {
-    "message": "Features",
+    "message": "编译能力",
     "description": "The label for category Features in sidebar tutorialSidebar"
   }
 }
