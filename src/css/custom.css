@@ -11,9 +11,9 @@
 /* You can override the default Infima variables here. */
 :root {
   --border: rgb(3, 169, 244);
-  --g1: rgb(98, 0, 234);
-  --g2: rgb(236, 64, 122);
-  --g3: rgb(253, 216, 53);
+  --g1: rgba(0, 0, 0, 0.2);
+  --g2: rgba(143, 26, 127, 0.2);
+  --g3: rgba(31, 31, 31, 0.2);
   --ifm-color-primary: #8f1a7f;
   --ifm-color-primary-dark: #6f1a5f;
   --ifm-color-primary-darker: #5f1a4f;

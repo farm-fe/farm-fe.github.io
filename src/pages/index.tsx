@@ -5,6 +5,7 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import HomepageFeatures from "@site/src/components/HomepageFeatures";
 import Benchmark from "../components/Benchmark";
+import StarrySky from "../components/StarrySky";
 import { teamMembers } from "../contribution";
 import styles from "./index.module.css";
 import useBaseUrl from "@docusaurus/useBaseUrl";
@@ -60,6 +61,7 @@ function HomepageHeader() {
         </div>
       </div>
       <Benchmark />
+      {/* <StarrySky /> */}
     </header>
   );
 }

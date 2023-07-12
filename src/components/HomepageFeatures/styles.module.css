@@ -20,6 +20,16 @@
   background: var(--ifm-f-white-soft);
   z-index: 0;
   width: 100%;
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.2) 8%,
+    transparent 8%
+  );
+  background-position: 0% 0%;
+  background-size: 5vmin 5vmin;
+  position: relative;
+  transition: background-position 350ms ease;
+  z-index: 2;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 .backgroundImage {
@@ -29,30 +39,29 @@
 }
 
 /*test card */
-.carda {
-  border: 0.5vmin solid var(--border);
+.card-container {
   cursor: pointer;
+  justify-content: center;
   position: relative;
-  width: 500px;
-  height: 500px;
 }
 
-.carda:hover:before {
+.card-container:hover:before {
   background-position: 100% 100%;
 }
 
-.carda:hover > .card-content {
+.card-container:hover > .card-content {
   background-position: -10% 0%;
 }
 
-.carda:before {
+.card-container:before {
   background: linear-gradient(
     130deg,
     transparent 0% 33%,
-    var(--g1) 66%,
+    var(--g1) 34%,
     var(--g2) 83.5%,
     var(--g3) 100%
   );
+  background-opacity: 0.1;
   background-position: 0% 0%;
   background-size: 300% 300%;
   content: "";
@@ -66,27 +75,8 @@
   z-index: 1;
 }
 
-.carda-content {
-  background-image: radial-gradient(
-    rgba(255, 255, 255, 0.2) 8%,
-    transparent 8%
-  );
-  background-position: 0% 0%;
-  background-size: 5vmin 5vmin;
-  height: calc(100% - 10vmin);
-  padding: 5vmin;
+.card-container-content {
   position: relative;
   transition: background-position 350ms ease;
-  width: calc(100% - 10vmin);
   z-index: 2;
-}
-
-.carda-title {
-  color: white;
-  font-family: "Anek Latin", sans-serif;
-  font-weight: 400;
-}
-
-.carda-title {
-  font-size: 6vmin;
 }
