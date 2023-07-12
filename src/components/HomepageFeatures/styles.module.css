@@ -5,17 +5,154 @@
   width: 100%;
 }
 
-.featureSvg {
-}
-
 .item {
   width: 100%;
   margin: 0 auto;
 }
 
 .card {
-  border: 3px solid #252529;
-  border-radius: 12px;
+  /* border: 3px solid #252529; */
+  border-radius: 10px;
   padding: 0 0.5rem;
-  padding-top: 2rem
+  padding-top: 2rem;
+  position: relative;
+  /* background: var(--ifm-background) !important; */
+  background: var(--ifm-f-white-soft);
+  z-index: 0;
+  width: 100%;
+}
+
+.card:hover:before {
+  content: "";
+  background: linear-gradient(45deg, #e67ac6, #76c1cd, #cd9b46, #93c176);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 108px);
+  height: calc(100% + 108px);
+  animation: glowing 20s linear infinite;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+  transition: all 0.1s ease-in;
+}
+
+.card:hover:before {
+  content: "";
+  background: linear-gradient(45deg, #e67ac6, #76c1cd, #cd9b46, #93c176);
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  background-size: 600%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 108px);
+  height: calc(100% + 108px);
+  animation: glowing 20s linear infinite;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+  transition: all 0.1s ease-in;
+}
+
+.card:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -2px rgb(0 0 0 / 10%);
+}
+
+.card:hover:after {
+  background: var(--ifm-f-white-soft);
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 400% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.backgroundImage {
+  background: linear-gradient(-45deg, #e67ac6 50%, #47caff 50%);
+  border-radius: 50%;
+  filter: blur(36px);
+}
+
+/*test card */
+.carda {
+  border: 0.5vmin solid var(--border);
+  cursor: pointer;
+  position: relative;
+  width: 50%;
+  height: 500px;
+}
+
+.carda:hover:before {
+  background-position: 100% 100%;
+}
+
+.carda:hover > .card-content {
+  background-position: -10% 0%;
+}
+
+.carda:before {
+  background: linear-gradient(
+    130deg,
+    transparent 0% 33%,
+    var(--g1) 66%,
+    var(--g2) 83.5%,
+    var(--g3) 100%
+  );
+  background-position: 0% 0%;
+  background-size: 300% 300%;
+  content: "";
+  height: 100%;
+  left: 0px;
+  pointer-events: none;
+  position: absolute;
+  top: 0px;
+  transition: background-position 350ms ease, transform 350ms ease;
+  width: 100%;
+  z-index: 1;
+}
+
+.carda-content {
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.2) 8%,
+    transparent 8%
+  );
+  background-position: 0% 0%;
+  background-size: 5vmin 5vmin;
+  height: calc(100% - 10vmin);
+  padding: 5vmin;
+  position: relative;
+  transition: background-position 350ms ease;
+  width: calc(100% - 10vmin);
+  z-index: 2;
+}
+
+.carda-title {
+  color: white;
+  font-family: "Anek Latin", sans-serif;
+  font-weight: 400;
+}
+
+.carda-title {
+  font-size: 6vmin;
 }

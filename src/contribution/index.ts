@@ -51,7 +51,7 @@ const plainTeamMembers: CoreTeam[] = [
     avatar: "https://github.com/shulandmimi.png",
     name: "shulandmimi",
     github: "shulandmimi",
-    title: ".",
+    title: "",
     orgLink: "https://github.com/shulandmimi",
   },
   {
@@ -80,8 +80,9 @@ const plainTeamMembers: CoreTeam[] = [
     avatar: "https://github.com/oblador.png",
     name: "oblador",
     github: "oblador",
-    title:
-      "╥━━━━━━━━╭━━╮━━┳ ╢╭╮╭━━━━━┫┃▋▋━▅┣ ╢┃╰┫┈┈┈┈┈┃┃┈┈╰┫┣ ╢╰━┫┈┈┈┈┈╰╯╰┳━╯┣ ╢┊┊┃┏┳┳━━┓┏┳┫┊┊┣ ╨━━┗┛┗┛━━┗┛┗┛━━┻.",
+    title: "",
+    // title:
+    //   "╥━━━━━━━━╭━━╮━━┳ ╢╭╮╭━━━━━┫┃▋▋━▅┣ ╢┃╰┫┈┈┈┈┈┃┃┈┈╰┫┣ ╢╰━┫┈┈┈┈┈╰╯╰┳━╯┣ ╢┊┊┃┏┳┳━━┓┏┳┫┊┊┣ ╨━━┗┛┗┛━━┗┛┗┛━━┻.",
     orgLink: "https://github.com/oblador",
   },
   {

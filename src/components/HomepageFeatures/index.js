@@ -88,16 +88,19 @@ function Feature({ Img, title, description, className }) {
       className={clsx(
         "rounded-lg shadow-lg overflow-hidden flex items-center flex-col",
         styles.card,
+        styles.farmButton,
         className
       )}
     >
-      <div className="flex items-center justify-center">
-        <img
-          src={Img}
-          className={clsx(styles.featureSvg, "text--center w-16 h-16")}
-          role="img"
-        />
+      <div
+        className={clsx(
+          "flex items-center justify-center absolute",
+          styles.backgroundImage
+        )}
+      >
+        <img src={Img} className={clsx("text--center w-20 h-20")} role="img" />
       </div>
+      <img src={Img} className={clsx("text--center w-16 h-16")} role="img" />
       <div className="p-6 flex-grow flex-shrink">
         <h3 className="text-lg font-bold mt-4 mb-2">{title}</h3>
         <p className="text-base">{description}</p>
@@ -118,6 +121,13 @@ export default function FeatureSection() {
               className="flex-grow flex-shrink my-4"
             />
           ))}
+          <div className={styles.carda}>
+            <div className={styles["carda-content"]}>
+              <h3 className={styles["carda-title"]}>
+                I know exactly what I'm doing
+              </h3>
+            </div>
+          </div>
         </div>
       </div>
     </section>
