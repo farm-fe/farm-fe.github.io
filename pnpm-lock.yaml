@@ -13,10 +13,10 @@ dependencies:
     version: 2.4.1(prop-types@15.8.1)(react-dom@17.0.2)(react@17.0.2)(typescript@5.1.3)
   '@docusaurus/preset-classic':
     specifier: 2.4.1
-    version: 2.4.1(@algolia/client-search@4.15.0)(react-dom@17.0.2)(react@17.0.2)(typescript@5.1.3)
+    version: 2.4.1(react-dom@17.0.2)(react@17.0.2)(typescript@5.1.3)
   '@docusaurus/theme-search-algolia':
     specifier: ^2.4.1
-    version: 2.4.1(@algolia/client-search@4.15.0)(@docusaurus/types@2.4.1)(react-dom@17.0.2)(react@17.0.2)(typescript@5.1.3)
+    version: 2.4.1(@docusaurus/types@2.4.1)(react-dom@17.0.2)(react@17.0.2)(typescript@5.1.3)
   '@mdx-js/react':
     specifier: ^1.6.22
     version: 1.6.22(react@17.0.2)
@@ -38,9 +38,6 @@ dependencies:
   docusaurus-plugin-sass:
     specifier: ^0.2.4
     version: 0.2.4(@docusaurus/core@2.4.1)(sass@1.63.6)(webpack@5.75.0)
-  drei:
-    specifier: ^0.0.60
-    version: 0.0.60(react-dom@17.0.2)(react-three-fiber@6.0.13)(react@17.0.2)(three@0.128.0)
   leva:
     specifier: ^0.9.35
     version: 0.9.35(react-dom@17.0.2)(react@17.0.2)
@@ -85,14 +82,16 @@ packages:
       '@algolia/autocomplete-shared': 1.7.4
     dev: false
 
-  /@algolia/autocomplete-preset-algolia@1.7.4(@algolia/client-search@4.15.0)(algoliasearch@4.15.0):
+  /@algolia/autocomplete-preset-algolia@1.7.4(algoliasearch@4.15.0):
     resolution: {integrity: sha512-s37hrvLEIfcmKY8VU9LsAXgm2yfmkdHT3DnA3SgHaY93yjZ2qL57wzb5QweVkYuEBZkT2PIREvRoLXC2sxTbpQ==}
     peerDependencies:
       '@algolia/client-search': '>= 4.9.1 < 6'
       algoliasearch: '>= 4.9.1 < 6'
+    peerDependenciesMeta:
+      '@algolia/client-search':
+        optional: true
     dependencies:
       '@algolia/autocomplete-shared': 1.7.4
-      '@algolia/client-search': 4.15.0
       algoliasearch: 4.15.0
     dev: false
 
@@ -1601,7 +1600,7 @@ packages:
     resolution: {integrity: sha512-6SCwI7P8ao+se1TUsdZ7B4XzL+gqeQZnBc+2EONZlcVa0dVrk0NjETxozFKgMv0eEGH8QzP1fkN+A1rH61l4eg==}
     dev: false
 
-  /@docsearch/react@3.3.3(@algolia/client-search@4.15.0)(react-dom@17.0.2)(react@17.0.2):
+  /@docsearch/react@3.3.3(react-dom@17.0.2)(react@17.0.2):
     resolution: {integrity: sha512-pLa0cxnl+G0FuIDuYlW+EBK6Rw2jwLw9B1RHIeS4N4s2VhsfJ/wzeCi3CWcs5yVfxLd5ZK50t//TMA5e79YT7Q==}
     peerDependencies:
       '@types/react': '>= 16.8.0 < 19.0.0'
@@ -1616,7 +1615,7 @@ packages:
         optional: true
     dependencies:
       '@algolia/autocomplete-core': 1.7.4
-      '@algolia/autocomplete-preset-algolia': 1.7.4(@algolia/client-search@4.15.0)(algoliasearch@4.15.0)
+      '@algolia/autocomplete-preset-algolia': 1.7.4(algoliasearch@4.15.0)
       '@docsearch/css': 3.3.3
       algoliasearch: 4.15.0
       react: 17.0.2
@@ -2165,7 +2164,7 @@ packages:
       - webpack-cli
     dev: false
 
-  /@docusaurus/preset-classic@2.4.1(@algolia/client-search@4.15.0)(react-dom@17.0.2)(react@17.0.2)(typescript@5.1.3):
+  /@docusaurus/preset-classic@2.4.1(react-dom@17.0.2)(react@17.0.2)(typescript@5.1.3):
     resolution: {integrity: sha512-P4//+I4zDqQJ+UDgoFrjIFaQ1MeS9UD1cvxVQaI6O7iBmiHQm0MGROP1TbE7HlxlDPXFJjZUK3x3cAoK63smGQ==}
     engines: {node: '>=16.14'}
     peerDependencies:
@@ -2183,7 +2182,7 @@ packages:
       '@docusaurus/plugin-sitemap': 2.4.1(react-dom@17.0.2)(react@17.0.2)(typescript@5.1.3)
       '@docusaurus/theme-classic': 2.4.1(react-dom@17.0.2)(react@17.0.2)(typescript@5.1.3)
       '@docusaurus/theme-common': 2.4.1(@docusaurus/types@2.4.1)(react-dom@17.0.2)(react@17.0.2)(typescript@5.1.3)
-      '@docusaurus/theme-search-algolia': 2.4.1(@algolia/client-search@4.15.0)(@docusaurus/types@2.4.1)(react-dom@17.0.2)(react@17.0.2)(typescript@5.1.3)
+      '@docusaurus/theme-search-algolia': 2.4.1(@docusaurus/types@2.4.1)(react-dom@17.0.2)(react@17.0.2)(typescript@5.1.3)
       '@docusaurus/types': 2.4.1(react-dom@17.0.2)(react@17.0.2)
       react: 17.0.2
       react-dom: 17.0.2(react@17.0.2)
@@ -2329,14 +2328,14 @@ packages:
       - webpack-cli
     dev: false
 
-  /@docusaurus/theme-search-algolia@2.4.1(@algolia/client-search@4.15.0)(@docusaurus/types@2.4.1)(react-dom@17.0.2)(react@17.0.2)(typescript@5.1.3):
+  /@docusaurus/theme-search-algolia@2.4.1(@docusaurus/types@2.4.1)(react-dom@17.0.2)(react@17.0.2)(typescript@5.1.3):
     resolution: {integrity: sha512-6BcqW2lnLhZCXuMAvPRezFs1DpmEKzXFKlYjruuas+Xy3AQeFzDJKTJFIm49N77WFCTyxff8d3E4Q9pi/+5McQ==}
     engines: {node: '>=16.14'}
     peerDependencies:
       react: ^16.8.4 || ^17.0.0
       react-dom: ^16.8.4 || ^17.0.0
     dependencies:
-      '@docsearch/react': 3.3.3(@algolia/client-search@4.15.0)(react-dom@17.0.2)(react@17.0.2)
+      '@docsearch/react': 3.3.3(react-dom@17.0.2)(react@17.0.2)
       '@docusaurus/core': 2.4.1(@docusaurus/types@2.4.1)(react-dom@17.0.2)(react@17.0.2)(typescript@5.1.3)
       '@docusaurus/logger': 2.4.1
       '@docusaurus/plugin-content-docs': 2.4.1(react-dom@17.0.2)(react@17.0.2)(typescript@5.1.3)
@@ -3090,41 +3089,6 @@ packages:
       zustand: 3.7.2(react@17.0.2)
     dev: false
 
-  /@react-three/fiber@8.13.5(react-dom@17.0.2)(react@17.0.2)(three@0.128.0):
-    resolution: {integrity: sha512-x9QdsaB/Wm/6NGvRXQahPPWfn2dQce7Fg3C2r00NNzyDdqRKw32YavL+WEqjZOOd0nvFpzv7FtaKc+VCOTR59w==}
-    peerDependencies:
-      expo: '>=43.0'
-      expo-asset: '>=8.4'
-      expo-gl: '>=11.0'
-      react: '>=18.0'
-      react-dom: '>=18.0'
-      react-native: '>=0.64'
-      three: '>=0.133'
-    peerDependenciesMeta:
-      expo:
-        optional: true
-      expo-asset:
-        optional: true
-      expo-gl:
-        optional: true
-      react-dom:
-        optional: true
-      react-native:
-        optional: true
-    dependencies:
-      '@babel/runtime': 7.21.0
-      '@types/react-reconciler': 0.26.7
-      its-fine: 1.1.1(react@17.0.2)
-      react: 17.0.2
-      react-dom: 17.0.2(react@17.0.2)
-      react-reconciler: 0.27.0(react@17.0.2)
-      react-use-measure: 2.1.1(react-dom@17.0.2)(react@17.0.2)
-      scheduler: 0.21.0
-      suspend-react: 0.1.3(react@17.0.2)
-      three: 0.128.0
-      zustand: 3.7.2(react@17.0.2)
-    dev: false
-
   /@sideway/address@4.1.4:
     resolution: {integrity: sha512-7vwq+rOHVWjyXxVlR76Agnvhy8I9rpzjosTESvmhNeXOXdZZB15Fl+TI9x1SiHZH5Jv2wTGduSxFDIaq0m3DUw==}
     dependencies:
@@ -3474,18 +3438,6 @@ packages:
 
   /@types/range-parser@1.2.4:
     resolution: {integrity: sha512-EEhsLsD6UsDM1yFhAvy0Cjr6VwmpMWqFBCb9w07wVugF7w9nfajxLuVmngTIpgS6svCnm6Vaw+MZhoDCKnOfsw==}
-    dev: false
-
-  /@types/react-reconciler@0.26.7:
-    resolution: {integrity: sha512-mBDYl8x+oyPX/VBb3E638N0B7xG+SPk/EAMcVPeexqus/5aTpTphQi0curhhshOqRrc9t6OPoJfEUkbymse/lQ==}
-    dependencies:
-      '@types/react': 18.0.28
-    dev: false
-
-  /@types/react-reconciler@0.28.2:
-    resolution: {integrity: sha512-8tu6lHzEgYPlfDf/J6GOQdIc+gs+S2yAqlby3zTsB3SP2svlqTYe5fwZNtZyfactP74ShooP2vvi1BOp9ZemWw==}
-    dependencies:
-      '@types/react': 18.0.28
     dev: false
 
   /@types/react-router-config@5.0.6:
@@ -5043,29 +4995,6 @@ packages:
     resolution: {integrity: sha512-+3NaRjWktb5r61ZFoDejlykPEFKT5N/LkbXsaddlw6xNSXBanUYpFc2AXXpbJDilPHazcSreU/DpQIaxfX0NfQ==}
     dev: false
 
-  /drei@0.0.60(react-dom@17.0.2)(react-three-fiber@6.0.13)(react@17.0.2)(three@0.128.0):
-    resolution: {integrity: sha512-nx85JMYmKxF7kjtJk+SKYiHpg8E4pRzSyatt7X3xEijEUfQ8iz7GDfp/sZvZZc6HnJ5zMLrhisxrJrFXAJbvpw==}
-    deprecated: drei is now @react-three/drei
-    peerDependencies:
-      react: '>=16.13'
-      react-dom: '>=16.13'
-      react-three-fiber: '>=4.2'
-    dependencies:
-      '@babel/runtime': 7.21.0
-      lodash.omit: 4.5.0
-      lodash.pick: 4.4.0
-      postprocessing: 6.32.2(three@0.128.0)
-      react: 17.0.2
-      react-dom: 17.0.2(react@17.0.2)
-      react-merge-refs: 1.1.0
-      react-three-fiber: 6.0.13(react-dom@17.0.2)(react@17.0.2)(three@0.128.0)
-      stats.js: 0.17.0
-      troika-3d-text: 0.28.1(react-dom@17.0.2)(react@17.0.2)(three@0.128.0)
-      utility-types: 3.10.0
-    transitivePeerDependencies:
-      - three
-    dev: false
-
   /duplexer3@0.1.5:
     resolution: {integrity: sha512-1A8za6ws41LQgv9HrE/66jyC5yuSjQ3L/KOpFtoBilsAK2iA2wuS5rTt1OCzIvtS2V7nVmedsUU+DGRcjBmOYA==}
     dev: false
@@ -6311,15 +6240,6 @@ packages:
   /isobject@3.0.1:
     resolution: {integrity: sha512-WhB9zCku7EGTj/HQQRz5aUQEUeoQZH2bWcltRErOpymJ4boYE6wL9Tbr23krRPSZ+C5zqNSrSw+Cc7sZZ4b7vg==}
     engines: {node: '>=0.10.0'}
-
-  /its-fine@1.1.1(react@17.0.2):
-    resolution: {integrity: sha512-v1Ia1xl20KbuSGlwoaGsW0oxsw8Be+TrXweidxD9oT/1lAh6O3K3/GIM95Tt6WCiv6W+h2M7RB1TwdoAjQyyKw==}
-    peerDependencies:
-      react: '>=18.0'
-    dependencies:
-      '@types/react-reconciler': 0.28.2
-      react: 17.0.2
-    dev: false
 
   /jest-util@29.4.3:
     resolution: {integrity: sha512-ToSGORAz4SSSoqxDSylWX8JzkOQR7zoBtNRsA7e+1WUX5F8jrOwaNpuh1YfJHJKDHXLHmObv5eOjejUd+/Ws+Q==}
@@ -7662,15 +7582,6 @@ packages:
       source-map-js: 1.0.2
     dev: false
 
-  /postprocessing@6.32.2(three@0.128.0):
-    resolution: {integrity: sha512-BpjIHeElXRmkcqO6p8Pi6W1uDcivQa2FVQ/Swnoo32Cg5bq/bb0mh9hXSHeCkIBD0W4D2KU8Fg7jBICztcN9iQ==}
-    engines: {node: '>= 0.13.2'}
-    peerDependencies:
-      three: '>= 0.138.0 < 0.155.0'
-    dependencies:
-      three: 0.128.0
-    dev: false
-
   /potpack@1.0.2:
     resolution: {integrity: sha512-choctRBIV9EMT9WGAZHn3V7t0Z2pMQyl0EZE6pFc/6ml3ssw7Dlf/oAOvFwjm1HVsqfQN8GfeFyJ+d8tRzqueQ==}
     dev: false
@@ -8018,17 +7929,6 @@ packages:
       scheduler: 0.20.2
     dev: false
 
-  /react-reconciler@0.27.0(react@17.0.2):
-    resolution: {integrity: sha512-HmMDKciQjYmBRGuuhIaKA1ba/7a+UsM5FzOZsMO2JYHt9Jh8reCb7j1eDC95NOyUlKM9KRyvdx0flBuDvYSBoA==}
-    engines: {node: '>=0.10.0'}
-    peerDependencies:
-      react: ^18.0.0
-    dependencies:
-      loose-envify: 1.4.0
-      react: 17.0.2
-      scheduler: 0.21.0
-    dev: false
-
   /react-router-config@5.1.1(react-router@5.3.4)(react@17.0.2):
     resolution: {integrity: sha512-DuanZjaD8mQp1ppHjgnnUnyOlqYXZVjnov/JzFhjLEwd3Z4dYjMSnqrEzzGThH47vpCOqPPwJM2FtthLeJ8Pbg==}
     peerDependencies:
@@ -8088,28 +7988,6 @@ packages:
 
   /react-three-fiber@0.0.0-deprecated:
     resolution: {integrity: sha512-EblIqTAsIpkYeM8bZtC4lcpTE0A2zCEGipFB52RgcQq/q+0oryrk7Sxt+sqhIjUu6xMNEVywV8dr74lz5yWO6A==}
-    dev: false
-
-  /react-three-fiber@6.0.13(react-dom@17.0.2)(react@17.0.2)(three@0.128.0):
-    resolution: {integrity: sha512-uShQnkMVLvnzwf3YzY9mnzCnpmLpvTQkc0ycrtwk8fyjXmZt2695tLn3tufPF6uxq06UKJRKJcjCVCMXyUcEPQ==}
-    deprecated: react-three-fiber has been deprecated, please use @react-three/fiber from now on
-    peerDependencies:
-      react: '>=17.0'
-      react-dom: '>=17.0'
-      three: '>=0.126'
-    peerDependenciesMeta:
-      react-dom:
-        optional: true
-    dependencies:
-      '@react-three/fiber': 8.13.5(react-dom@17.0.2)(react@17.0.2)(three@0.128.0)
-      react: 17.0.2
-      react-dom: 17.0.2(react@17.0.2)
-      three: 0.128.0
-    transitivePeerDependencies:
-      - expo
-      - expo-asset
-      - expo-gl
-      - react-native
     dev: false
 
   /react-use-measure@2.1.1(react-dom@17.0.2)(react@17.0.2):
@@ -8464,12 +8342,6 @@ packages:
     dependencies:
       loose-envify: 1.4.0
       object-assign: 4.1.1
-
-  /scheduler@0.21.0:
-    resolution: {integrity: sha512-1r87x5fz9MXqswA2ERLo0EbOAU74DpIUO090gIasYTqlVoJeMcl+Z1Rg7WHz+qtPujhS/hGIt9kxZOYBV3faRQ==}
-    dependencies:
-      loose-envify: 1.4.0
-    dev: false
 
   /schema-utils@2.7.0:
     resolution: {integrity: sha512-0ilKFI6QQF5nxDZLFn2dMjvc4hjg/Wkg7rHd3jK6/A4a1Hl9VFdQWvgB1UMGoU94pad1P/8N7fMcEnLnSiju8A==}
@@ -8987,14 +8859,6 @@ packages:
     engines: {node: '>= 0.4'}
     dev: false
 
-  /suspend-react@0.1.3(react@17.0.2):
-    resolution: {integrity: sha512-aqldKgX9aZqpoDp3e8/BZ8Dm7x1pJl+qI3ZKxDN0i/IQTWUwBx/ManmlVJ3wowqbno6c2bmiIfs+Um6LbsjJyQ==}
-    peerDependencies:
-      react: '>=17.0'
-    dependencies:
-      react: 17.0.2
-    dev: false
-
   /svg-parser@2.0.4:
     resolution: {integrity: sha512-e4hG1hRwoOdRb37cIMSgzNsxyzKfayW6VOflrwvR+/bzrkyxY/31WkbgnQpgtrNp1SdpJvpUAGTa/ZoiPNDuRQ==}
     dev: false
@@ -9210,47 +9074,6 @@ packages:
     resolution: {integrity: sha512-YzQV+TZg4AxpKxaTHK3c3D+kRDCGVEE7LemdlQZoQXn0iennk10RsIoY6ikzAqJTc9Xjl9C1/waHom/J86ziAQ==}
     dev: false
 
-  /troika-3d-text@0.28.1(react-dom@17.0.2)(react@17.0.2)(three@0.128.0):
-    resolution: {integrity: sha512-e9/cK4+59F8oOpd5sG7ZE7eVfRlNhn9vyPPtsfR9KFHkpbDGN1qdj1YEgWBRC0ops7mY7X9kLnjXwxzx8n72lQ==}
-    dependencies:
-      troika-3d: 0.28.1(react-dom@17.0.2)(react@17.0.2)(three@0.128.0)
-      troika-three-utils: 0.28.1
-      troika-worker-utils: 0.28.0
-    transitivePeerDependencies:
-      - react
-      - react-dom
-      - three
-    dev: false
-
-  /troika-3d@0.28.1(react-dom@17.0.2)(react@17.0.2)(three@0.128.0):
-    resolution: {integrity: sha512-Ta6vqJPcURX7sni6NcGxhEi6AvLtXf8evJrZfi/+DthD/rBff33cJIVzmGrKVHODsb0cEV50mPSsK9MJznFkAg==}
-    peerDependencies:
-      three: 0.103.x - 0.117.x
-    dependencies:
-      three: 0.128.0
-      troika-core: 0.28.0(react-dom@17.0.2)(react@17.0.2)
-      troika-three-utils: 0.28.1
-    transitivePeerDependencies:
-      - react
-      - react-dom
-    dev: false
-
-  /troika-animation@0.28.0:
-    resolution: {integrity: sha512-QsVvBgCYGMTC9a+sps6r6diQ4QFOB/4pxn3Dox0fnYM1UwkV6Fkuwdc+tIBDCbWHZURaFCvhR7/mPd425B2WhA==}
-    dev: false
-
-  /troika-core@0.28.0(react-dom@17.0.2)(react@17.0.2):
-    resolution: {integrity: sha512-0TvqvxChtSr43vntDnq9WVs2Rrf7pFk2yZb6Rpu+fFtCkY8Vb8q4hRcS5WHXHQAn+hJIZ+yznUV6AGm6kq9+ww==}
-    peerDependencies:
-      react: ^16.5.2
-      react-dom: ^16.5.2
-    dependencies:
-      prop-types: 15.8.1
-      react: 17.0.2
-      react-dom: 17.0.2(react@17.0.2)
-      troika-animation: 0.28.0
-    dev: false
-
   /troika-three-text@0.43.0(three@0.128.0):
     resolution: {integrity: sha512-lZcTImvd5VkrZGA1qQx8zRs20Eel5Ue4ZpxnHtvgpGHi+lJemNIpkwtGOgk73DmLAkBm6it3nG5RCE5IxufqCg==}
     peerDependencies:
@@ -9262,20 +9085,12 @@ packages:
       troika-worker-utils: 0.43.0
     dev: false
 
-  /troika-three-utils@0.28.1:
-    resolution: {integrity: sha512-tzKVklP2W2oOEohumOGmkW8lds4dIQZJJoVUgKmb4oZ/QAI4i7o3pHyNRsLokJEVpFzv45ozSoaWiCqnzDEL7w==}
-    dev: false
-
   /troika-three-utils@0.43.0(three@0.128.0):
     resolution: {integrity: sha512-UVc4jOob1VjrX0awA0dHxmHZ8yvgq8W/kmtihMnMeObm0HNOobPKAWm/N6o34/k/FPgOtUMDHYgkw+TG2RNouA==}
     peerDependencies:
       three: '>=0.103.0'
     dependencies:
       three: 0.128.0
-    dev: false
-
-  /troika-worker-utils@0.28.0:
-    resolution: {integrity: sha512-Wo5rF+lebBqQQgrRA7yWKWO7Qs55mkfCNafz9TdHs5mIQMIVH+Tb+2ZP6HN+jVIo9pjVcZsSQC2G8A9CbX51BA==}
     dev: false
 
   /troika-worker-utils@0.43.0:

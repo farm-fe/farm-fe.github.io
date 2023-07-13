@@ -64,7 +64,6 @@ const config = {
       // Replace with your project's social card
       image: "img/docusaurus-social-card.jpg",
       navbar: {
-        style: "dark",
         title: "Farm",
         logo: {
           alt: "My Site Logo",
@@ -103,22 +102,17 @@ const config = {
         ],
       },
       footer: {
-        style: "dark",
         links: [
           {
             title: "Learn",
             items: [
               {
                 label: "Introduction",
-                to: "docs",
+                to: "/why-farm",
               },
               {
                 label: "Installation",
-                to: "docs/installation",
-              },
-              {
-                label: "Migration from v1 to v2",
-                to: "docs/migration",
+                to: "/quick-start",
               },
             ],
           },
@@ -126,20 +120,12 @@ const config = {
             title: "Community",
             items: [
               {
-                label: "Stack Overflow",
-                href: "https://stackoverflow.com/questions/tagged/docusaurus",
-              },
-              {
-                label: "Feature Requests",
-                to: "/feature-requests",
+                label: "WeChat Group",
+                href: "https://github.com/farm-fe/farm#chat-with-us",
               },
               {
                 label: "Discord",
-                href: "https://discordapp.com/invite/docusaurus",
-              },
-              {
-                label: "Help",
-                to: "/community/support",
+                href: "https://discord.com/invite/mDErq9aFnF",
               },
             ],
           },
@@ -148,46 +134,27 @@ const config = {
             items: [
               {
                 label: "Blog",
-                to: "blog",
+                to: "/quick-start",
               },
               {
                 label: "Changelog",
-                to: "/changelog",
+                to: "/quick-start",
               },
               {
                 label: "GitHub",
-                href: "https://github.com/facebook/docusaurus",
+                href: "https://github.com/farm-fe/farm",
               },
               {
                 label: "Twitter",
-                href: "https://twitter.com/docusaurus",
+                href: "https://twitter.com/@farm-fe",
               },
-              {
-                html: `
-              <a href="https://www.netlify.com" target="_blank" rel="noreferrer noopener" aria-label="Deploys by Netlify">
-                <img src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg" alt="Deploys by Netlify" width="114" height="51" />
-              </a>
-            `,
-              },
-            ],
-          },
-          {
-            title: "Legal",
-            // Please don't remove the privacy and terms, it's a legal
-            // requirement.
-            items: [
-              {
-                label: "Privacy",
-                href: "https://opensource.facebook.com/legal/privacy/",
-              },
-              {
-                label: "Terms",
-                href: "https://opensource.facebook.com/legal/terms/",
-              },
-              {
-                label: "Cookie Policy",
-                href: "https://opensource.facebook.com/legal/cookie-policy/",
-              },
+              //   {
+              //     html: `
+              //   <a href="https://www.netlify.com" target="_blank" rel="noreferrer noopener" aria-label="Deploys by Netlify">
+              //     <img src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg" alt="Deploys by Netlify" width="114" height="51" />
+              //   </a>
+              // `,
+              //   },
             ],
           },
         ],
@@ -237,6 +204,9 @@ const config = {
         appId: "G3J92PUFY2",
         apiKey: "2b0f3f1f06f381249d44682a21206f4f",
         indexName: "farm-feio",
+      },
+      colorMode: {
+        defaultMode: "dark",
       },
     }),
   plugins: [

@@ -81,7 +81,7 @@
 
 .profile {
   flex-grow: 1;
-  background-color: #252529;
+  background-color: var(--ifm-f-bg-soft);
 }
 
 .data {
@@ -153,7 +153,7 @@
   padding: 16px;
   font-size: 14px;
   font-weight: 500;
-  background-color: #252529;
+  background-color: var(--ifm-f-white);
   transition: color 0.25s, background-color 0.25s;
 }
 
