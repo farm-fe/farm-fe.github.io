@@ -9,7 +9,22 @@ import {
   Environment,
   Stars,
 } from "@react-three/drei";
+
 import "./index.css";
+
+
+function Model({ url }) {
+  const { nodes,materials } = useGLTF(url)
+  return (
+    <group rotation={[-Math.PI / 2, 0, 0]} position={[0, -7, 0]} scale={[7, 7, 7]}>
+      <group rotation={[Math.PI / 13.5, -Math.PI / 5.8, Math.PI / 5.6]}>
+        <mesh castShadow receiveShadow geometry={nodes.planet001.geometry} material={materials.scene} />
+        <mesh castShadow receiveShadow geometry={nodes.planet002.geometry} material={materials.scene} />
+      </group>
+    </group>
+  )
+}
+
 
 export default function App() {
   const starMaterial = new THREE.PointsMaterial({
@@ -45,6 +60,7 @@ export default function App() {
       <div className="bg-container" />
       <Canvas dpr={[1.5, 2]} linear shadows style={{ position: "absolute" }}>
         <fog attach="fog" args={["#272730", 16, 30]} />
+        <ambientLight intensity={0.75} />
         <PerspectiveCamera makeDefault position={[0, 0, 16]} fov={75}>
           <pointLight intensity={1} position={[-10, -25, -10]} />
           <spotLight
@@ -57,6 +73,9 @@ export default function App() {
             shadow-bias={-0.0001}
           />
         </PerspectiveCamera>
+        <Suspense fallback={null}>
+          <Model url="/scene.glb" />
+        </Suspense>
         <OrbitControls
           autoRotate
           autoRotateSpeed={0.1}
@@ -65,7 +84,6 @@ export default function App() {
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
         />
-        <ambientLight intensity={0.75} />
         {/* <Stars radius={600} depth={50} count={1000} factor={150} /> */}
         <Stars
           radius={100} // 星空的半径
