@@ -15,28 +15,9 @@ import "./index.css";
 
 function Model({ url }) {
   const { nodes, materials } = useGLTF(url);
-  return (
-    <group
-      rotation={[-Math.PI / 2, 0, 0]}
-      position={[0, -7, 0]}
-      scale={[7, 7, 7]}
-    >
-      <group rotation={[Math.PI / 13.5, -Math.PI / 5.8, Math.PI / 5.6]}>
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.planet001.geometry}
-          material={materials.scene}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.planet002.geometry}
-          material={materials.scene}
-        />
-      </group>
-    </group>
-  );
+  const model = useLoader(GLTFLoader, "/test.glb");
+
+  return <primitive object={model.scene} />;
 }
 
 export default function App() {
@@ -66,7 +47,6 @@ export default function App() {
     "position",
     new THREE.BufferAttribute(particlePositions, 3)
   );
-  const model = useLoader(GLTFLoader, "/test.glb");
   const particleSystem = useRef();
   return (
     <>
@@ -87,8 +67,7 @@ export default function App() {
           />
         </PerspectiveCamera>
         <Suspense fallback={null}>
-          {/* <Model url="/test.glb" /> */}
-          <primitive object={model.scene} />
+          <Model url="/test.glb" />
         </Suspense>
         <OrbitControls
           autoRotate
