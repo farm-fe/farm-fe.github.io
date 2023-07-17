@@ -117,7 +117,9 @@ export default function Benchmark() {
         <div
           className={clsx(
             "flex-1 cursor-pointer rounded-md py-2 px-6 text-center font-jakarta text-sm font-semibold",
-            visibleSection === section ? "bg-fuchsia-600 text-white" : "color-re"
+            visibleSection === section
+              ? "bg-fuchsia-600 text-white"
+              : "color-re"
           )}
           onClick={() => {
             setVisibleSection(section);
@@ -161,7 +163,7 @@ export default function Benchmark() {
                         {inView && (
                           <>
                             <div
-                              className="flex items-center text-gray-500 dark:text-light-500 text-center"
+                              className="flex items-center text-light-500  text-center"
                               style={{ minWidth: "100px" }}
                             >
                               {info.name}

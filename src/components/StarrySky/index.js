@@ -1,6 +1,7 @@
 import React, { Suspense, useRef } from "react";
-import { Canvas } from "@react-three/fiber";
+import { Canvas, primitive, useLoader } from "@react-three/fiber";
 import * as THREE from "three";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import {
   Loader,
   useGLTF,
@@ -12,19 +13,31 @@ import {
 
 import "./index.css";
 
-
 function Model({ url }) {
-  const { nodes,materials } = useGLTF(url)
+  const { nodes, materials } = useGLTF(url);
   return (
-    <group rotation={[-Math.PI / 2, 0, 0]} position={[0, -7, 0]} scale={[7, 7, 7]}>
+    <group
+      rotation={[-Math.PI / 2, 0, 0]}
+      position={[0, -7, 0]}
+      scale={[7, 7, 7]}
+    >
       <group rotation={[Math.PI / 13.5, -Math.PI / 5.8, Math.PI / 5.6]}>
-        <mesh castShadow receiveShadow geometry={nodes.planet001.geometry} material={materials.scene} />
-        <mesh castShadow receiveShadow geometry={nodes.planet002.geometry} material={materials.scene} />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.planet001.geometry}
+          material={materials.scene}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.planet002.geometry}
+          material={materials.scene}
+        />
       </group>
     </group>
-  )
+  );
 }
-
 
 export default function App() {
   const starMaterial = new THREE.PointsMaterial({
@@ -53,7 +66,7 @@ export default function App() {
     "position",
     new THREE.BufferAttribute(particlePositions, 3)
   );
-
+  const model = useLoader(GLTFLoader, "/test.glb");
   const particleSystem = useRef();
   return (
     <>
@@ -74,13 +87,14 @@ export default function App() {
           />
         </PerspectiveCamera>
         <Suspense fallback={null}>
-          <Model url="/test.glb" />
+          {/* <Model url="/test.glb" /> */}
+          <primitive object={model.scene} />
         </Suspense>
         <OrbitControls
           autoRotate
-          autoRotateSpeed={0.1}
+          autoRotateSpeed={0.15}
           enablePan={true}
-          enableZoom={true}
+          enableZoom={false}
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
         />
