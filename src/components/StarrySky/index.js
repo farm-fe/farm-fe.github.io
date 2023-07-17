@@ -74,7 +74,7 @@ export default function App() {
           />
         </PerspectiveCamera>
         <Suspense fallback={null}>
-          <Model url="/scene.glb" />
+          <Model url="/test.glb" />
         </Suspense>
         <OrbitControls
           autoRotate
