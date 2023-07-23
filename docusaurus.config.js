@@ -29,8 +29,18 @@ const config = {
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: "zh",
+    defaultLocale: "en",
     locales: ["en", "zh"],
+    localeConfigs: {
+      en: {
+        label: "English",
+        direction: "ltr",
+      },
+      zh: {
+        label: "简体中文",
+        direction: "ltr",
+      },
+    },
   },
 
   presets: [
@@ -148,13 +158,6 @@ const config = {
                 label: "Twitter",
                 href: "https://twitter.com/@farm-fe",
               },
-              //   {
-              //     html: `
-              //   <a href="https://www.netlify.com" target="_blank" rel="noreferrer noopener" aria-label="Deploys by Netlify">
-              //     <img src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg" alt="Deploys by Netlify" width="114" height="51" />
-              //   </a>
-              // `,
-              //   },
             ],
           },
         ],

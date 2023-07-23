@@ -8,10 +8,9 @@ import Benchmark from "../components/Benchmark";
 import StarrySky from "../components/StarrySky";
 import { teamMembers } from "../contribution";
 import styles from "./index.module.css";
-import useBaseUrl from "@docusaurus/useBaseUrl";
-import TeamMembersItem from "../components/TeamMembersItem";
 import { TeamMembers } from "../components/TeamMembers";
-// import '../css/home.scss'
+import Translate, { translate } from "@docusaurus/Translate";
+import { useThemeConfig } from "@docusaurus/theme-common";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
@@ -25,12 +24,14 @@ function HomepageHeader() {
     >
       <div className="container w-full flex flex-col items-center justify-center">
         <p className="font-extrabold text-4xl sm:text-5xl lg:text-7xl tracking-tight text-center">
-          <span>Super Fast Web</span>
+          <span>
+            <Translate>Super Fast Web</Translate>
+          </span>
           <span className={clsx(styles.banner, "my-6", "block")}>
-            Build Tool
+            <Translate> Build Tool</Translate>
           </span>
           <span>
-            Written In
+            <Translate> Written In</Translate>
             <span className={styles.banner}> Rust</span>
           </span>
         </p>
@@ -42,7 +43,7 @@ function HomepageHeader() {
                 "flex items-center justify-center font-bold"
               )}
             >
-              Quick Start
+              <Translate> Quick Start</Translate>
             </div>
           </Link>
           <Link
@@ -55,7 +56,7 @@ function HomepageHeader() {
                 "flex items-center justify-center font-bold"
               )}
             >
-              Why Farm?
+              <Translate> Why Farm?</Translate>
             </div>
           </Link>
         </div>

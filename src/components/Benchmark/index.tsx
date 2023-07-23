@@ -152,8 +152,8 @@ export default function Benchmark() {
             <div
               className={`${styles.tabs} flex flex-col items-center my-4 z-1`}
             >
-              <div className="flex h-20 w-full flex-1 items-center self-start lg:w-auto lg:justify-end">
-                <div className="">
+              <div className="flex h-20 w-full flex-1 items-center self-start lg:justify-end">
+                <div className="w-full">
                   <PillTabs SCENE={SCENE}>
                     {performanceInfoList.map((info) => (
                       <div
@@ -180,7 +180,7 @@ export default function Benchmark() {
                     ))}
                   </PillTabs>
                   <div className="font-bold cursor-pointer">
-                    <Link rel="stylesheet">See benchmark details</Link>
+                    {/* <Link rel="stylesheet">See benchmark details</Link> */}
                   </div>
                 </div>
               </div>

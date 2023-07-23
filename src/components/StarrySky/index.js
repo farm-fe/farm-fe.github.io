@@ -66,12 +66,12 @@ export default function App() {
             shadow-bias={-0.0001}
           />
         </PerspectiveCamera>
-        <Suspense fallback={null}>
+        {/* <Suspense fallback={null}>
           <Model url="/test.glb" />
-        </Suspense>
+        </Suspense> */}
         <OrbitControls
           autoRotate
-          autoRotateSpeed={0.15}
+          autoRotateSpeed={0.02}
           enablePan={true}
           enableZoom={false}
           maxPolarAngle={Math.PI / 2}

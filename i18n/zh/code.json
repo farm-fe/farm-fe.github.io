@@ -5,7 +5,7 @@
   },
   "theme.ErrorPageContent.tryAgain": {
     "message": "重试",
-    "description": "The label of the button to try again when the page crashed"
+    "description": "The label of the button to try again rendering when the React error boundary captures an error"
   },
   "theme.NotFound.title": {
     "message": "找不到页面",
@@ -400,5 +400,20 @@
   "theme.tags.tagsPageTitle": {
     "message": "标签",
     "description": "The title of the tag list page"
+  },
+  "Super Fast Web": {
+    "message": "Super Fast Web"
+  },
+  "Build Tool": {
+    "message": "Build Tool"
+  },
+  "Written In": {
+    "message": "Written In"
+  },
+  "Quick Start": {
+    "message": "快速开始"
+  },
+  "Why Farm?": {
+    "message": "为什么选择 Farm ?"
   }
 }
