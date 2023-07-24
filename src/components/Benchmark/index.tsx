@@ -106,10 +106,10 @@ const MODULE_COUNT_MAP = {
 
 export default function Benchmark() {
   const SCENE = [
-    <Translate>ColdStart</Translate>,
-    <Translate>HmrRoot</Translate>,
-    <Translate>HmrLeaf</Translate>,
-    <Translate>ColdBuild</Translate>,
+    { name: <Translate>ColdStart</Translate>, title: "ColdStart" },
+    { name: <Translate>HmrRoot</Translate>, title: "HmrRoot" },
+    { name: <Translate>HmrLeaf</Translate>, title: "HmrLeaf" },
+    { name: <Translate>ColdBuild</Translate>, title: "ColdBuild" },
   ];
   const [activeScene, setActiveScene] = useState("ColdStart");
   const { ref, inView } = useInView();
@@ -123,16 +123,17 @@ export default function Benchmark() {
         <div
           className={clsx(
             "flex-1 cursor-pointer rounded-md py-2 px-6 text-center font-jakarta text-sm font-semibold",
-            visibleSection === section
+            visibleSection === section.title
               ? "bg-fuchsia-600 text-white"
               : "color-re"
           )}
           onClick={() => {
-            setVisibleSection(section);
-            setActiveScene(section);
+            setVisibleSection(section.title);
+            setActiveScene(section.title);
           }}
         >
-          {`${section[0].toUpperCase()}${section.substring(1)}`}
+          {/* {`${section[0].toUpperCase()}${section.substring(1)}`} */}
+          {section.name}
         </div>
       </div>
     );
@@ -143,7 +144,7 @@ export default function Benchmark() {
       <div>
         <div className="inline-flex items-center rounded-lg bg p-2 text-sm  lg:text-base">
           {SCENE.map((item, index) => {
-            return <Pill section={item} key={item}></Pill>;
+            return <Pill section={item} key={index}></Pill>;
           })}
         </div>
         <div>{children}</div>
