@@ -43,7 +43,7 @@ function HomepageHeader() {
                 "flex items-center justify-center font-bold"
               )}
             >
-              <Translate> Quick Start</Translate>
+              <Translate>Quick Start</Translate>
             </div>
           </Link>
           <Link
@@ -56,7 +56,7 @@ function HomepageHeader() {
                 "flex items-center justify-center font-bold"
               )}
             >
-              <Translate> Why Farm?</Translate>
+              <Translate>Why Farm?</Translate>
             </div>
           </Link>
         </div>

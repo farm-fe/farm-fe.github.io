@@ -2,6 +2,7 @@ import { ProgressBar } from "./ProgressBar";
 import FarmCard from "../Card";
 import { useInView } from "react-intersection-observer";
 import styles from "./index.module.css";
+import Translate from "@docusaurus/Translate";
 import Link from "@docusaurus/Link";
 import React, { useState } from "react";
 import clsx from "clsx";
@@ -104,7 +105,12 @@ const MODULE_COUNT_MAP = {
 };
 
 export default function Benchmark() {
-  const SCENE = ["ColdStart", "HmrRoot", "HmrLeaf", "ColdBuild"];
+  const SCENE = [
+    <Translate>ColdStart</Translate>,
+    <Translate>HmrRoot</Translate>,
+    <Translate>HmrLeaf</Translate>,
+    <Translate>ColdBuild</Translate>,
+  ];
   const [activeScene, setActiveScene] = useState("ColdStart");
   const { ref, inView } = useInView();
   const performanceInfoList = BENChMARK_DATA[activeScene];

@@ -1,5 +1,6 @@
 import React from "react";
 import clsx from "clsx";
+import Translate, { translate } from "@docusaurus/Translate";
 // import Image from "@theme/IdealImage";
 import Rocket from "@site/static/img/rocket.png";
 import Plug from "@site/static/img/plug.png";
@@ -10,63 +11,63 @@ import Consistency from "@site/static/img/consistency.png";
 import styles from "./styles.module.css";
 const FeatureList = [
   {
-    title: "Super Fast",
+    title: <Translate>Super Fast</Translate>,
     Img: Rocket,
     description: (
-      <>
+      <Translate>
         Super Fast: Written in Rust, start a React / Vue project in milliseconds
         and perform an HMR update within 10ms for most situations.
-      </>
+      </Translate>
     ),
     className:
       "w-full rounded-lg sm:block sm:col-span-2 md:col-span-1 lg:row-start-2 lg:col-span-2",
   },
   {
-    title: "Rich Features",
+    title: <Translate>Rich Features</Translate>,
     Img: FeaturePng,
     description: (
-      <>
+      <Translate>
         Farm support compiling Html, Css, Js/Jsx/Ts/Tsx, Json, Static Assets out
         of box, support sass, less, react-refresh by official plugins, support
         lazy compiling, partial bundling and more
-      </>
+      </Translate>
     ),
     className:
       "w-full rounded-lg sm:block sm:col-span-2 md:col-span-1 lg:row-start-2 lg:col-span-2",
   },
   {
-    title: "Fully Pluggable",
+    title: <Translate>Fully Pluggable</Translate>,
     Img: Plug,
     description: (
-      <>
+      <Translate>
         Fully Pluggable: Everything inside Farm is powered by plugins, achieve
         anything you want by creating a plugin. Supports both Rust and
         JavaScript plugins.
-      </>
+      </Translate>
     ),
     className:
       " w-full flex h-52 rounded-lg md:block lg:row-start-2 lg:col-span-2 lg:h-auto",
   },
   {
-    title: "Partial Bundling",
+    title: <Translate>Partial Bundling</Translate>,
     Img: Box,
     description: (
-      <>
+      <Translate>
         Partial Bundling: Bundle your project into a few reasonable bundles,
         speeding up resource loading without losing caching granularity.
-      </>
+      </Translate>
     ),
     className:
       "w-full rounded-lg sm:block sm:col-span-2 md:col-span-1 lg:row-start-2 lg:col-span-2",
   },
   {
-    title: "Consistency",
+    title: <Translate>Consistency</Translate>,
     Img: Consistency,
     description: (
-      <>
+      <Translate>
         Consistency: What you see in development will be the same as what you
         get in production.
-      </>
+      </Translate>
     ),
     className:
       " w-full rounded-lg sm:block sm:col-span-2 md:col-span-1 lg:row-start-2 lg:col-span-2",
@@ -75,7 +76,9 @@ const FeatureList = [
     title: "Compatibility",
     Img: Compatibility,
     description: (
-      <>Compatibility: Supports both legacy (ES5) and modern browsers.</>
+      <Translate>
+        Compatibility: Supports both legacy (ES5) and modern browsers.
+      </Translate>
     ),
     className:
       " w-full flex h-52 rounded-lg md:block lg:row-start-2 lg:col-span-2 lg:h-auto",
