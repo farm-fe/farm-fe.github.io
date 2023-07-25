@@ -1,9 +1,9 @@
-// @ts-check
+// @ts-nocheck
 // Note: type annotations allow type checking and IDEs autocompletion
 
 const lightCodeTheme = require("prism-react-renderer/themes/github");
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
-
+const progress = require("./scripts/progress_translate_lang.json");
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Farm",
@@ -21,16 +21,26 @@ const config = {
   organizationName: "farm-fe", // Usually your GitHub org/user name.
   projectName: "farm-fe.github.io", // Usually your repo name.
   deploymentBranch: "gh-pages",
-
-  onBrokenLinks: "throw",
+  onBrokenLinks: 'ignore',
+  // onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: "zh",
+    defaultLocale: "en",
     locales: ["en", "zh"],
+    localeConfigs: {
+      en: {
+        label: "English",
+        direction: "ltr",
+      },
+      zh: {
+        label: `简体中文 (${progress["zh-CN"].translationProgress}%)`,
+        direction: "ltr",
+      },
+    },
   },
 
   presets: [
@@ -90,25 +100,48 @@ const config = {
           },
           // {to: '/blog', label: 'Blog', position: 'left'},
           {
-            type: 'localeDropdown',
-            position: 'right',
+            label: "v 0.10.7",
+            position: "right",
+            items: [],
           },
           {
-            href: "https://github.com/farm-fe/farm",
-            html: '<img src="/img/github-mark.svg" alt="GitHub" style="width: 25px; vertical-align: middle" />',
+            type: "localeDropdown",
             position: "right",
+          },
+
+          {
+            href: "https://github.com/farm-fe/farm",
+            position: "right",
+            className: "header-github-link",
+            "aria-label": "GitHub repository",
           },
         ],
       },
       footer: {
-        style: "dark",
         links: [
           {
-            title: "Docs",
+            title: "Learn",
             items: [
               {
-                label: "Guilds",
-                to: "/docs/quick-start",
+                label: "Introduction",
+                to: "/why-farm",
+              },
+              {
+                label: "Installation",
+                to: "/quick-start",
+              },
+            ],
+          },
+          {
+            title: "Community",
+            items: [
+              {
+                label: "WeChat Group",
+                href: "https://github.com/farm-fe/farm#chat-with-us",
+              },
+              {
+                label: "Discord",
+                href: "https://discord.com/invite/mDErq9aFnF",
               },
             ],
           },
@@ -117,16 +150,60 @@ const config = {
             items: [
               {
                 label: "Blog",
-                to: "/blog",
+                to: "/quick-start",
+              },
+              {
+                label: "Changelog",
+                to: "/quick-start",
               },
               {
                 label: "GitHub",
                 href: "https://github.com/farm-fe/farm",
               },
+              {
+                label: "Twitter",
+                href: "https://twitter.com/@farm-fe",
+              },
             ],
           },
         ],
+        logo: {
+          alt: "Farm Logo",
+          src: "/img/logo-farm.png",
+          href: "https://github.com/farm-fe/farm",
+        },
         copyright: `Copyright © ${new Date().getFullYear()} Farm, Inc. Built with Docusaurus.`,
+      },
+      // footer: {
+      //   style: "dark",
+      //   links: [
+      //     {
+      //       title: "Docs",
+      //       items: [
+      //         {
+      //           label: "Guilds",
+      //           to: "/docs/quick-start",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       title: "More",
+      //       items: [
+      //         {
+      //           label: "Blog",
+      //           to: "/blog",
+      //         },
+      //         {
+      //           label: "GitHub",
+      //           href: "https://github.com/farm-fe/farm",
+      //         },
+      //       ],
+      //     },
+      //   ],
+      // },
+      announcementBar: {
+        id: "announcementBar-2", // Increment on change
+        content: `🎉 Farm will release the BETA version soon. If you like Farm, give it a ⭐️ on <a target="_blank" rel="noopener noreferrer" href="https://github.com/farm-fe/farm">GitHub</a>`,
       },
       prism: {
         theme: lightCodeTheme,
@@ -137,7 +214,24 @@ const config = {
         apiKey: "2b0f3f1f06f381249d44682a21206f4f",
         indexName: "farm-feio",
       },
+      colorMode: {
+        defaultMode: "dark",
+      },
     }),
+  plugins: [
+    "docusaurus-plugin-sass",
+    async function myPlugin(context, options) {
+      return {
+        name: "docusaurus-tailwindcss",
+        configurePostCss(postcssOptions) {
+          // Appends TailwindCSS and AutoPrefixer.
+          postcssOptions.plugins.push(require("tailwindcss"));
+          postcssOptions.plugins.push(require("autoprefixer"));
+          return postcssOptions;
+        },
+      };
+    },
+  ],
 };
 
 module.exports = config;

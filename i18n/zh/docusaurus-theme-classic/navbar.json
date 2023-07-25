@@ -14,5 +14,9 @@
   "item.label.Plugins": {
     "message": "插件",
     "description": "Navbar item with label Plugins"
+  },
+  "logo.alt": {
+    "message": "My Site Logo",
+    "description": "The alt text of navbar logo"
   }
 }

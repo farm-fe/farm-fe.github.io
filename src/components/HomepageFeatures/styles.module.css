@@ -5,7 +5,78 @@
   width: 100%;
 }
 
-.featureSvg {
-  height: 100px;
-  width: 100px;
+.item {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.card {
+  /* border: 3px solid #252529; */
+  border-radius: 10px;
+  padding: 0 0.5rem;
+  padding-top: 2rem;
+  position: relative;
+  /* background: var(--ifm-background) !important; */
+  background: var(--ifm-f-white-soft);
+  z-index: 0;
+  width: 100%;
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.2) 8%,
+    transparent 8%
+  );
+  background-position: 0% 0%;
+  background-size: 5vmin 5vmin;
+  position: relative;
+  transition: background-position 350ms ease;
+  z-index: 2;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.backgroundImage {
+  background: linear-gradient(-45deg, #e67ac6 50%, #47caff 50%);
+  border-radius: 50%;
+  filter: blur(36px);
+}
+
+/*test card */
+.card-container {
+  cursor: pointer;
+  justify-content: center;
+  position: relative;
+}
+
+.card-container:hover:before {
+  background-position: 100% 100%;
+}
+
+.card-container:hover > .card-content {
+  background-position: -10% 0%;
+}
+
+.card-container:before {
+  background: linear-gradient(
+    130deg,
+    transparent 0% 33%,
+    var(--g1) 34%,
+    var(--g2) 83.5%,
+    var(--g3) 100%
+  );
+  background-opacity: 0.1;
+  background-position: 0% 0%;
+  background-size: 300% 300%;
+  content: "";
+  height: 100%;
+  left: 0px;
+  pointer-events: none;
+  position: absolute;
+  top: 0px;
+  transition: background-position 350ms ease, transform 350ms ease;
+  width: 100%;
+  z-index: 1;
+}
+
+.card-container-content {
+  position: relative;
+  transition: background-position 350ms ease;
+  z-index: 2;
 }

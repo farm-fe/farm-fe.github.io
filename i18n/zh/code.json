@@ -5,7 +5,7 @@
   },
   "theme.ErrorPageContent.tryAgain": {
     "message": "重试",
-    "description": "The label of the button to try again when the page crashed"
+    "description": "The label of the button to try again rendering when the React error boundary captures an error"
   },
   "theme.NotFound.title": {
     "message": "找不到页面",
@@ -400,5 +400,68 @@
   "theme.tags.tagsPageTitle": {
     "message": "标签",
     "description": "The title of the tag list page"
+  },
+  "Super Fast Web": {
+    "message": "Super Fast Web"
+  },
+  "Build Tool": {
+    "message": "Build Tool"
+  },
+  "Written In": {
+    "message": "Written In"
+  },
+  "Quick Start": {
+    "message": "快速开始"
+  },
+  "Why Farm?": {
+    "message": "为什么选择 Farm ?"
+  },
+  "Super Fast": {
+    "message": "超级快"
+  },
+  "Super Fast: Written in Rust, start a React / Vue project in milliseconds and perform an HMR update within 10ms for most situations.": {
+    "message": "超快: 用 Rust 编写, 在毫秒内启动 React / Vue 项目, 并在大多数情况下在10毫秒内执行热更新。"
+  },
+  "Rich Features": {
+    "message": "丰富的特性"
+  },
+  "Fully Pluggable": {
+    "message": "完全可插拔"
+  },
+  "Partial Bundling": {
+    "message": "部分捆绑"
+  },
+  "Consistency": {
+    "message": "一致性"
+  },
+  "Consistency: What you see in development will be the same as what you get in production.": {
+    "message": "一致性: 开发环境和生产环境的表现一致，所见即所得。"
+  },
+  "Compatibility: Supports both legacy (ES5) and modern browsers.": {
+    "message": "兼容性: 同时支持传统(ES5)和现代浏览器。"
+  },
+  "Farm support compiling Html, Css, Js/Jsx/Ts/Tsx, Json, Static Assets out of box, support sass, less, react-refresh by official plugins, support lazy compiling, partial bundling and more": {
+    "message": "丰富的编译能力支持: 开箱即用, Farm 内置了 Js/Ts/Jsx/Tsx、Css/Sass/Less、HTML 和静态资源 支持惰性编译、部分捆绑等。"
+  },
+  "Fully Pluggable: Everything inside Farm is powered by plugins, achieve anything you want by creating a plugin. Supports both Rust and JavaScript plugins.": {
+    "message": "Farm 由插件驱动, 通过创建插件来实现任何您想要的功能, 同时支持 Rust 和 JavaScript 两种插件模式。"
+  },
+  "Partial Bundling: Bundle your project into a few reasonable bundles, speeding up resource loading without losing caching granularity.": {
+    "message": "自动根据依赖关系、资源大小，将项目打包成若干个资源，提升资源加载性能的同时，保证缓存命中率。"
+  },
+  "Our Team": {
+    "message": "我们的团队"
+  },
+  "ColdStart": {
+    "message": "冷启动"
+  },
+  "HmrRoot": {
+    "message": "热更新 (根模块)"
+  },
+  "HmrLeaf": {
+    "message": "热更新 (子模块)"
+  },
+  "ColdBuild": {
+    "message": "冷构建"
   }
 }
