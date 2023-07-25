@@ -11,9 +11,15 @@
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
-    "write-heading-ids": "docusaurus write-heading-ids"
+    "write-heading-ids": "docusaurus write-heading-ids",
+    "crowdin-upload": "pnpm write-translations && crowdin upload sources --auto-update",
+    "crowdin-download": "crowdin download",
+    "crowdin-status": "crowdin status translation --no-colors --no-progress",
+    "crowdin:sync": "pnpm copy-docs && pnpm crowdin-upload && pnpm crowdin-download --verbose",
+    "update-progress": "ts-node ./scripts/translations.ts"
   },
   "dependencies": {
+    "@crowdin/crowdin-api-client": "^1.23.4",
     "@docusaurus/core": "2.4.1",
     "@docusaurus/plugin-ideal-image": "^2.4.1",
     "@docusaurus/preset-classic": "2.4.1",
@@ -38,7 +44,8 @@
     "three": "0.128.0"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "2.3.1"
+    "@docusaurus/module-type-aliases": "2.3.1",
+    "ts-node": "^10.9.1"
   },
   "browserslist": {
     "production": [
