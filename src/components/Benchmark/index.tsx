@@ -10,89 +10,89 @@ const BENChMARK_DATA = {
   ColdStart: [
     {
       name: "Farm",
-      time: 0.439,
+      time: 0.141,
     },
     {
       name: "Rspack",
-      time: 0.414,
+      time: 0.605,
     },
     {
       name: "Turbopack",
-      time: 2.476,
+      time: 0.341,
     },
     {
       name: "Vite",
-      time: 3.712,
+      time: 0.257,
     },
     {
       name: "Webpack",
-      time: 8.05,
+      time: 8.189,
     },
   ],
   HmrRoot: [
     {
       name: "Farm",
-      time: 0.008,
+      time: 0.011,
     },
     {
       name: "Rspack",
-      time: 0.3,
+      time: 0.104,
     },
     {
       name: "Turbopack",
-      time: 0.007,
+      time: 0.062,
     },
     {
       name: "Vite",
-      time: 0.037,
+      time: 0.035,
     },
     {
       name: "Webpack",
-      time: 0.363,
+      time: 0.265,
     },
   ],
   HmrLeaf: [
     {
       name: "Farm",
-      time: 0.012,
+      time: 0.010,
     },
     {
       name: "Rspack",
-      time: 0.288,
+      time: 0.096,
     },
     {
       name: "Turbopack",
-      time: 0.013,
+      time: 0.054,
     },
     {
       name: "Vite",
-      time: 0.025,
+      time: 0.018,
     },
     {
       name: "Webpack",
-      time: 0.279,
+      time: 0.199,
     },
   ],
   ColdBuild: [
     {
       name: "Farm",
-      time: 0.65,
+      time: 0.288,
     },
     {
       name: "Rspack",
-      time: 0.999,
+      time: 0.724,
     },
     {
       name: "Turbopack",
-      time: 3.865,
+      time: 6.442,
     },
     {
       name: "Vite",
-      time: 5.421,
+      time: 2.266,
     },
     {
       name: "Webpack",
-      time: 15.668,
+      time: 11.321,
     },
   ],
 };
