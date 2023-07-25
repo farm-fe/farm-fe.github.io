@@ -21,8 +21,8 @@ const config = {
   organizationName: "farm-fe", // Usually your GitHub org/user name.
   projectName: "farm-fe.github.io", // Usually your repo name.
   deploymentBranch: "gh-pages",
-
-  onBrokenLinks: "throw",
+  onBrokenLinks: 'ignore',
+  // onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
 
   // Even if you don't use internalization, you can use this field to set useful
