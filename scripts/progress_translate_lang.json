@@ -1,10 +1,6 @@
 {
-  "zh": {
-    "translationProgress": 83,
-    "approvalProgress": 80
-  },
-  "en": {
-    "translationProgress": 43,
-    "approvalProgress": 43
-  }
+    "zh-CN": {
+        "translationProgress": 0,
+        "approvalProgress": 0
+    }
 }

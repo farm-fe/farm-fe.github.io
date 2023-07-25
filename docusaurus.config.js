@@ -3,7 +3,7 @@
 
 const lightCodeTheme = require("prism-react-renderer/themes/github");
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
-
+const progress = require("./scripts/progress_translate_lang.json");
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Farm",
@@ -37,7 +37,7 @@ const config = {
         direction: "ltr",
       },
       zh: {
-        label: "简体中文",
+        label: `简体中文 (${progress["zh-CN"].translationProgress}%)`,
         direction: "ltr",
       },
     },
@@ -100,9 +100,15 @@ const config = {
           },
           // {to: '/blog', label: 'Blog', position: 'left'},
           {
+            label: "v 0.10.7",
+            position: "right",
+            items: [],
+          },
+          {
             type: "localeDropdown",
             position: "right",
           },
+
           {
             href: "https://github.com/farm-fe/farm",
             position: "right",

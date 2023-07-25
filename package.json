@@ -16,9 +16,11 @@
     "crowdin-download": "crowdin download",
     "crowdin-status": "crowdin status translation --no-colors --no-progress",
     "crowdin:sync": "pnpm copy-docs && pnpm crowdin-upload && pnpm crowdin-download --verbose",
-    "update-progress": "ts-node ./scripts/translations.ts"
+    "update-progress": "ts-node ./scripts/translations.ts",
+    "crowdin": "crowdin"
   },
   "dependencies": {
+    "@crowdin/cli": "3",
     "@crowdin/crowdin-api-client": "^1.23.4",
     "@docusaurus/core": "2.4.1",
     "@docusaurus/plugin-ideal-image": "^2.4.1",
