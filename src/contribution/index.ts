@@ -113,6 +113,13 @@ const plainTeamMembers: CoreTeam[] = [
     title: "",
     orgLink: "https://github.com/roland-reed",
   },
+  {
+    avatar: "https://github.com/NidMo.png",
+    name: "Ming07",
+    github: "Ming07",
+    title: "",
+    orgLink: "https://github.com/NidMo",
+  },
 ];
 
 const teamMembers = plainTeamMembers.map((tm) => createLinks(tm));
