@@ -10,23 +10,23 @@ const BENChMARK_DATA = {
   ColdStart: [
     {
       name: "Farm",
-      time: 0.141,
+      time: 0.403,
     },
     {
       name: "Rspack",
-      time: 0.605,
+      time: 0.831,
     },
     {
       name: "Turbopack",
-      time: 0.341,
+      time: 3.731,
     },
     {
       name: "Vite",
-      time: 0.257,
+      time: 3.078,
     },
     {
       name: "Webpack",
-      time: 8.189,
+      time: 8.534,
     },
   ],
   HmrRoot: [
@@ -54,7 +54,7 @@ const BENChMARK_DATA = {
   HmrLeaf: [
     {
       name: "Farm",
-      time: 0.010,
+      time: 0.01,
     },
     {
       name: "Rspack",
@@ -187,7 +187,12 @@ export default function Benchmark() {
                     ))}
                   </PillTabs>
                   <div className="font-bold cursor-pointer">
-                    {/* <Link rel="stylesheet">See benchmark details</Link> */}
+                    <Link
+                      rel="stylesheet"
+                      href="https://github.com/farm-fe/performance-compare"
+                    >
+                      See benchmark details
+                    </Link>
                   </div>
                 </div>
               </div>
