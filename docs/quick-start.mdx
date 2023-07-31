@@ -100,6 +100,15 @@ export default <UserConfig>{
 Refer to **[Config Reference](/docs/config/farm-config)** for more details of configuring Farm.
 :::
 
+## 4. Building the project
+Build the Farm project as production-ready static files:
+
+```bash
+npm run build
+```
+
+The built product is downgraded to ES5 by default, and the product will be compressed and Tree Shake. If you want to preview the build product locally, you can execute `npm run preview` or `npx farm preview`.
+
 ## Next Steps
 
 - [Why Farm?](/docs/why-farm)

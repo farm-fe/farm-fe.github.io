@@ -101,6 +101,15 @@ export default <UserConfig>{
 Farm 配置的细节，参考 **[配置](/docs/config/farm-config)**。
 :::
 
+## 4. 构建项目
+将 Farm 项目构建为生产环境可用的静态文件：
+
+```bash
+npm run build
+```
+
+构建后的产物默认降级到 ES5，同时会对产物进行压缩和 Tree Shake。如果希望本地预览 Build 的产物，可以执行 `npm run preview` 或者 `npx farm preview`。
+
 ## 下一步
 
 - [为什么需要 Farm？](/docs/why-farm)

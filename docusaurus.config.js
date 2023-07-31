@@ -203,7 +203,7 @@ const config = {
       // },
       announcementBar: {
         id: "announcementBar-2", // Increment on change
-        content: `🎉 Farm will release the BETA version soon. If you like Farm, give it a ⭐️ on <a target="_blank" rel="noopener noreferrer" href="https://github.com/farm-fe/farm">GitHub</a>`,
+        content: `🎉 Farm will release the STABLE version soon. If you like Farm, give it a ⭐️ on <a target="_blank" rel="noopener noreferrer" href="https://github.com/farm-fe/farm">GitHub</a>`,
       },
       prism: {
         theme: lightCodeTheme,
