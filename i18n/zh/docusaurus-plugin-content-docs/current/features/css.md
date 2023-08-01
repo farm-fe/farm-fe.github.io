@@ -24,10 +24,10 @@ export function Comp() {
 }
 ```
 
-您可以通过[`css.modules`](/docs/config/farm-config#css-modules) 配置 CSS Modules。
+您可以通过[`css.modules`](/docs/config/farm-config#cssmodules)配置CSS模块。 例如，您可以将 `css.modules.paths` 设置为 `['.css|sass|less|scss']` 那么所有 css 文件将被视为 css 模块。
 
 ## CSS 预处理器
-Farm 官方提供了 sass、less 插件。
+Farm 官方提供了 sass、less、postcss 插件。
 
 ### Sass
 Farm Sass 插件是一个 Rust 插件，使用 `sass-embeded`（后面我们可能会迁移到纯 Rust 编写的 [`grass`](https://github.com/connorskees/grass)）。
@@ -46,7 +46,11 @@ import type { UserConfig } from '@farmfe/core';
 
 export default <UserConfig> {
   // ...
-  plugins: ['@farmfe/plugin-sass'] // to use a rust plugin, just configure its package name as a string
+  plugins: ['@farmfe/plugin-sass'] // 配置 Rust 插件的包名即可引入和使用该插件
+  // 如果你希望配置 plugin-sass 的参数，可以使用如下形式的配置
+  // plugins: [
+  //   ['@farmfe/plugin-sass', { sourceMap: false }]
+  // ]
 };
 ```
 
@@ -55,7 +59,33 @@ export default <UserConfig> {
 import './index.scss';
 ```
 
-如果要将 `sass` 与 `css modules` 一起使用，请将文件名从 `index.scss` 更改为 `index.module.scss`，请参阅 [css modules](#css-modules)
+如果要将 `sass` 与 `css modules` 一起使用，请将文件名从 `index.scss` 更改为 `index.module.scss`，请参阅 [css modules](#css-modules)。
+
+`@farmfe/plugin-sass` 支持很多选项，使用 plugins 的数组配置指定插件 sass 的选项：
+
+```ts
+import type { UserConfig } from '@farmfe/core';
+
+export default <UserConfig> {
+  plugins: [
+    // 通过数组语法指定插件以及配置
+    [
+      '@farmfe/plugin-sass',
+      // 所有支持的选项如下
+      {
+        sourceMap: true // bool
+        sourceMapIncludeSources: true, // bool
+        alertAscii: true, // bool
+        alertColor: true, // bool
+        charset: true, // bool
+        quietDeps: true, // bool
+        verbose: false, // bool
+        style: 'expanded' | 'compressed' // output code style
+      }
+    ]
+  ]
+};
+```
 
 ### Less
 Farm less 插件是一个 Js 插件。 在 Farm 中编译 `less` 模块的步骤如下：

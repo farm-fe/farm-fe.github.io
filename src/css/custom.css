@@ -147,3 +147,15 @@ body {
   display: flex;
   align-items: center;
 }
+
+.code-block-highlight-line {
+  background-color: #666;
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+  border-left: 5px solid rgb(196, 76, 172);
+}
+
+a {
+  color: rgb(196, 76, 172);
+}

@@ -4,6 +4,20 @@
 const lightCodeTheme = require("prism-react-renderer/themes/github");
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const progress = require("./scripts/progress_translate_lang.json");
+
+darkCodeTheme.styles.push({
+  types: ["token", "color"],
+  style: {
+    color: "rgb(189, 147, 249)",
+  },
+});
+lightCodeTheme.styles.push({
+  types: ["token", "color"],
+  style: {
+    color: "rgb(189, 147, 249)",
+  },
+});
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Farm",
@@ -100,7 +114,7 @@ const config = {
           },
           // {to: '/blog', label: 'Blog', position: 'left'},
           {
-            label: "v 0.10.7",
+            label: "v 0.11.0",
             position: "right",
             items: [],
           },
@@ -208,6 +222,19 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+        magicComments: [
+          // Remember to extend the default highlight class name as well!
+          {
+            className: 'theme-code-block-highlighted-line',
+            line: 'highlight-next-line',
+            block: {start: 'highlight-start', end: 'highlight-end'},
+          },
+          {
+            className: 'code-block-highlight-line',
+            line: 'c-highlight-next-line',
+            block: {start: 'c-highlight-start', end: 'c-highlight-end'},
+          },
+        ],
       },
       algolia: {
         appId: "G3J92PUFY2",
