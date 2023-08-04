@@ -120,8 +120,22 @@ const plainTeamMembers: CoreTeam[] = [
     title: "",
     orgLink: "https://github.com/NidMo",
   },
+  {
+    avatar: "https://github.com/liangchaofei.png",
+    name: "curry",
+    github: "curry",
+    title: "",
+    orgLink: "https://github.com/liangchaofei",
+  },
+  {
+    avatar: "https://github.com/siyou.png",
+    name: "Si",
+    github: "Si",
+    title: "",
+    orgLink: "https://github.com/siyou",
+  },
 ];
 
-const teamMembers = plainTeamMembers.map((tm) => createLinks(tm));
+const teamMembers = plainTeamMembers.map(createLinks);
 
 export { teamMembers };

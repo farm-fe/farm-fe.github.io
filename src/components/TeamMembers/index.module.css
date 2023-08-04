@@ -1,37 +1,17 @@
 .VPTeamMembers .container {
-  grid-template-columns: repeat(auto-fit, minmax(204px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
 }
 
-.VPTeamMembers.count-1 .container {
-  max-width: 276px;
-}
-.VPTeamMembers.count-2 .container {
-  max-width: calc(276px * 2 + 24px);
-}
-.VPTeamMembers.count-3 .container {
-  max-width: calc(276px * 3 + 24px * 2);
-}
-
-/* .VPTeamMembers.medium .container {
-  grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
-} */
 
 @media (min-width: 375px) {
-  .VPTeamMembers.medium .container {
-    grid-template-columns: repeat(auto-fit, minmax(288px, 1fr));
+  .VPTeamMembers .container {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
 }
 
-/* .VPTeamMembers.medium.count-1 .container {
-  max-width: 368px;
-}
-.VPTeamMembers.medium.count-2 .container {
-  max-width: calc(368px * 2 + 24px);
-} */
-
 .container {
   display: grid;
-  gap: 70px;
+  gap: 40px;
   margin: 0 auto;
   width: 100%;
 }
