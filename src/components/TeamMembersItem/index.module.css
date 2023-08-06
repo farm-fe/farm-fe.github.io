@@ -9,16 +9,18 @@
 }
 
 .VPTeamMembersItem .profile {
-  padding: 32px;
-}
-
-.VPTeamMembersItem .data {
-  padding-top: 20px;
+  padding: 10px;
 }
 
 .VPTeamMembersItem .avatar {
   width: 64px;
   height: 64px;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+}
+
+.VPTeamMembersItem .avatar:hover {
+  transform: scale(1.2);
 }
 
 .VPTeamMembersItem .name {
@@ -43,51 +45,16 @@
   padding: 10px 0 0;
 }
 
-/* .VPTeamMembersItem .profile {
-  padding: 48px 32px;
-} */
-
-/* .VPTeamMembersItem .data {
-  padding-top: 24px;
-  text-align: center;
-}
-
-.VPTeamMembersItem .avatar {
-  width: 96px;
-  height: 96px;
-}
-
-.VPTeamMembersItem .name {
-  letter-spacing: 0.15px;
-  line-height: 28px;
-  font-size: 20px;
-}
-
-.VPTeamMembersItem .affiliation {
-  padding-top: 4px;
-  font-size: 16px;
-}
-
-.VPTeamMembersItem .desc {
-  padding-top: 16px;
-  max-width: 288px;
-  font-size: 16px;
-}
-
-.VPTeamMembersItem .links {
-  margin: 0 -16px -12px;
-  padding: 16px 12px 0;
-} */
-
 .profile {
   flex-grow: 1;
-  background-color: var(--ifm-f-bg-soft);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 
 .data {
   text-align: center;
-  height: 180px;
-  max-height: 180px;
 }
 
 .avatar {
@@ -119,9 +86,6 @@
 
 .org.link {
   transition: color 0.25s;
-}
-
-.org.link:hover {
 }
 
 .desc {
