@@ -5,7 +5,6 @@ import Translate from "@docusaurus/Translate";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import styles from "./index.module.css";
 import FarmCard from "../card";
-import TeamMembersItem from "../TeamMembersItem";
 
 export function TeamMembers(props) {
   const { members, size } = props;
@@ -14,14 +13,18 @@ export function TeamMembers(props) {
   return (
     <div className={classes}>
       <div className="flex justify-center my-8 text-2xl font-bold">
-        <Translate>Our Team</Translate>
+        <Translate>Contributors</Translate>
       </div>
       <div className={clsx("mt-10", styles.container)}>
-        {members.map((member) => (
-          <div key={member.name} className="w-full p-10 item p-2 h-90">
-            <TeamMembersItem member={member} />
-          </div>
-        ))}
+        <a
+          className={`flex justify-center`}
+          href="https://github.com/farm-fe/farm/graphs/contributors"
+        >
+          <img
+            className={`w-12/12 sm:w-7/12`}
+            src="https://contrib.rocks/image?repo=farm-fe/farm"
+          />
+        </a>
       </div>
     </div>
   );
