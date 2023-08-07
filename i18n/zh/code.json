@@ -449,8 +449,8 @@
   "Partial Bundling: Bundle your project into a few reasonable bundles, speeding up resource loading without losing caching granularity.": {
     "message": "自动根据依赖关系、资源大小，将项目打包成若干个资源，提升资源加载性能的同时，保证缓存命中率。"
   },
-  "Our Team": {
-    "message": "我们的团队"
+  "Contributors": {
+    "message": "感谢贡献者"
   },
   "ColdStart": {
     "message": "冷启动"

@@ -6,7 +6,6 @@ import Layout from "@theme/Layout";
 import HomepageFeatures from "@site/src/components/HomepageFeatures";
 import Benchmark from "../components/Benchmark";
 import StarrySky from "../components/StarrySky";
-import { teamMembers } from "../contribution";
 import styles from "./index.module.css";
 import { TeamMembers } from "../components/TeamMembers";
 import Translate, { translate } from "@docusaurus/Translate";
@@ -77,7 +76,7 @@ export default function Home() {
       <main className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8max-w-6xl">
         <HomepageHeader />
         <HomepageFeatures />
-        <TeamMembers members={teamMembers} />
+        <TeamMembers />
       </main>
     </Layout>
   );
