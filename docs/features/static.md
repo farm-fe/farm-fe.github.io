@@ -14,7 +14,7 @@ export function Main() {
 Default to use url method when import a image. When using url methods to import a image, the image will be emitted to the output dir directly, and the image module itself will be compiled to a js module like:
 
 ```js
-export default '/rocket.xxxx(content hash).svg'
+export default '/rocket.<content hash>.svg'
 ```
 using `compilation.output.assetFilename` to config your asset name。
 
@@ -25,7 +25,7 @@ Using query `?inline` to tell Farm that you want to inline your assets，then th
 // importer
 import logo from './assets/logo.png?inline'; // logo is a base 64 str
 
-// the image module
+// the image module will be compiled to:
 export default 'data:image/png,base64,xxxxx==';
 ```
 
@@ -35,7 +35,7 @@ Using query `?raw` to tell Farm that you want to read the raw string of the asse
 // import 
 import logo from './assets/license.txt?raw'; // return the content string of the assets
 
-// license.txt 
+// the txt file will be compiled to:
 export default 'MIT xxxx';
 ```
 

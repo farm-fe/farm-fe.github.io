@@ -1,58 +1,139 @@
-import React from 'react';
-import clsx from 'clsx';
-import styles from './styles.module.css';
-
+import React from "react";
+import clsx from "clsx";
+import Translate, { translate } from "@docusaurus/Translate";
+// import Image from "@theme/IdealImage";
+import Rocket from "@site/static/img/rocket.png";
+import Plug from "@site/static/img/plug.png";
+import FeaturePng from "@site/static/img/feature.png";
+import Box from "@site/static/img/box.png";
+import Compatibility from "@site/static/img/compatible.png";
+import Consistency from "@site/static/img/consistency.png";
+import styles from "./styles.module.css";
 const FeatureList = [
   {
-    title: 'Super Fast',
-    Img: require('@site/static/img/rocket.svg').default,
+    title: <Translate>Super Fast</Translate>,
+    Img: Rocket,
     description: (
-      <>
-        Farm's compiler is written in Rust, with multi-threading, lazy/asynchronous compilation and persist caching, Farm can start a project in milliseconds, perform a HMR update within 10ms for most scenarios.
-      </>
+      <Translate>
+        Super Fast: Written in Rust, start a React / Vue project in milliseconds
+        and perform an HMR update within 10ms for most situations.
+      </Translate>
     ),
+    className:
+      "w-full rounded-lg sm:block sm:col-span-2 md:col-span-1 lg:row-start-2 lg:col-span-2",
   },
   {
-    title: 'Rich Features',
-    Img: require('@site/static/img/toolbox.svg').default,
+    title: <Translate>Rich Features</Translate>,
+    Img: FeaturePng,
     description: (
-      <>
-        Farm support compiling Html, Css, Js/Jsx/Ts/Tsx, Json, Static Assets out of box, support sass, less, react-refresh by official plugins, support lazy compiling, partial bundling and more
-      </>
+      <Translate>
+        Farm support compiling Html, Css, Js/Jsx/Ts/Tsx, Json, Static Assets out
+        of box, support sass, less, react-refresh by official plugins, support
+        lazy compiling, partial bundling and more
+      </Translate>
     ),
+    className:
+      "w-full rounded-lg sm:block sm:col-span-2 md:col-span-1 lg:row-start-2 lg:col-span-2",
   },
   {
-    title: 'Fully Pluggable',
-    Img: require('@site/static/img/plug.svg').default,
+    title: <Translate>Fully Pluggable</Translate>,
+    Img: Plug,
     description: (
-      <>
-        Everything inside Farm is powered by plugins, you can achieve anything you want by writing a plugin. Support both Rust and Js plugins.
-      </>
+      <Translate>
+        Fully Pluggable: Everything inside Farm is powered by plugins, achieve
+        anything you want by creating a plugin. Supports both Rust and
+        JavaScript plugins.
+      </Translate>
     ),
+    className:
+      " w-full flex h-52 rounded-lg md:block lg:row-start-2 lg:col-span-2 lg:h-auto",
+  },
+  {
+    title: <Translate>Partial Bundling</Translate>,
+    Img: Box,
+    description: (
+      <Translate>
+        Partial Bundling: Bundle your project into a few reasonable bundles,
+        speeding up resource loading without losing caching granularity.
+      </Translate>
+    ),
+    className:
+      "w-full rounded-lg sm:block sm:col-span-2 md:col-span-1 lg:row-start-2 lg:col-span-2",
+  },
+  {
+    title: <Translate>Consistency</Translate>,
+    Img: Consistency,
+    description: (
+      <Translate>
+        Consistency: What you see in development will be the same as what you
+        get in production.
+      </Translate>
+    ),
+    className:
+      " w-full rounded-lg sm:block sm:col-span-2 md:col-span-1 lg:row-start-2 lg:col-span-2",
+  },
+  {
+    title: "Compatibility",
+    Img: Compatibility,
+    description: (
+      <Translate>
+        Compatibility: Supports both legacy (ES5) and modern browsers.
+      </Translate>
+    ),
+    className:
+      " w-full flex h-52 rounded-lg md:block lg:row-start-2 lg:col-span-2 lg:h-auto",
   },
 ];
 
-function Feature({Img, title, description}) {
+function Feature({ Img, title, description, className }) {
   return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Img className={styles.featureSvg} role="img" />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <h3>{title}</h3>
-        <p>{description}</p>
+    <div
+      className={clsx(
+        "rounded-lg shadow-lg overflow-hidden",
+        styles.card,
+        styles["card-container"],
+        className
+      )}
+    >
+      <div
+        className={clsx(
+          "flex items-center flex-col",
+          styles["card-container-content"]
+        )}
+      >
+        <div
+          className={clsx(
+            "flex items-center justify-center absolute",
+            styles.backgroundImage
+          )}
+        >
+          <img
+            src={Img}
+            className={clsx("text--center w-20 h-20")}
+            role="img"
+          />
+        </div>
+        <img src={Img} className={clsx("text--center w-16 h-16")} role="img" />
+        <div className="p-6 flex-grow flex-shrink">
+          <h3 className="text-lg font-bold mt-4 mb-2">{title}</h3>
+          <p className="text-base">{description}</p>
+        </div>
       </div>
     </div>
   );
 }
 
-export default function HomepageFeatures() {
+export default function FeatureSection() {
   return (
-    <section className={styles.features}>
-      <div className="container">
-        <div className="row">
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
+    <section className="my-4">
+      <div className="max-w-7xl mx-auto flex">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          {FeatureList.map((feature, index) => (
+            <Feature
+              key={index}
+              {...feature}
+              className="flex-grow flex-shrink my-4"
+            />
           ))}
         </div>
       </div>
