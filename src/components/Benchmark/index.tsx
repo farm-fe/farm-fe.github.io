@@ -142,7 +142,7 @@ export default function Benchmark() {
   function PillTabs({ SCENE, children }) {
     return (
       <div>
-        <div className="inline-flex items-center rounded-lg bg p-2 text-sm  lg:text-base">
+        <div className="inline-flex items-center rounded-lg bg text-sm  lg:text-base">
           {SCENE.map((item, index) => {
             return <Pill section={item} key={index}></Pill>;
           })}
