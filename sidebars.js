@@ -20,7 +20,12 @@ const sidebars = {
   tutorialSidebar: [
     'quick-start',
     'why-farm',
-    // 'concepts',
+    {
+      type: 'category',
+      label: 'Tutorial',
+      collapsed: false,
+      items: ['tutorials/overview', 'tutorials/create', 'tutorials/start', 'tutorials/configure-plugins', 'tutorials/build'],
+    },
     {
       type: 'category',
       label: 'Features',
