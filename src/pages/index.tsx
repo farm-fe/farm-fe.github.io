@@ -39,7 +39,7 @@ function HomepageHeader() {
             <div
               className={clsx(
                 styles.farmButton,
-                "flex items-center justify-center font-bold"
+                "flex w-40 items-center justify-center font-bold"
               )}
             >
               <Translate>Quick Start</Translate>
@@ -52,7 +52,7 @@ function HomepageHeader() {
             <div
               className={clsx(
                 styles.farmButton,
-                "flex items-center justify-center font-bold"
+                "flex w-40  items-center justify-center font-bold"
               )}
             >
               <Translate>Why Farm?</Translate>
