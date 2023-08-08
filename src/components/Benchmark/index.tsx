@@ -122,7 +122,7 @@ export default function Benchmark() {
       <div>
         <div
           className={clsx(
-            "flex-1 cursor-pointer rounded-md py-2 px-6 text-center font-jakarta text-sm font-semibold",
+            "flex-1 cursor-pointer rounded-md py-2 px-2 sm:px-6 text-center font-jakarta text-sm font-semibold",
             visibleSection === section.title
               ? "bg-fuchsia-600 text-white"
               : "color-re"
