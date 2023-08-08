@@ -40,7 +40,7 @@
   --ifm-f-white-soft: #f8f8f8;
   --ifm-f-white-mute: #f2f2f2;
   --ifm-f-bg-soft: #f6f6f7;
-  --farm--border: rgba(86, 86, 86, 0.125)
+  --farm--border: rgba(86, 86, 86, 0.125);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -59,7 +59,7 @@
   --ifm-f-white-soft: #222222;
   --ifm-f-white-mute: #282828;
   --ifm-footer-background-color: #181818;
-  --farm--border: #fafafa20
+  --farm--border: #fafafa20;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 

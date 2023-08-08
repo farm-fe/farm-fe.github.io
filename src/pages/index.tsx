@@ -52,7 +52,7 @@ function HomepageHeader() {
             <div
               className={clsx(
                 styles.farmButton,
-                "flex w-40 sm:w-20 lg:w-40  items-center justify-center font-bold"
+                "flex w-40  items-center justify-center font-bold"
               )}
             >
               <Translate>Why Farm?</Translate>
