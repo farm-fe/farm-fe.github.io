@@ -83,18 +83,6 @@
   transition: opacity 0.3s ease-in-out;
   border-radius: 10px;
 }
-/* 
-.farmButton:active {
-  color: #000;
-} */
-
-/* .farmButton:active:after {
-  background: transparent;
-}
-
-.farmButton:hover:before {
-  opacity: 1;
-} */
 
 .farmButton:after {
   z-index: -1;
