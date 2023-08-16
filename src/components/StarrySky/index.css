@@ -7,20 +7,6 @@ canvas {
   height: 100%;
 }
 
-.bg-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  /* background: radial-gradient(
-    at 50% 100%,
-    #873740 0%,
-    #272730 40%,
-    #171720 80%,
-    #070710 100%
-  ); */
-}
-
 h1 {
   inherit: unset;
 }

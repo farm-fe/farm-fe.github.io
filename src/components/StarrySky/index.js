@@ -50,7 +50,6 @@ export default function App() {
   const particleSystem = useRef();
   return (
     <>
-      <div className="bg-container" />
       <Canvas dpr={[1.5, 2]} linear shadows style={{ position: "absolute" }}>
         <fog attach="fog" args={["#272730", 16, 30]} />
         <ambientLight intensity={0.75} />
