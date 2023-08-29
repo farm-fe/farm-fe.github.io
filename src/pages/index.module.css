@@ -59,6 +59,17 @@
 }
 
 .farmButton:before {
+  transition: all 0.2s ease 0s;
+  content: "";
+  position: absolute;
+  background: linear-gradient(to right, #9f1a8f, #7a00ff, #ff00c8);
+  inset: -3px;
+  z-index: -1;
+  border-radius: 12.5px;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.farmButton:hover:before {
   content: "";
   background: linear-gradient(
     45deg,
@@ -78,7 +89,7 @@
   filter: blur(5px);
   width: calc(100% + 4px);
   height: calc(100% + 4px);
-  animation: glowing 20s linear infinite;
+  animation: glowing 16s linear infinite;
   opacity: 1;
   transition: opacity 0.3s ease-in-out;
   border-radius: 10px;
