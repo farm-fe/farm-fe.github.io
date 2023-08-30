@@ -89,7 +89,7 @@ function Feature({ Img, title, description, className }) {
   return (
     <div
       className={clsx(
-        "rounded-lg shadow-lg overflow-hidden",
+        "rounded-lg shadow-lg",
         styles.card,
         styles["card-container"],
         className
