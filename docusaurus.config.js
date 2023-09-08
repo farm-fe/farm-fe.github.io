@@ -66,7 +66,7 @@ const config = {
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/farm-fe/farm-fe.github.io",
+          editUrl: "https://github.com/farm-fe/farm-fe.github.io/tree/main/",
         },
         blog: {
           showReadingTime: true,
