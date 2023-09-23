@@ -141,10 +141,6 @@ div[class^="announcementBar_"] {
   gap: 6px;
 }
 
-body {
-  user-select: none;
-}
-
 .navbar__link {
   display: flex;
   align-items: center;
