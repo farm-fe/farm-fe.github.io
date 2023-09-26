@@ -29,13 +29,12 @@ const config = {
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
-
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: "farm-fe", // Usually your GitHub org/user name.
   projectName: "farm-fe.github.io", // Usually your repo name.
   deploymentBranch: "gh-pages",
-  onBrokenLinks: 'ignore',
+  onBrokenLinks: "ignore",
   // onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
 
@@ -111,6 +110,11 @@ const config = {
             docId: "plugins/overview",
             position: "left",
             label: "Plugins",
+          },
+          {
+            type: 'custom-documate',
+            position: 'left',
+            endpoint: "https://u2qzhw8c3d.us.aircode.run/ask",
           },
           // {to: '/blog', label: 'Blog', position: 'left'},
           {
@@ -225,14 +229,14 @@ const config = {
         magicComments: [
           // Remember to extend the default highlight class name as well!
           {
-            className: 'theme-code-block-highlighted-line',
-            line: 'highlight-next-line',
-            block: {start: 'highlight-start', end: 'highlight-end'},
+            className: "theme-code-block-highlighted-line",
+            line: "highlight-next-line",
+            block: { start: "highlight-start", end: "highlight-end" },
           },
           {
-            className: 'code-block-highlight-line',
-            line: 'c-highlight-next-line',
-            block: {start: 'c-highlight-start', end: 'c-highlight-end'},
+            className: "code-block-highlight-line",
+            line: "c-highlight-next-line",
+            block: { start: "c-highlight-start", end: "c-highlight-end" },
           },
         ],
       },
