@@ -70,9 +70,10 @@ export default function App() {
         </Suspense> */}
         <OrbitControls
           autoRotate
-          autoRotateSpeed={0.02}
+          autoRotateSpeed={0.08}
           enablePan={true}
           enableZoom={false}
+          enableRotate={false}
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
         />
