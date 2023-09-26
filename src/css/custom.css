@@ -141,10 +141,6 @@ div[class^="announcementBar_"] {
   gap: 6px;
 }
 
-body {
-  user-select: none;
-}
-
 .navbar__link {
   display: flex;
   align-items: center;
@@ -160,4 +156,16 @@ body {
 
 a {
   color: rgb(196, 76, 172);
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
 }
