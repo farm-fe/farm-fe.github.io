@@ -22,7 +22,7 @@ function HomepageHeader() {
       )}
     >
       <div className="container w-full flex flex-col items-center justify-center">
-        <p className="font-extrabold text-4xl sm:text-5xl lg:text-7xl tracking-tight text-center">
+        <p className="font-extrabold text-4xl sm:text-7xl lg:text-7xl tracking-tight text-center">
           <span>
             <Translate>Super Fast Web</Translate>
           </span>
