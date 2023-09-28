@@ -113,11 +113,11 @@ const config = {
             label: "Plugins",
           },
           // {to: '/blog', label: 'Blog', position: 'left'},
-          {
-            label: "v 0.11.0",
-            position: "right",
-            items: [],
-          },
+          // {
+          //   label: "v 0.11.0",
+          //   position: "right",
+          //   items: [],
+          // },
           {
             type: "localeDropdown",
             position: "right",
@@ -134,16 +134,17 @@ const config = {
       footer: {
         links: [
           {
-            title: "Learn",
+            title: "Guide",
             items: [
               {
-                label: "Introduction",
-                to: "/why-farm",
+                label: "Quick Start",
+                to: "/docs/quick-start",
               },
               {
-                label: "Installation",
-                to: "/quick-start",
-              },
+                label: "Introduction",
+                to: "/docs/why-farm",
+              }
+             
             ],
           },
           {
@@ -162,14 +163,6 @@ const config = {
           {
             title: "More",
             items: [
-              {
-                label: "Blog",
-                to: "/quick-start",
-              },
-              {
-                label: "Changelog",
-                to: "/quick-start",
-              },
               {
                 label: "GitHub",
                 href: "https://github.com/farm-fe/farm",
