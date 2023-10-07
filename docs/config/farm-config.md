@@ -95,10 +95,10 @@ After partial bundling, other resource file names except the resources configure
 
 directory of output resources
 
-#### `output. publicPath`
+#### `output.publicPath`
 * **Default value**: `"/"`
 
-The resource url load prefix. For example URL `https://xxxx`, or a path `/xxx`.
+The resource url load prefix. For example URL `https://xxxx`, or a absolute path `/xxx/`.
 
 #### `output.assetsFileName`
 * **Default value**: `"[resourceName].[ext]"`
