@@ -24,7 +24,7 @@ const sidebars = {
       type: 'category',
       label: 'Tutorial',
       collapsed: false,
-      items: ['tutorials/overview', 'tutorials/create', 'tutorials/start', 'tutorials/configure-plugins', 'tutorials/build'],
+      items: ['tutorials/overview', 'tutorials/create', 'tutorials/start', 'tutorials/build'],
     },
     {
       type: 'category',
