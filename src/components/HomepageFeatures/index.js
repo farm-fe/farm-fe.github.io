@@ -15,7 +15,7 @@ const FeatureList = [
     Img: Rocket,
     description: (
       <Translate>
-        Super Fast: Written in Rust, start a React / Vue project in milliseconds
+        Written in Rust, start a React / Vue project in milliseconds
         and perform an HMR update within 10ms for most situations.
       </Translate>
     ),
@@ -27,8 +27,8 @@ const FeatureList = [
     Img: FeaturePng,
     description: (
       <Translate>
-        Farm support compiling Html, Css, Js/Jsx/Ts/Tsx, Json, Static Assets out
-        of box, support sass, less, react-refresh by official plugins, support
+        Farm support compiling Html, Css, Css Modules, Js/Jsx/Ts/Tsx, Json, Static Assets out
+        of box, support sass, less, postcss, vue, react, solid by official plugins, support
         lazy compiling, partial bundling and more
       </Translate>
     ),

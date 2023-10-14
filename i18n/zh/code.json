@@ -440,8 +440,8 @@
   "Compatibility: Supports both legacy (ES5) and modern browsers.": {
     "message": "兼容性: 同时支持传统(ES5)和现代浏览器。"
   },
-  "Farm support compiling Html, Css, Js/Jsx/Ts/Tsx, Json, Static Assets out of box, support sass, less, react-refresh by official plugins, support lazy compiling, partial bundling and more": {
-    "message": "丰富的编译能力支持: 开箱即用, Farm 内置了 Js/Ts/Jsx/Tsx、Css/Sass/Less、HTML 和静态资源 支持惰性编译、部分捆绑等。"
+  "Farm support compiling Html, Css, Css Modules, Js/Jsx/Ts/Tsx, Json, Static Assets out of box, support sass, less, postcss, vue, react, solid by official plugins, support lazy compiling, partial bundling and more": {
+    "message": "丰富的编译能力支持: 开箱即用, Farm 内置了 Js/Ts/Jsx/Tsx、Css/Css Modules/Sass/Less、HTML 和静态资源，可以通过官方插件支持 sass、less、postcss、react、vue、solid 等常用技术栈，支持惰性编译、局部打包等。"
   },
   "Fully Pluggable: Everything inside Farm is powered by plugins, achieve anything you want by creating a plugin. Supports both Rust and JavaScript plugins.": {
     "message": "Farm 由插件驱动, 通过创建插件来实现任何您想要的功能, 同时支持 Rust 和 JavaScript 两种插件模式。"

@@ -13,7 +13,11 @@ But Unbundled is not perfect, there are still big problem when comes for a large
 * **Inconsistency between Dev and Production**: Native module can not be used in production for most situations, For the compatibility and request numbers. So Unbundled tools choose to bundle in production. This brings inconsistency, when there are production bugs caused by this inconsistency, it's really hard to debug and really painful. And vite is using esbuild in dev and using rollup in production, which enlarged the inconsistency.
 * And Vite is so fast in dev because of esbuild, which is written in go. Go takes advantages of native platform and much faster than Js.
 
-So I think we just need a fast, powerful, consistent web bundler, which can solve the problems above and fast, then I designed Farm.
+So I think we just need a fast, powerful, consistent web bundler, which can solve the problems above and fast, then I designed and implemented Farm.
+
+:::note
+Farm is designed to be browser-first and will not try to be a universe bundler, which means Farm only focus on browser, every design we made is to make web faster(make compilation faster and make the compiled resource loading faster).
+:::
 
 And Farm is not just a normal bundler re-written in Rust, it has a lot of powerful and progressive designs:
 
@@ -24,7 +28,7 @@ And Farm is not just a normal bundler re-written in Rust, it has a lot of powerf
 * **Partial Bundling**: The bundling goal of Farm is not to bundle everything together, but to limit the request numbers of resources. Farm will bundle your project into 20-30 small resources according to the dependency relation and resource size, to get the best resources loading performance without losing caching granularity.
 * **First class citizen support of all web assets**: Farm won't need to transform everything to Javascript any more, it treats anything as first class citizen, assets like `html`, `js/jsx/ts/tsx`, `css/scss`, `png/svg/...` are all basic modules supported by Farm, more assets can be supported by plugins.
 * **Compatibility**: Farm will work with both legacy(ES5) and modern browser.
-* **Rollup style plugin system**: Easy to create your own plugins and easy to migrate your plugins/projects from rollup/vite/webpack. 
+* **Rollup style plugin system and vite/rollup compatible js-plugins**: Easy to create your own plugins and easy to migrate your plugins/projects from rollup/vite. Support both Rust and JS plugins.
 
 
 Farm's goal is to be the real next generation build tool, fast, powerful, consistent, and providing best development experience for web developers.

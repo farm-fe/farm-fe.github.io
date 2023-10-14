@@ -51,7 +51,7 @@ const config = {
         direction: "ltr",
       },
       zh: {
-        label: `简体中文 (${progress["zh-CN"].translationProgress}%)`,
+        label: `简体中文`,
         direction: "ltr",
       },
     },
