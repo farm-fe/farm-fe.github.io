@@ -171,7 +171,7 @@ export default defineConfig({
 });
 ```
 
-## Farm Runtime Plugin
+## Farm 运行时插件
 Farm有一个运行时模块系统来控制如何加载和执行模块。 配置 `compilation.runtime.plugins` 以添加更多运行时插件，例如：
 ```ts
 export default defineConfig({
@@ -194,7 +194,7 @@ export default defineConfig({
 要了解有关运行时插件的更多信息，请参阅[运行时插件](/docs/plugins/runtime-plugin)
 :::
 
-## Using SWC Plugins
+## 使用 SWC 插件
 Swc Plugin 也可以直接在Farm中使用，配置`compilation.script.plugins`来添加SWC插件，例如：
 ```ts
 import jsPluginVue from '@farmfe/js-plugin-vue';

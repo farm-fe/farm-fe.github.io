@@ -5,6 +5,8 @@ There are 4 kinds of plugins supported in Farm:
 * **`Farm Runtime Plugin`**: Adding abilities for Farm's runtime system.
 * **`Swc Plugins`**: Swc plugins are supported in Farm out of Box.
 
+Farm adopt Vite/Rollup ecosystem, Vite/Rollup Plugins can be used directly in Farm.
+
 :::tip
 For how to write your own plugins, refer to [Plugins](/docs/plugins/overview)
 :::

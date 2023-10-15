@@ -403,7 +403,7 @@ export default defineConfig({
 
 All HTML entries will inherit `html.base`, for details, refer to [Guide - HTML](/docs/features/html)
 
-###sourcemap
+### sourcemap
 * **default**: `true`
 
 Configure whether to enable sourcemap, optional configuration items and descriptions are as follows:

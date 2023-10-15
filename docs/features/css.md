@@ -146,3 +146,34 @@ module.exports = {
    ]
 }
 ```
+
+## Css Prefixer
+Farm supports css prefixer out of box, you can configure it using `compilation.css.prefixer`.
+
+```ts title="farm.config.ts"
+import type { UserConfig } from '@farmfe/core';
+
+function defineConfig(config: UserConfig) {
+   return config;
+}
+
+export default defineConfig({
+   compilation: {
+     css: {
+       prefix: {
+        targets: ['ie >= 10']
+       }
+     },
+   },
+});
+```
+Then for input code:
+```css
+div {
+  display: flex;
+}
+```
+output code:
+```css
+div{display:-ms-flexbox;display:flex}
+```

@@ -200,6 +200,27 @@ Now postcss is fully supported in Farm, we won't cover postcss details here, ref
 Refer to [Farm Plugins](/docs/plugins/overview) to learn more about Farm plugins.
 :::
 
+## Configuring Alias And Externals
+Alias and externals are also most useful configurations, we can use `compilation.resolve.alias` and `compilation.externals` in Farm:
+
+```ts title="farm.config.ts"
+// ...
+
+export default defineConfig({
+  compilation: {
+    resolve: {
+      alias: {
+        '@/': path.join(process.cwd(), 'src')
+      },
+      externals: [
+        'node:fs'
+      ]
+    }
+  }
+  // ...
+});
+```
+
 ## Configuring DevServer
 You can find server configuration in [Farm Dev Server Config](/docs/config/farm-config#devserver-options---server).
 

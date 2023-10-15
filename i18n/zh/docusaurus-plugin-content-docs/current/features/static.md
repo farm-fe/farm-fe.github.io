@@ -33,7 +33,7 @@ export default 'data:image/png,base64,xxxxx==';
 ```
 
 ## 原始字符串
-例如，使用查询“?raw”告诉 Farm 您要读取资产的原始字符串
+例如，使用查询`?raw`告诉 Farm 您要读取资产的原始字符串
 
 ```js
 // import 
@@ -43,7 +43,9 @@ import logo from './assets/license.txt?raw'; // return the content string of the
 export default 'MIT xxxx';
 ```
 
-## 配置
+## 相关配置
+* 使用`compilation.output.assetFileName`来控制生产文件名
+* 使用`compilation.assets.include`将更多类型的文件视为资产模块。
 
 ```js
 export default {
