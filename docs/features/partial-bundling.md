@@ -79,7 +79,7 @@ Now we have familiar with `Partial Bundling`'s basic rules, if met problems with
     * **name**: Name of this resource.
     * **test**: Regex array to match the modules which are in this resource.
 6. **`enforceTargetConcurrentRequests`**: Enforce target concurrent requests for every resource loading, when true, smaller resource will be merged into bigger resource to meet the target concurrent requests. this may cause issue for css resource, be careful to use this option
-7. **`enforceTargetMinSize`**: Enforce target min size for every resource, when tue, smaller resource will be merged into bigger resource to meet the target concurrent requests. this may cause issue for css resource, be careful to use this option
+7. **`enforceTargetMinSize`**: Enforce target min size for every resource, when true, smaller resource will be merged into bigger resource to meet the target concurrent requests. this may cause issue for css resource, be careful to use this option
 8. **`immutableModules`**: Regex array to match the immutable modules
 9. **`immutableModulesWeight`**: Default to `0.8`, immutable module will have 80% request numbers. For example, if `targetConcurrentRequest` is 25, then immutable resources will take `25 * 80% = 20` by default. This option is to make sure that mutable and immutable modules are isolate, if change your business code, code under node_modules won't be affected.
 
