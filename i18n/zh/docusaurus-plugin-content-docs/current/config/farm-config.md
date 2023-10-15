@@ -419,44 +419,126 @@ export default defineConfig({
 配置 Farm 局部打包的行为，详情可以参考 [局部打包](/docs/features/partial-bundling)
 
 ```ts
-export interface FarmPartialBundingConfig {
-  moduleBuckets?: {
+export interface FarmPartialBundlingConfig {
+  targetConcurrentRequests?: number;
+  targetMinSize?: number;
+  targetMaxSize?: number;
+  groups?: {
     name: string;
-    test: string[]; // 正则数组
+    test: string[];
+    groupType?: 'mutable' | 'immutable',
+    resourceType?: 'all' | 'initial' | 'async'
   }[];
+  enforceResources?: {
+    name: string;
+    test: string[];
+  }[];
+  enforceTargetConcurrentRequests?: boolean;
+  enforceTargetMinSize?: boolean;
+  immutableModules?: string[];
 };
 ```
 
-#### `partialBundling.moduleBuckets`
-* **默认值**: `[]`
+#### `partialBundling.targetConcurrentRequests`
+* **default**: `25`
 
-`moduleBuckets` 用于指定哪些模块为一个整体，这些模块将始终会被组织到同一个产物文件中。例如，如果想最终只生成可以文件，可以做如下配置：
+Farm 尝试生成尽可能接近此配置值的资源数量，控制初始资源加载或动态资源加载的并发请求数量。
 
-```ts
-import type { UserConfig } from '@farmfe/core';
 
-function defineConfig(config: UserConfig) {
-  return config;
-}
+#### `partialBundling.targetMinSize`
+* **default**: `20 * 1024` bytes, 20 KB
 
+minify 和 gzip 之前生成的资源的最小大小。 请注意，`targetMinSize` 并不一定保证满足，可以配置`enforceTargetMinSize`可用于强制限制最小的大小。
+
+#### `partialBundling.targetMaxSize`
+* **default**: `1500 * 1024` bytes, 1500 KB
+
+minify 和gzip 之前生成的资源的最大大小。
+
+#### `partialBundling.groups`
+* **default**: `[]`
+
+一组应该放在一起的模块。 请注意，此组配置只是对编译器的打击，即这些模块应该放置在一起，它可能会产生多个资源，如果您想强制打包模块到同一个资源中，使用`enforceResources`。
+
+数组每一项的配置选项如下:
+  * **name**: 该组的名称。
+  * **test**: 匹配该组中的模块路径的正则表达式数组。.
+  * **groupType**: `mutable` 或 `immutable`，限制该组仅适用于指定类型的模块。
+  * **resourceType**: `all`、`initial` 或 `async`，限制该组仅适用于指定类型的资源。
+
+```ts title="farm.config.ts" {4-9}
 export default defineConfig({
   compilation: {
-    partialBundling: [
-      {
-        name: 'index-bundle',
-        test: ['.+'] // 使用正则，匹配任意模块路径
-      }
-    ]
+    partialBundling: {
+      groups: [
+        {
+          name: 'vendor-react',
+          test: ['node_modules/'],
+        }
+      ]
+    },
   },
 });
 ```
-或者把 react 单独打包，可以使用 `test: ['node_modules/react/', 'node_modules/react-dom/']`。
 
-注意不要使用 `/node_modules/react`，没有前缀 `/`，因为 Farm 是使用的模块相对路径做匹配，`/node_modules` 将匹配不到项目根目录下的 node_modules 目录。
+#### `partialBundling.enforceResources`
+* **default**: `[]`
 
+Array to match the modules that should always be in the same output resource, ignore all other constraints.
+
+Options for each item:
+  * **name**: Name of this resource.
+  * **test**: Regex array to match the modules which are in this resource.
+
+```ts title="farm.config.ts" {4-9}
+export default defineConfig({
+  compilation: {
+    partialBundling: {
+      enforceResources: [
+        {
+          name: 'index',
+          test: ['.+'],
+        }
+      ]
+    },
+  },
+});
+```
 :::warning
-命中了该选项的模块将不会参与内置的模块组织流程，请尽量控制 moduleBuckets 的范围，以免影响资源加载性能
+`enforceResources` will ignore all Farm's internal optimization, be careful when you use it.
 :::
+
+#### `partialBundling.enforceTargetConcurrentRequests`
+* **default**: `false`
+
+对每个资源加载强制执行目标并发请求数量，当为 true 时，较小的资源将合并为较大的资源以满足目标并发请求。 这可能会导致 css 资源出现问题，请小心使用此选项
+
+#### `partialBundling.enforceTargetMinSize`
+* **default**: `false`
+
+为每个资源强制执行目标最小大小限制，如果为真，较小的资源将合并为较大的资源以满足目标并发请求。 这可能会导致 css 资源出现问题，请小心使用此选项
+
+#### `partialBundling.immutableModules`
+* **default**: `['node_modules']`
+
+匹配不可变模块的正则表达式数组
+
+```ts title="farm.config.ts"
+export default defineConfig({
+  compilation: {
+    partialBundling: {
+      immutableModules: ['node_modules/', '/global-constants']
+    },
+  },
+});
+```
+不可变模块会影响打包和持久缓存，如果要更改它，请小心。
+
+#### `partialBundling.immutableModulesWeight`
+* **default**: `0.8`
+
+Default to `0.8`, immutable module will have 80% request numbers. For example, if `targetConcurrentRequest` is 25, then immutable resources will take `25 * 80% = 20` by default. This option is to make sure that mutable and immutable modules are isolate, if change your business code, code under node_modules won't be affected.
+
 
 ### lazyCompilation
 * **默认值**: 在开发模式是 `true`，构建模式是 `false`

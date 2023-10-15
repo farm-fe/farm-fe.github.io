@@ -78,13 +78,13 @@ Farm 使用以下规则来获得上述结果：
 5. **`enforceResources`**: 忽略所有其他约束，强制匹配的模块打包到一起。
     * **name**: 该组的名称。
     * **test**: 匹配该组中的模块路径的正则表达式数组。
-6. **`enforceTargetConcurrentRequests`**: Enforce target concurrent requests for every resource loading, when tue, smaller resource will be merged into bigger resource to meet the target concurrent requests. this may cause issue for css resource, be careful to use this option
-7. **`enforceTargetMinSize`**: 为每个资源加载强制执行目标并发请求，在为 true 时，较小的资源将合并为较大的资源以满足目标并发请求。 这可能会导致 css 资源出现问题，请小心使用此选项
+6. **`enforceTargetConcurrentRequests`**: 对每个资源加载强制执行目标并发请求数量，当为 true 时，较小的资源将合并为较大的资源以满足目标并发请求。 这可能会导致 css 资源出现问题，请小心使用此选项
+7. **`enforceTargetMinSize`**: 为每个资源强制执行目标最小大小限制，如果为真，较小的资源将合并为较大的资源以满足目标并发请求。 这可能会导致 css 资源出现问题，请小心使用此选项
 8. **`immutableModules`**: 匹配不可变模块的正则表达式数组
 9. **`immutableModulesWeight`**: 默认为`0.8`，不可变模块将拥有80%的请求数。 例如，如果`targetConcurrentRequest`为 25，则默认情况下不可变资源将采用`25 * 80% = 20`。 该选项是为了确保可变模块和不可变模块是隔离的，如果更改您的业务代码，node_modules下的代码不会受到影响。
 
 :::note
-一般来说，您可以使用`targetConcurrentRequests`、`targetMinSize`和`targetMaxSize`来控制 Partial Bundling 的默认行为。 Farm 设置的默认值基于最佳实践，因此当您想要更改默认值时请确保有必要。
+您可以使用`targetConcurrentRequests`、`targetMinSize`和`targetMaxSize`来控制 Partial Bundling 的默认行为。 Farm 设置的默认值基于最佳实践，因此当您想要更改默认值时请确保有必要。
 :::
 
 ### Grouping Modules
