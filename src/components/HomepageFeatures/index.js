@@ -40,9 +40,8 @@ const FeatureList = [
     Img: Plug,
     description: (
       <Translate>
-        Fully Pluggable: Everything inside Farm is powered by plugins, achieve
-        anything you want by creating a plugin. Supports both Rust and
-        JavaScript plugins.
+        Fully Pluggable: Everything inside Farm is powered by plugins, Supports both Rust and
+        JavaScript plugins. Support Vite plugins out of box.
       </Translate>
     ),
     className:

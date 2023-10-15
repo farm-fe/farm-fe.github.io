@@ -39,7 +39,9 @@ import logo from './assets/license.txt?raw'; // return the content string of the
 export default 'MIT xxxx';
 ```
 
-## Configuring
+## Configuring Assets
+* Using `compilation.output.assetFileName` to control the production file name
+* using `compilation.assets.include` to treat more kind of files as asset modules.
 
 ```js
 export default {

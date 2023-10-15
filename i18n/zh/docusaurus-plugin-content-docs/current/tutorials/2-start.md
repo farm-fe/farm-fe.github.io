@@ -198,6 +198,27 @@ export default defineConfig({
 请参阅 [使用 Farm 插件](/docs/using-plugins) 了解有关 Farm 插件的更多信息。
 :::
 
+## 配置 Alias 以及 Externals
+Alias 和 externals 是最常用的配置之一, 在 Farm 中，可以使用 `compilation.resolve.alias` 和 `compilation.externals` 配置项:
+
+```ts title="farm.config.ts"
+// ...
+
+export default defineConfig({
+  compilation: {
+    resolve: {
+      alias: {
+        '@/': path.join(process.cwd(), 'src')
+      },
+      externals: [
+        'node:fs'
+      ]
+    }
+  }
+  // ...
+});
+```
+
 ## 配置开发服务器
 您可以在[Farm Dev Server Config](/docs/config/farm-config#devserver-options---server)中找到服务器配置。
 
