@@ -20,6 +20,7 @@ const sidebars = {
   tutorialSidebar: [
     'quick-start',
     'why-farm',
+    'using-plugins',
     {
       type: 'category',
       label: 'Tutorial',
