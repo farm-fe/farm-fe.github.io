@@ -3,9 +3,9 @@ A Js plugin is a plain Javascript object.
 
 ```js
 // farm.config.ts
-import { defineFarmConfig } from '@farmfe/core/dist/config';
+import { UserConfig } from '@farmfe/core';
 
-export default defineFarmConfig({
+export default <UserConfig>{
   // ...
   plugins: [
     // a plugin object
@@ -31,7 +31,7 @@ export default defineFarmConfig({
     },
     // load, transform are similar to resolve, refer to their types
   ],
-});
+};
 ```
 
 If you want to pass args to your plugins，you can use a closure.

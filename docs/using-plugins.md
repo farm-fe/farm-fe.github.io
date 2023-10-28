@@ -90,6 +90,25 @@ export default defineConfig({
 ```
 `farmPostcssPlugin()` returns a plugin object, and you can pass any postcss options by its arguments.
 
+You can use `priority` to control the order of your plugins, for example:
+```ts title="farm.config.ts" {10,11}
+import farmPostcssPlugin from "@farmfe/js-plugin-postcss";
+
+export default defineConfig({
+  plugins: [
+    // Js plugin, configure the plugin object
+    {
+      ...farmPostcssPlugin({
+        // ... configure postcss options
+      }),
+      // larger priority will be executed first, priority of internal plugin are 100.
+      priority: 1000,
+    }
+  ],
+});
+```
+priority of internal plugin are 100, if you want the plugin execute first, set it larger than 100, otherwise set it smaller than 100.
+
 If you want to add a Farm JS plugin quickly, you can just configure a plugin object:
 ```ts title="farm.config.ts"
 import readFileSync from 'fs';
