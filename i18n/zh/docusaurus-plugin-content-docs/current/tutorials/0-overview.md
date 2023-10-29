@@ -18,9 +18,9 @@ Vue项目也得到了Farm的全力支持。 Farm中可以直接使用`Vite`的`@
 
 跟着我们的教程，开启你的超快农场开发之旅吧！
 
-* [1. 创建 Farm React 项目](/docs/tutorials/overview)
-* [2. 使用 Farm 开发项目](/docs/tutorials/overview)
-* [3. 使用 Farm 构建生产环境](/docs/tutorials/overview)
+* [1. 创建 Farm React 项目](/docs/tutorials/create)
+* [2. 使用 Farm 开发项目](/docs/tutorials/start)
+* [3. 使用 Farm 构建生产环境](/docs/tutorials/build)
 
 :::note
 本教程的源代码在[Farm 教程仓库](https://github.com/farm-fe/tutorials)

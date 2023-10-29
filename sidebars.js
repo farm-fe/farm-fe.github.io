@@ -85,9 +85,9 @@ const sidebars = {
       label: 'Writing Plugins',
       collapsed: false,
       items: [
-        'plugins/overview',
-        'plugins/rust-plugin',
-        'plugins/js-plugin',
+        'plugins/writing-plugins/overview',
+        'plugins/writing-plugins/rust-plugin',
+        'plugins/writing-plugins/js-plugin',
       ]
     },
   ]

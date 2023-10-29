@@ -6,7 +6,7 @@ Farm支持4种插件：
 * **`Swc 插件`**：Farm 开箱即用支持 Swc 插件。
 
 :::tip
-如何编写自己的插件，请参考[插件](/docs/plugins/overview)
+如何编写自己的插件，请参考[插件](/docs/plugins/writing-plugins/overview)
 :::
 
 ## Farm 编译插件

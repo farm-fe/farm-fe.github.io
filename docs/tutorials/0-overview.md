@@ -18,9 +18,9 @@ This tutorial is `build a Farm react project from scratch`, If you are trying to
 
 Following our tutorial, and open your super-fast Farm develop journey!
 
-* [1. Create A Farm React Project](/docs/tutorials/overview)
-* [2. Develop Project With Farm](/docs/tutorials/overview)
-* [3. Build For Production](/docs/tutorials/overview)
+* [1. Create A Farm React Project](/docs/tutorials/react)
+* [2. Develop Project With Farm](/docs/tutorials/start)
+* [3. Build For Production](/docs/tutorials/build)
 
 :::note
 The source code of this tutorial is in [farm tutorials](https://github.com/farm-fe/tutorials)

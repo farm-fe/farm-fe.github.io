@@ -8,7 +8,7 @@ There are 4 kinds of plugins supported in Farm:
 Farm adopt Vite/Rollup ecosystem, Vite/Rollup Plugins can be used directly in Farm.
 
 :::tip
-For how to write your own plugins, refer to [Plugins](/docs/plugins/overview)
+For how to write your own plugins, refer to [Plugins](/docs/plugins/writing-plugins/overview)
 :::
 
 ## Farm Compilation Plugins
