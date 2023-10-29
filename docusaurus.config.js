@@ -108,7 +108,7 @@ const config = {
           },
           {
             type: "doc",
-            docId: "plugins/overview",
+            docId: "plugins/official-plugins/overview",
             position: "left",
             label: "Plugins",
           },
@@ -210,7 +210,7 @@ const config = {
       // },
       announcementBar: {
         id: "announcementBar-2", // Increment on change
-        content: `🎉 Farm will release the STABLE version soon. If you like Farm, give it a ⭐️ on <a target="_blank" rel="noopener noreferrer" href="https://github.com/farm-fe/farm">GitHub</a>`,
+        content: `🎉 Farm will release 1.0 soon. If you like Farm, give it a ⭐️ on <a target="_blank" rel="noopener noreferrer" href="https://github.com/farm-fe/farm">GitHub</a>`,
       },
       prism: {
         theme: lightCodeTheme,

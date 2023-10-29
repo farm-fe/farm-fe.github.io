@@ -1,4 +1,4 @@
-# Syntax Downgrade and Polyfill
+# 语法降级和 Polyfill
 默认情况下，Farm 将降级到`ES5`并在生产模式下自动注入`polyfills`。
 
 :::note

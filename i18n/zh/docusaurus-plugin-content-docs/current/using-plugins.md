@@ -86,6 +86,24 @@ export default defineConfig({
 ```
 `farmPostcssPlugin()`返回一个插件对象，您可以通过其参数传递任何 postcss 选项。
 
+您可以使用`priority`来控制插件的顺序，例如：
+```ts title="farm.config.ts" {10,11}
+import farmPostcssPlugin from "@farmfe/js-plugin-postcss";
+
+export default defineConfig({
+  plugins: [
+    {
+      ...farmPostcssPlugin({
+        // ... configure postcss options
+      }),
+      // larger priority will be executed first, priority of internal plugin are 100.
+      priority: 1000,
+    }
+  ],
+});
+```
+内部插件的优先级都是100，如果想让插件先执行，就设置大于100，否则设置小于100。
+
 如果你想快速添加 Farm JS 插件，只需配置一个插件对象即可：
 ```ts title="farm.config.ts"
 import readFileSync from 'fs';

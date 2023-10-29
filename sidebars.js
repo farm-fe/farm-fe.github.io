@@ -51,9 +51,45 @@ const sidebars = {
     'config/cli'
   ],
   pluginSidebar: [
-    'plugins/overview',
-    'plugins/rust-plugin',
-    'plugins/js-plugin',
+    {
+      type: 'category',
+      label: 'Official Plugins',
+      items: [
+        'plugins/official-plugins/overview',
+        {
+          type: 'category',
+          label: 'Rust Plugins',
+          collapsed: false,
+          items: [
+            'plugins/official-plugins/react',
+            'plugins/official-plugins/sass',
+          ]
+        },
+        {
+          type:'category',
+          label: 'Js Plugins',
+          collapsed: false,
+          items: [
+            'plugins/official-plugins/js-postcss',
+            'plugins/official-plugins/js-less',
+            'plugins/official-plugins/js-sass',
+            'plugins/official-plugins/js-svgr',
+            'plugins/official-plugins/js-dts',
+          ]
+        }
+      ]
+    },
+    'plugins/community-plugins',
+    {
+      type: 'category',
+      label: 'Writing Plugins',
+      collapsed: false,
+      items: [
+        'plugins/overview',
+        'plugins/rust-plugin',
+        'plugins/js-plugin',
+      ]
+    },
   ]
 };
 

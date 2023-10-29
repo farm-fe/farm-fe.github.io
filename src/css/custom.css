@@ -60,7 +60,7 @@
   --ifm-f-white-mute: #282828;
   --ifm-footer-background-color: #181818;
   --farm--border: #fafafa20;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --docusaurus-highlighted-code-line-bg: rgba(143, 26, 127, .7);
   --docsearch-primary-color: var(--ifm-color-primary-dark) !important;
 }
 
