@@ -71,7 +71,7 @@ Currently Farm supports 2 rust plugins officially:
 * **`@farmfe/plugin-sass`**: Farm rust plugin for scss files compilation, uses `sass-embedded` internally.
 
 :::tip
-To learn more about rust plugins, see [Rust Plugins](/docs/plugins/rust-plugin)
+To learn more about rust plugins, see [Rust Plugins](/docs/plugins/official-plugins/overview)
 :::
 
 ### Using Js Plugins
@@ -148,7 +148,7 @@ export default defineConfig({
 :::
 
 :::tip
-To learn more about Farm Js Plugins, refer to [JS Plugin](/docs/plugins/js-plugin)
+To learn more about Farm Js Plugins, refer to [JS Plugin](/docs/plugins/official-plugins/overview)
 :::
 
 ## Using Vite Plugins In Farm

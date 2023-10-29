@@ -68,7 +68,7 @@ export default defineConfig({
 * **`@farmfe/plugin-sass`**：用于 scss 文件编译的 Farm rust 插件，内部使用 `sass-embedded`。
 
 :::tip
-要了解有关 rust 插件的更多信息，请参阅 [Rust 插件](/docs/plugins/rust-plugin)
+要了解有关 rust 插件的更多信息，请参阅 [Rust 插件](/docs/plugins/official-plugins/overview)
 :::
 
 ### 使用 Js 插件
@@ -143,11 +143,11 @@ Farm 中的 js 插件需要 `filters`。 因为Js Plugin实在是太慢了，我
 :::
 
 :::tip
-了解更多关于 Farm Js 插件的信息，请参考 [JS 插件](/docs/plugins/js-plugin)
+了解更多关于 Farm Js 插件的信息，请参考 [JS 插件](/docs/plugins/official-plugins/overview)
 :::
 
 ## 使用 Vite 插件
-Farm 支持开箱即用的 Vite 插件。 首先需要安装vite插件，例如：
+Farm 兼容 Vite 插件，Vite 插件可以直接在 Farm 中配置使用。 首先需要安装 vite 插件，例如：
 ```bash
 pnpm add @vitejs/plugin-vue @vitejs/plugin-vue-jsx vite -D
 ```
