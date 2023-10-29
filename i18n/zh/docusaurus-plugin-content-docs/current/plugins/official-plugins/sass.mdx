@@ -1,6 +1,6 @@
 # @farmfe/plugin-sass
 
-Support `Sass` for Farm.
+支持 `sass`.
 
 ## Installation
 
@@ -27,4 +27,7 @@ const config: UserConfig = {
 ```
 
 ## Options
-暂未暴露任何配置项，后续支持。
+### additionalData
+* **类型**: `string`
+
+在每个 `sass` 文件头部添加额外内容，例如 `@import '@/styles/variables.scss';` 语句。
