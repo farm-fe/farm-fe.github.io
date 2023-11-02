@@ -84,3 +84,55 @@ export default {
 ```
 
 有关更多详细信息，请参阅[使用插件](/docs/using-plugins#using-swc-plugins)。
+
+## Vite 风格的 `import.meta.glob`
+Farm 完整支持 Vite 风格的 `import.meta.glob`, 参考 [glob import](https://vitejs.dev/guide/features.html#glob-import).
+
+例如:
+```ts
+const modules = import.meta.glob('./dir/*.js')
+```
+将会被编译成以下结果
+```ts
+// code produced by Farm
+const modules = {
+  './dir/foo.js': () => import('./dir/foo.js'),
+  './dir/bar.js': () => import('./dir/bar.js'),
+}
+```
+
+使用 `{ eager: true }` 后:
+```ts
+const modules = import.meta.glob('./dir/*.js', { eager: true })
+```
+将会被编译成以下结果:
+```ts
+// code produced by Farm
+import * as __glob__0_0 from './dir/foo.js'
+import * as __glob__0_1 from './dir/bar.js'
+const modules = {
+  './dir/foo.js': __glob__0_0,
+  './dir/bar.js': __glob__0_1,
+}
+```
+
+支持数组形式:
+```ts
+const modules = import.meta.glob(['./dir/*.js', './another/*.js'])
+```
+
+支持通过 `!` 排除某些匹配:
+```ts
+const modules = import.meta.glob(['./dir/*.js', '!**/bar.js'])
+```
+```ts
+// code produced by Farm
+const modules = {
+  './dir/foo.js': () => import('./dir/foo.js'),
+}
+```
+
+:::note
+* `import.meta.glob` 参数必须全部是字面量，不能使用表达式。
+* `import.meta.glob` 在编译时处理和转换，在运行时不存在。
+:::

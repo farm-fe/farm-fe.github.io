@@ -1,7 +1,7 @@
 # 使用插件
 Farm支持4种插件：
 * **`Farm Compilation Plugins`**：支持 Rust 插件和 Js 插件，采用 rollup 风格的 hooks。
-* **`Vite 插件`**：Farm 开箱即用支持 Vite 插件
+* **`Vite/Rollup/Unplugin 插件`**：Farm 开箱即用支持 Vite/Rollup/Unplugin 插件
 * **`Farm Runtime Plugin`**：为 Farm 的运行时系统添加功能。
 * **`Swc 插件`**：Farm 开箱即用支持 Swc 插件。
 
@@ -146,7 +146,7 @@ Farm 中的 js 插件需要 `filters`。 因为Js Plugin实在是太慢了，我
 了解更多关于 Farm Js 插件的信息，请参考 [JS 插件](/docs/plugins/official-plugins/overview)
 :::
 
-## 使用 Vite 插件
+## 使用 Vite/Rollup/Unplugin 插件
 Farm 兼容 Vite 插件，Vite 插件可以直接在 Farm 中配置使用。 首先需要安装 vite 插件，例如：
 ```bash
 pnpm add @vitejs/plugin-vue @vitejs/plugin-vue-jsx vite -D
@@ -188,6 +188,34 @@ export default defineConfig({
   ]
 });
 ```
+
+使用 unplugin：
+```bash
+pnpm add unplugin-auto-import unplugin-vue-components -D
+```
+在 `vitePlugins` 中配置，通过 `unplugin/vite` 或者 `unplugin/rollup` 支持:
+```ts title="farm.config.ts"
+import vue from '@vitejs/plugin-vue',
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+
+export default defineConfig({
+  vitePlugins: [
+    vue(),
+    // ...
+    AutoImport({
+      resolvers: [ElementPlusResolver({ importStyle: 'sass' })],
+    }),
+    Components({
+      resolvers: [ElementPlusResolver({ importStyle: 'sass' })],
+    }),
+  ]
+});
+```
+:::note
+当前可用 `unplugin/vite` 或者 `unplugin/rollup`. `unplugin/farm` 在 [这个 PR](https://github.com/unjs/unplugin/pull/341) 合进 unplugin 后可用
+:::
 
 ## Farm 运行时插件
 Farm有一个运行时模块系统来控制如何加载和执行模块。 配置 `compilation.runtime.plugins` 以添加更多运行时插件，例如：

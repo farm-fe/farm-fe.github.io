@@ -1,7 +1,7 @@
 # Using Plugins
 There are 4 kinds of plugins supported in Farm:
 * **`Farm Compilation Plugins`**: Both Rust plugins and Js Plugins, which adopt a rollup-style hooks.
-* **`Vite Plugin`**: Vite plugins are supported in Farm out of Box
+* **`Vite/Rollup/Unplugin Plugin`**: Vite/Rollup/Unplugin plugins are supported in Farm out of Box
 * **`Farm Runtime Plugin`**: Adding abilities for Farm's runtime system.
 * **`Swc Plugins`**: Swc plugins are supported in Farm out of Box.
 
@@ -151,7 +151,7 @@ export default defineConfig({
 To learn more about Farm Js Plugins, refer to [JS Plugin](/docs/plugins/official-plugins/overview)
 :::
 
-## Using Vite Plugins In Farm
+## Using Vite/Rollup/Unplugin Plugins In Farm
 Farm supports Vite plugins out of Box. First you need to install vite plugins，for example:
 ```bash
 pnpm add @vitejs/plugin-vue @vitejs/plugin-vue-jsx vite -D
@@ -194,6 +194,35 @@ export default defineConfig({
   ]
 });
 ```
+
+Using unplugin：
+```bash
+pnpm add unplugin-auto-import unplugin-vue-components -D
+```
+configuring unplugin in `vitePlugins` via `unplugin/vite` or `unplugin/rollup`:
+```ts title="farm.config.ts"
+import vue from '@vitejs/plugin-vue',
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+
+export default defineConfig({
+  vitePlugins: [
+    vue(),
+    // ...
+    AutoImport({
+      resolvers: [ElementPlusResolver({ importStyle: 'sass' })],
+    }),
+    Components({
+      resolvers: [ElementPlusResolver({ importStyle: 'sass' })],
+    }),
+  ]
+});
+```
+:::note
+Currently you can use `unplugin/vite` or `unplugin/rollup`. `unplugin/farm` will be available as soon as [this unplugin PR](https://github.com/unjs/unplugin/pull/341) merged.
+:::
+
 
 ## Farm Runtime Plugin
 Farm has a runtime module system to control how to load and execute modules. Configuring `compilation.runtime.plugins` to add more runtime plugin, for example:

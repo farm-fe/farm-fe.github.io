@@ -31,7 +31,7 @@ const config: UserConfig = {
 
 ## unplugin
 :::note
-Current you can use `unplugin/vite` for `unplugin/rollup` in Farm. `unplugin/farm` will be available when [this PR](https://github.com/unjs/unplugin/pull/341) are merged into unplugin
+Currently you can use `unplugin/vite` or `unplugin/rollup` in Farm. `unplugin/farm` will be available when [this PR](https://github.com/unjs/unplugin/pull/341) are merged into unplugin
 :::
 
 ```ts

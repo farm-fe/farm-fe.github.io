@@ -85,3 +85,55 @@ export default {
 ```
 
 Refer to [Using Plugins](/docs/using-plugins#using-swc-plugins) for more details.
+
+## Vite-style `import.meta.glob`
+Farm fully support Vite-style `import.meta.glob`, see [glob import](https://vitejs.dev/guide/features.html#glob-import).
+
+for example:
+```ts
+const modules = import.meta.glob('./dir/*.js')
+```
+The above will be transformed into the following:
+```ts
+// code produced by Farm
+const modules = {
+  './dir/foo.js': () => import('./dir/foo.js'),
+  './dir/bar.js': () => import('./dir/bar.js'),
+}
+```
+
+Using `{ eager: true }`:
+```ts
+const modules = import.meta.glob('./dir/*.js', { eager: true })
+```
+The above will be transformed into the following:
+```ts
+// code produced by Farm
+import * as __glob__0_0 from './dir/foo.js'
+import * as __glob__0_1 from './dir/bar.js'
+const modules = {
+  './dir/foo.js': __glob__0_0,
+  './dir/bar.js': __glob__0_1,
+}
+```
+
+multiple patterns are supported:
+```ts
+const modules = import.meta.glob(['./dir/*.js', './another/*.js'])
+```
+
+negative patterns are also supported:
+```ts
+const modules = import.meta.glob(['./dir/*.js', '!**/bar.js'])
+```
+```ts
+// code produced by Farm
+const modules = {
+  './dir/foo.js': () => import('./dir/foo.js'),
+}
+```
+
+:::note
+* You should also be aware that all the arguments in the import.meta.glob must be passed as literals. You can NOT use variables or expressions in them.
+* `import.meta.glob` transformed by Farm in compile time, it does not exist in runtime.
+:::
