@@ -1,22 +1,20 @@
 // @ts-nocheck
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require("prism-react-renderer/themes/github");
-const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const progress = require("./scripts/progress_translate_lang.json");
-
-darkCodeTheme.styles.push({
-  types: ["token", "color"],
-  style: {
-    color: "rgb(189, 147, 249)",
-  },
-});
-lightCodeTheme.styles.push({
-  types: ["token", "color"],
-  style: {
-    color: "rgb(189, 147, 249)",
-  },
-});
+import { themes as prismThemes } from "prism-react-renderer";
+// darkCodeTheme.styles.push({
+//   types: ["token", "color"],
+//   style: {
+//     color: "rgb(189, 147, 249)",
+//   },
+// });
+// lightCodeTheme.styles.push({
+//   types: ["token", "color"],
+//   style: {
+//     color: "rgb(189, 147, 249)",
+//   },
+// });
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -35,7 +33,7 @@ const config = {
   organizationName: "farm-fe", // Usually your GitHub org/user name.
   projectName: "farm-fe.github.io", // Usually your repo name.
   deploymentBranch: "gh-pages",
-  onBrokenLinks: 'ignore',
+  onBrokenLinks: "ignore",
   // onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
 
@@ -143,8 +141,7 @@ const config = {
               {
                 label: "Introduction",
                 to: "/docs/why-farm",
-              }
-             
+              },
             ],
           },
           {
@@ -213,19 +210,19 @@ const config = {
         content: `🎉 Farm will release 1.0 soon. If you like Farm, give it a ⭐️ on <a target="_blank" rel="noopener noreferrer" href="https://github.com/farm-fe/farm">GitHub</a>`,
       },
       prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
+        theme: prismThemes.github,
+        darkTheme: prismThemes.dracula,
         magicComments: [
           // Remember to extend the default highlight class name as well!
           {
-            className: 'theme-code-block-highlighted-line',
-            line: 'highlight-next-line',
-            block: {start: 'highlight-start', end: 'highlight-end'},
+            className: "theme-code-block-highlighted-line",
+            line: "highlight-next-line",
+            block: { start: "highlight-start", end: "highlight-end" },
           },
           {
-            className: 'code-block-highlight-line',
-            line: 'c-highlight-next-line',
-            block: {start: 'c-highlight-start', end: 'c-highlight-end'},
+            className: "code-block-highlight-line",
+            line: "c-highlight-next-line",
+            block: { start: "c-highlight-start", end: "c-highlight-end" },
           },
         ],
       },
