@@ -585,6 +585,44 @@ Configure modules that do not require polyfill, and configure regular strings, s
 
 Options passed to swc preset env, see https://swc.rs/docs/configuration/compilation#env.
 
+### persistentCache
+* **default**: `true`
+
+Options for [Persistent Cache](/docs/features/persistent-cache). Configuring it `false` to disable cache.
+
+```ts
+export type PersistentCache = boolean | {
+  namespace?: string;
+  cacheDir?: string;
+  buildDependencies?: string[];
+  moduleCacheKeyStrategy?: {
+    timestamp?: boolean,
+    hash?: boolean,
+  }
+};
+```
+
+#### `persistentCache.namespace`
+* **default**: `farm-cache`
+
+Namespace for the cache, caches under different namespace will be isolated.
+
+#### `persistentCache.cacheDir`
+* **default**: `node_modules/.farm/cache`
+
+Cache store directory.
+
+#### `persistentCache.buildDependencies`
+* **default**: `farm.config.ts and all its deep dependencies`
+
+File path or package name that may affect the compilation, for example, plugins. By default, `farm.config.ts/js/mjs` and all of its deep dependencies will be treated as build dependencies, if any of these files changed, all cache will be invalidated.
+
+
+#### `persistentCache.moduleCacheKeyStrategy`
+* **default**: `farm.config.ts and all its deep dependencies`
+
+File path or package name that may affect the compilation, for example, plugins. By default, `farm.config.ts/js/mjs` and all of its deep dependencies will be treated as build dependencies, if any of these files changed, all cache will be invalidated.
+
 <!-- #### `presetEnv.assuptions` -->
 
 ## DevServer Options - server
