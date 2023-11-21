@@ -617,11 +617,31 @@ Cache store directory.
 
 File path or package name that may affect the compilation, for example, plugins. By default, `farm.config.ts/js/mjs` and all of its deep dependencies will be treated as build dependencies, if any of these files changed, all cache will be invalidated.
 
+it can be a file path or a package name, for example:
+```ts
+import { defineConfig } from '@farmfe/core';
+import path from 'node:path';
+
+export default defineConfig({
+  persistentCache: {
+    buildDependencies: [
+      // a file path
+      path.resolve(process.cwd(), './plugins/my-plugin.js'),
+      // a package name, note that this package must expose package.json
+      'farm-plugin-custom-xxx'
+    ]
+  }
+})
+```
+
 
 #### `persistentCache.moduleCacheKeyStrategy`
-* **default**: `farm.config.ts and all its deep dependencies`
+* **default**: `{ timestamp: true, hash: true }`
 
-File path or package name that may affect the compilation, for example, plugins. By default, `farm.config.ts/js/mjs` and all of its deep dependencies will be treated as build dependencies, if any of these files changed, all cache will be invalidated.
+How to generate cache key when trying to reuse cache. if `timestamp` is true and the timestamp of the module is not changed, then all build stage hooks like `load`, `transform` will be skipped and the cached module will be reused. if `hash` is true and the content of the module is not changed, `load` and `transform` hook will be called to get the transformed content, other hooks will be skipped and the cached module will be reused.
+
+* `timestamp`: whether check timestamp of the module, which has the best performance
+* `hash`: whether check content hash after load and transform
 
 <!-- #### `presetEnv.assuptions` -->
 
