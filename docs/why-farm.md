@@ -16,10 +16,6 @@ But Unbundled is not perfect, there are still big problem when comes for a large
 
 So I think we just need a fast, powerful, consistent web bundler, which can solve the problems above and fast, then I designed and implemented Farm.
 
-:::note
-Farm is designed to be browser-first and will not try to be a universe bundler, which means Farm only focus on browser, every design we made is to make web faster(make compilation faster and make the compiled resource loading faster).
-:::
-
 And Farm is not just a normal bundler re-written in Rust, it has a lot of powerful and progressive designs:
 
 ## Farm Design Philosophy

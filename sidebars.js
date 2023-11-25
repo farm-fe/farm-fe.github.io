@@ -41,7 +41,8 @@ const sidebars = {
         'features/sourcemap',
         'features/tree-shake',
         'features/minification',
-        'features/polyfill'
+        'features/polyfill',
+        'features/persistent-cache',
       ],
     },
     'benchmark',
