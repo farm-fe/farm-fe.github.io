@@ -15,6 +15,5 @@
     "shulandmimi",
     "tailwindcss",
     "Turbopack"
-  ],
-  "editor.inlineSuggest.showToolbar": "onHover"
+  ]
 }
