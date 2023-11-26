@@ -132,7 +132,6 @@ export default function Benchmark() {
             setActiveScene(section.title);
           }}
         >
-          {/* {`${section[0].toUpperCase()}${section.substring(1)}`} */}
           {section.name}
         </div>
       </div>
@@ -153,7 +152,7 @@ export default function Benchmark() {
   }
   return (
     <>
-      <div ref={ref}>
+      <div ref={ref} className="flex">
         {inView && (
           <>
             <div
@@ -170,7 +169,7 @@ export default function Benchmark() {
                         {inView && (
                           <>
                             <div
-                              className="flex items-center text-light-500  text-center"
+                              className="flex items-center text-light-500  text-center font-bold"
                               style={{ minWidth: "100px" }}
                             >
                               {info.name}

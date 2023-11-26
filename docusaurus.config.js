@@ -35,10 +35,28 @@ const config = {
   onBrokenLinks: "ignore",
   // onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
+  webpack: {
+    jsLoader: (isServer) => ({
+      loader: require.resolve("swc-loader"),
+      options: {
+        jsc: {
+          parser: {
+            syntax: "typescript",
+            tsx: true,
+          },
+          target: "es2017",
+        },
+        module: {
+          type: isServer ? "commonjs" : "es6",
+        },
+      },
+    }),
+  },
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
+
   i18n: {
     defaultLocale: "en",
     locales: ["en", "zh"],
@@ -65,15 +83,8 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl: "https://github.com/farm-fe/farm-fe.github.io/tree/main/",
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
-        },
         theme: {
-          customCss: require.resolve("./src/css/custom.css"),
+          customCss: require.resolve("./src/css/custom.scss"),
         },
       }),
     ],
@@ -121,6 +132,12 @@ const config = {
             "aria-label": "GitHub repository",
           },
         ],
+      },
+      docs: {
+        versionPersistence: "localStorage",
+        sidebar: {
+          hideable: true,
+        },
       },
       footer: {
         links: [
@@ -171,7 +188,6 @@ const config = {
         },
         copyright: `Copyright © ${new Date().getFullYear()} Farm, Inc. Built with Docusaurus.`,
       },
-
       announcementBar: {
         id: "announcementBar-2", // Increment on change
         content: `🎉 Farm will release 1.0 soon. If you like Farm, give it a ⭐️ on <a target="_blank" rel="noopener noreferrer" href="https://github.com/farm-fe/farm">GitHub</a>`,
@@ -204,7 +220,7 @@ const config = {
     }),
   plugins: [
     "docusaurus-plugin-sass",
-    async function myPlugin(context, options) {
+    async function TailwindCSSPlugin(context, options) {
       return {
         name: "docusaurus-tailwindcss",
         configurePostCss(postcssOptions) {
