@@ -1,15 +1,15 @@
 html[data-theme="light"] {
   --sidebar-category-c: var(--c-gray-100);
   --sidebar-border-c: var(--c-gray-0);
-
-  --ifm-menu-color-background-active: rgba(143, 26, 127, 0.7);
+  --ifm-menu-color-active: var(--ifm-color-primary-darker);
+  --ifm-menu-color-background-active: #ff9ff330;
   --ifm-menu-color: var(--c-indigo-80);
 }
 
 html[data-theme="dark"] {
   --sidebar-category-c: var(--c-gray-0);
   --sidebar-border-c: var(--c-gray-90);
-
+  --ifm-menu-color-active: var(--ifm-color-primary-light);
   --ifm-menu-color: var(--c-gray-20);
 }
 
@@ -21,7 +21,6 @@ html[data-theme="dark"] {
   --dropdown-icon-gap: 0.688rem;
 
   --ifm-menu-link-padding-vertical: 0.5rem;
-  --ifm-menu-color-active: rgba(143, 26, 127, 0.7);
 
   --sidebar-spacing-horizontal: 1.5rem;
 
@@ -87,7 +86,7 @@ html[data-theme="dark"] {
     transition: height 0.35s cubic-bezier(0.36, 0.66, 0.04, 1) 25ms !important;
     will-change: initial !important;
 
-    margin-top: 0;
+    margin-top: 10px;
 
     .menu__list {
       .menu__link--sublist {

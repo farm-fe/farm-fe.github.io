@@ -135,9 +135,9 @@ const config = {
       },
       docs: {
         versionPersistence: "localStorage",
-        sidebar: {
-          hideable: true,
-        },
+        // sidebar: {
+        //   hideable: true,
+        // },
       },
       footer: {
         links: [

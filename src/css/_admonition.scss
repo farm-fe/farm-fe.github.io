@@ -1,4 +1,4 @@
-html[data-theme='light'] {
+html[data-theme="light"] {
   --admonition-note-c-bg: var(--c-yellow-10);
   --admonition-info-c-bg: var(--c-blue-0);
   --admonition-tip-c-bg: var(--c-green-10);
@@ -10,12 +10,14 @@ html[data-theme='light'] {
   --admonition-code-tip-c-bg: var(--c-green-20);
   --admonition-code-caution-c-bg: var(--c-orange-20);
   --admonition-code-danger-c-bg: var(--c-red-10);
+  --admonition-tip-border: var(--c-green-10);
 }
 
-html[data-theme='dark'] {
+html[data-theme="dark"] {
+  --admonition-tip-border: var(--c-green-180);
   --admonition-note-c-bg: #241800;
   --admonition-info-c-bg: #000d24;
-  --admonition-tip-c-bg: #00240a;
+  --admonition-tip-c-bg: #deffe710;
   --admonition-caution-c-bg: #240b00;
   --admonition-danger-c-bg: #240002;
 
@@ -35,7 +37,8 @@ html[data-theme='dark'] {
 
   --admonition-link-note-c: var(--c-yellow-90);
   --admonition-link-info-c: var(--c-blue-90);
-  --admonition-link-tip-c: var(--c-green-90);
+  --admonition-link-tip-c: var(--c-green-60);
+  --admonition-color-tip-c: var(--c-green-30);
   --admonition-link-caution-c: var(--c-orange-90);
   --admonition-link-danger-c: var(--c-red-90);
 }
@@ -48,18 +51,18 @@ html[data-theme='dark'] {
   --ifm-alert-padding-horizontal: 2rem;
   --ifm-alert-padding-vertical: 1.5rem;
 
-  [class^='admonitionHeading_'] {
+  [class^="admonitionHeading_"] {
     text-transform: capitalize;
 
     font-size: 1rem;
     line-height: 1.6;
 
-    [class^='admonitionIcon_'] {
+    [class^="admonitionIcon_"] {
       display: none;
     }
   }
 
-  [class^='admonitionContent_'] {
+  [class^="admonitionContent_"] {
     p {
       a {
         color: var(--admonition-link-c);
@@ -72,17 +75,17 @@ html[data-theme='dark'] {
     }
   }
 
-  &::before {
-    content: '';
-    position: absolute;
-    z-index: 2;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 5px;
-    background: var(--admonition-bar-c-bg);
-    border-radius: 4px 0 0 4px;
-  }
+  // &::before {
+  //   content: "";
+  //   position: absolute;
+  //   z-index: 2;
+  //   left: 0;
+  //   top: 0;
+  //   bottom: 0;
+  //   width: 5px;
+  //   background: var(--admonition-bar-c-bg);
+  //   border-radius: 4px 0 0 4px;
+  // }
   &-note {
     --ifm-alert-background-color: var(--admonition-note-c-bg);
     --admonition-bar-c-bg: var(--admonition-bar-note-c-bg);
@@ -100,6 +103,8 @@ html[data-theme='dark'] {
     --admonition-bar-c-bg: var(--admonition-bar-tip-c-bg);
     --admonition-code-c-bg: var(--admonition-code-tip-c-bg);
     --admonition-link-c: var(--admonition-link-tip-c);
+    border: 1px solid var(--admonition-tip-border);
+    color: var(--admonition-color-tip-c);
   }
   &-caution {
     --ifm-alert-background-color: var(--admonition-caution-c-bg);
