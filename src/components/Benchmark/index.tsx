@@ -29,6 +29,28 @@ const BENChMARK_DATA = {
       time: 8.534,
     },
   ],
+  HotStart: [
+    {
+      name: "Farm",
+      time: 0.060,
+    },
+    {
+      name: "Rspack",
+      time: 0.831,
+    },
+    {
+      name: "Turbopack",
+      time: 3.731,
+    },
+    {
+      name: "Vite",
+      time: 3.078,
+    },
+    {
+      name: "Webpack",
+      time: 8.534,
+    },
+  ],
   HmrRoot: [
     {
       name: "Farm",
@@ -107,6 +129,7 @@ const MODULE_COUNT_MAP = {
 export default function Benchmark() {
   const SCENE = [
     { name: <Translate>ColdStart</Translate>, title: "ColdStart" },
+    { name: <Translate>HotStart</Translate>, title: "HotStart" },
     { name: <Translate>HmrRoot</Translate>, title: "HmrRoot" },
     { name: <Translate>HmrLeaf</Translate>, title: "HmrLeaf" },
     { name: <Translate>ColdBuild</Translate>, title: "ColdBuild" },
@@ -141,7 +164,7 @@ export default function Benchmark() {
   function PillTabs({ SCENE, children }) {
     return (
       <div>
-        <div className="inline-flex items-center rounded-lg bg text-sm  lg:text-base">
+        <div className="inline-flex mb-4 items-center rounded-lg bg text-sm  lg:text-base">
           {SCENE.map((item, index) => {
             return <Pill section={item} key={index}></Pill>;
           })}

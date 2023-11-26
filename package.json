@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
-    "start": "docusaurus start --port 9000",
-    "dev": "docusaurus start --port 9000",
+    "start": "docusaurus start --port 1911",
+    "dev": "docusaurus start --port 1911",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
