@@ -586,6 +586,69 @@ type FarmPresetEnvConfig =  boolean | {
 
 传递给 swc preset env 的选项，参考 https://swc.rs/docs/configuration/compilation#env。
 
+### persistentCache
+* **default**: `true`
+
+[增量构建](/docs/features/persistent-cache) 的缓存配置选项. 配置成 `false` 来禁用缓存.
+
+```ts
+export type PersistentCache = boolean | {
+  namespace?: string;
+  cacheDir?: string;
+  buildDependencies?: string[];
+  moduleCacheKeyStrategy?: {
+    timestamp?: boolean,
+    hash?: boolean,
+  }
+};
+```
+
+#### `persistentCache.namespace`
+* **default**: `farm-cache`
+
+缓存的命名空间，不同空间下的缓存会相互隔离，不会复用。
+
+#### `persistentCache.cacheDir`
+* **default**: `node_modules/.farm/cache`
+
+缓存文件的存放目录。
+
+#### `persistentCache.buildDependencies`
+* **default**: `farm.config.ts and all its deep dependencies`
+
+所有配置文件、插件等构建依赖的路径，默认包含 `farm.config.ts/js/mjs` 的所有依赖以及配置的所有 rust 和 js 插件。如果任意一个构建依赖变更了，所有缓存将会失效。
+
+配置项可以是一个路径或者一个包名, 例如:
+```ts
+import { defineConfig } from '@farmfe/core';
+import path from 'node:path';
+
+export default defineConfig({
+  persistentCache: {
+    buildDependencies: [
+      // a file path
+      path.resolve(process.cwd(), './plugins/my-plugin.js'),
+      // a package name, note that this package must expose package.json
+      'farm-plugin-custom-xxx'
+    ]
+  }
+})
+```
+
+
+#### `persistentCache.moduleCacheKeyStrategy`
+* **default**: `{ timestamp: true, hash: true }`
+
+控制复用缓存时，如何生成缓存的键。如果 `timestamp`  被设置为 true，并且模块没有倍改过，那么该模块所有的构建步骤将会被跳过（如`load`, `transform` 等钩子），缓存的模块将会被复用。如果`hash`设置成 true，并且 timestamp 没有命中，那么会调用 `load` 以及 `transform` 钩子来获取模块的内容，如果模块内容没有变更，那么缓存将会被复用，剩余构建步骤会被跳过。
+
+* `timestamp`: 是否检查模块的 timestamp，性能最优，但是如果某些插件依赖前一次的构建状态，可能存在问题，见[注意事项](/docs/features/persistent-cache#caveats-for-plugins).
+* `hash`: 是否检查 load 和 transform 后的内容。
+
+#### `persistentCache.envs`
+* **default**: [Farm Env](https://farm-fe.github.io/docs/config/farm-config#environment-variable)
+
+可能影响构建过程的环境变量，如果任意一个环境变化了，缓存将会过期。
+
 <!-- #### `presetEnv.assuptions` -->
 
 ## DevServer 选项 - server
