@@ -94,27 +94,21 @@ const config = {
           {
             type: "doc",
             docId: "quick-start",
-            position: "left",
+            position: "right",
             label: "Guides",
           },
           {
             type: "doc",
             docId: "config/farm-config",
-            position: "left",
+            position: "right",
             label: "Config",
           },
           {
             type: "doc",
             docId: "plugins/official-plugins/overview",
-            position: "left",
+            position: "right",
             label: "Plugins",
           },
-          // {to: '/blog', label: 'Blog', position: 'left'},
-          // {
-          //   label: "v 0.11.0",
-          //   position: "right",
-          //   items: [],
-          // },
           {
             type: "localeDropdown",
             position: "right",
@@ -177,33 +171,7 @@ const config = {
         },
         copyright: `Copyright © ${new Date().getFullYear()} Farm, Inc. Built with Docusaurus.`,
       },
-      // footer: {
-      //   style: "dark",
-      //   links: [
-      //     {
-      //       title: "Docs",
-      //       items: [
-      //         {
-      //           label: "Guilds",
-      //           to: "/docs/quick-start",
-      //         },
-      //       ],
-      //     },
-      //     {
-      //       title: "More",
-      //       items: [
-      //         {
-      //           label: "Blog",
-      //           to: "/blog",
-      //         },
-      //         {
-      //           label: "GitHub",
-      //           href: "https://github.com/farm-fe/farm",
-      //         },
-      //       ],
-      //     },
-      //   ],
-      // },
+
       announcementBar: {
         id: "announcementBar-2", // Increment on change
         content: `🎉 Farm will release 1.0 soon. If you like Farm, give it a ⭐️ on <a target="_blank" rel="noopener noreferrer" href="https://github.com/farm-fe/farm">GitHub</a>`,

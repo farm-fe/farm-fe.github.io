@@ -41,6 +41,7 @@
   --ifm-f-white-mute: #f2f2f2;
   --ifm-f-bg-soft: #f6f6f7;
   --farm--border: rgba(86, 86, 86, 0.125);
+  --docsearch-searchbox-background: rgba(143, 26, 127, 0.7);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -62,6 +63,7 @@
   --farm--border: #fafafa20;
   --docusaurus-highlighted-code-line-bg: rgba(143, 26, 127, 0.7);
   --docsearch-primary-color: var(--ifm-color-primary-dark) !important;
+  --docsearch-searchbox-background: #3a3a3a !important;
 }
 
 .navbar__title {
@@ -163,4 +165,9 @@ a {
   100% {
     background-position: 0 0;
   }
+}
+
+.DocSearch-Button {
+  width: 250px;
+  border-radius: 8px !important;
 }
