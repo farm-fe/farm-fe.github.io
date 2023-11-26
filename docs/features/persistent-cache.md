@@ -1,6 +1,6 @@
-# Persistent Cache
+# Incremental Building
 :::tip
-Farm supports persistent cache since `v0.14.0`
+Farm supports incremental build by persistent cache since `v0.14.0`
 :::
 
 Since `v0.14.0`, Farm supports cache the compiled result to disk, which can greatly speed up the compilation for hot start/hot build. When `persistentCache` is enabled, the compilation time can reduce **up to `80%`**.
@@ -9,8 +9,8 @@ Performance compare between cold start(without cache) and hot start(with cache) 
 
 ||Cold(without cache)|Hot(with cache)| diff |
 |---|---|---|---|
-|start|1504ms|473ms|compile time reduced 68%|
-|build|3092|||
+|start|1519ms|371ms|reduced 75%|
+|build|3582ms|562ms|reduced 84%|
 
 ## Using Cache
 Using `compilation.persistentCache` to enable/disable Cache:
@@ -52,12 +52,13 @@ Configuring `persistentCache` to `false` to disable cache.
 
 ## Cache Validation
 Cache will be validated when trying to reuse it by following conditions, if any of following conditions changed, all cache will be invalidated:
-* **Final Config Object**: the final config object after calling plugins' config hook, if the object changed, for example, the config file changed or some env variables that affect the compilation changed, all cache will be invalidated.
+* **Env Object**: configured by `persistentCache.envs`, default to `Farm Env Mode`(`process.env.NODE_ENV`, `process.env.DEV`, `process.env.PROD`), see `Farm Env`(https://farm-fe.github.io/docs/config/farm-config#environment-variable).
+* **lockfile**: If your lockfile changed, means there are dependencies changes, the cache will be invalidated.
 * **Build Dependencies**: configured by `persistentCache.buildDependencies`, if any of the buildDependencies changed, all cache will be invalidated.
 * **Cache Namespace**: configured by `persistentCache.namespace`, cache under different namespaces won't be reused. If you want to invalidate all cache, you can configure a different namespace.
 * **Internal Cache Version**: Farm maintains a cache version internally, if Farm itself changed, for example, render optimization that affects the output between versions of Farm, Farm will bump the cache version and all cache will be invalidated.
 
-If you cache does not work for some reasons, checkout above conditions to figure out the reason. You can also delete `node_modules/.farm/cache` to remove cache manually.
+If your cache does not work, check out above conditions to figure out the reason. If the cache is broken, you can also delete `node_modules/.farm/cache` to remove cache manually.
 
 ## Build Dependencies
 Build dependencies is dependencies that can affect the compilation process or compiled output, for examples, plugins or config files. If any of these dependencies changed, all cache will be invalidated.
