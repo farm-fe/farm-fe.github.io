@@ -110,7 +110,7 @@ const config = {
           },
           {
             type: "doc",
-            docId: "config/farm-config",
+            docId: "config/compilation-options",
             position: "right",
             label: "Config",
           },

@@ -69,12 +69,12 @@ const sidebars = {
     },
     {
       type: "category",
-      label: "Cli",
+      label: "CLI",
       collapsed: false,
       items: ["cli/start", "cli/build", "cli/preview", "cli/watch"],
     },
-    "config/farm-config",
-    "config/cli",
+    // "config/farm-config",
+    // "config/cli",
   ],
   pluginSidebar: [
     {

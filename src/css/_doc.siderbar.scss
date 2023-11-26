@@ -56,7 +56,7 @@ html[data-theme="dark"] {
   }
 
   [class^="sidebar_"] {
-    max-height: calc(100vh - var(--ifm-navbar-height));
+    max-height: 100vh;
     position: static;
 
     overflow-y: auto;
