@@ -61,6 +61,7 @@
   --c-green-30: #a7f1bb;
   --c-green-40: #80e89d;
   --c-green-50: #62e085;
+  --c-green-50-a: #62e08570;
   --c-green-60: #4ada71;
   --c-green-70: #2dd55b;
   --c-green-80: #17c948;
@@ -210,9 +211,12 @@
   --c-yellow-10: #fff8e2;
   --c-yellow-20: #fff4d1;
   --c-yellow-30: #ffefbd;
+  --c-yellow-30-a: #fcd28550;
   --c-yellow-40: #ffe9a3;
   --c-yellow-50: #ffe080;
+  --c-yellow-50-a: #ffd75a60;
   --c-yellow-60: #ffd75a;
+  --c-yellow-60-a: #ffd75a30;
   --c-yellow-70: #ffce31;
   --c-yellow-80: #ffc409;
   --c-yellow-90: #f4b100;

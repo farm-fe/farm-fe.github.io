@@ -1,7 +1,7 @@
 html[data-theme="light"] {
   --sidebar-category-c: var(--c-gray-100);
   --sidebar-border-c: var(--c-gray-0);
-  --ifm-menu-color-active: var(--ifm-color-primary-darker);
+  --ifm-menu-color-active: var(--ifm-color-primary-text);
   --ifm-menu-color-background-active: #ff9ff330;
   --ifm-menu-color: var(--c-indigo-80);
 }
@@ -9,7 +9,7 @@ html[data-theme="light"] {
 html[data-theme="dark"] {
   --sidebar-category-c: var(--c-gray-0);
   --sidebar-border-c: var(--c-gray-90);
-  --ifm-menu-color-active: var(--ifm-color-primary-light);
+  --ifm-menu-color-active: var(--ifm-color-primary-text);
   --ifm-menu-color: var(--c-gray-20);
 }
 
@@ -34,11 +34,12 @@ html[data-theme="dark"] {
     background: var(--token-primary-bg-c);
 
     position: sticky;
-    top: 0;
+    top: 60px;
+    bottom: 0;
     margin-block-start: 0;
     will-change: initial;
 
-    height: 100vh;
+    height: calc(100vh - 60px);
 
     border-inline-end: 1px solid var(--sidebar-border-c);
 

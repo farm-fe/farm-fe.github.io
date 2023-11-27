@@ -53,7 +53,12 @@ const sidebars = {
         "features/persistent-cache",
       ],
     },
-    "benchmark",
+    {
+      type: "category",
+      label: "Benchmark",
+      collapsed: false,
+      items: ["benchmark"],
+    },
   ],
   configSidebar: [
     {

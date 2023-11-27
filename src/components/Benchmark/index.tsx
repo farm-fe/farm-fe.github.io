@@ -32,7 +32,7 @@ const BENChMARK_DATA = {
   HotStart: [
     {
       name: "Farm",
-      time: 0.060,
+      time: 0.06,
     },
     {
       name: "Rspack",
@@ -117,13 +117,28 @@ const BENChMARK_DATA = {
       time: 11.321,
     },
   ],
-};
-
-const MODULE_COUNT_MAP = {
-  ColdStart: "50000",
-  HmrRoot: "10000",
-  HmrLeaf: "10000",
-  ColdBuild: "50000",
+  HotBuild: [
+    {
+      name: "Farm",
+      time: 0.06,
+    },
+    {
+      name: "Rspack",
+      time: 0.724,
+    },
+    {
+      name: "Turbopack",
+      time: 6.442,
+    },
+    {
+      name: "Vite",
+      time: 2.266,
+    },
+    {
+      name: "Webpack",
+      time: 11.321,
+    },
+  ],
 };
 
 export default function Benchmark() {
@@ -133,6 +148,7 @@ export default function Benchmark() {
     { name: <Translate>HmrRoot</Translate>, title: "HmrRoot" },
     { name: <Translate>HmrLeaf</Translate>, title: "HmrLeaf" },
     { name: <Translate>ColdBuild</Translate>, title: "ColdBuild" },
+    { name: <Translate>HotBuild</Translate>, title: "HotBuild" },
   ];
   const [activeScene, setActiveScene] = useState("ColdStart");
   const { ref, inView } = useInView();
@@ -145,7 +161,7 @@ export default function Benchmark() {
       <div>
         <div
           className={clsx(
-            "flex-1 cursor-pointer rounded-md py-2 px-2 sm:px-6 text-center font-jakarta text-sm font-semibold",
+            "flex-1 cursor-pointer rounded-md py-2 px-2 sm:px-4 text-center font-jakarta text-sm font-semibold",
             visibleSection === section.title
               ? "bg-fuchsia-600 text-white"
               : "color-re"
