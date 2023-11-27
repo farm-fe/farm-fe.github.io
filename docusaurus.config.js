@@ -215,7 +215,7 @@ const config = {
         indexName: "farm-feio",
       },
       colorMode: {
-        defaultMode: "dark",
+        defaultMode: "light",
       },
     }),
   plugins: [
