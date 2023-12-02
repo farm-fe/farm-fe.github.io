@@ -54,6 +54,38 @@ export default {
 
 有关`presetEnv`的更多信息，请参阅 [Polyfill](/docs/features/polyfill)。
 
+## 装饰器
+装饰器默认不启用, 可以通过设置 `compilation.script.parser.tsConfig.decorators` 为 `true` 来启用装饰器。
+
+```ts
+import { defineConfig } from '@farmfe/core';
+
+export default defineConfig({
+  compilation: {
+    script: {
+      parser: {
+        tsConfig: {
+          // 启用装饰器
+          decorators: true,
+        },
+      },
+      // 配置装饰器
+      decorators: {
+        legacyDecorator: true,
+        decoratorMetadata: false,
+        decoratorVersion: '2021-12',
+        includes: ["src/broken.ts"],
+        excludes: ['node_modules/'],
+      }
+    },
+  },
+});
+```
+
+> Farm 提供了一个装饰器的示例，可以看 https://github.com/farm-fe/farm/tree/main/examples/decorators
+
+默认情况下, Farm 不会转译 `node_modules` 下的装饰器, 参考 [compilation.script.decorators.excludes](/docs/config/farm-config#scriptdecorators).
+
 ## 使用 SWC 插件
 SWC Plugins可以直接在Farm中使用，例如我们在Farm中使用swc-plugin-vue-jsx来编译vue jsx：
 
