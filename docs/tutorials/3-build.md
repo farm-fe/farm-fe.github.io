@@ -1,4 +1,4 @@
-# 3. Build For Production
+# Build For Production
 By default, Farm has enabled support for the following features for production builds:
 * **`Tree Shake`**: Crop and filter irrelevant modules and code
 * **`Compression`**: Compress and mix the product to reduce the product volume

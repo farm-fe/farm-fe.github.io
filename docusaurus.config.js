@@ -1,22 +1,20 @@
 // @ts-nocheck
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require("prism-react-renderer/themes/github");
-const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const progress = require("./scripts/progress_translate_lang.json");
-
-darkCodeTheme.styles.push({
-  types: ["token", "color"],
-  style: {
-    color: "rgb(189, 147, 249)",
-  },
-});
-lightCodeTheme.styles.push({
-  types: ["token", "color"],
-  style: {
-    color: "rgb(189, 147, 249)",
-  },
-});
+import { themes as prismThemes } from "prism-react-renderer";
+// darkCodeTheme.styles.push({
+//   types: ["token", "color"],
+//   style: {
+//     color: "rgb(189, 147, 249)",
+//   },
+// });
+// lightCodeTheme.styles.push({
+//   types: ["token", "color"],
+//   style: {
+//     color: "rgb(189, 147, 249)",
+//   },
+// });
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -29,19 +27,36 @@ const config = {
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
-
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: "farm-fe", // Usually your GitHub org/user name.
   projectName: "farm-fe.github.io", // Usually your repo name.
   deploymentBranch: "gh-pages",
-  onBrokenLinks: 'ignore',
+  onBrokenLinks: "ignore",
   // onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
+  webpack: {
+    jsLoader: (isServer) => ({
+      loader: require.resolve("swc-loader"),
+      options: {
+        jsc: {
+          parser: {
+            syntax: "typescript",
+            tsx: true,
+          },
+          target: "es2017",
+        },
+        module: {
+          type: isServer ? "commonjs" : "es6",
+        },
+      },
+    }),
+  },
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
+
   i18n: {
     defaultLocale: "en",
     locales: ["en", "zh"],
@@ -68,15 +83,8 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl: "https://github.com/farm-fe/farm-fe.github.io/tree/main/",
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
-        },
         theme: {
-          customCss: require.resolve("./src/css/custom.css"),
+          customCss: require.resolve("./src/css/custom.scss"),
         },
       }),
     ],
@@ -97,27 +105,21 @@ const config = {
           {
             type: "doc",
             docId: "quick-start",
-            position: "left",
+            position: "right",
             label: "Guides",
           },
           {
             type: "doc",
-            docId: "config/farm-config",
-            position: "left",
+            docId: "config/compilation-options",
+            position: "right",
             label: "Config",
           },
           {
             type: "doc",
             docId: "plugins/official-plugins/overview",
-            position: "left",
+            position: "right",
             label: "Plugins",
           },
-          // {to: '/blog', label: 'Blog', position: 'left'},
-          // {
-          //   label: "v 0.11.0",
-          //   position: "right",
-          //   items: [],
-          // },
           {
             type: "localeDropdown",
             position: "right",
@@ -131,6 +133,12 @@ const config = {
           },
         ],
       },
+      docs: {
+        versionPersistence: "localStorage",
+        // sidebar: {
+        //   hideable: true,
+        // },
+      },
       footer: {
         links: [
           {
@@ -143,8 +151,7 @@ const config = {
               {
                 label: "Introduction",
                 to: "/docs/why-farm",
-              }
-             
+              },
             ],
           },
           {
@@ -181,51 +188,24 @@ const config = {
         },
         copyright: `Copyright © ${new Date().getFullYear()} Farm, Inc. Built with Docusaurus.`,
       },
-      // footer: {
-      //   style: "dark",
-      //   links: [
-      //     {
-      //       title: "Docs",
-      //       items: [
-      //         {
-      //           label: "Guilds",
-      //           to: "/docs/quick-start",
-      //         },
-      //       ],
-      //     },
-      //     {
-      //       title: "More",
-      //       items: [
-      //         {
-      //           label: "Blog",
-      //           to: "/blog",
-      //         },
-      //         {
-      //           label: "GitHub",
-      //           href: "https://github.com/farm-fe/farm",
-      //         },
-      //       ],
-      //     },
-      //   ],
-      // },
       announcementBar: {
         id: "announcementBar-2", // Increment on change
         content: `🎉 Farm will release 1.0 soon. If you like Farm, give it a ⭐️ on <a target="_blank" rel="noopener noreferrer" href="https://github.com/farm-fe/farm">GitHub</a>`,
       },
       prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
+        theme: prismThemes.github,
+        darkTheme: prismThemes.dracula,
         magicComments: [
           // Remember to extend the default highlight class name as well!
           {
-            className: 'theme-code-block-highlighted-line',
-            line: 'highlight-next-line',
-            block: {start: 'highlight-start', end: 'highlight-end'},
+            className: "theme-code-block-highlighted-line",
+            line: "highlight-next-line",
+            block: { start: "highlight-start", end: "highlight-end" },
           },
           {
-            className: 'code-block-highlight-line',
-            line: 'c-highlight-next-line',
-            block: {start: 'c-highlight-start', end: 'c-highlight-end'},
+            className: "code-block-highlight-line",
+            line: "c-highlight-next-line",
+            block: { start: "c-highlight-start", end: "c-highlight-end" },
           },
         ],
       },
@@ -235,12 +215,12 @@ const config = {
         indexName: "farm-feio",
       },
       colorMode: {
-        defaultMode: "dark",
+        defaultMode: "light",
       },
     }),
   plugins: [
     "docusaurus-plugin-sass",
-    async function myPlugin(context, options) {
+    async function TailwindCSSPlugin(context, options) {
       return {
         name: "docusaurus-tailwindcss",
         configurePostCss(postcssOptions) {

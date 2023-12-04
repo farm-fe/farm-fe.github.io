@@ -1,4 +1,4 @@
-# 1. Create A Project
+# Create A Project
 In this chapter, we will create a new Farm React project from scratch, and launch it in development mode.
 
 :::note

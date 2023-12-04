@@ -10,45 +10,55 @@ const BENChMARK_DATA = {
   ColdStart: [
     {
       name: "Farm",
-      time: 0.403,
+      time: 0.410,
     },
     {
       name: "Rspack",
-      time: 0.831,
-    },
-    {
-      name: "Turbopack",
-      time: 3.731,
+      time: 0.614,
     },
     {
       name: "Vite",
-      time: 3.078,
+      time: 3.407,
     },
     {
       name: "Webpack",
-      time: 8.534,
+      time: 7.857,
+    },
+  ],
+  HotStart: [
+    {
+      name: "Farm",
+      time: 0.285,
+    },
+    {
+      name: "Rspack",
+      time: 0.544,
+    },
+    {
+      name: "Vite",
+      time: 3.251,
+    },
+    {
+      name: "Webpack",
+      time: 1.047,
     },
   ],
   HmrRoot: [
     {
       name: "Farm",
-      time: 0.011,
+      time: 0.020,
     },
     {
       name: "Rspack",
-      time: 0.104,
-    },
-    {
-      name: "Turbopack",
-      time: 0.062,
+      time: 0.089,
     },
     {
       name: "Vite",
-      time: 0.035,
+      time: 0.029,
     },
     {
       name: "Webpack",
-      time: 0.265,
+      time: 0.317,
     },
   ],
   HmrLeaf: [
@@ -58,58 +68,63 @@ const BENChMARK_DATA = {
     },
     {
       name: "Rspack",
-      time: 0.096,
-    },
-    {
-      name: "Turbopack",
-      time: 0.054,
+      time: 0.104,
     },
     {
       name: "Vite",
-      time: 0.018,
+      time: 0.022,
     },
     {
       name: "Webpack",
-      time: 0.199,
+      time: 0.255,
     },
   ],
   ColdBuild: [
     {
       name: "Farm",
-      time: 0.288,
+      time: 0.475,
     },
     {
       name: "Rspack",
       time: 0.724,
     },
     {
-      name: "Turbopack",
-      time: 6.442,
-    },
-    {
       name: "Vite",
-      time: 2.266,
+      time: 2.020,
     },
     {
       name: "Webpack",
-      time: 11.321,
+      time: 11.978,
     },
   ],
-};
-
-const MODULE_COUNT_MAP = {
-  ColdStart: "50000",
-  HmrRoot: "10000",
-  HmrLeaf: "10000",
-  ColdBuild: "50000",
+  HotBuild: [
+    {
+      name: "Farm",
+      time: 0.176,
+    },
+    {
+      name: "Rspack",
+      time: 0.743,
+    },
+    {
+      name: "Vite",
+      time: 2.085,
+    },
+    {
+      name: "Webpack",
+      time: 0.924,
+    },
+  ],
 };
 
 export default function Benchmark() {
   const SCENE = [
     { name: <Translate>ColdStart</Translate>, title: "ColdStart" },
+    { name: <Translate>HotStart</Translate>, title: "HotStart" },
     { name: <Translate>HmrRoot</Translate>, title: "HmrRoot" },
     { name: <Translate>HmrLeaf</Translate>, title: "HmrLeaf" },
     { name: <Translate>ColdBuild</Translate>, title: "ColdBuild" },
+    { name: <Translate>HotBuild</Translate>, title: "HotBuild" },
   ];
   const [activeScene, setActiveScene] = useState("ColdStart");
   const { ref, inView } = useInView();
@@ -122,7 +137,7 @@ export default function Benchmark() {
       <div>
         <div
           className={clsx(
-            "flex-1 cursor-pointer rounded-md py-2 px-2 sm:px-6 text-center font-jakarta text-sm font-semibold",
+            "flex-1 cursor-pointer rounded-md py-2 px-2 sm:px-4 text-center font-jakarta text-sm font-semibold",
             visibleSection === section.title
               ? "bg-fuchsia-600 text-white"
               : "color-re"
@@ -132,7 +147,6 @@ export default function Benchmark() {
             setActiveScene(section.title);
           }}
         >
-          {/* {`${section[0].toUpperCase()}${section.substring(1)}`} */}
           {section.name}
         </div>
       </div>
@@ -142,7 +156,7 @@ export default function Benchmark() {
   function PillTabs({ SCENE, children }) {
     return (
       <div>
-        <div className="inline-flex items-center rounded-lg bg text-sm  lg:text-base">
+        <div className="inline-flex mb-4 items-center rounded-lg bg text-sm  lg:text-base">
           {SCENE.map((item, index) => {
             return <Pill section={item} key={index}></Pill>;
           })}
@@ -153,7 +167,7 @@ export default function Benchmark() {
   }
   return (
     <>
-      <div ref={ref}>
+      <div ref={ref} className="flex">
         {inView && (
           <>
             <div
@@ -165,12 +179,12 @@ export default function Benchmark() {
                     {performanceInfoList.map((info) => (
                       <div
                         key={info.name}
-                        className="flex flex-center justify-start my-4 flex-col sm:flex-row"
+                        className="flex flex-center justify-start my-8 flex-col sm:flex-row"
                       >
                         {inView && (
                           <>
                             <div
-                              className="flex items-center text-light-500  text-center"
+                              className="flex items-center text-light-500  text-center font-bold"
                               style={{ minWidth: "100px" }}
                             >
                               {info.name}
