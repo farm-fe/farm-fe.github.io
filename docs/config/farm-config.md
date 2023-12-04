@@ -322,6 +322,35 @@ export default {
 };
 ```
 
+#### `script.decorators`
+```ts
+export interface DecoratorsConfig {
+  legacyDecorator: boolean;
+  decoratorMetadata: boolean;
+  /**
+   * The version of the decorator proposal to use. 2021-12 or 2022-03
+   * @default 2021-12
+   */
+  decoratorVersion: '2021-12' | '2022-03' | null;
+  /**
+   * @default []
+   */
+  includes: string[];
+  /**
+   * @default ["node_modules/"]
+   */
+  excludes: string[];
+}
+```
+It's recommended to use default decorators configuration of Farm, unless you want to improve performance, you can set `includes` and `excludes`.
+
+Options:
+* **legacyDecorator**: default to `true`. Using legacy decorator proposal.
+* **decoratorMetadata**: default to `false`. You have to set `legacyDecorator` to `false` if you want to set it to true.
+* **decoratorVersion**: default to '2021-12', proposal version. The value is 2021-12 or 2022-03.
+* **includes**: default to `[]`. If you want to include modules that are excluded, you can set this option. Regex supported.
+* **excludes**: default to `['node_modules/']`. Modules under these paths are ignored when transform decorators. Regex supported
+
 ### css
 
 #### `css.modules`

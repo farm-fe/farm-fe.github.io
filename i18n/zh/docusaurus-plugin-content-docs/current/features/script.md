@@ -82,16 +82,17 @@ export default defineConfig({
       decorators: {
         legacyDecorator: true,
         decoratorMetadata: false,
-        decoratorVersion: "2021-12",
+        decoratorVersion: '2021-12',
         includes: ["src/broken.ts"],
-        excludes: ["node_modules/"],
-      },
+        excludes: ['node_modules/'],
+      }
     },
   },
 });
 ```
 
 > Farm 提供了一个装饰器的示例，可以看 https://github.com/farm-fe/farm/tree/main/examples/decorators
+
 > 默认情况下, Farm 不会转译 `node_modules` 下的装饰器, 参考 [compilation.script.decorators.excludes](/docs/config/farm-config#scriptdecorators).
 
 ## 使用 SWC 插件

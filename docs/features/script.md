@@ -62,6 +62,7 @@ export default {
 
 Refer to [Polyfill](/docs/features/polyfill) for more about `presetEnv`.
 
+
 ## Decorators
 
 Decorators is disabled by default, you can set `compilation.script.parser.tsConfig.decorators` to `true` to enable decorators.
@@ -82,10 +83,10 @@ export default defineConfig({
       decorators: {
         legacyDecorator: true,
         decoratorMetadata: false,
-        decoratorVersion: "2021-12",
+        decoratorVersion: '2021-12',
         includes: ["src/broken.ts"],
-        excludes: ["node_modules/"],
-      },
+        excludes: ['node_modules/'],
+      }
     },
   },
 });
@@ -93,6 +94,7 @@ export default defineConfig({
 
 > Farm provide a example for supporting decorators, see https://github.com/farm-fe/farm/tree/main/examples/decorators
 > By default, Farm won't transform decorators for modules under `node_modules`, refer to [compilation.script.decorators.excludes](/docs/config/farm-config#scriptdecorators).
+
 
 ## Using SWC Plugins
 
