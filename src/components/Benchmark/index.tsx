@@ -10,67 +10,55 @@ const BENChMARK_DATA = {
   ColdStart: [
     {
       name: "Farm",
-      time: 0.403,
+      time: 0.410,
     },
     {
       name: "Rspack",
-      time: 0.831,
-    },
-    {
-      name: "Turbopack",
-      time: 3.731,
+      time: 0.614,
     },
     {
       name: "Vite",
-      time: 3.078,
+      time: 3.407,
     },
     {
       name: "Webpack",
-      time: 8.534,
+      time: 7.857,
     },
   ],
   HotStart: [
     {
       name: "Farm",
-      time: 0.06,
+      time: 0.285,
     },
     {
       name: "Rspack",
-      time: 0.831,
-    },
-    {
-      name: "Turbopack",
-      time: 3.731,
+      time: 0.544,
     },
     {
       name: "Vite",
-      time: 3.078,
+      time: 3.251,
     },
     {
       name: "Webpack",
-      time: 8.534,
+      time: 1.047,
     },
   ],
   HmrRoot: [
     {
       name: "Farm",
-      time: 0.011,
+      time: 0.020,
     },
     {
       name: "Rspack",
-      time: 0.104,
-    },
-    {
-      name: "Turbopack",
-      time: 0.062,
+      time: 0.089,
     },
     {
       name: "Vite",
-      time: 0.035,
+      time: 0.029,
     },
     {
       name: "Webpack",
-      time: 0.265,
+      time: 0.317,
     },
   ],
   HmrLeaf: [
@@ -80,63 +68,51 @@ const BENChMARK_DATA = {
     },
     {
       name: "Rspack",
-      time: 0.096,
-    },
-    {
-      name: "Turbopack",
-      time: 0.054,
+      time: 0.104,
     },
     {
       name: "Vite",
-      time: 0.018,
+      time: 0.022,
     },
     {
       name: "Webpack",
-      time: 0.199,
+      time: 0.255,
     },
   ],
   ColdBuild: [
     {
       name: "Farm",
-      time: 0.288,
+      time: 0.475,
     },
     {
       name: "Rspack",
       time: 0.724,
     },
     {
-      name: "Turbopack",
-      time: 6.442,
-    },
-    {
       name: "Vite",
-      time: 2.266,
+      time: 2.020,
     },
     {
       name: "Webpack",
-      time: 11.321,
+      time: 11.978,
     },
   ],
   HotBuild: [
     {
       name: "Farm",
-      time: 0.06,
+      time: 0.176,
     },
     {
       name: "Rspack",
-      time: 0.724,
-    },
-    {
-      name: "Turbopack",
-      time: 6.442,
+      time: 0.743,
     },
     {
       name: "Vite",
-      time: 2.266,
+      time: 2.085,
     },
     {
       name: "Webpack",
-      time: 11.321,
+      time: 0.924,
     },
   ],
 };
@@ -203,7 +179,7 @@ export default function Benchmark() {
                     {performanceInfoList.map((info) => (
                       <div
                         key={info.name}
-                        className="flex flex-center justify-start my-4 flex-col sm:flex-row"
+                        className="flex flex-center justify-start my-8 flex-col sm:flex-row"
                       >
                         {inView && (
                           <>
