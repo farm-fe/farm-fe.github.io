@@ -32,6 +32,7 @@ html[data-theme="dark"] {
 }
 
 :root {
+  --note-color: #e3e3e3;
   --admonition-bar-note-c-bg: var(--c-yellow-80);
   --admonition-bar-info-c-bg: var(--c-blue-80);
   --admonition-bar-tip-c-bg: var(--c-green-80);
@@ -41,7 +42,8 @@ html[data-theme="dark"] {
   --admonition-link-note-c: var(--c-yellow-90);
   --admonition-link-info-c: var(--c-blue-90);
   --admonition-link-tip-c: var(--c-green-60);
-  --admonition-color-tip-c: var(--c-green-30);
+  --admonition-color-tip-c: var(--note-color);
+  --admonition-color-note-c: var(--note-color);
   --admonition-link-caution-c: var(--c-orange-90);
   --admonition-link-danger-c: var(--c-red-90);
 }
