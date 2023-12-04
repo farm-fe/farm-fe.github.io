@@ -364,6 +364,38 @@ export default {
 };
 ```
 
+#### `script.decorators`
+
+```ts
+export interface DecoratorsConfig {
+  legacyDecorator: boolean;
+  decoratorMetadata: boolean;
+  /**
+   * 装饰器版本： 2021-12 或者 2022-03
+   * @default 2021-12
+   */
+  decoratorVersion: "2021-12" | "2022-03" | null;
+  /**
+   * @default []
+   */
+  includes: string[];
+  /**
+   * @default ["node_modules/"]
+   */
+  excludes: string[];
+}
+```
+
+建议使用 Farm 默认的装饰器配置，除非你想提高性能，可以设置`includes`和`excludes`。
+
+选项：
+
+- **legacyDecorator**：默认为`true`。使用遗留装饰器提案。
+- **decoratorMetadata**：默认为`false`。如果您想将`legacyDecorator`设置为`true`，则必须将其设置为`false`。
+- **decoratorVersion**：默认为`2021-12`，提案版本。该值为 2021-12 或 2022-03。
+- **包括**：默认为`[]`。如果要包含排除的模块，可以设置此选项。支持正则表达式。
+- **排除**：默认为`['node_modules/']`。变换装饰器时，这些路径下的模块将被忽略。支持正则表达式
+
 ### css
 
 #### `css.modules`

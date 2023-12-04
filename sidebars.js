@@ -26,6 +26,12 @@ const sidebars = {
     },
     {
       type: "category",
+      label: "Benchmark",
+      collapsed: false,
+      items: ["benchmark"],
+    },
+    {
+      type: "category",
       label: "Tutorial",
       collapsed: false,
       items: [
@@ -52,12 +58,6 @@ const sidebars = {
         "features/polyfill",
         "features/persistent-cache",
       ],
-    },
-    {
-      type: "category",
-      label: "Benchmark",
-      collapsed: false,
-      items: ["benchmark"],
     },
   ],
   configSidebar: [
