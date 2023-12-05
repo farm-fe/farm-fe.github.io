@@ -1,4 +1,5 @@
 html[data-theme="light"] {
+  --note-color: #241800;
   --admonition-note-c-bg: var(--c-yellow-10);
   --admonition-info-c-bg: var(--c-blue-0);
   --admonition-tip-c-bg: var(--c-green-10);
@@ -16,6 +17,7 @@ html[data-theme="light"] {
 }
 
 html[data-theme="dark"] {
+  --note-color: #e3e3e3;
   --admonition-tip-border: var(--c-green-180);
   --admonition-note-c-bg: #241800;
   --admonition-info-c-bg: #000d24;
@@ -32,7 +34,6 @@ html[data-theme="dark"] {
 }
 
 :root {
-  --note-color: #e3e3e3;
   --admonition-bar-note-c-bg: var(--c-yellow-80);
   --admonition-bar-info-c-bg: var(--c-blue-80);
   --admonition-bar-tip-c-bg: var(--c-green-80);
@@ -170,5 +171,5 @@ html[data-theme="dark"] {
 }
 
 .alert--secondary {
-  color: var(--ifm-font-color-base);
+  // color: var(--ifm-font-color-base);
 }
