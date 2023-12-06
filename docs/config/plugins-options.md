@@ -1,4 +1,4 @@
-## Plugins Options
+# Plugins Options
 Configure Farm's plug-ins, support Rust plug-ins or Js plug-ins, examples are as follows:
 
 ```ts

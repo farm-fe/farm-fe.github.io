@@ -1,4 +1,4 @@
-## Environment variable
+# Environment variable
 
 `Farm` distinguishes between development and production environments through `Farm` process.env.NODE\_ ENV`.
 
