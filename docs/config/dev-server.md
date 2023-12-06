@@ -1,3 +1,5 @@
+# Dev Server
+
 ## DevServer Options - server
 
 Configure the behavior of Farm Dev Server. Example:
