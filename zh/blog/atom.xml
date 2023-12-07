@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://farm-fe.github.io/zh/blog</id>
     <title>Farm Blog</title>
-    <updated>2023-12-06T14:14:23.000Z</updated>
+    <updated>2023-12-07T04:23:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://farm-fe.github.io/zh/blog"/>
     <subtitle>Farm Blog</subtitle>
@@ -11,6 +11,6 @@
         <title type="html"><![CDATA[index]]></title>
         <id>https://farm-fe.github.io/zh/blog/index</id>
         <link href="https://farm-fe.github.io/zh/blog/index"/>
-        <updated>2023-12-06T14:14:23.000Z</updated>
+        <updated>2023-12-07T04:23:00.000Z</updated>
     </entry>
 </feed>
