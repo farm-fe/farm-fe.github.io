@@ -3,27 +3,27 @@ html[data-theme="light"] {
 
   --admonition-note-c-bg: linear-gradient(to bottom,
       var(--ifm-alert-note-background-color),
-      transparent);
+      transparent 40%);
   ;
   --admonition-info-c-bg: linear-gradient(to bottom,
       var(--ifm-alert-info-background-color),
-      transparent);
+      transparent 40%);
   ;
   --admonition-tip-c-bg: linear-gradient(to bottom,
       var(--ifm-alert-tip-background-color),
-      transparent);
+      transparent 40%);
   ;
   --admonition-warning-c-bg: linear-gradient(to bottom,
       var(--ifm-alert-warning-background-color),
-      transparent);
+      transparent 40%);
   ;
   --admonition-caution-c-bg: linear-gradient(to bottom,
       var(--ifm-alert-caution-background-color),
-      transparent);
+      transparent 40%);
   ;
   --admonition-danger-c-bg: linear-gradient(to bottom,
       var(--ifm-alert-danger-background-color),
-      transparent);
+      transparent 40%);
   ;
 
   --admonition-note-c-color: inherit;
@@ -39,9 +39,9 @@ html[data-theme="light"] {
   --admonition-code-caution-c-bg: var(--c-orange-20);
   --admonition-code-danger-c-bg: var(--c-red-10);
   --admonition-tip-border: var(--c-green-10);
-  --ifm-alert-warning-background-color: var(--c-yellow-210);
+  --ifm-alert-warning-background-color: var(--c-yellow-10);
   --ifm-alert-tip-background-color: var(--c-green-10);
-  --ifm-alert-danger-background-color: var(--c-red-30);
+  --ifm-alert-danger-background-color: var(--c-red-10);
   --ifm-alert-note-background-color: #ff9ff360;
   --ifm-alert-info-background-color: var(--c-teal-10);
   --ifm-alert-caution-background-color: var(--c-green-10);

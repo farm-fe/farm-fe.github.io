@@ -1,5 +1,8 @@
-# Js Plugins
-A Js plugin is a plain Javascript object.
+# JavaScript Plugins
+
+:::tip{title="Js Plugins"}
+A JavaScript plugin is simply a pure JavaScript object.
+:::
 
 ```js
 // farm.config.ts
@@ -39,22 +42,22 @@ If you want to pass args to your plugins，you can use a closure.
 ```ts
 // my-resolve-plugin.ts
 export function myResolvePlugin(options: Options) {
-  const { xx } = options
+  const { xx } = options;
 
   return {
-    name: 'my-resolve-plugin',
+    name: "my-resolve-plugin",
     resolve: {
       // ...
-    }
+    },
   };
 }
 
 // farm.config.ts
-import { defineFarmConfig } from '@farmfe/core/dist/config';
-import { myResolvePlugin } from './myResolvePlugin.ts';
+import { defineConfig } from "@farmfe/core";
+import { myResolvePlugin } from "./myResolvePlugin.ts";
 
-export default defineFarmConfig({
+export default defineConfig({
   // ...
-  plugins: [myResolvePlugin({ xx:'xx' })],
+  plugins: [myResolvePlugin({ xx: "xx" })],
 });
 ```
