@@ -18,11 +18,13 @@
     "crowdin-status": "crowdin status translation --no-colors --no-progress",
     "crowdin:sync": "pnpm copy-docs && pnpm crowdin-upload && pnpm crowdin-download --verbose",
     "update-progress": "ts-node ./scripts/translations.ts",
-    "crowdin": "crowdin"
+    "crowdin": "crowdin",
+    "documate:upload": "documate upload"
   },
   "dependencies": {
     "@crowdin/cli": "3",
     "@crowdin/crowdin-api-client": "^1.23.4",
+    "@documate/react": "^0.2.0",
     "@docusaurus/core": "3.0.1",
     "@docusaurus/plugin-ideal-image": "^3.0.1",
     "@docusaurus/preset-classic": "3.0.1",
@@ -47,6 +49,7 @@
     "three": "0.128.0"
   },
   "devDependencies": {
+    "@documate/documate": "^0.2.0",
     "@docusaurus/module-type-aliases": "3.0.1",
     "@docusaurus/types": "3.0.1",
     "@swc/core": "^1.3.99",

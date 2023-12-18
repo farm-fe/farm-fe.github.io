@@ -116,10 +116,22 @@ const config = {
           },
           {
             type: "doc",
-            docId: "plugins/official-plugins/overview",
-            position: "right",
+            docId: "plugins/overview",
+            position: "left",
             label: "Plugins",
           },
+          {
+            type: 'custom-documate',
+            position: 'left',
+            endpoint: "https://8gw8jajsc1.us.aircode.run/ask",
+          },
+          // {to: '/blog', label: 'Blog', position: 'left'},
+//           {
+//             label: "v 0.11.0",
+//             docId: "plugins/official-plugins/overview",
+//             position: "right",
+//             label: "Plugins",
+//           },
           {
             type: "localeDropdown",
             position: "right",
