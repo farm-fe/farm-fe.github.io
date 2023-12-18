@@ -9,22 +9,27 @@ import TabItem from "@theme/TabItem";
 # 快速开始
 
 :::note
-Farm 需要 **Node 16 及以上**。 如果您使用的是 Linux，请确保您的操作系统版本为 **ubuntu 22** 及更高版本（**或 GLIBC >= 2.32**）。
+Farm 需要 **Node 16 及以上**。
 :::
+
+## 在线体验
+
+[![Edit Farm](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/p/github/ErKeLost/react/main)
+
 
 ## 1. 创建一个 Farm 项目
 
-<Tabs>
-  <TabItem value="npm" label="npm">
-    <CodeBlock>npm create farm@latest</CodeBlock>
-  </TabItem>
+    <Tabs>
+          <TabItem value="npm" label="npm">
+              <CodeBlock>npm create farm@latest</CodeBlock>
+              </TabItem>
   <TabItem value="yarn" label="yarn">
-    <CodeBlock>yarn create farm</CodeBlock>
-  </TabItem>
+          <CodeBlock>yarn create farm</CodeBlock>
+              </TabItem>
   <TabItem value="pnpm" label="pnpm">
-    <CodeBlock>pnpm create farm</CodeBlock>
-  </TabItem>
-</Tabs>
+          <CodeBlock>pnpm create farm</CodeBlock>
+              </TabItem>
+          </Tabs>
 
 然后按照提示操作即可！
 
@@ -32,20 +37,20 @@ Farm 需要 **Node 16 及以上**。 如果您使用的是 Linux，请确保您�
 您还可以通过附加命令行选项直接指定项目名称和要使用的模板：
 :::
 
-<Tabs>
-  <TabItem value="npm 6.x" label="npm 6.x">
-    <CodeBlock>npm create farm@latest my-vue-app --template react</CodeBlock>
-  </TabItem>
+    <Tabs>
+          <TabItem value="npm 6.x" label="npm 6.x">
+              <CodeBlock>npm create farm@latest my-vue-app --template react</CodeBlock>
+              </TabItem>
   <TabItem value="npm 7+" label="npm 7+">
-    <CodeBlock>npm create farm@latest my-vue-app -- --template vue</CodeBlock>
-  </TabItem>
+          <CodeBlock>npm create farm@latest my-vue-app -- --template vue</CodeBlock>
+              </TabItem>
   <TabItem value="yarn" label="yarn">
-    <CodeBlock>yarn create farm my-vue-app --template react</CodeBlock>
-  </TabItem>
+          <CodeBlock>yarn create farm my-vue-app --template react</CodeBlock>
+              </TabItem>
   <TabItem value="pnpm" label="pnpm">
-    <CodeBlock>pnpm create farm my-vue-app --template vue</CodeBlock>
-  </TabItem>
-</Tabs>
+          <CodeBlock>pnpm create farm my-vue-app --template vue</CodeBlock>
+              </TabItem>
+          </Tabs>
 
 
 ## 2.启动项目
@@ -53,17 +58,17 @@ Farm 需要 **Node 16 及以上**。 如果您使用的是 Linux，请确保您�
 选择您喜欢的包管理器，然后依赖项将自动安装。
 然后，启动项目：
 
-<Tabs>
-  <TabItem value="npm" label="npm">
-    <CodeBlock>cd farm-project && npm start</CodeBlock>
-  </TabItem>
+    <Tabs>
+          <TabItem value="npm" label="npm">
+              <CodeBlock>cd farm-project && npm start</CodeBlock>
+              </TabItem>
   <TabItem value="yarn" label="yarn">
-    <CodeBlock>cd farm-project && yarn start</CodeBlock>
-  </TabItem>
+          <CodeBlock>cd farm-project && yarn start</CodeBlock>
+              </TabItem>
   <TabItem value="pnpm" label="pnpm">
-    <CodeBlock>cd farm-project && pnpm start</CodeBlock>
-  </TabItem>
-</Tabs>
+          <CodeBlock>cd farm-project && pnpm start</CodeBlock>
+              </TabItem>
+          </Tabs>
 
 默认情况下，该项目将从`http://localhost:9000`启动。
 
@@ -115,5 +120,5 @@ npm run build
 - [为什么需要 Farm？](/docs/why-farm)
 - [特性](/docs/features/html)
 - [配置参考](/docs/config/farm-config)
-- [插件](/docs/plugins/overview)
+- [插件](/docs/plugins/official-plugins/overview)
 ---

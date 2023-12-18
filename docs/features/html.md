@@ -62,7 +62,7 @@ export default defineConfig({
   }
 })
 ```
-Farm will compile these pages in parallel.
+Farm will compile these pages in parallel, and all dependencies of these pages will be shared too.
 
 ## Inherit html template
 Farm supports inherit html template by using `html.base` config, which is helpful when building a multi-page application with html shared.

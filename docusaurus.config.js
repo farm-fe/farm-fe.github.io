@@ -1,22 +1,20 @@
 // @ts-nocheck
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require("prism-react-renderer/themes/github");
-const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const progress = require("./scripts/progress_translate_lang.json");
-
-darkCodeTheme.styles.push({
-  types: ["token", "color"],
-  style: {
-    color: "rgb(189, 147, 249)",
-  },
-});
-lightCodeTheme.styles.push({
-  types: ["token", "color"],
-  style: {
-    color: "rgb(189, 147, 249)",
-  },
-});
+import { themes as prismThemes } from "prism-react-renderer";
+// darkCodeTheme.styles.push({
+//   types: ["token", "color"],
+//   style: {
+//     color: "rgb(189, 147, 249)",
+//   },
+// });
+// lightCodeTheme.styles.push({
+//   types: ["token", "color"],
+//   style: {
+//     color: "rgb(189, 147, 249)",
+//   },
+// });
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -37,10 +35,28 @@ const config = {
   onBrokenLinks: "ignore",
   // onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
+  webpack: {
+    jsLoader: (isServer) => ({
+      loader: require.resolve("swc-loader"),
+      options: {
+        jsc: {
+          parser: {
+            syntax: "typescript",
+            tsx: true,
+          },
+          target: "es2017",
+        },
+        module: {
+          type: isServer ? "commonjs" : "es6",
+        },
+      },
+    }),
+  },
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
+
   i18n: {
     defaultLocale: "en",
     locales: ["en", "zh"],
@@ -50,7 +66,7 @@ const config = {
         direction: "ltr",
       },
       zh: {
-        label: `简体中文 (${progress["zh-CN"].translationProgress}%)`,
+        label: `简体中文`,
         direction: "ltr",
       },
     },
@@ -67,15 +83,8 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl: "https://github.com/farm-fe/farm-fe.github.io/tree/main/",
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
-        },
         theme: {
-          customCss: require.resolve("./src/css/custom.css"),
+          customCss: require.resolve("./src/css/custom.scss"),
         },
       }),
     ],
@@ -96,13 +105,13 @@ const config = {
           {
             type: "doc",
             docId: "quick-start",
-            position: "left",
+            position: "right",
             label: "Guides",
           },
           {
             type: "doc",
-            docId: "config/farm-config",
-            position: "left",
+            docId: "config/compilation-options",
+            position: "right",
             label: "Config",
           },
           {
@@ -117,11 +126,12 @@ const config = {
             endpoint: "https://8gw8jajsc1.us.aircode.run/ask",
           },
           // {to: '/blog', label: 'Blog', position: 'left'},
-          {
-            label: "v 0.11.0",
-            position: "right",
-            items: [],
-          },
+//           {
+//             label: "v 0.11.0",
+//             docId: "plugins/official-plugins/overview",
+//             position: "right",
+//             label: "Plugins",
+//           },
           {
             type: "localeDropdown",
             position: "right",
@@ -135,18 +145,24 @@ const config = {
           },
         ],
       },
+      docs: {
+        versionPersistence: "localStorage",
+        // sidebar: {
+        //   hideable: true,
+        // },
+      },
       footer: {
         links: [
           {
-            title: "Learn",
+            title: "Guide",
             items: [
               {
-                label: "Introduction",
-                to: "/why-farm",
+                label: "Quick Start",
+                to: "/docs/quick-start",
               },
               {
-                label: "Installation",
-                to: "/quick-start",
+                label: "Introduction",
+                to: "/docs/why-farm",
               },
             ],
           },
@@ -167,14 +183,6 @@ const config = {
             title: "More",
             items: [
               {
-                label: "Blog",
-                to: "/quick-start",
-              },
-              {
-                label: "Changelog",
-                to: "/quick-start",
-              },
-              {
                 label: "GitHub",
                 href: "https://github.com/farm-fe/farm",
               },
@@ -192,40 +200,13 @@ const config = {
         },
         copyright: `Copyright © ${new Date().getFullYear()} Farm, Inc. Built with Docusaurus.`,
       },
-      // footer: {
-      //   style: "dark",
-      //   links: [
-      //     {
-      //       title: "Docs",
-      //       items: [
-      //         {
-      //           label: "Guilds",
-      //           to: "/docs/quick-start",
-      //         },
-      //       ],
-      //     },
-      //     {
-      //       title: "More",
-      //       items: [
-      //         {
-      //           label: "Blog",
-      //           to: "/blog",
-      //         },
-      //         {
-      //           label: "GitHub",
-      //           href: "https://github.com/farm-fe/farm",
-      //         },
-      //       ],
-      //     },
-      //   ],
-      // },
       announcementBar: {
         id: "announcementBar-2", // Increment on change
-        content: `🎉 Farm will release the STABLE version soon. If you like Farm, give it a ⭐️ on <a target="_blank" rel="noopener noreferrer" href="https://github.com/farm-fe/farm">GitHub</a>`,
+        content: `🎉 Farm will release 1.0 soon. If you like Farm, give it a ⭐️ on <a target="_blank" rel="noopener noreferrer" href="https://github.com/farm-fe/farm">GitHub</a>`,
       },
       prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
+        theme: prismThemes.github,
+        darkTheme: prismThemes.dracula,
         magicComments: [
           // Remember to extend the default highlight class name as well!
           {
@@ -246,12 +227,12 @@ const config = {
         indexName: "farm-feio",
       },
       colorMode: {
-        defaultMode: "dark",
+        defaultMode: "light",
       },
     }),
   plugins: [
     "docusaurus-plugin-sass",
-    async function myPlugin(context, options) {
+    async function TailwindCSSPlugin(context, options) {
       return {
         name: "docusaurus-tailwindcss",
         configurePostCss(postcssOptions) {

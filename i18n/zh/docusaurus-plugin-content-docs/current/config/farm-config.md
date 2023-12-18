@@ -323,6 +323,37 @@ export default {
 };
 ```
 
+#### `script.decorators`
+```ts
+export interface DecoratorsConfig {
+  legacyDecorator: boolean;
+  decoratorMetadata: boolean;
+  /**
+   * 装饰器版本： 2021-12 或者 2022-03
+   * @default 2021-12
+   */
+  decoratorVersion: '2021-12' | '2022-03' | null;
+  /**
+   * @default []
+   */
+  includes: string[];
+  /**
+   * @default ["node_modules/"]
+   */
+  excludes: string[];
+}
+```
+
+建议使用 Farm 默认的装饰器配置，除非你想提高性能，可以设置`includes`和`excludes`。
+
+选项：
+* **legacyDecorator**：默认为`true`。使用遗留装饰器提案。
+* **decoratorMetadata**：默认为`false`。如果您想将`legacyDecorator`设置为`true`，则必须将其设置为`false`。
+* **decoratorVersion**：默认为`2021-12`，提案版本。该值为 2021-12 或 2022-03。
+* **包括**：默认为`[]`。如果要包含排除的模块，可以设置此选项。支持正则表达式。
+* **排除**：默认为`['node_modules/']`。变换装饰器时，这些路径下的模块将被忽略。支持正则表达式
+
+
 ### css
 
 #### `css.modules`
@@ -419,44 +450,126 @@ export default defineConfig({
 配置 Farm 局部打包的行为，详情可以参考 [局部打包](/docs/features/partial-bundling)
 
 ```ts
-export interface FarmPartialBundingConfig {
-  moduleBuckets?: {
+export interface FarmPartialBundlingConfig {
+  targetConcurrentRequests?: number;
+  targetMinSize?: number;
+  targetMaxSize?: number;
+  groups?: {
     name: string;
-    test: string[]; // 正则数组
+    test: string[];
+    groupType?: 'mutable' | 'immutable',
+    resourceType?: 'all' | 'initial' | 'async'
   }[];
+  enforceResources?: {
+    name: string;
+    test: string[];
+  }[];
+  enforceTargetConcurrentRequests?: boolean;
+  enforceTargetMinSize?: boolean;
+  immutableModules?: string[];
 };
 ```
 
-#### `partialBundling.moduleBuckets`
-* **默认值**: `[]`
+#### `partialBundling.targetConcurrentRequests`
+* **default**: `25`
 
-`moduleBuckets` 用于指定哪些模块为一个整体，这些模块将始终会被组织到同一个产物文件中。例如，如果想最终只生成可以文件，可以做如下配置：
+Farm 尝试生成尽可能接近此配置值的资源数量，控制初始资源加载或动态资源加载的并发请求数量。
 
-```ts
-import type { UserConfig } from '@farmfe/core';
 
-function defineConfig(config: UserConfig) {
-  return config;
-}
+#### `partialBundling.targetMinSize`
+* **default**: `20 * 1024` bytes, 20 KB
 
+minify 和 gzip 之前生成的资源的最小大小。 请注意，`targetMinSize` 并不一定保证满足，可以配置`enforceTargetMinSize`可用于强制限制最小的大小。
+
+#### `partialBundling.targetMaxSize`
+* **default**: `1500 * 1024` bytes, 1500 KB
+
+minify 和gzip 之前生成的资源的最大大小。
+
+#### `partialBundling.groups`
+* **default**: `[]`
+
+一组应该放在一起的模块。 请注意，此组配置只是对编译器的打击，即这些模块应该放置在一起，它可能会产生多个资源，如果您想强制打包模块到同一个资源中，使用`enforceResources`。
+
+数组每一项的配置选项如下:
+  * **name**: 该组的名称。
+  * **test**: 匹配该组中的模块路径的正则表达式数组。.
+  * **groupType**: `mutable` 或 `immutable`，限制该组仅适用于指定类型的模块。
+  * **resourceType**: `all`、`initial` 或 `async`，限制该组仅适用于指定类型的资源。
+
+```ts title="farm.config.ts" {4-9}
 export default defineConfig({
   compilation: {
-    partialBundling: [
-      {
-        name: 'index-bundle',
-        test: ['.+'] // 使用正则，匹配任意模块路径
-      }
-    ]
+    partialBundling: {
+      groups: [
+        {
+          name: 'vendor-react',
+          test: ['node_modules/'],
+        }
+      ]
+    },
   },
 });
 ```
-或者把 react 单独打包，可以使用 `test: ['node_modules/react/', 'node_modules/react-dom/']`。
 
-注意不要使用 `/node_modules/react`，没有前缀 `/`，因为 Farm 是使用的模块相对路径做匹配，`/node_modules` 将匹配不到项目根目录下的 node_modules 目录。
+#### `partialBundling.enforceResources`
+* **default**: `[]`
 
+Array to match the modules that should always be in the same output resource, ignore all other constraints.
+
+Options for each item:
+  * **name**: Name of this resource.
+  * **test**: Regex array to match the modules which are in this resource.
+
+```ts title="farm.config.ts" {4-9}
+export default defineConfig({
+  compilation: {
+    partialBundling: {
+      enforceResources: [
+        {
+          name: 'index',
+          test: ['.+'],
+        }
+      ]
+    },
+  },
+});
+```
 :::warning
-命中了该选项的模块将不会参与内置的模块组织流程，请尽量控制 moduleBuckets 的范围，以免影响资源加载性能
+`enforceResources` will ignore all Farm's internal optimization, be careful when you use it.
 :::
+
+#### `partialBundling.enforceTargetConcurrentRequests`
+* **default**: `false`
+
+对每个资源加载强制执行目标并发请求数量，当为 true 时，较小的资源将合并为较大的资源以满足目标并发请求。 这可能会导致 css 资源出现问题，请小心使用此选项
+
+#### `partialBundling.enforceTargetMinSize`
+* **default**: `false`
+
+为每个资源强制执行目标最小大小限制，如果为真，较小的资源将合并为较大的资源以满足目标并发请求。 这可能会导致 css 资源出现问题，请小心使用此选项
+
+#### `partialBundling.immutableModules`
+* **default**: `['node_modules']`
+
+匹配不可变模块的正则表达式数组
+
+```ts title="farm.config.ts"
+export default defineConfig({
+  compilation: {
+    partialBundling: {
+      immutableModules: ['node_modules/', '/global-constants']
+    },
+  },
+});
+```
+不可变模块会影响打包和持久缓存，如果要更改它，请小心。
+
+#### `partialBundling.immutableModulesWeight`
+* **default**: `0.8`
+
+Default to `0.8`, immutable module will have 80% request numbers. For example, if `targetConcurrentRequest` is 25, then immutable resources will take `25 * 80% = 20` by default. This option is to make sure that mutable and immutable modules are isolate, if change your business code, code under node_modules won't be affected.
+
 
 ### lazyCompilation
 * **默认值**: 在开发模式是 `true`，构建模式是 `false`
@@ -503,6 +616,69 @@ type FarmPresetEnvConfig =  boolean | {
 * **默认值**: `降级到 ES5`
 
 传递给 swc preset env 的选项，参考 https://swc.rs/docs/configuration/compilation#env。
+
+### persistentCache
+* **default**: `true`
+
+[增量构建](/docs/features/persistent-cache) 的缓存配置选项. 配置成 `false` 来禁用缓存.
+
+```ts
+export type PersistentCache = boolean | {
+  namespace?: string;
+  cacheDir?: string;
+  buildDependencies?: string[];
+  moduleCacheKeyStrategy?: {
+    timestamp?: boolean,
+    hash?: boolean,
+  }
+};
+```
+
+#### `persistentCache.namespace`
+* **default**: `farm-cache`
+
+缓存的命名空间，不同空间下的缓存会相互隔离，不会复用。
+
+#### `persistentCache.cacheDir`
+* **default**: `node_modules/.farm/cache`
+
+缓存文件的存放目录。
+
+#### `persistentCache.buildDependencies`
+* **default**: `farm.config.ts and all its deep dependencies`
+
+所有配置文件、插件等构建依赖的路径，默认包含 `farm.config.ts/js/mjs` 的所有依赖以及配置的所有 rust 和 js 插件。如果任意一个构建依赖变更了，所有缓存将会失效。
+
+配置项可以是一个路径或者一个包名, 例如:
+```ts
+import { defineConfig } from '@farmfe/core';
+import path from 'node:path';
+
+export default defineConfig({
+  persistentCache: {
+    buildDependencies: [
+      // a file path
+      path.resolve(process.cwd(), './plugins/my-plugin.js'),
+      // a package name, note that this package must expose package.json
+      'farm-plugin-custom-xxx'
+    ]
+  }
+})
+```
+
+
+#### `persistentCache.moduleCacheKeyStrategy`
+* **default**: `{ timestamp: true, hash: true }`
+
+控制复用缓存时，如何生成缓存的键。如果 `timestamp`  被设置为 true，并且模块没有倍改过，那么该模块所有的构建步骤将会被跳过（如`load`, `transform` 等钩子），缓存的模块将会被复用。如果`hash`设置成 true，并且 timestamp 没有命中，那么会调用 `load` 以及 `transform` 钩子来获取模块的内容，如果模块内容没有变更，那么缓存将会被复用，剩余构建步骤会被跳过。
+
+* `timestamp`: 是否检查模块的 timestamp，性能最优，但是如果某些插件依赖前一次的构建状态，可能存在问题，见[注意事项](/docs/features/persistent-cache#caveats-for-plugins).
+* `hash`: 是否检查 load 和 transform 后的内容。
+
+#### `persistentCache.envs`
+* **default**: [Farm Env](https://farm-fe.github.io/docs/config/farm-config#environment-variable)
+
+可能影响构建过程的环境变量，如果任意一个环境变化了，缓存将会过期。
 
 <!-- #### `presetEnv.assuptions` -->
 
@@ -649,6 +825,44 @@ export function hmrPlugin(devServer: DevServer) {
 ```
 
 然后将该插件配置到 `server.plugins` 中。
+
+
+## Environment variable 环境变量
+
+`Farm` 通过 `process.env.NODE_ENV` 来区分开发和生产环境。
+
+在不同环境中, 环境变量会被静态替换, 所以请使用静态的常量来表示环境变量, 而不是动态的表达式.
+
+### `.env` 文件
+
+`Farm` 使用 `dotenv` 来加载您的额外的环境变量, 例如 `.env` 文件.
+
+```js
+// .env
+FARM_APP_SECRET=secret
+Farm_APP_PASSWORD=password
+APP_VERSION=1.0.0
+```
+
+`Farm` 会通过 dotenv 加载 `.env` 文件, 并且将其加载到 `process.env` 中 最终在 define 中注入.
+
+:::warning
+为了保证客户端安全, 防止将当前系统中的环境变量暴露给客户端 `Farm` 只会识别以 `FARM_` 开头和一些重要的环境变量.
+:::
+
+`Farm` 通过 dotenv-expand 来拓展环境变量
+
+
+如果你想自定义 env 变量的前缀，可以配置 `envPrefix`。
+
+### envPrefix env 变量前缀
+
+* **默认值**: `FARM_`
+
+通过配置 `envPrefix` 来自定义 `env` 变量的前缀。
+
+```ts
+
 
 
 ## Plugins Options

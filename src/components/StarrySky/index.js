@@ -70,7 +70,7 @@ export default function App() {
         </Suspense> */}
         <OrbitControls
           autoRotate
-          autoRotateSpeed={0.08}
+          autoRotateSpeed={0.015}
           enablePan={true}
           enableZoom={false}
           enableRotate={false}

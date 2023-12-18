@@ -1,4 +1,4 @@
-# configuration reference
+# Configuration Reference
 By default, Farm reads the configuration from the `farm.config.ts|js|mjs` file in the project root directory, an example configuration file:
 
 ```ts title="farm.config.ts"
@@ -95,10 +95,10 @@ After partial bundling, other resource file names except the resources configure
 
 directory of output resources
 
-#### `output. publicPath`
+#### `output.publicPath`
 * **Default value**: `"/"`
 
-The resource url load prefix. For example URL `https://xxxx`, or a path `/xxx`.
+The resource url load prefix. For example URL `https://xxxx`, or a absolute path `/xxx/`.
 
 #### `output.assetsFileName`
 * **Default value**: `"[resourceName].[ext]"`
@@ -322,6 +322,35 @@ export default {
 };
 ```
 
+#### `script.decorators`
+```ts
+export interface DecoratorsConfig {
+  legacyDecorator: boolean;
+  decoratorMetadata: boolean;
+  /**
+   * The version of the decorator proposal to use. 2021-12 or 2022-03
+   * @default 2021-12
+   */
+  decoratorVersion: '2021-12' | '2022-03' | null;
+  /**
+   * @default []
+   */
+  includes: string[];
+  /**
+   * @default ["node_modules/"]
+   */
+  excludes: string[];
+}
+```
+It's recommended to use default decorators configuration of Farm, unless you want to improve performance, you can set `includes` and `excludes`.
+
+Options:
+* **legacyDecorator**: default to `true`. Using legacy decorator proposal.
+* **decoratorMetadata**: default to `false`. You have to set `legacyDecorator` to `false` if you want to set it to true.
+* **decoratorVersion**: default to '2021-12', proposal version. The value is 2021-12 or 2022-03.
+* **includes**: default to `[]`. If you want to include modules that are excluded, you can set this option. Regex supported.
+* **excludes**: default to `['node_modules/']`. Modules under these paths are ignored when transform decorators. Regex supported
+
 ### css
 
 #### `css.modules`
@@ -403,7 +432,7 @@ export default defineConfig({
 
 All HTML entries will inherit `html.base`, for details, refer to [Guide - HTML](/docs/features/html)
 
-###sourcemap
+### sourcemap
 * **default**: `true`
 
 Configure whether to enable sourcemap, optional configuration items and descriptions are as follows:
@@ -414,48 +443,130 @@ Configure whether to enable sourcemap, optional configuration items and descript
 * **`all-inline`**: Generate sourcemaps for all files, and inline sourcemaps into the product, do not generate separate files
 
 
-### partial Bundling
+### partialBundling
 Configure the behavior of Farm's partial bundling. For details, please refer to [Partial Bundling](/docs/features/partial-bundling)
 
 ```ts
-export interface FarmPartialBundingConfig {
-   moduleBuckets?: {
-     name: string;
-     test: string[]; // regular array
-   }[];
+export interface FarmPartialBundlingConfig {
+  targetConcurrentRequests?: number;
+  targetMinSize?: number;
+  targetMaxSize?: number;
+  groups?: {
+    name: string;
+    test: string[];
+    groupType?: 'mutable' | 'immutable',
+    resourceType?: 'all' | 'initial' | 'async'
+  }[];
+  enforceResources?: {
+    name: string;
+    test: string[];
+  }[];
+  enforceTargetConcurrentRequests?: boolean;
+  enforceTargetMinSize?: boolean;
+  immutableModules?: string[];
 };
 ```
 
-#### `partialBundling. moduleBuckets`
+#### `partialBundling.targetConcurrentRequests`
+* **default**: `25`
+
+Farm tries to generate resource numbers as closer as possible to this config value for initial resource loading or a dynamic resource loading.
+
+
+#### `partialBundling.targetMinSize`
+* **default**: `20 * 1024` bytes, 20 KB
+
+The minimum size of each generated resources **before minify and gzip**. Note that `targetMinSize` will not be satisfied if `ModuleBucket's size` is less than `targetMinSize`, `ModuleBucket` will be given priority. Config `enforceTargetMinSize` can be used to enforce size.
+
+#### `partialBundling.targetMaxSize`
+* **default**: `1500 * 1024` bytes, 1500 KB
+
+The maximum size of generated resources before minify and gzip.
+
+#### `partialBundling.groups`
 * **default**: `[]`
 
-`moduleBuckets` is used to specify which modules as a whole will always be organized into the same artifact file. For example, if you want to generate only ok files in the end, you can do the following configuration:
+A group of modules that should be placed together. Note that this group config is only a hit to the compiler that these modules should be placed together, it may produce multiple resources, if you want to enforce modules in the same resource, you should use `enforceResources`.
 
-```ts
-import type { UserConfig } from '@farmfe/core';
+Options for each item:
+  * **name**: Name of this group.
+  * **test**: Regex array to match the modules which are in this group.
+  * **groupType**: `mutable` or `immutable`, this group only applies to the specified type of modules.
+  * **resourceType**: `all`, `initial` or `async`, this group only applies to the specified type of resources.
 
-function defineConfig(config: UserConfig) {
-   return config;
-}
-
+```ts title="farm.config.ts" {4-9}
 export default defineConfig({
-   compilation: {
-     partialBundling: [
-       {
-         name: 'index-bundle',
-         test: ['.+'] // Use regex to match any module path
-       }
-     ]
-   },
+  compilation: {
+    partialBundling: {
+      groups: [
+        {
+          name: 'vendor-react',
+          test: ['node_modules/'],
+        }
+      ]
+    },
+  },
 });
 ```
-Or package react separately, you can use `test: ['node_modules/react/', 'node_modules/react-dom/']`.
 
-Be careful not to use `/node_modules/react` without the prefix `/`, because Farm uses the relative path of the module for matching, `/node_modules` will not match the node_modules directory under the project root directory.
+#### `partialBundling.enforceResources`
+* **default**: `[]`
 
+Array to match the modules that should always be in the same output resource, ignore all other constraints.
+
+Options for each item:
+  * **name**: Name of this resource.
+  * **test**: Regex array to match the modules which are in this resource.
+
+```ts title="farm.config.ts" {4-9}
+export default defineConfig({
+  compilation: {
+    partialBundling: {
+      enforceResources: [
+        {
+          name: 'index',
+          test: ['.+'],
+        }
+      ]
+    },
+  },
+});
+```
 :::warning
-Modules that hit this option will not participate in the built-in module organization process, please try to control the scope of moduleBuckets so as not to affect resource loading performance
+`enforceResources` will ignore all Farm's internal optimization, be careful when you use it.
 :::
+
+#### `partialBundling.enforceTargetConcurrentRequests`
+* **default**: `false`
+
+Enforce target concurrent requests for every resource loading, when true, smaller resource will be merged into bigger resource to meet the target concurrent requests. this may cause issue for css resource, be careful to use this option.
+
+#### `partialBundling.enforceTargetMinSize`
+* **default**: `false`
+
+Enforce target min size for every resource, when tue, smaller resource will be merged into bigger resource to meet the target concurrent requests. this may cause issue for css resource, be careful to use this option
+
+#### `partialBundling.immutableModules`
+* **default**: `['node_modules']`
+
+Regex array to match the immutable modules.
+
+```ts title="farm.config.ts"
+export default defineConfig({
+  compilation: {
+    partialBundling: {
+      immutableModules: ['node_modules/', '/global-constants']
+    },
+  },
+});
+```
+Immutable module can affect bundling and incoming persistent cache, be careful if you want to change it.
+
+#### `partialBundling.immutableModulesWeight`
+* **default**: `0.8`
+
+默认为`0.8`，不可变模块将拥有80%的请求数。 例如，如果`targetConcurrentRequest`为 25，则默认情况下不可变资源将采用`25 * 80% = 20`。 该选项是为了确保可变模块和不可变模块是隔离的，如果更改您的业务代码，node_modules下的代码不会受到影响。
+
 
 ### lazyCompilation
 * **default**: `true` in development mode, `false` in build mode
@@ -502,6 +613,69 @@ Configure modules that do not require polyfill, and configure regular strings, s
 * **default**: `downgrade to ES5`
 
 Options passed to swc preset env, see https://swc.rs/docs/configuration/compilation#env.
+
+### persistentCache
+* **default**: `true`
+
+Options for [Persistent Cache](/docs/features/persistent-cache). Configuring it `false` to disable cache.
+
+```ts
+export type PersistentCache = boolean | {
+  namespace?: string;
+  cacheDir?: string;
+  buildDependencies?: string[];
+  moduleCacheKeyStrategy?: {
+    timestamp?: boolean,
+    hash?: boolean,
+  }
+};
+```
+
+#### `persistentCache.namespace`
+* **default**: `farm-cache`
+
+Namespace for the cache, caches under different namespace will be isolated.
+
+#### `persistentCache.cacheDir`
+* **default**: `node_modules/.farm/cache`
+
+Cache store directory.
+
+#### `persistentCache.buildDependencies`
+* **default**: `farm.config.ts and all its deep dependencies`
+
+File path or package name that may affect the compilation, for example, plugins. By default, `farm.config.ts/js/mjs` and all of its deep dependencies will be treated as build dependencies, if any of these files changed, all cache will be invalidated.
+
+it can be a file path or a package name, for example:
+```ts
+import { defineConfig } from '@farmfe/core';
+import path from 'node:path';
+
+export default defineConfig({
+  persistentCache: {
+    buildDependencies: [
+      // a file path
+      path.resolve(process.cwd(), './plugins/my-plugin.js'),
+      // a package name, note that this package must expose package.json
+      'farm-plugin-custom-xxx'
+    ]
+  }
+})
+```
+
+
+#### `persistentCache.moduleCacheKeyStrategy`
+* **default**: `{ timestamp: true, hash: true }`
+
+How to generate cache key when trying to reuse cache. if `timestamp` is true and the timestamp of the module is not changed, then all build stage hooks like `load`, `transform` will be skipped and the cached module will be reused. if `hash` is true and the content of the module is not changed, `load` and `transform` hook will be called to get the transformed content, other hooks will be skipped and the cached module will be reused.
+
+* `timestamp`: whether check timestamp of the module, which has the best performance
+* `hash`: whether check content hash after load and transform
+
+#### `persistentCache.envs`
+* **default**: [Farm Env](https://farm-fe.github.io/docs/config/farm-config#environment-variable)
+
+Envs used to invalidate cache, if the configured env changed, then all cache will be invalidated.
 
 <!-- #### `presetEnv.assuptions` -->
 
@@ -648,6 +822,42 @@ export function hmrPlugin(devServer: DevServer) {
 ```
 
 Then configure the plugin into `server.plugins`.
+
+
+## Environment variable 
+
+`Farm` distinguishes between development and production environments through `Farm` process.env.NODE_ ENV`.
+
+In different environments, environment variables are replaced statically, so use static constants to represent environment variables instead of dynamic expressions.
+
+### `.env` file
+
+`Farm` uses `dotenv` to load your additional environment variables, such as `.env` files.
+
+```js
+// .env
+FARM_APP_SECRET=secret
+Farm_APP_PASSWORD=password
+APP_VERSION=1.0.0
+```
+
+`Farm` loads the file `.env` via dotenv, and loads it into `process.env` and finally injects it into define.
+
+:::warning
+In order to ensure the security of the client, preventing the environment variables in the current system from being exposed to the client `Farm` will only identify some important environment variables that start with `Farm`.
+:::
+
+`Farm` expands environment variables through dotenv-expand
+
+
+If you want to customize the prefix of env variables, you can configure `envPrefix`.
+
+### envPrefix  
+
+* **default value**: `FARM_`
+
+Customize the prefix of the `env` variable by configuring `envPrefix`.
+
 
 ## Plugins Options
 Configure Farm's plug-ins, support Rust plug-ins or Js plug-ins, examples are as follows:

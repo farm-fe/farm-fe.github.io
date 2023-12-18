@@ -147,3 +147,34 @@ module.exports = {
   ]
 }
 ```
+
+## Css Prefixer
+Farm 支持开箱即用的 css prefixer，您可以使用`compilation.css.prefixer`对其进行配置。
+
+```ts title="farm.config.ts"
+import type { UserConfig } from '@farmfe/core';
+
+function defineConfig(config: UserConfig) {
+   return config;
+}
+
+export default defineConfig({
+   compilation: {
+     css: {
+       prefix: {
+        targets: ['ie >= 10']
+       }
+     },
+   },
+});
+```
+对于输入代码
+```css
+div {
+  display: flex;
+}
+```
+输出
+```css
+div{display:-ms-flexbox;display:flex}
+```

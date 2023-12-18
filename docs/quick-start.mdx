@@ -9,22 +9,27 @@ import TabItem from "@theme/TabItem";
 # Quick Start
 
 :::note
-Farm needs **Node 16 and above**. And if you are using Linux, please make sure your os version is **ubuntu 22** and above(**or with GLIBC >= 2.32**).
+Farm needs **Node 16 and above**. 
 :::
 
-## 1. Create a Farm Project
+## Online experience
 
-<Tabs>
-  <TabItem value="npm" label="npm">
-    <CodeBlock>npm create farm@latest</CodeBlock>
-  </TabItem>
+[![Edit Farm](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/p/github/ErKeLost/react/main)
+
+## Create a Farm Project
+
+    <Tabs>
+          <TabItem value="npm" label="npm">
+              <CodeBlock>npm create farm@latest</CodeBlock>
+              </TabItem>
+
   <TabItem value="yarn" label="yarn">
-    <CodeBlock>yarn create farm</CodeBlock>
-  </TabItem>
+          <CodeBlock>yarn create farm</CodeBlock>
+              </TabItem>
   <TabItem value="pnpm" label="pnpm">
-    <CodeBlock>pnpm create farm</CodeBlock>
-  </TabItem>
-</Tabs>
+          <CodeBlock>pnpm create farm</CodeBlock>
+              </TabItem>
+          </Tabs>
 
 :::note
 Then follow the prompts!
@@ -32,37 +37,39 @@ Then follow the prompts!
 You can also directly specify the project name and the template you want to use via additional command line options:
 :::
 
-<Tabs>
-  <TabItem value="npm 6.x" label="npm 6.x">
-    <CodeBlock>npm create farm@latest my-vue-app --template react</CodeBlock>
-  </TabItem>
+    <Tabs>
+          <TabItem value="npm 6.x" label="npm 6.x">
+              <CodeBlock>npm create farm@latest my-vue-app --template react</CodeBlock>
+              </TabItem>
+
   <TabItem value="npm 7+" label="npm 7+">
-    <CodeBlock>npm create farm@latest my-vue-app -- --template vue</CodeBlock>
-  </TabItem>
+          <CodeBlock>npm create farm@latest my-vue-app -- --template vue</CodeBlock>
+              </TabItem>
   <TabItem value="yarn" label="yarn">
-    <CodeBlock>yarn create farm my-vue-app --template react</CodeBlock>
-  </TabItem>
+          <CodeBlock>yarn create farm my-vue-app --template react</CodeBlock>
+              </TabItem>
   <TabItem value="pnpm" label="pnpm">
-    <CodeBlock>pnpm create farm my-vue-app --template vue</CodeBlock>
-  </TabItem>
-</Tabs>
+          <CodeBlock>pnpm create farm my-vue-app --template vue</CodeBlock>
+              </TabItem>
+          </Tabs>
 
 ## 2. Start the Project
 
-Choose the package manager you like, then the dependencies will be installded automatically.
+Choose the package manager you like, then the dependencies will be installed automatically.
 Then, start the project:
 
-<Tabs>
-  <TabItem value="npm" label="npm">
-    <CodeBlock>cd farm-project && npm start</CodeBlock>
-  </TabItem>
+    <Tabs>
+          <TabItem value="npm" label="npm">
+              <CodeBlock>cd farm-project && npm start</CodeBlock>
+              </TabItem>
+
   <TabItem value="yarn" label="yarn">
-    <CodeBlock>cd farm-project && yarn start</CodeBlock>
-  </TabItem>
+          <CodeBlock>cd farm-project && yarn start</CodeBlock>
+              </TabItem>
   <TabItem value="pnpm" label="pnpm">
-    <CodeBlock>cd farm-project && pnpm start</CodeBlock>
-  </TabItem>
-</Tabs>
+          <CodeBlock>cd farm-project && pnpm start</CodeBlock>
+              </TabItem>
+          </Tabs>
 
 The project will start at `http://localhost:9000` by default.
 
@@ -101,6 +108,7 @@ Refer to **[Config Reference](/docs/config/farm-config)** for more details of co
 :::
 
 ## 4. Building the project
+
 Build the Farm project as production-ready static files:
 
 ```bash
@@ -114,4 +122,4 @@ The built product is downgraded to ES5 by default, and the product will be compr
 - [Why Farm?](/docs/why-farm)
 - [Features](/docs/features/html)
 - [Config Reference](/docs/config/farm-config)
-- [Plugins](/docs/plugins/overview)
+- [Plugins](/docs/plugins/official-plugins/overview)

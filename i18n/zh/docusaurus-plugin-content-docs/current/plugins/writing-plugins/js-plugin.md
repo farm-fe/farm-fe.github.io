@@ -1,11 +1,10 @@
 # Js Plugins
-A Js plugin is a plain Javascript object.
+JS 插件就是一个纯粹的 Javascript 对象.
 
 ```js
-// farm.config.ts
-import { defineFarmConfig } from '@farmfe/core/dist/config';
+import { UserConfig } from '@farmfe/core';
 
-export default defineFarmConfig({
+export default <UserConfig> {
   // ...
   plugins: [
     // a plugin object
@@ -31,10 +30,10 @@ export default defineFarmConfig({
     },
     // load, transform are similar to resolve, refer to their types
   ],
-});
+};
 ```
 
-If you want to pass args to your plugins，you can use a closure.
+可以使用闭包来导出插件，实现参数传递。
 
 ```ts
 // my-resolve-plugin.ts

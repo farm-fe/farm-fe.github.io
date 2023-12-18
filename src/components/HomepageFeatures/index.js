@@ -11,12 +11,23 @@ import Consistency from "@site/static/img/consistency.png";
 import styles from "./styles.module.css";
 const FeatureList = [
   {
-    title: <Translate>Super Fast</Translate>,
+    title: <Translate>Extremely Fast</Translate>,
     Img: Rocket,
     description: (
       <Translate>
-        Super Fast: Written in Rust, start a React / Vue project in milliseconds
+        Written in Rust, start a React / Vue project in milliseconds
         and perform an HMR update within 10ms for most situations.
+      </Translate>
+    ),
+    className:
+      "w-full rounded-lg sm:block sm:col-span-2 md:col-span-1 lg:row-start-2 lg:col-span-2",
+  },
+  {
+    title: <Translate>Incremental Building</Translate>,
+    Img: Box,
+    description: (
+      <Translate>
+        Incremental Building: Support persistent cache, module level cache enabled by default, any module won't be compiled twice until it's changed!
       </Translate>
     ),
     className:
@@ -27,8 +38,8 @@ const FeatureList = [
     Img: FeaturePng,
     description: (
       <Translate>
-        Farm support compiling Html, Css, Js/Jsx/Ts/Tsx, Json, Static Assets out
-        of box, support sass, less, react-refresh by official plugins, support
+        Farm support compiling Html, Css, Css Modules, Js/Jsx/Ts/Tsx, Json, Static Assets out
+        of box, support sass, less, postcss, vue, react, solid by official plugins, support
         lazy compiling, partial bundling and more
       </Translate>
     ),
@@ -36,13 +47,12 @@ const FeatureList = [
       "w-full rounded-lg sm:block sm:col-span-2 md:col-span-1 lg:row-start-2 lg:col-span-2",
   },
   {
-    title: <Translate>Fully Pluggable</Translate>,
+    title: <Translate>Fully Pluggable and Vite Compatible</Translate>,
     Img: Plug,
     description: (
       <Translate>
-        Fully Pluggable: Everything inside Farm is powered by plugins, achieve
-        anything you want by creating a plugin. Supports both Rust and
-        JavaScript plugins.
+        Fully Pluggable: Everything inside Farm is powered by plugins, Supports both Rust and
+        JavaScript plugins. Support Vite plugins out of box.
       </Translate>
     ),
     className:
@@ -61,23 +71,12 @@ const FeatureList = [
       "w-full rounded-lg sm:block sm:col-span-2 md:col-span-1 lg:row-start-2 lg:col-span-2",
   },
   {
-    title: <Translate>Consistency</Translate>,
-    Img: Consistency,
-    description: (
-      <Translate>
-        Consistency: What you see in development will be the same as what you
-        get in production.
-      </Translate>
-    ),
-    className:
-      " w-full rounded-lg sm:block sm:col-span-2 md:col-span-1 lg:row-start-2 lg:col-span-2",
-  },
-  {
-    title: "Compatibility",
+    title: "Consistency and Compatibility",
     Img: Compatibility,
     description: (
       <Translate>
-        Compatibility: Supports both legacy (ES5) and modern browsers.
+        Consistency & Compatibility: What you see in development will be the same as what you
+        get in production. Supports both legacy (ES5) and modern browsers.
       </Translate>
     ),
     className:
