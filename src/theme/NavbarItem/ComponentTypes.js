@@ -7,7 +7,6 @@ import DocNavbarItem from "@theme/NavbarItem/DocNavbarItem";
 import DocSidebarNavbarItem from "@theme/NavbarItem/DocSidebarNavbarItem";
 import DocsVersionNavbarItem from "@theme/NavbarItem/DocsVersionNavbarItem";
 import DocsVersionDropdownNavbarItem from "@theme/NavbarItem/DocsVersionDropdownNavbarItem";
-
 import { Documate } from "@documate/react";
 import "@documate/react/dist/style.css";
 
