@@ -103,6 +103,11 @@ const config = {
         },
         items: [
           {
+            type: "custom-documate",
+            position: "right",
+            endpoint: "https://8gw8jajsc1.us.aircode.run/ask",
+          },
+          {
             type: "doc",
             docId: "quick-start",
             position: "right",
@@ -120,11 +125,7 @@ const config = {
           //   position: "left",
           //   label: "Plugins",
           // },
-          {
-            type: 'custom-documate',
-            position: 'left',
-            endpoint: "https://8gw8jajsc1.us.aircode.run/ask",
-          },
+
           // {to: '/blog', label: 'Blog', position: 'left'},
           // {
           //   label: "v 0.11.0",

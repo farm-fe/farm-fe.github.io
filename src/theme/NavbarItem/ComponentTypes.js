@@ -7,10 +7,8 @@ import DocNavbarItem from "@theme/NavbarItem/DocNavbarItem";
 import DocSidebarNavbarItem from "@theme/NavbarItem/DocSidebarNavbarItem";
 import DocsVersionNavbarItem from "@theme/NavbarItem/DocsVersionNavbarItem";
 import DocsVersionDropdownNavbarItem from "@theme/NavbarItem/DocsVersionDropdownNavbarItem";
-
 import { Documate } from "@documate/react";
 import "@documate/react/dist/style.css";
-
 const ComponentTypes = {
   default: DefaultNavbarItem,
   localeDropdown: LocaleDropdownNavbarItem,
@@ -21,6 +19,6 @@ const ComponentTypes = {
   docSidebar: DocSidebarNavbarItem,
   docsVersion: DocsVersionNavbarItem,
   docsVersionDropdown: DocsVersionDropdownNavbarItem,
-  "custom-documate": Documate,
+  'custom-documate': Documate,
 };
 export default ComponentTypes;
