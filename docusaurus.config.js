@@ -114,7 +114,7 @@ const config = {
           {
             type: 'custom-documate',
             position: 'left',
-            endpoint: "https://u2qzhw8c3d.us.aircode.run/ask",
+            endpoint: "https://8gw8jajsc1.us.aircode.run/ask",
           },
           // {to: '/blog', label: 'Blog', position: 'left'},
           {
