@@ -1,20 +1,8 @@
 // @ts-nocheck
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const progress = require("./scripts/progress_translate_lang.json");
+// const progress = require("./scripts/progress_translate_lang.json");
 import { themes as prismThemes } from "prism-react-renderer";
-// darkCodeTheme.styles.push({
-//   types: ["token", "color"],
-//   style: {
-//     color: "rgb(189, 147, 249)",
-//   },
-// });
-// lightCodeTheme.styles.push({
-//   types: ["token", "color"],
-//   style: {
-//     color: "rgb(189, 147, 249)",
-//   },
-// });
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -35,6 +23,7 @@ const config = {
   onBrokenLinks: "ignore",
   // onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
+  // TODO BUIlD Error
   // webpack: {
   //   jsLoader: (isServer) => ({
   //     loader: require.resolve("swc-loader"),
@@ -110,7 +99,7 @@ const config = {
               marginRight: "2rem",
               marginLeft: "2rem",
               marginTop: "0.3rem",
-              width: "10rem",
+              width: "8rem",
             }
           },
           {
@@ -125,20 +114,12 @@ const config = {
             position: "right",
             label: "Config",
           },
-          // {
-          //   type: "doc",
-          //   docId: "plugins/overview",
-          //   position: "left",
-          //   label: "Plugins",
-          // },
-
-          // {to: '/blog', label: 'Blog', position: 'left'},
-          // {
-          //   label: "v 0.11.0",
-          //   // docId: "plugins/official-plugins/overview",
-          //   position: "right",
-          //   label: "Plugins",
-          // },
+          {
+            type: "doc",
+            docId: "plugins/official-plugins/overview",
+            position: "right",
+            label: "Plugins",
+          },
           {
             type: "localeDropdown",
             position: "right",
