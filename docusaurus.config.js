@@ -2,19 +2,20 @@
 // Note: type annotations allow type checking and IDEs autocompletion
 
 const progress = require("./scripts/progress_translate_lang.json");
-import { themes as prismThemes } from "prism-react-renderer";
-// darkCodeTheme.styles.push({
-//   types: ["token", "color"],
-//   style: {
-//     color: "rgb(189, 147, 249)",
-//   },
-// });
-// lightCodeTheme.styles.push({
-//   types: ["token", "color"],
-//   style: {
-//     color: "rgb(189, 147, 249)",
-//   },
-// });
+const lightCodeTheme = require("prism-react-renderer/themes/github");
+const darkCodeTheme = require("prism-react-renderer/themes/dracula");
+darkCodeTheme.styles.push({
+  types: ["token", "color"],
+  style: {
+    color: "rgb(189, 147, 249)",
+  },
+});
+lightCodeTheme.styles.push({
+  types: ["token", "color"],
+  style: {
+    color: "rgb(189, 147, 249)",
+  },
+});
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -109,9 +110,7 @@ const config = {
             style: {
               marginRight: "2rem",
               marginLeft: "2rem",
-              marginTop: "0.3rem",
-              width: "10rem",
-            }
+            },
           },
           {
             type: "doc",
@@ -212,8 +211,10 @@ const config = {
         content: `🎉 Farm will release 1.0 soon. If you like Farm, give it a ⭐️ on <a target="_blank" rel="noopener noreferrer" href="https://github.com/farm-fe/farm">GitHub</a>`,
       },
       prism: {
-        theme: prismThemes.github,
-        darkTheme: prismThemes.dracula,
+        // theme: prismThemes.github,
+        // darkTheme: prismThemes.dracula,
+        theme: lightCodeTheme,
+        darkTheme: darkCodeTheme,
         magicComments: [
           // Remember to extend the default highlight class name as well!
           {
