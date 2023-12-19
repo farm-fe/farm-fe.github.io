@@ -125,12 +125,12 @@ const config = {
             position: "right",
             label: "Config",
           },
-          // {
-          //   type: "doc",
-          //   docId: "plugins/overview",
-          //   position: "left",
-          //   label: "Plugins",
-          // },
+          {
+            type: "doc",
+            docId: "plugins/official-plugins/overview",
+            position: "right",
+            label: "Plugins",
+          },
 
           // {to: '/blog', label: 'Blog', position: 'left'},
           // {
