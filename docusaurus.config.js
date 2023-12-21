@@ -212,8 +212,8 @@ const config = {
         content: `🎉 Farm will release 1.0 soon. If you like Farm, give it a ⭐️ on <a target="_blank" rel="noopener noreferrer" href="https://github.com/farm-fe/farm">GitHub</a>`,
       },
       prism: {
-        theme: prismThemes.github,
-        darkTheme: prismThemes.dracula,
+        theme: prismThemes.nightOwlLight,
+        darkTheme: prismThemes.oneDark,
         magicComments: [
           // Remember to extend the default highlight class name as well!
           {
