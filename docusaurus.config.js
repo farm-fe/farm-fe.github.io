@@ -35,23 +35,23 @@ const config = {
   onBrokenLinks: "ignore",
   // onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
-  webpack: {
-    jsLoader: (isServer) => ({
-      loader: require.resolve("swc-loader"),
-      options: {
-        jsc: {
-          parser: {
-            syntax: "typescript",
-            tsx: true,
-          },
-          target: "es2017",
-        },
-        module: {
-          type: isServer ? "commonjs" : "es6",
-        },
-      },
-    }),
-  },
+  // webpack: {
+  //   jsLoader: (isServer) => ({
+  //     loader: require.resolve("swc-loader"),
+  //     options: {
+  //       jsc: {
+  //         parser: {
+  //           syntax: "typescript",
+  //           tsx: true,
+  //         },
+  //         target: "es2017",
+  //       },
+  //       module: {
+  //         type: isServer ? "commonjs" : "es6",
+  //       },
+  //     },
+  //   }),
+  // },
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
@@ -103,6 +103,17 @@ const config = {
         },
         items: [
           {
+            type: "custom-documate",
+            position: "right",
+            endpoint: "https://8gw8jajsc1.us.aircode.run/ask",
+            style: {
+              marginRight: "2rem",
+              marginLeft: "2rem",
+              marginTop: "0.3rem",
+              width: "10rem",
+            }
+          },
+          {
             type: "doc",
             docId: "quick-start",
             position: "right",
@@ -120,6 +131,14 @@ const config = {
             position: "right",
             label: "Plugins",
           },
+
+          // {to: '/blog', label: 'Blog', position: 'left'},
+          // {
+          //   label: "v 0.11.0",
+          //   // docId: "plugins/official-plugins/overview",
+          //   position: "right",
+          //   label: "Plugins",
+          // },
           {
             type: "localeDropdown",
             position: "right",
