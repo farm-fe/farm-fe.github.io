@@ -29,26 +29,42 @@ pnpm benchmark
 
 ---
 
+## metrics
+
+- Cold StartUp Time: The time it takes to develop a build without caching
+
+- Hot StartUp Time: The time it takes to develop a build with caching
+
+- Cold Production Build Time: The time it takes to build a production build without caching
+
+- Hot Production Build Time: The time it takes to build a production build with caching
+
+- HMR Time: The time it takes to apply an update to a file and send it to the development server to the response
+
+  - HMR Root: The time for updating a react component file that has no dependency
+
+  - HMR Leaf: The time for updating a root react component, normally it is named `App.tsx` or `index.tsx`
+
 ### Benchmark for all metrics
 
 <!-- ![performance](/img/20231204223204.png) -->
 
-<img style={{width: '100%',borderRadius: '8px', border: '3px solid #ff9ff3'}} src="/img/20231204223204.png" />
+<img style={{width: '100%',borderRadius: '8px', border: '5px solid #ff9ff360'}} src="/img/20231204223204.png" />
 
 ### Benchmark of HMR
 
 <!-- ![performance](/img/hmr-linux.png) -->
 
-<img style={{width: '100%',borderRadius: '8px', border: '3px solid #ff9ff3'}} src="/img/hmr-linux.png" />
+<img style={{width: '100%',borderRadius: '8px', border: '5px solid #ff9ff360'}} src="/img/hmr-linux.png" />
 
 ### Benchmark of Startup
 
 <!-- ![performance](/img/startup-linux.png) -->
 
-<img style={{width: '100%',borderRadius: '8px', border: '3px solid #ff9ff3'}} src="/img/startup-linux.png" />
+<img style={{width: '100%',borderRadius: '8px', border: '5px solid #ff9ff360'}} src="/img/startup-linux.png" />
 
 ### Benchmark of Production Build
 
 <!-- ![performance](/img/build-linux.png) -->
 
-<img style={{width: '100%',borderRadius: '8px', border: '3px solid #ff9ff3'}} src="/img/build-linux.png" />
+<img style={{width: '100%',borderRadius: '8px', border: '5px solid #ff9ff360'}} src="/img/build-linux.png" />

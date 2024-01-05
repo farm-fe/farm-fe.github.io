@@ -5,11 +5,7 @@
 Configure the behavior of Farm Dev Server. Example:
 
 ```ts
-import type { UserConfig } from "@farmfe/core";
-
-function defineConfig(config: UserConfig) {
-  return config;
-}
+import { defineConfig } from "@farmfe/core";
 
 export default defineConfig({
   // All dev server options are under server
@@ -98,7 +94,7 @@ Host on which the Web Socket server listens
 Configure server proxy. Based on [koa-proxies](https://www.npmjs.com/package/koa-proxies) implementation, specific options refer to its documentation, example:
 
 ```ts
-import type { UserConfig } from "@farmfe/core";
+import { defineConfig } from "@farmfe/core";
 
 function defineConfig(config: UserConfig) {
   return config;

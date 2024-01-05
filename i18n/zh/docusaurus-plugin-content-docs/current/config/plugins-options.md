@@ -3,13 +3,8 @@
 配置 Farm 的插件，支持 Rust 插件或者 Js 插件，示例如下：
 
 ```ts
-import type { UserConfig } from "@farmfe/core";
+import { defineConfig } from "@farmfe/core";
 import less from "@farmfe/js-plugin-less";
-
-function defineConfig(config: UserConfig) {
-  return config;
-}
-
 export default defineConfig({
   plugins: ["@farmfe/plugin-react", "@farmfe/plugin-sass", less()],
 });
@@ -22,11 +17,7 @@ export default defineConfig({
 Rust 插件通过 `插件名`或者 `[插件名, 配置项选项]` 方式配置，如下：
 
 ```ts
-import type { UserConfig } from "@farmfe/core";
-
-function defineConfig(config: UserConfig) {
-  return config;
-}
+import { defineConfig } from "@farmfe/core";
 
 export default defineConfig({
   plugins: [
