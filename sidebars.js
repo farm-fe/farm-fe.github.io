@@ -88,7 +88,7 @@ const sidebars = {
       type: "category",
       label: "CLI",
       collapsed: false,
-      items: ["cli/start", "cli/build", "cli/preview", "cli/watch"],
+      items: ["cli/cli-api"],
     },
     // "config/farm-config",
     // "config/cli",
