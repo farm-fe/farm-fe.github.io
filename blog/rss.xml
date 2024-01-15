@@ -4,7 +4,7 @@
         <title>Farm Blog</title>
         <link>https://farm-fe.github.io/blog</link>
         <description>Farm Blog</description>
-        <lastBuildDate>Tue, 19 Dec 2023 09:05:46 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 15 Jan 2024 07:51:35 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
@@ -12,7 +12,7 @@
             <title><![CDATA[index]]></title>
             <link>https://farm-fe.github.io/blog/index</link>
             <guid>https://farm-fe.github.io/blog/index</guid>
-            <pubDate>Tue, 19 Dec 2023 09:05:46 GMT</pubDate>
+            <pubDate>Mon, 15 Jan 2024 07:51:35 GMT</pubDate>
         </item>
     </channel>
 </rss>
