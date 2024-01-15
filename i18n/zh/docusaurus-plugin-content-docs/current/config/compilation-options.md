@@ -3,11 +3,7 @@
 Farm 默认从项目根目录的 `farm.config.ts|js|mjs` 文件中读取配置，配置文件示例:
 
 ```ts title="farm.config.ts"
-import type { UserConfig } from "@farmfe/core";
-
-function defineConfig(config: Config) {
-  return config;
-}
+import { defineConfig } from "@farmfe/core";
 
 export default defineConfig({
   root: process.cwd(), // 编译的根目录
@@ -36,9 +32,9 @@ export default defineConfig({
 项目的入口点。 Input 的文件可以是`html`、`ts/js/tsx/jsx`、`css` 或通过插件支持的其他文件。
 
 ```tsx
-import type { UserConfig } from "@farmfe/core";
+import { defineConfig } from "@farmfe/core";
 
-export default <UserConfig>{
+export default defineConfig({
   compilation: {
     input: {
       index: "./index.html",
@@ -457,11 +453,7 @@ type BrowserTargetsRecord = Partial<
 配置对于哪些目标浏览器或者浏览器版本开启，示例：
 
 ```ts
-import type { UserConfig } from "@farmfe/core";
-
-function defineConfig(config: UserConfig) {
-  return config;
-}
+import { defineConfig } from "@farmfe/core";
 
 export default defineConfig({
   compilation: {

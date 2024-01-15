@@ -33,8 +33,7 @@ Farm needs **Node 16 and above**.
           </Tabs>
 </>
 
-:::note
-Then follow the prompts!
+:::note{title="Then follow the prompts!"}
 
 You can also directly specify the project name and the template you want to use via additional command line options:
 :::
@@ -85,9 +84,9 @@ The project will start at `http://localhost:9000` by default.
 The project is configured by `farm.config.ts/js/mjs` file in the root directory of the project.
 
 ```ts title="farm.config.ts"
-import type { UserConfig } from "@farmfe/core";
+import { defineConfig } from "@farmfe/core";
 
-export default <UserConfig>{
+export default defineConfig({
   // Options related to the compilation
   compilation: {
     input: {
@@ -107,7 +106,7 @@ export default <UserConfig>{
   },
   // Additional plugins
   plugins: [],
-};
+});
 ```
 
 :::note

@@ -3,12 +3,7 @@
 By default, Farm reads the configuration from the `farm.config.ts|js|mjs` file in the project root directory, an example configuration file:
 
 ```ts title="farm.config.ts"
-import type { UserConfig } from "@farmfe/core";
-
-function defineConfig(config: Config) {
-  return config;
-}
-
+import { defineConfig } from "@farmfe/core";
 export default defineConfig({
   root: process.cwd(), // compiled root directory
   // compile options
@@ -36,9 +31,9 @@ All compilation-related configuration is under the `compilation` field.
 The entry point for the project. Input files can be `html`, `ts/js/tsx/jsx`, `css` or other files supported by plugins.
 
 ```tsx
-import type { UserConfig } from "@farmfe/core";
+import { defineConfig } from "@farmfe/core";
 
-export default <UserConfig>{
+export default defineConfig({
   compilation: {
     input: {
       index: "./index.html",
@@ -457,7 +452,7 @@ type BrowserTargetsRecord = Partial<
 Configure which target browsers or browser versions to enable, for example:
 
 ```ts
-import type { UserConfig } from "@farmfe/core";
+import { defineConfig } from "@farmfe/core";
 
 function defineConfig(config: UserConfig) {
   return config;

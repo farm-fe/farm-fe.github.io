@@ -94,6 +94,9 @@ devDependencies:
   '@swc/core':
     specifier: ^1.3.99
     version: 1.3.101
+  shikiji:
+    specifier: ^0.9.10
+    version: 0.9.10
   swc-loader:
     specifier: ^0.2.3
     version: 0.2.3(@swc/core@1.3.101)(webpack@5.88.2)
@@ -9853,6 +9856,16 @@ packages:
       interpret: 1.4.0
       rechoir: 0.6.2
     dev: false
+
+  /shikiji-core@0.9.10:
+    resolution: {integrity: sha512-s+aC66Fh343wpm7VyQTg+htdHM/tUb8R+yxdAdUpCtKkRWbSBIpqQ3xTSNjbCTnGv10xsT164SW0r1VV1N6ToA==}
+    dev: true
+
+  /shikiji@0.9.10:
+    resolution: {integrity: sha512-tqnoSWWb7NailWJ/72Bgi8Z5O+ul71SJ5EhXbfHprZg67RGwck5eVyv5Uv4pso06ZuzNpUabRTyyFKHN/Ea9Mw==}
+    dependencies:
+      shikiji-core: 0.9.10
+    dev: true
 
   /side-channel@1.0.4:
     resolution: {integrity: sha512-q5XPytqFEIKHkGdiMIrY10mvLRvnQh42/+GoBlFW3b2LXLE2xxJpZFdm94we0BaoV3RwJyGqg5wS7epxTv0Zvw==}

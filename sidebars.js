@@ -74,9 +74,21 @@ const sidebars = {
     },
     {
       type: "category",
+      label: "Api Reference",
+      collapsed: false,
+      items: [
+        "api/hmr-api",
+        "api/js-plugin-api",
+        "api/rust-plugin-api",
+        "api/javascript-api",
+        "api/rust-api",
+      ],
+    },
+    {
+      type: "category",
       label: "CLI",
       collapsed: false,
-      items: ["cli/start", "cli/build", "cli/preview", "cli/watch"],
+      items: ["cli/cli-api"],
     },
     // "config/farm-config",
     // "config/cli",

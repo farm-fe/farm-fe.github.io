@@ -78,9 +78,9 @@ Farm 需要 **Node 16 及以上**。
 该项目由项目根目录中的“farm.config.ts/js/mjs”文件进行配置。
 
 ```ts title="farm.config.ts"
-import type { UserConfig } from "@farmfe/core";
+import { defineConfig } from "@farmfe/core";
 
-export default <UserConfig>{
+export default defineConfig({
   // 编译相关配置
   compilation: {
     input: {
@@ -100,7 +100,7 @@ export default <UserConfig>{
   },
   // 插件配置
   plugins: [],
-};
+});
 ```
 
 :::note
