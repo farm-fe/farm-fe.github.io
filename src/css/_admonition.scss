@@ -1,32 +1,37 @@
 html[data-theme="light"] {
   --note-color: #241800;
 
-  --admonition-note-c-bg: linear-gradient(to bottom,
-      var(--ifm-alert-note-background-color),
-      transparent 40%);
-  ;
-  --admonition-info-c-bg: linear-gradient(to bottom,
-      var(--ifm-alert-info-background-color),
-      transparent 40%);
-  ;
-  --admonition-tip-c-bg: linear-gradient(to bottom,
-      var(--ifm-alert-tip-background-color),
-      transparent 40%);
-  ;
-  --admonition-warning-c-bg: linear-gradient(to bottom,
-      var(--ifm-alert-warning-background-color),
-      transparent 40%);
-  ;
-  --admonition-caution-c-bg: linear-gradient(to bottom,
-      var(--ifm-alert-caution-background-color),
-      transparent 40%);
-  ;
-  --admonition-danger-c-bg: linear-gradient(to bottom,
-      var(--ifm-alert-danger-background-color),
-      transparent 40%);
-  ;
-
-  --admonition-note-c-color: inherit;
+  --admonition-note-c-bg: linear-gradient(
+    to bottom,
+    var(--ifm-alert-note-background-color),
+    transparent 40%
+  );
+  --admonition-info-c-bg: linear-gradient(
+    to bottom,
+    var(--ifm-alert-info-background-color),
+    transparent 40%
+  );
+  --admonition-tip-c-bg: linear-gradient(
+    to bottom,
+    var(--ifm-alert-tip-background-color),
+    transparent 40%
+  );
+  --admonition-warning-c-bg: linear-gradient(
+    to bottom,
+    var(--ifm-alert-warning-background-color),
+    transparent 40%
+  );
+  --admonition-caution-c-bg: linear-gradient(
+    to bottom,
+    var(--ifm-alert-caution-background-color),
+    transparent 40%
+  );
+  --admonition-danger-c-bg: linear-gradient(
+    to bottom,
+    var(--ifm-alert-danger-background-color),
+    transparent 40%
+  );
+  --admonition-note-c-color: #ff9ff3;
   --admonition-info-c-color: inherit;
   --admonition-tip-c-color: inherit;
   --admonition-warning-c-color: inherit;
@@ -137,18 +142,22 @@ html[data-theme="dark"] {
     --admonition-bar-c-bg: var(--admonition-bar-note-c-bg);
     --admonition-code-c-bg: var(--admonition-code-note-c-bg);
     --admonition-link-c: var(--admonition-link-note-c);
-    border: 2px solid var(--c-yellow-220);
-    background: var(--admonition-warning-c-bg);
-    color: var(--admonition-warning-c-color);
+    border: 2px solid var(--c-yellow-90-a);
+    // background: var(--admonition-warning-c-bg);
+    // color: var(--admonition-warning-c-color);
+    background: transparent;
+    color: var(--c-yellow-90);
   }
 
   &-note {
     --admonition-bar-c-bg: var(--admonition-bar-note-c-bg);
     --admonition-code-c-bg: var(--admonition-code-note-c-bg);
     --admonition-link-c: var(--admonition-link-note-c);
-    border: 2px solid var(--ifm-menu-color-background-active);
-    background: var(--admonition-note-c-bg);
-    color: var(--admonition-note-c-color);
+    border: 2px solid var(--c-brand-a);
+    // background: var(--admonition-note-c-bg);
+    // color: var(--admonition-note-c-color);
+    background: transparent;
+    color: var(--c-brand);
   }
 
   &-info {
@@ -156,18 +165,22 @@ html[data-theme="dark"] {
     --admonition-bar-c-bg: var(--admonition-bar-info-c-bg);
     --admonition-code-c-bg: var(--admonition-code-info-c-bg);
     --admonition-link-c: var(--admonition-link-info-c);
-    border: 2px solid var(--c-teal-210);
-    background: var(--admonition-info-c-bg);
-    color: var(--admonition-info-c-color);
+    border: 2px solid var(--c-teal-60-a);
+    // background: var(--admonition-info-c-bg);
+    // color: var(--admonition-info-c-color);
+    background: transparent;
+    color: var(--c-teal-60);
   }
 
   &-tip {
     --admonition-bar-c-bg: var(--admonition-bar-tip-c-bg);
     --admonition-code-c-bg: var(--admonition-code-tip-c-bg);
     --admonition-link-c: var(--admonition-link-tip-c);
-    border: 2px solid var(--admonition-tip-border);
-    background: var(--admonition-tip-c-bg);
-    color: var(--admonition-tip-c-color);
+    border: 2px solid var(--c-green-50-a);
+    // background: var(--admonition-tip-c-bg);
+    // color: var(--admonition-tip-c-color);
+    background: transparent;
+    color: var(--c-green-50);
   }
 
   &-caution {
@@ -175,8 +188,9 @@ html[data-theme="dark"] {
     --admonition-bar-c-bg: var(--admonition-bar-caution-c-bg);
     --admonition-code-c-bg: var(--admonition-code-caution-c-bg);
     --admonition-link-c: var(--admonition-link-caution-c);
-    background: var(--admonition-caution-c-bg);
-    color: var(--admonition-caution-c-color);
+    // background: var(--admonition-caution-c-bg);
+    // color: var(--admonition-caution-c-color);
+    background: transparent;
   }
 
   &-danger {
@@ -184,9 +198,11 @@ html[data-theme="dark"] {
     --admonition-bar-c-bg: var(--admonition-bar-danger-c-bg);
     --admonition-code-c-bg: var(--admonition-code-danger-c-bg);
     --admonition-link-c: var(--admonition-link-danger-c);
-    border: 2px solid var(--c-red-210);
-    background: var(--admonition-danger-c-bg);
-    color: var(--admonition-danger-c-color);
+    border: 2px solid var(--c-red-50-a);
+    // background: var(--admonition-danger-c-bg);
+    // color: var(--admonition-danger-c-color);
+    background: transparent;
+    color: var(--c-red-50);
   }
 
   &-important {
@@ -195,9 +211,11 @@ html[data-theme="dark"] {
     --admonition-code-c-bg: var(--admonition-code-danger-c-bg);
     --admonition-link-c: var(--admonition-link-danger-c);
     border: 2px solid var(--c-lavender-220);
-    background: linear-gradient(to bottom,
-        var(--ifm-alert-background-color),
-        transparent);
+    background: linear-gradient(
+      to bottom,
+      var(--ifm-alert-background-color),
+      transparent
+    );
   }
 }
 
