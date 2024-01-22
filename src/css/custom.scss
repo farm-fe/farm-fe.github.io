@@ -61,6 +61,7 @@
   --z-backdrop: 1100;
   --ifm-menu-color-background-active: #ff9ff330;
   --ifm-menu-color-background: #ff9ff310;
+  --docusaurus-highlighted-code-line-bg: #ff9ff310;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -172,7 +173,7 @@ div[class^="announcementBar_"] {
 }
 
 .code-block-highlight-line {
-  background-color: #666;
+  background-color: var(--docusaurus-highlighted-code-line-bg);
   display: block;
   margin: 0 calc(-1 * var(--ifm-pre-padding));
   padding: 0 var(--ifm-pre-padding);
