@@ -1,8 +1,8 @@
 # Farm CLI API
 
-The Farm CLI allows you to start, build, preview, and watch your application.
+`Farm Cli` 允许您启动、构建、预览和监听您的应用程序。
 
-To get a list of cli available to Farm, run the following command inside your command
+如果需要查看 `Farm Cli` 的可用命令, 您可以在终端中执行以下命令
 
 ```json title="Terminal"
 npx farm -h
@@ -17,12 +17,13 @@ Usage:
   $ farm [root]
 
 Commands:
-  [root]            Compile the project in dev mode and serve it with farm dev server
-  build             compile the project in production mode
-  watch             watch file change
-  preview           compile the project in watch mode
-  clean [path]      Clean up the cache built incrementally
-  plugin [command]  Commands for manage plugins
+  [root]
+  start             启动开发服务器
+  build             在生产环境下构建项目
+  watch             监听文件变化并且重新构建
+  preview           在本地可以直接预览您的生产环境构建出的产物
+  clean [path]      清理`farm`增量构建的缓存文件
+  plugin [command]  管理插件的命令
 
 For more info, run any command with the `--help` flag:
   $ farm --help
@@ -33,19 +34,19 @@ For more info, run any command with the `--help` flag:
   $ farm plugin --help
 
 Options:
-  -l, --lazy           lazyCompilation
-  --host <host>        specify host
-  --port <port>        specify port
-  --open               open browser on server start
-  --hmr                enable hot module replacement
-  --cors               enable cors
-  --strictPort         specified port is already in use, exit with error
-  -c, --config <file>  use specified config file
-  -m, --mode <mode>    set env mode
-  --base <path>        public base path
-  --clearScreen        allow/disable clear screen when logging
-  -h, --help           Display this message
-  -v, --version        Display version number
+  -l, --lazy           默认情况下，Farm 会在开发中延迟编译动态导入的模块，只有在模块真正执行时才会编译它们。懒惰编译确实可以加快大型项目的编译速度。
+  --host <host>        host（主机）选项。它允许你指定服务器的主机地址。你可以将其设置为特定的IP地址或域名。
+  --port <port>        端口）选项。它允许你指定服务器的端口号。你可以将其设置为任何未被占用的端口号。
+  --open               打开）选项。它在服务器启动时自动打开浏览器。这对于快速预览你的应用程序或网站非常方便。
+  --hmr                热模块替换）选项。它启用热模块替换功能，允许在运行时替换模块，而无需刷新整个页面。这对于开发过程中的实时更新非常有用。
+  --cors               （跨域资源共享）选项。它启用跨域资源共享，允许从不同域的服务器请求资源。这对于开发涉及跨域请求的应用程序非常有用。
+  --strictPort        （严格端口）选项。如果指定的端口已经被占用，它会导致服务器退出并显示错误消息。
+  -c, --config <file>  （配置文件）选项。它允许你指定一个特定的配置文件来配置你的项目。你可以将其设置为文件的路径。
+  -m, --mode <mode>    （环境模式）选项。它允许你设置项目的环境变量。环境模式可以是开发模式、生产模式或其他自定义模式。
+  --base <path>        （基础路径）选项。它允许你指定公共基础路径，用于解析静态资源的相对路径。
+  --clearScreen       （清除屏幕）选项。它允许你在记录日志时启用或禁用清除屏幕的功能。这对于在终端中保持日志清晰可见非常有用。
+  -h, --help           显示命令帮助信息
+  -v, --version        查看当前版本
 ```
 
 ## Start
@@ -57,42 +58,18 @@ Usage:
   $ farm [root]
 
 Options:
-  -l, --lazy           lazyCompilation
-  --host <host>        specify host
-  --port <port>        specify port
-  --open               open browser on server start
-  --hmr                enable hot module replacement
-  --cors               enable cors
-  --strictPort         specified port is already in use, exit with error
-  -c, --config <file>  use specified config file
-  -m, --mode <mode>    set env mode
-  --base <path>        public base path
-  --clearScreen        allow/disable clear screen when logging
+  -l, --lazy           默认情况下，Farm 会在开发中延迟编译动态导入的模块，只有在模块真正执行时才会编译它们。懒惰编译确实可以加快大型项目的编译速度。
+  --host <host>        host（主机）选项。它允许你指定服务器的主机地址。你可以将其设置为特定的IP地址或域名。
+  --port <port>        端口）选项。它允许你指定服务器的端口号。你可以将其设置为任何未被占用的端口号。
+  --open               打开）选项。它在服务器启动时自动打开浏览器。这对于快速预览你的应用程序或网站非常方便。
+  --hmr                热模块替换）选项。它启用热模块替换功能，允许在运行时替换模块，而无需刷新整个页面。这对于开发过程中的实时更新非常有用。
+  --cors               （跨域资源共享）选项。它启用跨域资源共享，允许从不同域的服务器请求资源。这对于开发涉及跨域请求的应用程序非常有用。
+  --strictPort        （严格端口）选项。如果指定的端口已经被占用，它会导致服务器退出并显示错误消息。
+  -c, --config <file>  （配置文件）选项。它允许你指定一个特定的配置文件来配置你的项目。你可以将其设置为文件的路径。
+  -m, --mode <mode>    （环境模式）选项。它允许你设置项目的环境变量。环境模式可以是开发模式、生产模式或其他自定义模式。
+  --base <path>        （基础路径）选项。它允许你指定公共基础路径，用于解析静态资源的相对路径。
+  --clearScreen       （清除屏幕）选项。它允许你在记录日志时启用或禁用清除屏幕的功能。这对于在终端中保持日志清晰可见非常有用。
 ```
-
-<!-- - -l, --lazy: lazyCompilation（懒编译）选项。它允许你在需要时才进行编译，而不是在每次更改时都进行编译。这可以提高开发效率。
-
-- --host <host>: host（主机）选项。它允许你指定服务器的主机地址。你可以将其设置为特定的IP地址或域名。
-
-- --port <port>: port（端口）选项。它允许你指定服务器的端口号。你可以将其设置为任何未被占用的端口号。
-
-- --open: open（打开）选项。它在服务器启动时自动打开浏览器。这对于快速预览你的应用程序或网站非常方便。
-
-- --hmr: hmr（热模块替换）选项。它启用热模块替换功能，允许在运行时替换模块，而无需刷新整个页面。这对于开发过程中的实时更新非常有用。
-
-- --cors: cors（跨域资源共享）选项。它启用跨域资源共享，允许从不同域的服务器请求资源。这对于开发涉及跨域请求的应用程序非常有用。
-
-- --strictPort: strictPort（严格端口）选项。如果指定的端口已经被占用，它会导致服务器退出并显示错误消息。
-
-- -c, --config <file>: config（配置文件）选项。它允许你指定一个特定的配置文件来配置你的项目。你可以将其设置为文件的路径。
-
-- -m, --mode <mode>: mode（环境模式）选项。它允许你设置项目的环境模式。环境模式可以是开发模式、生产模式或其他自定义模式。
-
-- --base <path>: base（基础路径）选项。它允许你指定公共基础路径，用于解析静态资源的相对路径。
-
-- --clearScreen: clearScreen（清除屏幕）选项。它允许你在记录日志时启用或禁用清除屏幕的功能。这对于在终端中保持日志清晰可见非常有用。
-
-这些选项可以根据你的项目需求进行配置，以便更好地控制和定制你的应用程序。 -->
 
 ## Build
 
@@ -103,19 +80,19 @@ Usage:
   $ farm build
 
 Options:
-  -o, --outDir <dir>    output directory
-  -i, --input <file>    input file path
-  -w, --watch           watch file change
-  --targetEnv <target>  transpile targetEnv node, browser
-  --format <format>     transpile format esm, commonjs
-  --sourcemap           output source maps for build
-  --treeShaking         Eliminate useless code without side effects
-  --minify              code compression at build time
-  -c, --config <file>   use specified config file
-  -m, --mode <mode>     set env mode
-  --base <path>         public base path
-  --clearScreen         allow/disable clear screen when logging
-  -h, --help            Display this message
+  -o, --outDir <dir>    输出构建产物
+  -i, --input <file>    入口文件
+  -w, --watch           是否监听文件并且重新构建
+  --targetEnv <target>  构建环境 node, browser
+  --format <format>     构建产物格式 esm, commonjs
+  --sourcemap           是否输出 sourcemap
+  --treeShaking         消除无用代码而不会产生副作用
+  --minify              构建时的代码压缩
+  -c, --config <file>   使用指定的配置文件
+  -m, --mode <mode>     设置环境模式
+  --base <path>        它允许你指定公共基础路径，用于解析静态资源的相对路径。
+  --clearScreen       它允许你在记录日志时启用或禁用清除屏幕的功能。这对于在终端中保持日志清晰可见非常有用。
+  -h, --help            显示命令帮助信息
 ```
 
 ## Preview
@@ -144,14 +121,14 @@ Usage:
   $ farm watch
 
 Options:
-  --format <format>    transpile format esm, commonjs
-  -o, --outDir <dir>   output directory
-  -i, --input <file>   input file path
-  -c, --config <file>  use specified config file
-  -m, --mode <mode>    set env mode
-  --base <path>        public base path
-  --clearScreen        allow/disable clear screen when logging
-  -h, --help           Display this message
+  --format <format>    构建产物格式 esm, commonjs
+  -o, --outDir <dir>   输出构建产物
+  -i, --input <file>   入口文件
+  -c, --config <file>   使用指定的配置文件
+  -m, --mode <mode>     设置环境模式
+  --base <path>        它允许你指定公共基础路径，用于解析静态资源的相对路径。
+  --clearScreen       它允许你在记录日志时启用或禁用清除屏幕的功能。这对于在终端中保持日志清晰可见非常有用。
+  -h, --help            显示命令帮助信息
 ```
 
 ## Clean
@@ -163,10 +140,10 @@ Usage:
   $ farm clean [path]
 
 Options:
-  --recursive          Recursively search for node_modules directories and clean them
-  -c, --config <file>  use specified config file
-  -m, --mode <mode>    set env mode
-  --base <path>        public base path
-  --clearScreen        allow/disable clear screen when logging
-  -h, --help           Display this message
+  --recursive          递归搜索 `node_modules` 目录并清除缓存文件
+  -c, --config <file>   使用指定的配置文件
+  -m, --mode <mode>     设置环境模式
+  --base <path>        它允许你指定公共基础路径，用于解析静态资源的相对路径。
+  --clearScreen       它允许你在记录日志时启用或禁用清除屏幕的功能。这对于在终端中保持日志清晰可见非常有用。
+  -h, --help            显示命令帮助信息
 ```
