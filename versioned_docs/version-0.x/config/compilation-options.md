@@ -2,7 +2,7 @@
 
 By default, Farm reads the configuration from the `farm.config.ts|js|mjs` file in the project root directory, an example configuration file:
 
-```ts title="farm.config.ts" {5-7}
+```ts title="farm.config.ts"
 import { defineConfig } from "@farmfe/core";
 export default defineConfig({
   root: process.cwd(), // compiled root directory
@@ -19,8 +19,6 @@ export default defineConfig({
   plugins: [],
 });
 ```
-
-This document only covers details `compilation` options. For `server` or `shared` options, refer to [server](/docs/config/dev-server) or [shared](/docs/config/shared)
 
 ## Compilation options - compilation
 
@@ -62,8 +60,8 @@ interface OutputOptions {
   publicPath?: string;
   // Static resource file name configuration
   assetsFilename?: string;
-  // Target execution environment, polyfill and syntax downgrade will be enabled if the target env is not `node-next` or `browser-esnext`
-  targetEnv?: 'browser' | 'node' | 'node16' | 'node-legacy' | 'node-next' | 'browser-legacy' | 'browser-es2015' | 'browser-es2017' | 'browser-esnext';
+  // Target execution environment, browser or Node
+  targetEnv?: "browser" | "node";
   // output module format
   format?: "cjs" | "esm";
 }
@@ -114,23 +112,9 @@ The filename configuration for static resource output, the placeholder is the sa
 
 #### `output. targetEnv`
 
-- **default**: `"browser-es2017"`
+- **default**: `"browser"`
 
-Configure the execution environment of the product, which can be `"browser"` or `"node"`. Farm will automatically inject polyfill and downgrade syntax(for both script and css) for your specified targetEnv, the supported `targetEnv`s is below:
-
-Targeting `browser`:
-* **`browser-es2017`**: Compiling the project to browsers that support `async await` natively.
-* **`browser-es2015`**: Compiling the project to browsers that support `es6 features` natively.
-* **`browser-legacy`**: Compile the project to `ES5`, for example, `IE9`. Note that this may introduce lots of polyfills which makes production size larger. Make sure you really need to support legacy browsers like `IE9`.
-* **`browser-esnext`**: Compile the project to latest modern browsers, no polyfill will be injected. 
-* **`browser`**: Alias of `browser-es2017`
-
-Targeting `node`:
-* **`node16`**: Compile the project to `Node 16`.
-* **`node-legacy`**: Compile the project to `Node 10`.
-* **`node-next`**: Compile the project to latest Node Version, no polyfill will be injected.
-* **`node`**: Alias of `node16`
-
+Configure the execution environment of the product, which can be `"browser"` or `"node"`.
 
 #### `output. format`
 
@@ -261,6 +245,11 @@ export default defineConfig({
 
 Configure the compilation mode. In order to optimize the performance during development, if there is no manual configuration of production optimization related options (minify, tree shake, etc.), the production environment optimization such as compression and tree shake will be disabled by default under `development`. In `production` mode enabled.
 
+### root
+
+- **default**: `process.cwd()`
+
+Configure the root directory for project compilation. This option will affect the search path of the default configuration file, the search of compiled module dependencies, etc.
 
 ### runtime
 

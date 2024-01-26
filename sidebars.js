@@ -68,6 +68,7 @@ const sidebars = {
       items: [
         "config/compilation-options",
         "config/dev-server",
+        "config/shared",
         "config/environment-variable",
         "config/plugins-options",
       ],
