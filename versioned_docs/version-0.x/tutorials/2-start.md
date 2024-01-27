@@ -57,7 +57,7 @@ root.render(
 ```
 Then execute `npm start` and open `http://localhost:9000` in browser:
 
-<img src="/img/2023-10-10-21-41-45.png" width="500" /> &nbsp;<img src="/img/2023-10-10-21-34-33.png" width="580" /> 
+<img src="/img/2023-10-10-21-34-33.png" width="680" /> 
 
 ## Styling the Project
 Now we have successfully introduced a component library into our project. Next we'll learn how to styling.

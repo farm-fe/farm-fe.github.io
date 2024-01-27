@@ -184,7 +184,7 @@ function configureVitePluginVue() {
 
 export default defineConfig({
   vitePlugins: [
-    configureVitePluginVue
+    configureVitePluginVue()
   ]
 });
 ```
@@ -277,5 +277,5 @@ export default {
 * **filters**：执行插件的哪些模块，必须配置，支持`resolvedPaths`和`moduleTypes`这两个过滤项，如果两者同时指定，则取并集。
 
 :::note
-SWC 插件可能与 Farm 使用的 SWC 版本不兼容。 如果出现错误，请尝试升级插件。
+`SWC 插件`可能与 Farm 使用的 `SWC 版本`不兼容。 如果出现错误，请尝试升级插件。
 :::

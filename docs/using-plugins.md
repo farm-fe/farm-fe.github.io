@@ -190,7 +190,7 @@ function configureVitePluginVue() {
 export default defineConfig({
   // configuring vite plugins
   vitePlugins: [
-    configureVitePluginVue
+    configureVitePluginVue()
   ]
 });
 ```
@@ -284,5 +284,5 @@ Each plugin item of the array contains three fields:
 * **filters**: Which modules to execute the plug-in, must be configured, support `resolvedPaths` and `moduleTypes` these two filter items, if both are specified at the same time, take the union.
 
 :::note
-SWC plugin may not be compatible with the SWC version that Farm uses. If a error occurred, try upgrade the plugin. 
+`SWC plugin` may not be compatible with the `SWC version` that Farm uses. If a error occurred, try upgrade the plugin. 
 :::

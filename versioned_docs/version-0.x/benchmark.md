@@ -49,22 +49,22 @@ pnpm benchmark
 
 <!-- ![performance](/img/20231204223204.png) -->
 
-<img style={{width: '100%',borderRadius: '8px', border: '5px solid #ff9ff360'}} src="/img/20231204223204.png" />
+<img style={{width: '100%',borderRadius: '8px', border: '2px solid #8f1a7f60'}} src="/img/20231204223204.png" />
 
 ### Benchmark of HMR
 
 <!-- ![performance](/img/hmr-linux.png) -->
 
-<img style={{width: '100%',borderRadius: '8px', border: '5px solid #ff9ff360'}} src="/img/hmr-linux.png" />
+<img style={{width: '100%',borderRadius: '8px', border: '2px solid #8f1a7f60'}} src="/img/hmr-linux.png" />
 
 ### Benchmark of Startup
 
 <!-- ![performance](/img/startup-linux.png) -->
 
-<img style={{width: '100%',borderRadius: '8px', border: '5px solid #ff9ff360'}} src="/img/startup-linux.png" />
+<img style={{width: '100%',borderRadius: '8px', border: '2px solid #8f1a7f60'}} src="/img/startup-linux.png" />
 
 ### Benchmark of Production Build
 
 <!-- ![performance](/img/build-linux.png) -->
 
-<img style={{width: '100%',borderRadius: '8px', border: '5px solid #ff9ff360'}} src="/img/build-linux.png" />
+<img style={{width: '100%',borderRadius: '8px', border: '2px solid #8f1a7f60'}} src="/img/build-linux.png" />

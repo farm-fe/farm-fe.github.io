@@ -190,7 +190,7 @@ function configureVitePluginVue() {
 export default defineConfig({
   // configuring vite plugins
   vitePlugins: [
-    configureVitePluginVue
+    configureVitePluginVue()
   ]
 });
 ```
