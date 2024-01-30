@@ -26,12 +26,6 @@ const sidebars = {
     },
     {
       type: "category",
-      label: "Benchmark",
-      collapsed: false,
-      items: ["benchmark"],
-    },
-    {
-      type: "category",
       label: "Tutorial",
       collapsed: false,
       items: [
@@ -44,7 +38,7 @@ const sidebars = {
     {
       type: "category",
       label: "Features",
-      collapsed: false,
+      collapsed: true,
       items: [
         "features/html",
         "features/css",
@@ -59,6 +53,13 @@ const sidebars = {
         "features/persistent-cache",
       ],
     },
+    "benchmark",
+    // {
+    //   type: "category",
+    //   label: "Benchmark",
+    //   collapsed: false,
+    //   items: ["benchmark"],
+    // },
   ],
   configSidebar: [
     {

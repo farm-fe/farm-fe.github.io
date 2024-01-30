@@ -83,11 +83,11 @@ html[data-theme="dark"] {
   }
 
   .menu__list {
-    display: block !important;
+    // display: block !important;
     transition: height 0.35s cubic-bezier(0.36, 0.66, 0.04, 1) 25ms !important;
     will-change: initial !important;
 
-    margin-top: 10px;
+    // margin-top: 10px;
 
     .menu__list {
       .menu__link--sublist {
@@ -103,6 +103,17 @@ html[data-theme="dark"] {
     }
 
     &-item {
+      &.theme-doc-sidebar-item-link-level-1 {
+        padding-inline-start: calc(
+          var(--dropdown-icon-width)
+        );
+
+        & > .menu__link {
+          font-weight: 500;
+          font-size: 14px;
+          color: var(--sidebar-category-c);
+        }
+      }
       &:not(:first-child) {
         margin-block-start: 0;
       }
@@ -111,6 +122,8 @@ html[data-theme="dark"] {
           padding-inline-start: calc(
             var(--dropdown-icon-width) + var(--dropdown-icon-gap)
           );
+          padding-top: 5px;
+          padding-bottom: 5px;
         }
       }
       &-collapsible {
@@ -123,16 +136,16 @@ html[data-theme="dark"] {
   .theme-doc-sidebar-item-category-level-1
     > .menu__list
     > .menu__list-item:last-of-type {
-    padding-block-end: 1.5rem;
+    padding-block-end: 0.5rem;
   }
 
   .theme-doc-sidebar-item-category-level-1:last-of-type {
-    margin-block-end: 1.5rem;
+    margin-block-end: 0.5rem;
   }
 
   .menu__link {
     font-weight: 500;
-    font-size: 0.813rem;
+    font-size: 0.85rem;
     line-height: 16px;
     /* identical to box height */
 
