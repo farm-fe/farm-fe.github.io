@@ -1,4 +1,4 @@
-# Configuration Reference
+# Compiler Options
 
 By default, Farm reads the configuration from the `farm.config.ts|js|mjs` file in the project root directory, an example configuration file:
 

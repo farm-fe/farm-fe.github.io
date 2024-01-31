@@ -1,5 +1,4 @@
-# Script
-
+# TS/TSX
 Farm support compiling `Js/Jsx/Ts/Tsx` out of box, and compile `Jsx/Tsx` to React by default.
 
 ```tsx title="./button.tsx"

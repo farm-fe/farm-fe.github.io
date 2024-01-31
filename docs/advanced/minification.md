@@ -17,3 +17,5 @@ If minify is enabled:
 :::note
 Farm use swc minifier under the hood, all options of swc minifier can be used in Farm.
 :::
+
+## minify options

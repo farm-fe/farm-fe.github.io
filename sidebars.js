@@ -22,7 +22,7 @@ const sidebars = {
       type: "category",
       label: "Getting Started",
       collapsed: false,
-      items: ["why-farm", "quick-start", "using-plugins"],
+      items: ["why-farm", "quick-start", "concepts", "using-plugins"],
     },
     {
       type: "category",
@@ -40,26 +40,37 @@ const sidebars = {
       label: "Features",
       collapsed: true,
       items: [
+        "features/dev-server",
         "features/html",
         "features/css",
         "features/script",
         "features/static",
+        "features/env",
         "features/lazy-compilation",
-        "features/partial-bundling",
         "features/sourcemap",
-        "features/tree-shake",
-        "features/minification",
-        "features/polyfill",
-        "features/persistent-cache",
       ],
     },
+    {
+      type: "category",
+      label: "Advanced",
+      collapsed: true,
+      items: [
+        "advanced/ssr",
+        "advanced/partial-bundling",
+        "advanced/tree-shake",
+        "advanced/minification",
+        "advanced/polyfill",
+        "advanced/persistent-cache"
+      ],
+    },
+    {
+      type: "category",
+      label: "Migration",
+      collapsed: true,
+      items: ["migration/from-vite"],
+    },
+    "comparisons",
     "benchmark",
-    // {
-    //   type: "category",
-    //   label: "Benchmark",
-    //   collapsed: false,
-    //   items: ["benchmark"],
-    // },
   ],
   configSidebar: [
     {
@@ -67,6 +78,7 @@ const sidebars = {
       label: "Configuration Reference",
       collapsed: false,
       items: [
+        "config/configuring-farm",
         "config/compilation-options",
         "config/dev-server",
         "config/shared",
@@ -74,6 +86,16 @@ const sidebars = {
         "config/plugins-options",
       ],
     },
+    {
+      type: "category",
+      label: "CLI",
+      collapsed: false,
+      items: ["cli/cli-api"],
+    },
+    // "config/farm-config",
+    // "config/cli",
+  ],
+  apiSidebar: [
     {
       type: "category",
       label: "Api Reference",
@@ -86,14 +108,6 @@ const sidebars = {
         "api/rust-api",
       ],
     },
-    {
-      type: "category",
-      label: "CLI",
-      collapsed: false,
-      items: ["cli/cli-api"],
-    },
-    // "config/farm-config",
-    // "config/cli",
   ],
   pluginSidebar: [
     {

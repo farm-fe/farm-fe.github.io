@@ -125,9 +125,21 @@ const config = {
           },
           {
             type: "doc",
+            docId: "api/rust-plugin-api",
+            position: "left",
+            label: "API",
+          },
+          {
+            type: "doc",
             docId: "plugins/official-plugins/overview",
             position: "left",
             label: "Plugins",
+          },
+          {
+            type: "doc",
+            docId: "community",
+            position: "left",
+            label: "Community",
           },
           {
             type: "docsVersionDropdown",
