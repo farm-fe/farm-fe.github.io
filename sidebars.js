@@ -38,7 +38,7 @@ const sidebars = {
     {
       type: "category",
       label: "Features",
-      collapsed: true,
+      collapsed: false,
       items: [
         "features/dev-server",
         "features/html",
@@ -82,7 +82,6 @@ const sidebars = {
         "config/compilation-options",
         "config/dev-server",
         "config/shared",
-        "config/environment-variable",
         "config/plugins-options",
       ],
     },

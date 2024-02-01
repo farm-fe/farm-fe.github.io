@@ -15,80 +15,133 @@ If your plugin is only applicable to a specific framework, its name should follo
 - `farm-plugin-vue-`: Prefix as a Vue plugin
 - `farm-plugin-react-`: Prefix as a React plugin
 - `farm-plugin-svelte-`: Prefix as a svelte plugin
+- ...
 
-## Plugins config
+## Configuring Js Plugins
 
-```ts
-// farm.config.js
+Adding JS plugins by `plugins` option:
+
+```ts title="farm.config.ts" {3,7}
 import { defineConfig } from "@farmfe/core";
-import farmPlugin from "farm-plugin";
-import vitePlugin from "vite-plugin";
-import rollupPlugin from "roll-plugin";
+// import a js plugin
+import farmPluginFoo from "farm-plugin-foo";
 
 export default defineConfig({
-  plugins: [farmPlugin(), vitePlugin(), rollupPlugin()],
+  // configuring it in plugins
+  plugins: [farmPluginFoo()],
 });
 ```
 
-Plugins can also accept `multiple plugins` as presets for a single element.
+## Writing Js Plugins
+A Farm Js Plugin is a plain javascript object which exposes a set of `hook`s. for example:
 
-```ts
-import framework1 from "farm-plugin-framework1";
-import framework2 from "farm-plugin-framework2";
+```ts title="my-farm-plugin.ts"
+// Create a plugin file that exports a plugin function which returns a `JsPlugin` Object:
 
-export default function framework(config) {
-  return [framework1(config), framework2(config)];
+import type { JsPlugin } from '@farmfe/core';
+
+// Plugin Options
+export interface PluginOptions {
+  test: boolean;
 }
-```
+// export a Plugin Function
+export default function MyPlugin(options: PluginOptions): JsPlugin {
+  // reading options
+  const { test } = options;
 
-```ts
-import { defineConfig } from "@farmfe/core";
-import framework from "farm-plugin-framework";
-
-export default defineConfig({
-  plugins: [framework()],
-});
-```
-
-## Example
-
-### transform vue suffix file
-
-```ts
-export default function plugin() {
+  // return a object that exposes hook
   return {
-    name: "transform--vue-file",
+    name: 'my-farm-plugin',
+    // using load hook to load custom modules
     load: {
       filters: {
-        resolvedPaths: [".vue$"],
+        resolvedPaths: ['\\.test$'] // filter files to improve performance
       },
-      async executor(params) {
-        const { resolvedPath } = params;
-        const content = await tryToReadFileSync(resolvedPath);
-        return {
-          content,
-          moduleType: "vue",
-        };
-      },
-    },
-    transform: {
-      filter: {
-        moduleTypes: ["vue"],
-      },
-      async executor(params) {
-        const { resolvedPath, content } = params;
-        ctx.handleTransform(resolvedPath);
-        return {
-          content,
-          moduleType: "js",
-        };
-      },
-    },
-  };
+      executor({ resolvedPath }) {
+        if (test && resolvedPath.endsWith('.test')) {
+          return {
+            content: 'test file',
+            sourceMap: null
+          }
+        }
+      }
+    }
+  }
+}
+```
+then using the plugin in `farm.config.ts`:
+```ts title="farm.config.ts" {3,7}
+import { defineConfig } from "@farmfe/core";
+// import a js plugin
+import myFarmPlugin from "./my-farm-plugin";
+
+export default defineConfig({
+  // configuring it in plugins
+  plugins: [myFarmPlugin({
+    test: true
+  })],
+});
+```
+
+:::note
+For more details of writing JS plugins, refer to [Writing JS Plugins](/docs/plugins/writing-plugins/js-plugin)
+:::
+
+## hooks
+### name
+- **type: `string`**
+- **required: `true`**
+
+The name of this plugins, MUST not be empty.
+```ts
+export default function MyPlugin() {
+  return {
+    name: 'my-plugin',
+    // ...
+  }
 }
 ```
 
-## hook
+### priority
+### name
+- **type: `number`**
+- **required: `false`**
+- **default: `100`**
+
+The priority of this plugins, default to `100`. `priority` controls the execution order of plugins, the larger the value, the earlier the plugin is executed.
+
+```ts
+export default function MyPlugin() {
+  return {
+    name: 'my-plugin',
+    priority: 1000, // make this plugins execute bebore all other plugins
+    // ...
+  }
+}
+```
+:::note
+Note that the priority of most farm internal plugins like `plugin-script`, `plugin-resolve` is `99`, which means your plugins is always executed before the internal plugins. If your want to make your plugin executed after farm internal plugins, set `priority` to a value that smaller than `99`, for example: `98`. Also the priority value can be negative, you can set it to `-9999` to make sure it is always executed at last.
+:::
+
+### config
+### configResolved
+### configureDevServer
+### configureCompiler
+### buildStart
+### resolve
+### load
+### transform
+### buildEnd
+### renderStart
+### renderResourcePot
+### argumentResourceHash
+### finalizeResources
+### transformHtml
+### writeResources
+### pluginCacheLoaded
+### writePluginCache
+### finish
+### updateModules
 
 ```ts
 export interface JsPlugin {
