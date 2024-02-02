@@ -1,8 +1,6 @@
 # JavaScript Plugins
 
-:::tip{title="Js Plugins"}
 A JavaScript plugin is simply a pure JavaScript object.
-:::
 
 ```js
 // farm.config.ts
