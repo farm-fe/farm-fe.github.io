@@ -110,6 +110,8 @@ await server.createDevServer(options: DevServerOptions);
 // server.listen()
 ```
 
+#### Server 还要重构一版
+
 ### `Compiler`
 
 `Compiler` 提供一系列编译器的 Api，可以通过实例化 `Compiler` 对象的 `createCompiler` 方法创建一个编译器实例。
@@ -121,3 +123,45 @@ import { Compiler } from "@farmfe/core";
 const compiler = new Compiler(config);
 await compiler.compile();
 ```
+
+#### compile
+
+#### compileSync
+
+#### traceDependencies
+
+#### update
+
+#### hasModule
+
+#### getParentFiles
+
+#### resources
+
+#### writeResourcesToDisk
+
+#### callWriteResourcesHook
+
+#### removeOutputPathDir
+
+#### resolvedWatchPaths
+
+#### resolvedModulePaths
+
+#### onUpdateFinish
+
+#### outputPath
+
+#### addExtraWatchFile
+
+#### modules
+
+#### getResolveRecords
+
+#### getTransformRecords
+
+#### getProcessRecords
+
+#### getAnalyzeDepsRecords
+
+#### getResourcePotRecordsById
