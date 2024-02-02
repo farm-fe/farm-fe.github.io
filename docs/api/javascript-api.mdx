@@ -1,0 +1,123 @@
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+# JavaScript Api
+
+`Farm` 提供完整的开发服务器、编译器、监听器等 JavaScript Api，开发者可以通过引入 `@farmfe/core` 包来使用这些 Api。
+
+安装 `@farmfe/core` 包:
+
+<>
+    <Tabs>
+          <TabItem value="npm" label="npm">
+              <CodeBlock>npm create @farmfe/core@latest</CodeBlock>
+              </TabItem>
+
+  <TabItem value="yarn" label="yarn">
+          <CodeBlock>yarn create @farmfe/core@latest</CodeBlock>
+              </TabItem>
+  <TabItem value="pnpm" label="pnpm">
+          <CodeBlock>pnpm create @farmfe/core@latest</CodeBlock>
+              </TabItem>
+          </Tabs>
+</>
+
+## 开箱即用 Api
+
+### `Start`
+
+基本示例
+
+```javascript
+import { start } from "@farmfe/core";
+try {
+  await start(defaultOptions);
+} catch (e) {
+  logger.error(`Failed to start server:\n ${e.stack}`);
+  process.exit(1);
+}
+```
+
+### `Build`
+
+基本示例
+
+```javascript
+import { build } from "@farmfe/core";
+try {
+  await build(defaultOptions);
+} catch (e) {
+  logger.error(`error during build:\n ${e.stack}`);
+  process.exit(1);
+}
+```
+
+### `Watch`
+
+基本示例
+
+```javascript
+import { watch } from "@farmfe/core";
+try {
+  await watch(defaultOptions);
+} catch (e) {
+  logger.error(`error during watch project:\n ${e.stack}`);
+  process.exit(1);
+}
+```
+
+### `Preview`
+
+基本示例
+
+```javascript
+import { preview } from "@farmfe/core";
+try {
+  await preview(defaultOptions);
+} catch (e) {
+  logger.error(`Failed to start preview server:\n ${e.stack}`);
+  process.exit(1);
+}
+```
+
+### `Clean`
+
+基本示例
+
+```javascript
+import { clean } from "@farmfe/core";
+try {
+  await clean(defaultOptions);
+} catch (e) {
+  logger.error(`Failed to clean cache:\n ${e.stack}`);
+  process.exit(1);
+}
+```
+
+## 核心 Api
+
+### `DevServer`
+
+`DevServer` 提供一系列开发服务器的 Api，可以通过实例化 `DevServer` 对象的 `createDevServer` 方法创建一个开发服务器实例。
+
+基本示例
+
+```javascript
+import { DevServer } from '@farmfe/core';
+const server = new DevServer();
+await server.createDevServer(options: DevServerOptions);
+// server.listen()
+```
+
+### `Compiler`
+
+`Compiler` 提供一系列编译器的 Api，可以通过实例化 `Compiler` 对象的 `createCompiler` 方法创建一个编译器实例。
+
+基本示例
+
+```javascript
+import { Compiler } from "@farmfe/core";
+const compiler = new Compiler(config);
+await compiler.compile();
+```
