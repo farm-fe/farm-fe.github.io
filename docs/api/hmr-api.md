@@ -3,7 +3,7 @@
 The HMR API is compatible with [Vite's HMR API](https://vitejs.dev/guide/api-hmr.html).
 :::
 
-Farm exposes its manual HMR API via the special import.meta.hot object(the same as Vite):
+Farm exposes its manual HMR API via the special `import.meta.hot` object(the same as Vite):
 ```ts
 export interface ViteHotContext {
   readonly data: any;
@@ -15,12 +15,6 @@ export interface ViteHotContext {
     deps: readonly string[],
     cb: (mods: Array<ModuleNamespace | undefined>) => void
   ): void;
-
-  // acceptExports is not supported in Farm for now
-  // acceptExports(
-  //   exportNames: string | readonly string[],
-  //   cb?: (mod: ModuleNamespace | undefined) => void
-  // ): void;
 
   dispose(cb: (data: any) => void): void;
   prune(cb: (data: any) => void): void;

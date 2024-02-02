@@ -2,7 +2,7 @@
 Farm support `Vite/Rollup` plugins out of box. So `Vite/Rollup` or `unplugin` plugins can be used in Farm directly.
 
 :::tip
-PR welcome if you developed a Farm compatible plugin and you want to list it here.
+Farm recommends to write Farm Plugins instead of `Vite/Rollup` plugins for Farm. Because Farm Plugins have the best compatibility and performance. Still, PR welcome if you developed a Farm compatible plugin and you want to list it here.
 :::
 
 Current tested compatible `Vite/Rollup/unplugin` plugins as below:
