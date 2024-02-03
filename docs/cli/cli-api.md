@@ -1,4 +1,4 @@
-# Farm CLI API
+# Farm CLI
 
 The Farm CLI allows you to start, build, preview, and watch your application.
 

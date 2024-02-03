@@ -23,42 +23,65 @@ import CodeBlock from "@theme/CodeBlock";
           </Tabs>
 </>
 
-## 开箱即用 Api
 
-### `Start`
+## Start
 
-基本示例
+`Start` 方法快速启动开发服务器
+
+类型:
+  
+```typescript
+start(options: InlineConfig): Promise<void>
+```
+
+基本示例:
 
 ```javascript
-import { start } from "@farmfe/core";
+import { start, logger } from "@farmfe/core";
 try {
-  await start(defaultOptions);
+  await start(options);
 } catch (e) {
   logger.error(`Failed to start server:\n ${e.stack}`);
   process.exit(1);
 }
 ```
 
-### `Build`
+## Build
 
-基本示例
+`Build` 方法对生产环境进行构建
+
+类型:
+  
+```typescript
+build(options: InlineConfig): Promise<void>
+```
+
+基本示例:
 
 ```javascript
-import { build } from "@farmfe/core";
+import { build, logger } from "@farmfe/core";
 try {
-  await build(defaultOptions);
+  await build(options);
 } catch (e) {
   logger.error(`error during build:\n ${e.stack}`);
   process.exit(1);
 }
 ```
 
-### `Watch`
+## Watch
 
-基本示例
+`Watch` 方法对当前项目进行监听, 一般作用于 `node` 环境
+
+类型:
+  
+```typescript
+watch(options: InlineConfig): Promise<void>
+```
+
+基本示例:
 
 ```javascript
-import { watch } from "@farmfe/core";
+import { watch, logger } from "@farmfe/core";
 try {
   await watch(defaultOptions);
 } catch (e) {
@@ -67,12 +90,20 @@ try {
 }
 ```
 
-### `Preview`
+## Preview
 
-基本示例
+`Preview` 方法启动一个预览服务器, 对生产环境产物进行预览
+
+类型:
+  
+```typescript
+preview(options: InlineConfig): Promise<void>
+```
+
+基本示例:
 
 ```javascript
-import { preview } from "@farmfe/core";
+import { preview, logger } from "@farmfe/core";
 try {
   await preview(defaultOptions);
 } catch (e) {
@@ -81,12 +112,25 @@ try {
 }
 ```
 
-### `Clean`
+## Clean
 
-基本示例
+`Clean` 方法清理 `farm` 增量构建所产生缓存
+
+:::warning
+对于目前使用增量构建功能而导致某些不可预知或者未发现的问题所导致的程序崩溃, 可以尝试通过清理缓存来解决问题, 若并不能解决请在 github 上提交 issues
+:::
+
+
+类型:
+  
+```typescript
+clean(options: InlineConfig): Promise<void>
+```
+
+基本示例:
 
 ```javascript
-import { clean } from "@farmfe/core";
+import { clean, logger } from "@farmfe/core";
 try {
   await clean(defaultOptions);
 } catch (e) {
@@ -95,9 +139,8 @@ try {
 }
 ```
 
-## 核心 Api
 
-### `DevServer`
+## DevServer
 
 `DevServer` 提供一系列开发服务器的 Api，可以通过实例化 `DevServer` 对象的 `createDevServer` 方法创建一个开发服务器实例。
 
@@ -107,12 +150,83 @@ try {
 import { DevServer } from '@farmfe/core';
 const server = new DevServer();
 await server.createDevServer(options: DevServerOptions);
-// server.listen()
+server.listen()
 ```
 
-#### Server 还要重构一版
+### createDevServer
 
-### `Compiler`
+启动本地开发服务器
+
+类型: 
+  
+```typescript
+createDevServer(options: DevServerOptions): Promise<void>
+```
+
+基本示例:
+
+```javascript
+import { DevServer } from "@farmfe/core";
+const server = new DevServer();
+await server.createDevServer(options);
+server.listen()
+```
+
+### createPreviewServer
+
+创建一个 预览服务器，用于预览生产环境产物
+
+类型: 
+  
+```typescript
+createPreviewServer(options: DevServerOptions): Promise<void>
+```
+
+基本示例:
+
+```javascript
+import { DevServer } from "@farmfe/core";
+const server = new DevServer();
+await server.createPreviewServer(options);
+```
+
+### getCompiler
+
+获取当前开发服务器的编译器实例
+
+类型: 
+  
+```typescript
+getCompiler(): Compiler
+```
+
+基本示例:
+
+```javascript
+import { DevServer, Compiler } from "@farmfe/core";
+const compiler = new Compiler(config);
+const server = new DevServer({
+  compiler
+});
+const compiler = server.getCompiler();
+```
+
+### close
+
+关闭当前 `DevServer` 以及 `Webscoker` 服务
+
+基本示例: 
+  
+```javascript
+import { DevServer } from "@farmfe/core";
+const server = new DevServer();
+await server.createDevServer(options);
+server.listen()
+await server.close();
+```
+
+
+## Compiler
 
 `Compiler` 提供一系列编译器的 Api，可以通过实例化 `Compiler` 对象的 `createCompiler` 方法创建一个编译器实例。
 
@@ -124,44 +238,410 @@ const compiler = new Compiler(config);
 await compiler.compile();
 ```
 
-#### compile
+### compile
 
-#### compileSync
+编译器异步启动编译过程。
 
-#### traceDependencies
+:::note
+如果设置了特定的环境变量（FARM_PROFILE）procee.env.FARM_PROFILE，则执行同步编译。
+:::
 
-#### update
+类型: 
 
-#### hasModule
+```typescript
+compile(): object
+```
 
-#### getParentFiles
+基本示例:
+  
+```javascript
+import { Compiler } from "@farmfe/core";
+const compiler = new Compiler(config);
+await compiler.compile();
+```
 
-#### resources
+### compileSync
 
-#### writeResourcesToDisk
+编译器同步启动编译过程。
 
-#### callWriteResourcesHook
+类型: 
 
-#### removeOutputPathDir
+```typescript
+compileSync(): void
+```
 
-#### resolvedWatchPaths
+基本示例:
+  
+```javascript
+import { Compiler } from "@farmfe/core";
+const compiler = new Compiler(config);
+compiler.compileSync();
+```
 
-#### resolvedModulePaths
+### traceDependencies
 
-#### onUpdateFinish
+追踪文件之间的依赖关系
 
-#### outputPath
+类型: 
 
-#### addExtraWatchFile
+```typescript
+traceDependencies(): Array[string]
+```
 
-#### modules
+基本示例:
+  
+```javascript
+import { Compiler } from "@farmfe/core";
+const compiler = new Compiler(config);
+const dependencies = compiler.traceDependencies();
+```
 
-#### getResolveRecords
+### update
 
-#### getTransformRecords
+根据提供的路径来更新编译, 返回一个解析为 JsUpdateResult 的 Promise。如果编译已经在进行中，它会处理将更新排队的情况。
 
-#### getProcessRecords
+类型: 
 
-#### getAnalyzeDepsRecords
+```typescript
+update(paths: Array<string>, callback: (...args: any[]) => any, sync: boolean): object
+```
 
-#### getResourcePotRecordsById
+基本示例:
+  
+```javascript
+import { Compiler } from "@farmfe/core";
+const compiler = new Compiler(config);
+const result = await compiler.update(paths, callback, sync);
+```
+
+### hasModule
+
+检查是否存在具有给定已解析路径的模块。
+
+类型: 
+
+```typescript
+hasModule(path: string): boolean
+```
+
+基本示例:
+  
+```javascript
+import { Compiler } from "@farmfe/core";
+const compiler = new Compiler(config);
+const result = compiler.hasModule(path);
+```
+
+### getParentFiles
+
+检索由 ID 或已解析路径标识的模块的父文件。
+
+类型: 
+
+```typescript
+getParentFiles(resolvedPath: string): Array<string>
+```
+
+基本示例:
+  
+```javascript
+import { Compiler } from "@farmfe/core";
+const compiler = new Compiler(config);
+const result = compiler.getParentFiles(resolvedPath);
+```
+
+### resources
+
+返回所有资源
+
+类型: 
+
+```typescript
+resources(): Array<Resource>
+```
+
+基本示例:
+  
+```javascript
+import { Compiler } from "@farmfe/core";
+const compiler = new Compiler(config);
+const result = compiler.resources();
+```
+
+### Resource
+
+根据path 返回当前资源的二进制格式
+
+类型: 
+
+```typescript
+resource(path: string): Buffer | null
+```
+
+基本示例:
+  
+```javascript
+import { Compiler } from "@farmfe/core";
+const compiler = new Compiler(config);
+const result = compiler.resource(path);
+```
+
+### writeResourcesToDisk
+
+根据配置输出路径将资源写入磁盘
+
+类型: 
+
+```typescript
+writeResourcesToDisk(): void
+```
+
+基本示例:
+  
+```javascript
+import { Compiler } from "@farmfe/core";
+const compiler = new Compiler(config);
+await compiler.compile()
+compiler.writeResourcesToDisk();
+```
+
+
+### callWriteResourcesHook
+
+调用 JS 插件提供的 writeResources 钩子。
+
+类型: 
+
+```typescript
+callWriteResourcesHook(): void
+```
+
+基本示例:
+  
+```javascript
+import { Compiler } from "@farmfe/core";
+const compiler = new Compiler(config);
+await compiler.compile()
+compiler.callWriteResourcesHook();
+```
+
+### removeOutputPathDir
+
+删除输出路径目录
+
+类型: 
+
+```typescript
+removeOutputPathDir(): void
+```
+
+基本示例:
+  
+```javascript
+import { Compiler } from "@farmfe/core";
+const compiler = new Compiler(config);
+await compiler.compile()
+compiler.removeOutputPathDir();
+```
+
+### resolvedWatchPaths
+
+返回已解析的监视路径
+
+类型: 
+
+```typescript
+resolvedWatchPaths(): Array<string>
+```
+
+基本示例:
+  
+```javascript
+import { Compiler } from "@farmfe/core";
+const compiler = new Compiler(config);
+await compiler.compile()
+const result = compiler.resolvedWatchPaths();
+```
+
+
+### resolvedModulePaths
+
+返回相对于提供的根路径已解析的模块路径。
+
+类型: 
+
+```typescript
+resolvedModulePaths(rootPath: string): Array<string>
+```
+
+基本示例:
+  
+```javascript
+import { Compiler } from "@farmfe/core";
+const compiler = new Compiler(config);
+await compiler.compile()
+const result = compiler.resolvedModulePaths(rootPath);
+```
+
+### onUpdateFinish
+
+添加一个在更新过程完成后执行的回调。
+
+类型: 
+
+```typescript
+onUpdateFinish(callback: (...args: any[]) => any): void
+```
+
+基本示例:
+  
+```javascript
+import { Compiler } from "@farmfe/core";
+const compiler = new Compiler(config);
+compiler.onUpdateFinish(callback);
+```
+
+### outputPath
+
+返回已解析的输出路径
+
+类型: 
+
+```typescript
+outputPath(): string
+```
+
+基本示例:
+  
+```javascript
+import { Compiler } from "@farmfe/core";
+const compiler = new Compiler(config);
+const result = compiler.outputPath();
+```
+
+### addExtraWatchFile
+
+为编译器添加额外的监视文件。
+
+类型: 
+
+```typescript
+addExtraWatchFile(rootPath: string,. filePath: string[]): void
+```
+
+基本示例:
+  
+```javascript
+import { Compiler } from "@farmfe/core";
+const compiler = new Compiler(config);
+compiler.addExtraWatchFile(rootPath, filePath);
+```
+
+### modules
+
+返回模块数组
+
+类型: 
+
+```typescript
+modules(): Array<Module>
+```
+
+基本示例:
+  
+```javascript
+import { Compiler } from "@farmfe/core";
+const compiler = new Compiler(config);
+const result = compiler.modules();
+```
+
+### getResolveRecords
+
+返回给定模块 ID 的解析记录。
+
+类型: 
+
+```typescript
+getResolveRecords(id: string): Array<ResolveRecord>
+```
+
+基本示例:
+  
+```javascript
+import { Compiler } from "@farmfe/core";
+const compiler = new Compiler(config);
+const result = compiler.getResolveRecords(id);
+```
+
+### getTransformRecords
+
+返回给定模块 ID 的 transform 记录。
+
+类型: 
+
+```typescript
+getTransformRecordsById(id: string): Array<TransformRecord>
+```
+
+基本示例:
+  
+```javascript
+import { Compiler } from "@farmfe/core";
+const compiler = new Compiler(config);
+const result = compiler.getTransformRecords(id);
+```
+
+### getProcessRecords
+
+返回给定模块 ID 的处理记录。
+
+类型: 
+
+```typescript
+getProcessRecordsById(id: string): Array<ModuleRecord>
+```
+
+基本示例:
+  
+```javascript
+import { Compiler } from "@farmfe/core";
+const compiler = new Compiler(config);
+const result = compiler.getProcessRecords(id);
+```
+
+### getAnalyzeDepsRecords
+
+返回给定模块 ID 的分析依赖关系记录。
+
+类型: 
+
+```typescript
+getAnalyzeDepsRecordsById(id: string): Array<AnalyzeDepsRecord>
+```
+
+基本示例:
+  
+```javascript
+import { Compiler } from "@farmfe/core";
+const compiler = new Compiler(config);
+const result = compiler.getAnalyzeDepsRecords(id);
+```
+
+### getResourcePotRecordsById
+
+返回给定模块 ID 的资源记录。
+
+类型: 
+
+```typescript
+getResourcePotRecordsById(id: string): Array<ResourcePotRecord>
+```
+
+基本示例:
+  
+```javascript
+import { Compiler } from "@farmfe/core";
+const compiler = new Compiler(config);
+const result = compiler.getResourcePotRecordsById(id);
+```
+

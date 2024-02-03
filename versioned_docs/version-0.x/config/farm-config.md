@@ -844,7 +844,7 @@ APP_VERSION=1.0.0
 `Farm` loads the file `.env` via dotenv, and loads it into `process.env` and finally injects it into define.
 
 :::warning
-In order to ensure the security of the client, preventing the environment variables in the current system from being exposed to the client `Farm` will only identify some important environment variables that start with `Farm`.
+In order to ensure the security of the client, preventing the environment variables in the current system from being exposed to the client `Farm` will only identify some important environment variables that start with `FARM_`、`VITE_` (In order to better compatible with vite and its ecological environment).
 :::
 
 `Farm` expands environment variables through dotenv-expand
@@ -854,7 +854,7 @@ If you want to customize the prefix of env variables, you can configure `envPref
 
 ### envPrefix  
 
-* **default value**: `FARM_`
+- **default value**: `FARM_`、`VITE_`
 
 Customize the prefix of the `env` variable by configuring `envPrefix`.
 

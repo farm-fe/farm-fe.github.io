@@ -18,7 +18,7 @@ APP_VERSION=1.0.0
 `Farm` 会通过 dotenv 加载 `.env` 文件, 并且将其加载到 `process.env` 中 最终在 define 中注入.
 
 :::warning
-为了保证客户端安全, 防止将当前系统中的环境变量暴露给客户端 `Farm` 只会识别以 `FARM_` 开头和一些重要的环境变量.
+为了保证客户端安全, 防止将当前系统中的环境变量暴露给客户端 `Farm` 只会识别以 `FARM_`、`VITE_` 开头(为了更好的兼容 vite)和一些重要的环境变量.
 :::
 
 `Farm` 通过 dotenv-expand 来拓展环境变量
@@ -28,7 +28,7 @@ APP_VERSION=1.0.0
 
 ### envPrefix env 变量前缀
 
-* **默认值**: `FARM_`
+* **默认值**: `FARM_`、`VITE_`
 
 通过配置 `envPrefix` 来自定义 `env` 变量的前缀。
 

@@ -1,4 +1,4 @@
-# Farm CLI API
+# Farm CLI
 
 `Farm Cli` 允许您启动、构建、预览和监听您的应用程序。
 
