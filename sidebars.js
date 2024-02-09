@@ -65,6 +65,17 @@ const sidebars = {
     },
     {
       type: "category",
+      label: "Frameworks",
+      collapsed: true,
+      items: [
+        "frameworks/react",
+        "frameworks/vue",
+        "frameworks/solid",
+        "frameworks/svelte",
+      ],
+    },
+    {
+      type: "category",
       label: "Migration",
       collapsed: true,
       items: ["migration/from-vite"],
