@@ -205,18 +205,6 @@ a {
   border-radius: 8px !important;
 }
 
-// body {
-//   font-family: var(--sans-serif);
-//   -webkit-font-smoothing: antialiased;
-//   line-height: 1.3;
-// }
-
-// .main-wrapper > div {
-//   max-width: var(--max-layout-width);
-// }
-
-// .navbar,
-// .main-wrapper {
-//   display: flex;
-//   align-items: center;
-// }
+.dropdown > .navbar__link:after {
+  top: 4px;
+}

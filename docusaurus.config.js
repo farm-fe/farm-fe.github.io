@@ -76,9 +76,9 @@ const config = {
             current: {
               label: "1.0.0-beta",
             },
-            '0.x': {
-              label: "0.15"
-            }
+            "0.x": {
+              label: "0.15",
+            },
           },
         },
         theme: {
@@ -109,7 +109,7 @@ const config = {
               marginLeft: "2rem",
               marginTop: "0.3rem",
               width: "8rem",
-            }
+            },
           },
           {
             type: "doc",
@@ -136,10 +136,34 @@ const config = {
             label: "Plugins",
           },
           {
-            type: "doc",
-            docId: "community",
             position: "left",
             label: "Community",
+            items: [
+              {
+                label: "Team",
+                to: "./blog/index.md",
+              },
+              {
+                label: "Blog",
+                to: "./blog/index.md",
+              },
+              {
+                label: "Awesome Farm",
+                to: "./chat/index.md",
+              },
+              {
+                label: "Discord",
+                href: "https://discord.com/channels/1088114165505327104/1088114166033817603",
+              },
+              {
+                label: "Twitter",
+                href: "https://twitter.com/fe_farm",
+              },
+              {
+                label: "WeChat Group",
+                href: "https://",
+              },
+            ],
           },
           {
             type: "docsVersionDropdown",
