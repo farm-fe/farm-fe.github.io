@@ -141,19 +141,19 @@ const config = {
             items: [
               {
                 label: "Team",
-                to: "./blog/index.md",
+                to: "/team",
               },
               {
                 label: "Blog",
-                to: "./blog/index.md",
+                to: "/blog/index",
               },
               {
                 label: "Awesome Farm",
-                to: "./chat/index.md",
+                href: "https://github.com/farm-fe",
               },
               {
                 label: "Discord",
-                href: "https://discord.com/channels/1088114165505327104/1088114166033817603",
+                href: "https://discord.com/invite/mDErq9aFnF",
               },
               {
                 label: "Twitter",
@@ -161,7 +161,7 @@ const config = {
               },
               {
                 label: "WeChat Group",
-                href: "https://",
+                href: "https://github.com/farm-fe/farm?tab=readme-ov-file#chat-with-us",
               },
             ],
           },

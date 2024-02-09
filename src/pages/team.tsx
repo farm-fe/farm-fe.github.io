@@ -21,42 +21,23 @@ function HomepageHeader() {
         styles.heroBanner
       )}
     >
-      <div className="container w-full flex flex-col justify-center">
-        <p className="font-extrabold text-3xl sm:text-6xl lg:text-6xl text-left mb-6 flex flex-col gap-2">
-          <div>
-            <span className={clsx(styles.banner)}>
-              <Translate>Fast </Translate>
-            </span>
-            <span>
-              <Translate>Web</Translate>
-            </span>
-            <span className={clsx(styles.banner)}>
-              <Translate> Build Tool</Translate>
-            </span>
-          </div>
-          <div>
-            <span>
-              <Translate>Written in</Translate>
-            </span>
-            <span className={clsx(styles.banner, "my-6")}>
-              <Translate> Rust</Translate>
-            </span>
-          </div>
+      <div className="container w-full flex flex-col items-center justify-center">
+        <p className="font-extrabold text-4xl sm:text-7xl lg:text-7xl tracking-tight text-center">
+          <span>
+            <Translate>Extremely Fast</Translate>
+          </span>
+          <span className={clsx(styles.banner, "my-6", "block")}>
+            <Translate> Web</Translate>
+          </span>
+          <span className={clsx(styles.banner, "my-6", "block")}>
+            <Translate> Build Tool</Translate>
+          </span>
+          <span>
+            <Translate> Written In</Translate>
+            <span className={styles.banner}> Rust</span>
+          </span>
         </p>
-        <p className="font-semibold brand-color mb-6 text-1xl sm:text-2xl lg:text-xl tracking-wide text-left  flex flex-col gap-2">
-          <div>
-            <span className={clsx(styles.banner, "font-extrabold")}>
-              <translate>Farm </translate>
-            </span>
-            <span className="font-sans">
-              <translate>
-                is a Rust-Based Web Building Engine to Facilitate Your Web and
-                Node Program Development
-              </translate>
-            </span>
-          </div>
-        </p>
-        <div className={clsx(styles.buttons, "my-2")}>
+        <div className={clsx(styles.buttons, "my-8")}>
           <Link to="/docs/quick-start" style={{ textDecoration: "none" }}>
             <div
               className={clsx(
@@ -94,12 +75,7 @@ export default function Home() {
       title={`${siteConfig.title} Documentation`}
       description="Description will go into a meta tag in <head />"
     >
-      <StarrySky />
-      <main className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8max-w-6xl">
-        <HomepageHeader />
-        <HomepageFeatures />
-        <TeamMembers />
-      </main>
+      我是 team 页面
     </Layout>
   );
 }
