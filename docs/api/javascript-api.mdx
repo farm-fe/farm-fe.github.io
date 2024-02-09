@@ -348,7 +348,7 @@ const result = compiler.getParentFiles(resolvedPath);
 
 ### resources
 
-返回所有经过compiler 编译后的模块资源
+返回所有经过 `compiler` 编译后的所有产物资源
 
 类型: 
 
@@ -370,7 +370,7 @@ const result = compiler.resources();
 
 ### Resource
 
-根据path 返回当前资源的二进制格式
+根据传入的文件返回当前产物的 `buffer`
 
 类型: 
 
@@ -405,29 +405,9 @@ await compiler.compile()
 compiler.writeResourcesToDisk();
 ```
 
-
-### callWriteResourcesHook
-
-调用 JS 插件提供的 writeResources 钩子。
-
-类型: 
-
-```typescript
-callWriteResourcesHook(): void
-```
-
-基本示例:
-  
-```javascript
-import { Compiler } from "@farmfe/core";
-const compiler = new Compiler(config);
-await compiler.compile()
-compiler.callWriteResourcesHook();
-```
-
 ### removeOutputPathDir
 
-删除输出路径目录
+删除输出产物路径目录
 
 类型: 
 
