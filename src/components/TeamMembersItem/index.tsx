@@ -6,9 +6,12 @@ import styles from "./index.module.css";
 
 export default function TeamMembersItem({ member }) {
   return (
-    <article className={clsx(styles.VPTeamMembersItem)}>
+    <article className={clsx(styles.teamMembersItem)}>
       <div className={clsx(styles.profile)}>
-        <figure className={styles.avatar} onClick={() => window.open(member.orgLink, "_blank")}>
+        <figure
+          className={styles.avatar}
+          onClick={() => window.open(member.orgLink, "_blank")}
+        >
           <img
             className={styles["avatar-img"]}
             src={member.avatar}

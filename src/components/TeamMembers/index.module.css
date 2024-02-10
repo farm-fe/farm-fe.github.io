@@ -1,10 +1,9 @@
-.VPTeamMembers .container {
+.teamMembers .container {
   grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
 }
 
-
 @media (min-width: 375px) {
-  .VPTeamMembers .container {
+  .teamMembers .container {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
 }

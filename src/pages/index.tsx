@@ -10,6 +10,7 @@ import styles from "./index.module.css";
 import { TeamMembers } from "../components/TeamMembers";
 import Translate, { translate } from "@docusaurus/Translate";
 import { useThemeConfig } from "@docusaurus/theme-common";
+import { members } from "./data";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
@@ -21,17 +22,22 @@ function HomepageHeader() {
         styles.heroBanner
       )}
     >
-      <div className="container w-full flex flex-col justify-center">
+      <div className="container w-full flex flex-col my-1">
         <p className="font-extrabold text-3xl sm:text-6xl lg:text-6xl text-left mb-6 flex flex-col gap-2">
           <div>
+            <span>
+              <Translate>Extremely</Translate>
+            </span>
             <span className={clsx(styles.banner)}>
-              <Translate>Fast </Translate>
+              <Translate> Fast </Translate>
             </span>
             <span>
               <Translate>Web</Translate>
             </span>
+          </div>
+          <div>
             <span className={clsx(styles.banner)}>
-              <Translate> Build Tool</Translate>
+              <Translate> Build Tool .</Translate>
             </span>
           </div>
           <div>
@@ -95,10 +101,9 @@ export default function Home() {
       description="Description will go into a meta tag in <head />"
     >
       <StarrySky />
-      <main className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8max-w-6xl">
+      <main className="mb-20 mt-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8max-w-6xl">
         <HomepageHeader />
         <HomepageFeatures />
-        <TeamMembers />
       </main>
     </Layout>
   );
