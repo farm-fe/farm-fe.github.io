@@ -4,11 +4,12 @@
 
 @media (min-width: 375px) {
   .teamMembers .container {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   }
 }
 
 .container {
+  width: 100%;
   display: grid;
   gap: 40px;
   margin: 0 auto;
