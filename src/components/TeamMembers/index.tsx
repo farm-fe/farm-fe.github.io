@@ -13,7 +13,12 @@ export function TeamMembers(props) {
   const classes = clsx(styles.teamMembers, "small my-10");
   return (
     <div className={classes}>
-      <div className="flex justify-center my-8 text-4xl font-bold">
+      <div
+        className={clsx(
+          styles.banner,
+          "flex justify-center my-8 text-4xl font-bold"
+        )}
+      >
         <Translate>Get to know our team</Translate>
       </div>
       <div className={clsx("mt-10", styles.container)}>

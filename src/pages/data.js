@@ -2,7 +2,7 @@ export const members = [
   {
     avatar: "https://www.github.com/wre232114.png",
     name: "brightwu",
-    orgLink: "https://github.com/wre232114",
+    org: "@tencent",
     desc: "Author/Lead Maintainer of @farm-fe. Rust && TS && Java..",
     links: [
       { icon: "github", link: "https://github.com/wre232114" },
@@ -12,8 +12,7 @@ export const members = [
   {
     avatar: "https://www.github.com/erkelost.png",
     name: "Erkelost",
-    title: "Rust & Go & Node & Web development ❤️❤️",
-    orgLink: "https://github.com/ErKeLost",
+    org: "",
     desc: "Rust & Go & Node & Web development ❤️❤️",
     links: [
       { icon: "github", link: "https://github.com/ErKeLost" },
@@ -24,7 +23,6 @@ export const members = [
     avatar: "https://www.github.com/shulandmimi.png",
     name: "shulandmimi",
     title: "",
-    orgLink: "https://github.com/shulandmimi",
     desc: "Core team member of Farm.",
     links: [
       { icon: "github", link: "https://github.com/shulandmimi" },
@@ -34,9 +32,8 @@ export const members = [
   {
     avatar: "https://github.com/Nirvana-Jie.png",
     name: "Nirvana-Jie",
-    title: "Open Source Developer",
-    orgLink: "https://github.com/Nirvana-Jie",
-    desc: "Core team member of Farm.",
+    org: "@bytedance",
+    desc: "There are too many things to learn, I can only keep moving forward.",
     links: [
       { icon: "github", link: "https://github.com/Nirvana-Jie" },
       { icon: "twitter", link: "https://twitter.com/Nirvana-Jie" },
@@ -45,7 +42,6 @@ export const members = [
   {
     avatar: "https://github.com/NidMo.png",
     name: "NidMo",
-    title: "Open Source Developer",
     orgLink: "https://github.com/NidMo",
     desc: "Core team member of Farm.",
     links: [
@@ -56,9 +52,9 @@ export const members = [
   {
     avatar: "https://github.com/wjq990112.png",
     name: "wjq990112",
-    title: "Open Source Developer",
+    title: "@bytedance",
     orgLink: "https://github.com/wjq990112",
-    desc: "Core team member of Farm.",
+    desc: "Member of @raxjs, @ice-lab and @farm-fe.",
     links: [
       { icon: "github", link: "https://github.com/wjq990112" },
       { icon: "twitter", link: "https://twitter.com/wjq990112" },
@@ -67,9 +63,8 @@ export const members = [
   {
     avatar: "https://github.com/callqh.png",
     name: "callqh",
-    title: "Open Source Developer",
-    orgLink: "https://github.com/callqh",
-    desc: "Core team member of Farm.",
+    org: "",
+    desc: "Javascript & Rust.",
     links: [
       { icon: "github", link: "https://github.com/callqh" },
       { icon: "twitter", link: "https://twitter.com/callqh" },
@@ -80,7 +75,7 @@ export const members = [
     name: "oblador",
     title: "Open Source Developer",
     orgLink: "https://github.com/oblador",
-    desc: "Core team member of Farm.",
+    desc: "╥━━━━━━━━╭━━╮━━┳ ╢╭╮╭━━━━━┫┃▋▋━▅┣ ╢┃╰┫┈┈┈┈┈┃┃┈┈╰┫┣ ╢╰━┫┈┈┈┈┈╰╯╰┳━╯┣ ╢┊┊┃┏┳┳━━┓┏┳┫┊┊┣ ╨━━┗┛┗┛━━┗┛┗┛━━┻",
     links: [
       { icon: "github", link: "https://github.com/oblador" },
       { icon: "twitter", link: "https://twitter.com/oblador" },

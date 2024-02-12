@@ -20,6 +20,7 @@ export default function TeamMembersItem({ member }) {
         </figure>
         <div className={styles.data}>
           <h1 className={styles.name}>{member.name}</h1>
+          <h2 className={styles.org}>{member.org}</h2>
           {member.desc ? <p className={styles.desc}>{member.desc}</p> : null}
         </div>
       </div>
