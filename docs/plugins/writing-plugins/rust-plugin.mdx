@@ -36,6 +36,8 @@ Note for a Rust plugin struct:
 - The struct must implement `Plugin` trait, and the `name` method must be implemented.
 - The struct must export a `new` method that accepts 2 arguments for initialization, the first argument is `&Config` and the second argument is `String`. The `new` method is called when the plugin is loaded, and the `Config` is the farm project config, and the `String` is the plugin options.
 
+We also provide a Rust plugin example repository: [farm-rust-plugin-example](https://github.com/farm-fe/rust-plugin-example).
+
 :::note
 This document only covers how to create, develop and publish a rust plugin, for more detail about the plugin hooks, see [Plugin Hooks](/docs/api/rust-plugin-api).
 :::
@@ -338,12 +340,154 @@ Cause a rust plugin is a pure dynamic linked library, if you have questions abou
 
 ## Publish
 
+Steps to publish your Rust plugin:
+1. Cross build the Rust plugin to dynamic linked library, see [Cross Build](#cross-build) for detail.
+2. Copy the binary artifacts to npm dir, for example: Copy to `npm/linux-x64-gnu/index.farm`.
+3. Publish platform specific packages under npm dir, you can use `farm-plugin-tool prepublish` to publish packages under `npm` dir.
+4. Publish the package itself
+
+see example [github actions publish workflow](https://github.com/farm-fe/rust-plugin-example/blob/main/.github/workflows/release.yml)
+
+
 ## Examples
-We will use `@farmfe/plugin-sass` as demostration to show how to write Farm Rust plugin. This plugin will support `.scss` and `.sass` file in your farm project.
+We will use `@farmfe/plugin-sass` as demostration to a real Rust plugin example. This plugin will support compiling `.scss` and `.sass` file in your farm project.
 
 ### Define Plugin
 Exports a Rust struct named `FarmPluginSass`.
 
-```rust
+```rust title="src/lib.rs"
+use farmfe_macro_plugin::farm_plugin;
 
+// 1. define a struct with #[farm_plugin] attribute
+#[farm_plugin]
+pub struct FarmPluginSass {
+  sass_options: String,
+  regex: Regex,
+}
+
+impl FarmPluginSass {
+  // 2. define a new method with 2 arguments
+  pub fn new(_config: &Config, options: String) -> Self {
+    Self {
+      sass_options: options,
+      regex: Regex::new(r#"\.(sass|scss)$"#).unwrap(),
+    }
+  }
+}
 ```
+
+- The struct must be `pub` and `#[farm_plugin]` attribute is required.
+- The struct must export a `new` method that accepts 2 arguments for initialization, the first argument is `&Config` and the second argument is `String`.
+
+### Implement Plugin Trait 
+`Plugin` trait is used to define `hooks` that can hook into Farm compiler.
+
+```rust {21-30}
+use farmfe_core::plugin::Plugin;
+use farmfe_macro_plugin::farm_plugin;
+
+// 1. define a struct with #[farm_plugin] attribute
+#[farm_plugin]
+pub struct FarmPluginSass {
+  sass_options: String,
+  regex: Regex,
+}
+
+impl FarmPluginSass {
+  // 2. define a new method with 2 arguments
+  pub fn new(_config: &Config, options: String) -> Self {
+    Self {
+      sass_options: options,
+      regex: Regex::new(r#"\.(sass|scss)$"#).unwrap(),
+    }
+  }
+}
+// Implement Plugin Trait
+impl Plugin for FarmPluginSass {
+  fn name(&self) -> &str {
+    "FarmPluginSass"
+  }
+
+  // this plugin should be executed before internal plugins
+  fn priority(&self) -> i32 {
+    101
+  }
+}
+```
+
+### Load `.scss` File
+Implement `load` hook to support load `.scss` files.
+
+```rust {14-32}
+// ignore other code ...
+
+// Implement Plugin Trait
+impl Plugin for FarmPluginSass {
+  fn name(&self) -> &str {
+    "FarmPluginSass"
+  }
+
+  // this plugin should be executed before internal plugins
+  fn priority(&self) -> i32 {
+    101
+  }
+
+  fn load(
+    &self,
+    param: &farmfe_core::plugin::PluginLoadHookParam,
+    _context: &std::sync::Arc<farmfe_core::context::CompilationContext>,
+    _hook_context: &farmfe_core::plugin::PluginHookContext,
+  ) -> farmfe_core::error::Result<Option<farmfe_core::plugin::PluginLoadHookResult>> {
+    if param.query.is_empty() && self.regex.is_match(param.resolved_path) {
+      let content = fs::read_file_utf8(param.resolved_path);
+
+      if let Ok(content) = content {
+        return Ok(Some(farmfe_core::plugin::PluginLoadHookResult {
+          content,
+          module_type: ModuleType::Custom(String::from("sass")),
+        }));
+      }
+    }
+
+    Ok(None)
+  }
+}
+```
+
+In the `load` hook, we only read the file that ends with `.scss` or `.sass`, return the file content and maked its module_type as `ModuleType::Custom(String::from("sass"))`.
+
+### Transform `sass` File
+After we load the `.scss` file, we need to transform it to `css` in `transform` hook, then Farm will treat it as css in following process.
+
+```rust
+// ignore other code ...
+fn transform(
+  &self,
+  param: &farmfe_core::plugin::PluginTransformHookParam,
+  context: &std::sync::Arc<farmfe_core::context::CompilationContext>,
+) -> farmfe_core::error::Result<Option<farmfe_core::plugin::PluginTransformHookResult>> {
+  // module type guard is neccessary
+  if param.module_type == ModuleType::Custom(String::from("sass")) {
+    // ... ignore other code
+
+    // parse options
+    const options = parse_options(&self.options, param.module_id);
+    // compile sass to css
+    let compile_result = compileSass(&param.content, options);
+
+    return Ok(Some(farmfe_core::plugin::PluginTransformHookResult {
+      content: compile_result.css,
+      source_map: compile_result.source_map,
+      // tell farm compiler that we have transformed this module to css
+      module_type: Some(farmfe_core::module::ModuleType::Css),
+      ignore_previous_source_map: false,
+    }));
+  }
+
+  Ok(None)
+}
+```
+
+:::tip
+This example only covers how to implement a transformer plugin. For more abilities that Farm support, refer to [Plugin Hooks](/docs/api/rust-plugin-api).
+:::
