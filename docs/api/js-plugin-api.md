@@ -7,7 +7,6 @@ Farm Js Plugin has designed a similar rollup style design plugin system and easy
 For farm specific js plugins:
 
 - The Farm plugin should have a name with a `farm-plugin-` prefix and clear semantics.
-
 - Include the `farm-plugin-` keyword in package.json.
 
 If your plugin is only applicable to a specific framework, its name should follow the following prefix format:
