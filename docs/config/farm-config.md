@@ -797,7 +797,7 @@ export default defineConfig({
 
 After the compilation is completed, the browser is automatically opened to the corresponding page.
 
-###host
+### host
 * **default**: `localhost`
 
 The host that the Dev Server listens on.
