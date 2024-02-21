@@ -3,20 +3,6 @@
 This document only covers the details of the plugin hooks. For how to create, build and publish a rust plugin see: [Writing Rust Plugins](/docs/plugins/writing-plugins/rust-plugin)
 :::
 
-## Conventions
-
-For farm specific js plugins:
-
-- The Farm plugin should have a name with a `farm-plugin-` prefix and clear semantics.
-- Include the `farm-plugin-` keyword in package.json.
-
-If your plugin is only applicable to a specific framework, its name should follow the following prefix format:
-
-- `farm-plugin-vue-`: Prefix as a Vue plugin
-- `farm-plugin-react-`: Prefix as a React plugin
-- `farm-plugin-svelte-`: Prefix as a svelte plugin
-- ...
-
 ## Configuring Rust Plugins
 
 Adding Rust plugins by `plugins` option:

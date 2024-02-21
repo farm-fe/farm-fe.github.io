@@ -42,10 +42,24 @@ We also provide a Rust plugin example repository: [farm-rust-plugin-example](htt
 This document only covers how to create, develop and publish a rust plugin, for more detail about the plugin hooks, see [Plugin Hooks](/docs/api/rust-plugin-api).
 :::
 
+## Conventions
+
+For farm specific js plugins:
+
+- The Farm plugin should have a name with a `farm-plugin-` prefix and clear semantics.
+- Include the `farm-plugin-` keyword in package.json.
+
+If your plugin is only applicable to a specific framework, its name should follow the following prefix format:
+
+- `farm-plugin-vue-`: Prefix as a Vue plugin
+- `farm-plugin-react-`: Prefix as a React plugin
+- `farm-plugin-svelte-`: Prefix as a svelte plugin
+- ...
+
 ## Concepts
 Before you start to write your rust plugin, you should know the following concepts:
-* **module_type**: The type of the module, it can be `js`, `ts`, `css`, `sass`, `json`, etc. Farm supports `js/ts/jsx/tsx`, `css`, `html`, `json`, `static assets(png, svg, etc)` natively. `module_type` is returned by `load` hook.
-* **resolved_path and module_id**: `resolved_path` is the absolute path of the module, and `module_id` is the unique id of the module, it's usaully relative path of the module from the project root + query. For example, we import a module as `import './a?query'`, the resolved_path is `/project/src/a.ts` and the module_id is `src/a.ts?query`.
+* **module_type**: The type of the module, it can be `js`, `ts`, `css`, `sass`, `json`, etc. Farm supports `js/ts/jsx/tsx`, `css`, `html`, `json`, `static assets(png, svg, etc)` natively. `module_type` is returned by `load` hook. You can extend natively supported module type by Rust plugins the same as Farm internal plugins.
+* **resolved_path and module_id**: `resolved_path` is the absolute path of the module, and `module_id` is the unique id of the module, it's usually `relative path of the module from the project root` + `query`. For example, we import a module as `import './a?query'`, the resolved_path is `/project/src/a.ts` and the module_id is `src/a.ts?query`.
 * **context**: All the hooks in the plugin accept a `context` argument, it's the compilation context of the farm project, you can use it to get the ModuleGraph, Module, Resources, etc.
 
 ## Create Plugin

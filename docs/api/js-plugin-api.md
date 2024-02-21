@@ -2,19 +2,6 @@
 
 Farm Js Plugin has designed a similar rollup style design plugin system and easy to migrate your plugins/projects from Rollup/Vite/Webpack.
 
-## Conventions
-
-For farm specific js plugins:
-
-- The Farm plugin should have a name with a `farm-plugin-` prefix and clear semantics.
-- Include the `farm-plugin-` keyword in package.json.
-
-If your plugin is only applicable to a specific framework, its name should follow the following prefix format:
-
-- `farm-plugin-vue-`: Prefix as a Vue plugin
-- `farm-plugin-react-`: Prefix as a React plugin
-- `farm-plugin-svelte-`: Prefix as a svelte plugin
-- ...
 
 ## Configuring Js Plugins
 
@@ -36,7 +23,6 @@ A Farm Js Plugin is a plain javascript object which exposes a set of `hook`s. fo
 
 ```ts title="my-farm-plugin.ts"
 // Create a plugin file that exports a plugin function which returns a `JsPlugin` Object:
-
 import type { JsPlugin } from '@farmfe/core';
 
 // Plugin Options
@@ -68,23 +54,15 @@ export default function MyPlugin(options: PluginOptions): JsPlugin {
   }
 }
 ```
-then using the plugin in `farm.config.ts`:
-```ts title="farm.config.ts" {3,7}
-import { defineConfig } from "@farmfe/core";
-// import a js plugin
-import myFarmPlugin from "./my-farm-plugin";
-
-export default defineConfig({
-  // configuring it in plugins
-  plugins: [myFarmPlugin({
-    test: true
-  })],
-});
-```
 
 :::note
-For more details of writing JS plugins, refer to [Writing JS Plugins](/docs/plugins/writing-plugins/js-plugin)
+* Farm provided `create-farm-plugin` tool to help you create and develop you js plugin quickly. For more details like of writing JS plugins, refer to [Writing JS Plugins](/docs/plugins/writing-plugins/js-plugin)
 :::
+
+## Plugin Hook Overview
+The Js plugin hook execution order is the same as the Rust plugin, See [Rust Plugin Hook Overview](/docs/api/rust-plugin-api#plugin-hooks-overview).
+
+**Note that not all hooks are exposed to Js Plugins, only hooks listed here are available.**
 
 ## hooks
 ### name
