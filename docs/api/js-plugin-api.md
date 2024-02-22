@@ -56,13 +56,15 @@ export default function MyPlugin(options: PluginOptions): JsPlugin {
 ```
 
 :::note
-* Farm provided `create-farm-plugin` tool to help you create and develop you js plugin quickly. For more details like of writing JS plugins, refer to [Writing JS Plugins](/docs/plugins/writing-plugins/js-plugin)
+* Farm provided `create-farm-plugin` tool to help you create and develop you js plugin quickly. For more details about writing JS plugins, refer to [Writing JS Plugins](/docs/plugins/writing-plugins/js-plugin)
 :::
 
 ## Plugin Hook Overview
 The Js plugin hook execution order is the same as the Rust plugin, See [Rust Plugin Hook Overview](/docs/api/rust-plugin-api#plugin-hooks-overview).
 
-**Note that not all hooks are exposed to Js Plugins, only hooks listed here are available.**
+:::note
+Not all hooks are exposed to Js Plugins, only hooks listed in this document are available.
+:::
 
 ## hooks
 ### name
@@ -101,7 +103,15 @@ Note that the priority of most farm internal plugins like `plugin-script`, `plug
 :::
 
 ### config
+- **type: `number`**
+- **required: `false`**
+- **default: `100`**
+
 ### configResolved
+- **type: `number`**
+- **required: `false`**
+- **default: `100`**
+
 ### configureDevServer
 ### configureCompiler
 ### buildStart
