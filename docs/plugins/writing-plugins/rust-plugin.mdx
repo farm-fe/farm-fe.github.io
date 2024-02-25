@@ -61,6 +61,13 @@ Before you start to write your rust plugin, you should know the following concep
 * **module_type**: The type of the module, it can be `js`, `ts`, `css`, `sass`, `json`, etc. Farm supports `js/ts/jsx/tsx`, `css`, `html`, `json`, `static assets(png, svg, etc)` natively. `module_type` is returned by `load` hook. You can extend natively supported module type by Rust plugins the same as Farm internal plugins.
 * **resolved_path and module_id**: `resolved_path` is the absolute path of the module, and `module_id` is the unique id of the module, it's usually `relative path of the module from the project root` + `query`. For example, we import a module as `import './a?query'`, the resolved_path is `/project/src/a.ts` and the module_id is `src/a.ts?query`.
 * **context**: All the hooks in the plugin accept a `context` argument, it's the compilation context of the farm project, you can use it to get the ModuleGraph, Module, Resources, etc.
+* **Resource and Resource Pot**: `Resource` is the final output bundle file, and `Resource Pot` is the abstract representation of the resource, similar to `Chunk` of other bundlers. Inside Farm, first we will generate `Resource Pots` from `ModuleGraph`, render `Resource Pots` and finally generate `Resources` from `Resource Pots`.
+
+### Module Type
+In Farm, every thing is `First Class Citizens`, so Farm designs `module_type` to identify the type of a module and handle different kinds of ModuleTypes in different plugins. 
+
+`module_type` returned by `load` hook, and can be transformed by `transform` hook. Farm supports `js/ts/jsx/tsx`, `css`, `html`, `json`, `static assets(png, svg, etc)` natively. For these module types, you can return them directly in `load` or `transform` hook directly. But if you want to handle custom module types, you may need to implement ohter hooks like `parse`, `render_resource_pot_modules`, `generate resources`, etc to control how to parse, render and generate resources for the custom module types.
+
 
 ## Create Plugin
 Farm provides official templates to help your create your rust plugins quickly:

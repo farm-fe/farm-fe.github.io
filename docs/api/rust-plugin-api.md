@@ -397,7 +397,7 @@ pub struct PluginTransformHookResult {
 }
 ```
 
-Do transformation based on **`module content`**. Example for transforming `sass` to `css`:
+Do transformation based on **`module content`** and **`module type`**. Example for transforming `sass` to `css`:
 
 ```rust
 impl Plugin for MyPlugin {
@@ -734,6 +734,10 @@ fn render_start(
 
 Called before resource pots render. After rendering resource pots, executable `html`, `css`, `js`, etc files will be emitted.
 
+:::note
+`render_start` is only called once for the first compilation. `HMR` or `Lazy Compilation` won't trigger `render_start` hook.
+:::
+
 ## render_resource_pot_modules
 - **required: `false`**
 - **hook type: `first`**
@@ -784,7 +788,7 @@ Normally you should not override this hook for natively supported module types l
 ```rust
 fn render_resource_pot(
   &self,
-  _resource_pot: &PluginRenderResourcePotHookParam,
+  _param: &PluginRenderResourcePotHookParam,
   _context: &Arc<CompilationContext>,
 ) -> Result<Option<PluginRenderResourcePotHookResult>> {
   Ok(None)
@@ -806,6 +810,26 @@ pub struct PluginRenderResourcePotHookResult {
 ```
 
 Transform the rendered bundled code for the given `ResourcePot`. Return `rendered content` and `source map`.
+
+```rust
+impl Plugin for MyPlugin {
+  fn render_resource_pot(
+    &self,
+    param: &PluginRenderResourcePotHookParam,
+    context: &Arc<CompilationContext>,
+  ) -> Result<Option<PluginRenderResourcePotHookResult>> {
+    if (param.resource_pot_info.resource_pot_type == ResourcePotType::Css) {
+      return Ok(Some(PluginRenderResourcePotHookResult {
+        content: param.content.replaceAll("<--layer-->", replaced_code),
+        source_map: replaced_map,
+      }))
+    }
+
+    Ok(None)
+  }
+}
+```
+In above example, we transformed the content of a css `Resource Pot`, replaced all `<--layer-->` to `replaced_code`.
 
 ## augment_resource_hash
 - **required: `false`**
@@ -959,6 +983,11 @@ fn finish(&self, _stat: &Stats, _context: &Arc<CompilationContext>) -> Result<Op
 
 Called when all compilation work done(including `build stage` and `generate stage`). You can do some cleanup work here.
 
+:::note
+`finish` is only called once for the first compilation. `HMR` or `Lazy Compilation` won't trigger `finish` hook. You should use [update_finished](#update_finished) hook instead.
+:::
+
+
 ## write_plugin_cache
 - **required: `false`**
 - **hook type: `serial`**
@@ -1028,6 +1057,9 @@ pub struct PluginUpdateModulesHookParams {
 }
 ```
 Called when calling compiler.update(module_paths). Useful to do some operations like clearing previous state or ignore some files when performing HMR
+
+* `paths` is paths that will be recompiled for this update
+* return the new `paths`, later compilation will update the new returned paths.
 
 ## module_graph_updated
 - **required: `false`**
