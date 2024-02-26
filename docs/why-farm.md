@@ -4,6 +4,11 @@ sidebar_position: 2
 
 # Why Farm?
 
+## What is Farm?
+Farm is a extremely fast Rust-based web build tool, like `webpack` and `vite`, but **`much faster`**. Farm resolve, load and transform all of your `assets(js/jsx/ts/tsx, css/sass/less, html, static assets, json, etc)`, and bundle them into a set of `deployable files`. Farm is a extremely fast build tool that helps you build faster `web/nodejs` apps.
+
+## Why Farm?
+
 As the web project scales, building performance has been the major bottleneck, for a huge project, compiling with webpack may cost 10min or more, a hmr update may cost 10s or more, heavily reduced the efficiency.
 
 Then some tools like vite comes out, it uses native ESM and is unbundled for source files in dev mode, pre-bundle dependencies using esbuild, which makes the dev server launch and the HMR very fast.

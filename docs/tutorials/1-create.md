@@ -1,8 +1,8 @@
 # Create A Project
-In this chapter, we will create a new Farm React project from scratch, and launch it in development mode.
+In this chapter, we will create a new Farm React project **from scratch**, and launch it in development mode.
 
 :::note
-In this tutorial, we use `pnpm` as default package manager. This chapter is `build a Farm react project from scratch`, If you are trying to init a new Farm Project rapidly, use our official template with command `pnpm create farm`.
+In this tutorial, we use `pnpm` as default package manager. This chapter is `build a Farm react project from scratch`, If you are trying to init a new Farm Project rapidly, use our official template with command `pnpm create farm`. See **[Quick Start](/docs/quick-start)**.
 :::
 
 ## Create A Package

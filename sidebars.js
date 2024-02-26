@@ -22,7 +22,7 @@ const sidebars = {
       type: "category",
       label: "Getting Started",
       collapsed: false,
-      items: ["why-farm", "quick-start", "concepts", "using-plugins"],
+      items: ["why-farm", "quick-start", "using-plugins"],
     },
     {
       type: "category",
@@ -157,6 +157,7 @@ const sidebars = {
         "plugins/writing-plugins/overview",
         "plugins/writing-plugins/rust-plugin",
         "plugins/writing-plugins/js-plugin",
+        "plugins/writing-plugins/runtime-plugin",
       ],
     },
   ],

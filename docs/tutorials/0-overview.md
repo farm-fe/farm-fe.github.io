@@ -6,19 +6,19 @@ Vue project is also fully supported by Farm. You can directly use `Vite`'s `@vit
 :::
 
 you will learn:
-* How to build a production ready Farm React project from scratch. We will introduce how to add popular component
+* How to build a production ready Farm React project from scratch. We will introduce how to add popular component library
 * The basic concept of Farm, like `input`, `output`, `dev-server`, `HMR` and `plugins`
 * Farm's daily configurations and commonly used plugins.
 
-We aim to simplify your development experience with the Farm ecosystem through this tutorial. And it can also be helpful if you want to migrate from other tools to Farm. 
+We aim to make you familiar quickly with Farm concepts and ecosystem through this tutorial. And it can also be helpful if you want to migrate from other tools to Farm. 
 
 :::note
-This tutorial is `build a Farm react project from scratch`, If you are trying to init a new Farm Project rapidly, use our official template with command `pnpm create farm`.
+This tutorial is `build a Farm react project from scratch`, If you are trying to init a new Farm Project rapidly, use our official template with command `pnpm create farm`. See **[Quick Start](/docs/quick-start)**
 :::
 
 Following our tutorial, and open your super-fast Farm develop journey!
 
-* [1. Create A Farm React Project](/docs/tutorials/react)
+* [1. Create A Farm React Project](/docs/tutorials/create)
 * [2. Develop Project With Farm](/docs/tutorials/start)
 * [3. Build For Production](/docs/tutorials/build)
 
