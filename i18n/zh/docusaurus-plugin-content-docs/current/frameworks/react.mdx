@@ -1,35 +1,36 @@
+
 import CodeBlock from "@theme/CodeBlock";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
 # React
 
-Create a `React` project based on `Farm`.
+基于 `Farm` 创建一个 `React` 项目。
 
-`Farm` provides two approaches to support creating `React` projects: 
-- Use the `create-farm` scaffold to create a scaffold project
-- You can manually create a `React` project following the current documentation
+`Farm` 提供两种方案来支持创建 `React` 项目: 
+- 使用 `create-farm` 脚手架创建脚手架项目
+- 你可以根据当前文档手动创建一个 `React` 项目
 
-### Creating a React Project
+### 创建 React 项目
 
 <>
     <Tabs>
-          <TabItem value="npm" label="npm">
+          <TabItem value="npm" label = "npm" >
               <CodeBlock>npm create farm@latest</CodeBlock>
               </TabItem>
 
-  <TabItem value="yarn" label="yarn">
+  <TabItem value = "yarn" label = "yarn" >
           <CodeBlock>yarn create farm</CodeBlock>
               </TabItem>
-  <TabItem value="pnpm" label="pnpm">
+  <TabItem value = "pnpm" label = "pnpm" >
           <CodeBlock>pnpm create farm</CodeBlock>
               </TabItem>
           </Tabs>
 </>
 
-Select `React` template in `Select Framework`
+在 `Select Framework` 中选择 `React` 模版
 
-`Farm` requires the registration of the `@farmfe/plugin-react` plugin to support `React` projects.
+`Farm` 需要通过注册 `@farmfe/plugin-react` 插件来对 `React` 项目进行支持。
 
 ```javascript title="farm.config.ts"
 import { defineConfig } from '@farmfe/core';
@@ -38,12 +39,11 @@ export default defineConfig({
   plugins: ['@farmfe/plugin-react'],
 });
 ```
+`@farmfe/plugin-react` 插件由 `Rust` 编写, 因此你不需要显式引入, 通过传递一个字符串包名即可注册。
 
-The `@farmfe/plugin-react` plugin is written in `Rust`, so you do not need to explicitly import it; you can register it by passing a string package name.
+### 集成 `emotion`
 
-### Integrating emotion
-You can support `emotion` by registering the `@swc/plugin-emotion` plugin.
-
+你可以通过注册 `@swc/plugin-emotion` 插件来对 `emotion` 进行支持。
 
 ```javascript title="farm.config.ts"
 import { defineConfig } from '@farmfe/core';
@@ -92,8 +92,9 @@ export function Main() {
 }
 ```
 
-### Integrating svgr
-`SVGR` is a tool for transforming svgs into React components. Farm offers a Js plugin to support SVGR.
+### 集成 `svgr`
+
+SVGR 是一个用于将 SVG 转换为 React 组件的工具，Farm 提供了 Js 插件来支持 SVGR。
 
 ```javascript title="farm.config.ts"
 import { defineConfig } from '@farmfe/core';
@@ -115,6 +116,4 @@ export default defineConfig(async (env) => {
 });
 
 
-```
-
-For more example details: [React Example](https://github.com/farm-fe/farm/tree/main/examples/react)
+如若想查看示例详情: [React 示例](https://github.com/farm-fe/farm/tree/main/examples/react)
