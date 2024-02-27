@@ -104,7 +104,36 @@ directory of output resources
 
 - **Default value**: `"/"`
 
-The resource url load prefix. For example URL `https://xxxx`, or a absolute path `/xxx/`.
+The resource url load prefix. For example URL `https://xxxx`, or a absolute path `/xxx/`. For example config:
+
+```ts title="farm.config.ts" {5-7}
+// ...
+
+export default defineConfig({
+  compilation: {
+    output: {
+      publicPath: process.env.NODE_ENV === 'production' ? 'https://cdn.com' : '/'
+    }
+  }
+  // ...
+});
+```
+When building for production, the injected resources url would be `https://cdn.com/index-s2f3.s14dqwa.js`. For example, in your output html, all `<script>` and `<link`> would be:
+
+```html {4,8}
+<html>
+  <head>
+    <!-- ... -->
+    <link href="https://cdn.com/index-a23e.s892s1.css" />
+  </head>
+  <body>
+    <!-- ... -->
+    <script src="https://cdn.com/index-s2f3.s14dqwa.js"></script>
+  </body>
+</html>
+```
+
+and when loading dynamic scripts and css, the dynamic fetched resources url would also be: `https://cdn.com/<asset-path>`
 
 #### `output.assetsFileName`
 

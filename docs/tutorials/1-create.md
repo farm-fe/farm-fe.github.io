@@ -41,11 +41,7 @@ Create a `farm.config.ts` file under project root:
 ```
 and add following configuration:
 ```ts
-import { UserConfig } from '@farmfe/core';
-
-function defineConfig(config: UserConfig): UserConfig {
-  return config;
-}
+import { defineConfig } from '@farmfe/core';
 
 export default defineConfig({
   compilation: {
@@ -65,16 +61,16 @@ export default defineConfig({
 ```
 For configuration file above, we use `input`, `output` and `plugins`, which is the most basic configuration in Farm.
 * **`input`**: Configure the entry point. Farm will compile and build a module graph from the entries.
-* **`output`**: Confiture the output dir, file name and so on. For full options, see [compilation.output](/docs/config/farm-config#output).
+* **`output`**: Confiture the output dir, file name and so on. For full options, see [compilation.output](/docs/config/compilation-options#output).
 * **`plugins`**: Configure farm plugins, all extended abilities like React, Vue SFC are supported by plugins. Here we use a Rust Plugin(`@farmfe/plugin-react`) to support compiling React jsx.
 
-Check [config reference](/docs/config/farm-config) for more options.
+Check [Configuring Farm](/docs/config/configuring-farm) for more options.
 
 :::note
 In above example, we config input as `index: './src/index.html'`, if we do not configure `input`, it's default to `index: './index.html'`. And we can configure multiple entries in `input`, see [Multi Page App](/docs/features/html#multi-page-app) for details
 :::
 
-## Create A Entry Html and Js
+## Create A Entry Html and Tsx File
 Create 2 files `src/index.html` and `src/index.tsx` under project root:
 ```text {5-7}
 .
