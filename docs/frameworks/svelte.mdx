@@ -1,0 +1,54 @@
+import CodeBlock from "@theme/CodeBlock";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+# Svelte
+
+Create a `Svelte` project based on `Farm`.
+
+`Farm` provides two approaches to support creating `Svelte` projects: 
+- Use the `create-farm` scaffold to create a scaffold project
+- You can manually create a `Svelte` project following the current documentation
+
+### Creating a Svelte Project
+
+<>
+    <Tabs>
+          <TabItem value="npm" label="npm">
+              <CodeBlock>npm create farm@latest</CodeBlock>
+              </TabItem>
+
+  <TabItem value="yarn" label="yarn">
+          <CodeBlock>yarn create farm</CodeBlock>
+              </TabItem>
+  <TabItem value="pnpm" label="pnpm">
+          <CodeBlock>pnpm create farm</CodeBlock>
+              </TabItem>
+          </Tabs>
+</>
+
+Select `Svelte` template in `Select Framework`
+
+:::warning Svelte
+For `Svelte` support, `Farm` recommends using `Vite` plugins.
+:::
+
+```javascript title="farm.config.ts"
+import { defineConfig } from '@farmfe/core'
+import { svelte } from '@sveltejs/vite-plugin-svelte'
+
+export default defineConfig({
+  vitePlugins: [svelte()],
+})
+
+```
+
+```javascript title="svelte.config.ts"
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
+
+export default {
+  preprocess: vitePreprocess(),
+}
+```
+
+For more example details: [Svelte Example](https://github.com/farm-fe/farm/tree/main/examples/vite-adapter-svelte)

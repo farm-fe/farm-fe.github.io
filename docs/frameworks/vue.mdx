@@ -1,0 +1,57 @@
+import CodeBlock from "@theme/CodeBlock";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+# Vue
+
+Create a `Vue` project based on `Farm`.
+
+`Farm` provides two approaches to support creating `Vue` projects: 
+- Use the `create-farm` scaffold to create a scaffold project
+- You can manually create a `Vue` project following the current documentation
+
+### Creating a Vue Project
+
+<>
+    <Tabs>
+          <TabItem value="npm" label="npm">
+              <CodeBlock>npm create farm@latest</CodeBlock>
+              </TabItem>
+
+  <TabItem value="yarn" label="yarn">
+          <CodeBlock>yarn create farm</CodeBlock>
+              </TabItem>
+  <TabItem value="pnpm" label="pnpm">
+          <CodeBlock>pnpm create farm</CodeBlock>
+              </TabItem>
+          </Tabs>
+</>
+
+Select `Vue` template in `Select Framework`
+
+:::warning Vue
+Currently, `Farm` only supports `Vue3`.
+For `Vue` plugins, `Farm` recommends using `Vite` plugins, and the development of the native plugin [fervid](https://github.com/phoenix-ru/fervid) is also underway.
+:::
+
+```javascript title="farm.config.ts"
+import { defineConfig } from '@farmfe/core';
+import Vue from '@vite/plugin-vue'
+
+export default defineConfig({
+  plugins: [Vue()],
+});
+```
+
+### Integrating jsx
+
+```javascript title="farm.config.ts"
+import { defineConfig } from '@farmfe/core';
+import Vue from '@vite/plugin-vue-jsx'
+
+export default defineConfig({
+  plugins: [Vue()],
+});
+```
+
+For more example details: [Vue Example](https://github.com/farm-fe/farm/tree/main/examples/vite-adapter-vue)
