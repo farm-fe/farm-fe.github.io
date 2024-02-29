@@ -201,7 +201,7 @@ Refer to [Farm Plugins](/docs/plugins/overview) to learn more about Farm plugins
 :::
 
 ## Using Public Directory
-For assets that don't need compilation, you can put them under `public` directory. For example, we add a `favicon.ico`:
+For assets that don't need compilation, you can put them under `public` directory. Add a `favicon.ico` under `public`:
 
 ```text {3-4}
 .
@@ -226,7 +226,7 @@ Using config option **[publicDir](/docs/config/shared#publicdir)** to custom you
 :::
 
 ## Configuring publicPath
-You can use `compilation.output.publicPath` to configuring url `prefix` for dynamic resources loading and when inject `<script>` and `<link>` tags into html. We add following config in `farm.config.ts`
+Use `compilation.output.publicPath` to configuring url `prefix` for dynamic resources loading and when inject `<script>` and `<link>` tags into html. We add following config in `farm.config.ts`
 
 ```ts title="farm.config.ts" {5-7}
 // ...
@@ -284,11 +284,7 @@ You can find server configuration in [Farm Dev Server Options](/docs/config/dev-
 ### Useful Configuration
 Example configuration:
 ```ts
-import type { UserConfig } from '@farmfe/core';
-
-function defineConfig(config: UserConfig) {
-   return config;
-}
+import { defineConfig } from '@farmfe/core';
 
 export default defineConfig({
    // All dev server options are under server
@@ -317,23 +313,34 @@ For above examples, we used following options:
 Configure server proxy. Based on [koa-proxies](https://www.npmjs.com/package/koa-proxies) implementation, specific options refer to its documentation, example:
 
 ```ts
-import type { UserConfig } from '@farmfe/core';
-
-function defineConfig(config: UserConfig) {
-   return config;
-}
+import { defineConfig } from '@farmfe/core';
 
 export default defineConfig({
-    server: {
-     proxy: {
-       '/api': {
-         target: 'https://music-erkelost.vercel.app/banner',
-         changeOrigin: true,
-         rewrite: (path: any) => path.replace(/^\/api/, ''),
-       },
-     },
-   },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://music-erkelost.vercel.app/banner',
+        changeOrigin: true,
+        rewrite: (path: any) => path.replace(/^\/api/, ''),
+      },
+    },
+  },
 });
 ```
 
-## Configuring root and env
+## Configuring root and envDir
+Use `root` and `envDir` to specify your project root and the directory to load env variables. Add following options in `farm.config.ts`:
+
+```ts title="farm.config.ts"
+import path from 'node:path';
+import { defineConfig } from '@farmfe/core';
+
+export default defineConfig({
+  root: path.join(process.cwd(), 'client'),
+  envDir: 'my-env-dir'
+});
+```
+
+:::note
+For details about `envDir`, see [Environment Variables and Modes](/docs/features/env)
+:::

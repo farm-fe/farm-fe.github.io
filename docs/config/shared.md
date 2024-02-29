@@ -43,12 +43,24 @@ Configure the root directory for project compilation. All relative paths are rel
 Whether to clear the screen when start to compile the project.
 
 ## envDir
-- **default**: `true`
+- **default**: `<root>`
 
+Configuring the directory to load `.env`, `.env.development`, `.env.production` files. By default it's the same as root.
+
+```ts
+import { defineConfig } from '@farmfe/core';
+import { resolve } from 'path';
+export default defineConfig({
+  envPrefix: ['FARM_', 'CUSTOM_PREFIX_', 'NEW_'],
+  envDir: resolve(process.cwd(), './env'),
+});
+```
+In above example, will load `.env`, `.env.development`, `.env.production` files from `<root>/env` directory.
 
 ## envPrefix
-- **default**: `true`
+- **default**: `['FARM_', 'VITE_']`
 
+Env variables starts with `envPrefix` will be injected [`define`](/docs/config/compilation-options#define) automatically.
 
 ## publicDir
 - **default**: `public`
