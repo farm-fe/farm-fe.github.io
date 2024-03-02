@@ -31,6 +31,20 @@ For config options details, refer to:
 You can also use `farm start/build -c my-config.ts` to use a custom file as config file.
 :::
 
+## Loading Ts Config File
+Farm support load ts config file like `farm.config.ts` out of box. Farm will bundle `farm.config.ts` and it's local ts dependencies into `farm-config.xxx.mjs` file first and load it from disk. Because Farm compiles the `farm.config.ts` into `mjs` file, you **CAN NOT** use `__dirname` or `__filename` in your `farm.config.ts`, use `import.meta.url` instead.
+
+Or you can use `farm.config.mjs` or `farm.config.cjs` with `@type` to support types avoid bundling `farm.config.ts`:
+
+```js title="farm.config.mjs"
+/**
+ * @type {import('@farmfe/core').UserConfig}
+ */
+export default {
+  // ...
+}
+```
+
 ## Examples
 ### Input and Output
 ```ts title="farm.config.ts" {5-7}

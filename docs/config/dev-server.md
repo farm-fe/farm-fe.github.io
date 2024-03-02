@@ -44,7 +44,19 @@ export interface UserServerConfig {
 
 The port the DevServer listens on.
 
-<!-- ### https(WIP) -->
+### https
+
+### headers
+
+### protocol
+
+### hostname
+
+### strictPort
+
+### cors
+
+### spa
 
 ### hmr
 
@@ -153,3 +165,5 @@ export function hmrPlugin(devServer: DevServer) {
 ```
 
 Then configure the plugin into `server.plugins`.
+
+## writeToDisk

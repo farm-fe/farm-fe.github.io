@@ -65,6 +65,12 @@ Farm uses following rules to get above results:
 Now we have familiar with `Partial Bundling`'s basic rules, if met problems with partial bundling, using above rules to debug your project. Next we'll cover how to configure partial bundling.
 
 ## Configuring Partial Bundling
+### Two Configuring Methods
+There 2 different ways to control bundling:
+* **`groups`**: Tell Farm that you want these modules bundled together as possible, but it's not enforced because of the optimization strategy of Farm. See [Grouping Modules](#grouping-modules) for this method.
+* **`enforceResources`**: Tell Farm that you want these module always bundled together, ignore all other optimization strategy constraints. See [Using `enforceResources`](#using-enforceresources) for this method.
+
+### Partial Bundling Options
 `Partial Bundling` supports a lot of options to let users customize its behavior. All the options are as below:
 
 1. **`targetConcurrentRequests`**: Farm tries to generate resource numbers as closer as possible to this config value for initial resource loading or a dynamic resource loading.
