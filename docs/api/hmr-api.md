@@ -3,7 +3,7 @@
 The HMR API is compatible with [Vite's HMR API](https://vitejs.dev/guide/api-hmr.html).
 :::
 
-Farm exposes its manual HMR API via the special `import.meta.hot` object(the same as Vite):
+Farm exposes its manual HMR API via the special `import.meta.hot` object(compatible with Vite):
 ```ts
 export interface ViteHotContext {
   readonly data: any;
@@ -33,10 +33,37 @@ export interface ViteHotContext {
 ```
 
 ## Required Conditional Guard
+HMR only works for development mode, make sure to guard HMR API usage with a conditional block:
+
+```ts
+if (import.meta.hot) {
+  // HMR Code
+}
+```
 
 ## IntelliSense for TypeScript
+The same as Vite, Farm provides type definitions for `import.meta.hot` in `@farmfe/core/client.d.ts`. You can create an `env.d.ts` in the src directory so TypeScript picks up the type definitions:
+
+```ts
+/// <reference types="@farmfe/client/client" />
+```
 
 ## hot.accept()
+For a self-accepted module, use `import.meta.hot.accept()` when :
+
+```ts
+if (import.meta.hot) {
+  // self accept without reload the page
+  import.meta.hot.accept();
+
+  const div = document.getElementById(id);
+  // update the page
+  if (div) {
+    const comp = SelfAcceptedEmpty().render();
+    div.replaceWith(comp);
+  }
+}
+```
 
 ## hot.accept(cb)
 
