@@ -284,6 +284,19 @@ export default defineConfig({
 });
 ```
 
+### externalNodeBuiltins
+- **default**: `true`
+
+External `module.builtinModules` or not, by default, all builtin modules like `fs` will be external. You can also set `externalNodeBuiltins` as `array` to specify the modules to external manually:
+
+```ts
+export default defineConfig({
+  compilation: {
+    externalNodeBuiltins: ["^stream$"],
+  },
+});
+```
+
 ### mode
 
 - **default**: `development` for start, watch commands, `production` for build commands
@@ -800,3 +813,16 @@ How to generate cache key when trying to reuse cache. if `timestamp` is true and
 Envs used to invalidate cache, if the configured env changed, then all cache will be invalidated.
 
 <!-- #### `presetEnv.assuptions` -->
+
+### progress
+- **default**: `true`
+
+Enable progress bar or not.
+
+### comments
+- **default**: `license`
+
+Preserve comments or not:
+* `true`: Preserve all comments
+* `false`: Remove all comments
+* `license`: Preserve all **LICENSE comments**, and remove the others

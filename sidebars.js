@@ -157,7 +157,7 @@ const sidebars = {
         "plugins/writing-plugins/overview",
         "plugins/writing-plugins/rust-plugin",
         "plugins/writing-plugins/js-plugin",
-        "plugins/writing-plugins/runtime-plugin",
+        // "plugins/writing-plugins/runtime-plugin",
       ],
     },
   ],

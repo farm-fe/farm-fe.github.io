@@ -3,7 +3,7 @@
 To use a Rust plugin, configuring `plugins` in `farm.config.ts`.
 
 ```ts
-import { defineFarmConfig } from '@farmfe/core/dist/config';
+import { defineFarmConfig } from '@farmfe/core';
 
 defineFarmConfig({
   // ...
@@ -17,6 +17,6 @@ defineFarmConfig({
 
 Farm support both rust plugins and js plugins:
 
-* [Rust Plugin](/docs/plugins/writing-plugins/rust-plugin)
-* [Js Plugin](/docs/plugins/writing-plugins/js-plugin)
-* [Runtime Plugin](/docs/plugins/writing-plugins/runtime-plugin)
+* [Writing Rust Plugin](/docs/plugins/writing-plugins/rust-plugin)
+* [Writing Js Plugin](/docs/plugins/writing-plugins/js-plugin)
+<!-- * [Writing Runtime Plugin](/docs/plugins/writing-plugins/runtime-plugin) -->

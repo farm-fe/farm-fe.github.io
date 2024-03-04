@@ -3,7 +3,7 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
 
-# JavaScript Plugins
+# Writing JavaScript Plugins
 
 A JavaScript plugin is simply a pure JavaScript object that defines a set of property hooks:
 
@@ -159,7 +159,45 @@ or you can create a plugin derectly by running the following command:
 Above command will create new js plugin with name `my-farm-plugin` in the current directory. `--type` can be `rust` or `js`
 
 ## Develop Plugin
+After creating the plugin, you can start to develop your plugin. The plugin is a pure JavaScript object that defines a set of property hooks:
 
-## Build Plugin
+```ts
+// import { readFileSync } from 'node:fs';
+import type { JsPlugin } from '@farmfe/core';
+
+interface Options {
+  /* Your options here */
+}
+
+export default function farmPlugin(options: Options): JsPlugin {
+  return {
+    name: '<FARM-JS-PLUGIN-NPM-NAME>',
+    /* Your plugin hooks here: */ 
+
+    // transform: {
+    //   filters: {
+    //     moduleTypes: ['js']
+    //   },
+    //   async executor(params) {
+    //     const { content } = params;
+    //     return {
+    //       content,
+    //       moduleType: 'js'
+    //     };
+    //   }
+    // },
+    // finish: {
+    //   executor() {}
+    // }
+  };
+}
+```
+
+:::tip
+For more detail about the plugin hooks, see [Js Plugin Hooks](/docs/api/js-plugin-api).
+:::
+
+Run `npm run dev` to compile the plugin and watch for changes. Run `npm run build` to build the plugin.
 
 ## Publish Plugin
+A js plugin package is a normal npm package, you can publish it to npm registry by running `npm publish`.
