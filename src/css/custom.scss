@@ -133,6 +133,10 @@
   color: var(--ifm-f-white);
 }
 
+.token.color {
+  color: #c44cac;
+}
+
 .color-re {
   color: var(--ifm-f-re-white);
 }
@@ -208,4 +212,12 @@ a {
 
 .dropdown > .navbar__link:after {
   top: 4px;
+}
+
+.theme-admonition-warning {
+  color: var(--c-yellow-120)
+}
+
+.theme-admonition-danger {
+  color: var(--c-red-90)
 }

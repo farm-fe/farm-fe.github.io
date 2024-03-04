@@ -29,9 +29,8 @@ Create a `Vue` project based on `Farm`.
 
 Select `Vue` template in `Select Framework`
 
-:::warning Vue
-Currently, `Farm` only supports `Vue3`.
-For `Vue` plugins, `Farm` recommends using `Vite` plugins, and the development of the native plugin [fervid](https://github.com/phoenix-ru/fervid) is also underway.
+:::warning
+Currently, `Farm` uses `Vite` plugins for both `vue2` and `vue3` compilation. Also the development of Rust Vue plugin [fervid](https://github.com/phoenix-ru/fervid) is also underway.
 :::
 
 ```javascript title="farm.config.ts"
@@ -47,10 +46,10 @@ export default defineConfig({
 
 ```javascript title="farm.config.ts"
 import { defineConfig } from '@farmfe/core';
-import Vue from '@vite/plugin-vue-jsx'
+import VueJsx from '@vite/plugin-vue-jsx'
 
 export default defineConfig({
-  plugins: [Vue()],
+  plugins: [VueJsx()],
 });
 ```
 

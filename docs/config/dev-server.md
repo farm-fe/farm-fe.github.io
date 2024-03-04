@@ -20,20 +20,20 @@ type:
 
 ```ts
 export interface UserServerConfig {
+  headers?: OutgoingHttpHeaders | undefined;
   port?: number;
-  // https?: boolean;
-  protocol?: "http" | "https";
-  hostname?: string;
+  https?: SecureServerOptions;
+  protocol?: 'http' | 'https';
   // http2?: boolean;
   hmr?: boolean | UserHmrConfig;
   proxy?: Record<string, ProxiesOptions>;
   strictPort?: boolean;
   open?: boolean;
-  host?: string;
+  host?: string | boolean;
   cors?: boolean | cors.Options;
-  //whether to serve static assets in spa mode, default to true
+  // whether to serve static assets in spa mode, default to true
   spa?: boolean;
-  plugins?: DevServerPlugin[];
+  middlewares?: DevServerMiddleware[];
   writeToDisk?: boolean;
 }
 ```
@@ -45,18 +45,46 @@ export interface UserServerConfig {
 The port the DevServer listens on.
 
 ### https
+- **default**: `undefined`
+
+Enable  TLS  + HTTP2. The value is [options](https://nodejs.org/api/http2.html#http2createsecureserveroptions-onrequesthandler) that passes to [http2.createSecureServer](https://nodejs.org/api/http2.html#http2createsecureserveroptions-onrequesthandler).
+
+:::note
+Note that a **valid certificate** is needed if `https` enabled.
+:::
 
 ### headers
+- **default**: `undefined`
 
-### protocol
+Setup global http response headers for the DevServer.
 
-### hostname
+```ts
+import { defineConfig } from '@farmfe/core'
+
+export default defineConfig({
+  server: {
+    headers: {
+      'Accept': 'xxxx'
+    }
+  }
+})
+```
 
 ### strictPort
+- **default**: `false`
+
+By default, Farm will automatically resolve to a new port when given port is used. For example, if `9001` is used, then `9001` will be tried. But if `strictPort` is `true`, a error will be thrown when port conflicts, instead of try other ports automatically.
 
 ### cors
+- **default**: `false`
+
+Configure [@koa/cors options](https://www.npmjs.com/package/@koa/cors).
+
 
 ### spa
+- **default**: `true`
+
+Enable fallback to `index.html` or not.
 
 ### hmr
 
@@ -65,11 +93,7 @@ The port the DevServer listens on.
 Enable HMR. After enabling the HMR capability, it will monitor the changes of the modules involved in the compilation process. When the modules change, it will automatically trigger recompilation and push the results to Farm Runtime for update. HMR can also be configured through an object, for example:
 
 ```ts
-import type { UserConfig } from '@farmfe/core';
-
-function defineConfig(config: UserConfig) {
-   return config;
-}
+import { defineConfig } from '@farmfe/core';
 
 export default defineConfig({
    // All dev server options are under server
@@ -97,7 +121,7 @@ The port the Web Socket server listens on
 
 - **default**: `localhost`
 
-Host on which the Web Socket server listens
+Host on which the Web Socket server listens.
 
 ### proxy
 
@@ -107,10 +131,6 @@ Configure server proxy. Based on [koa-proxies](https://www.npmjs.com/package/koa
 
 ```ts
 import { defineConfig } from "@farmfe/core";
-
-function defineConfig(config: UserConfig) {
-  return config;
-}
 
 export default defineConfig({
   server: {
@@ -125,9 +145,6 @@ export default defineConfig({
 });
 ```
 
-<!-- ### strictPort
-* **default**: `false` -->
-
 ### open
 
 - **default**: `false`
@@ -140,30 +157,28 @@ After the compilation is completed, the browser is automatically opened to the c
 
 The host that the Dev Server listens on.
 
-### plugins
+### middlewares
 
 - **default**: `[]`
 
-Configure the Dev Server plug-in of Farm, through the Dev Server plug-in, you can extend the context of DevServer, add middleware, etc. A plugin is a function. Examples of plugins are as follows:
+Configuring middlewares for the dev server.
 
 ```ts
-export function hmrPlugin(devServer: DevServer) {
-  const { config, logger } = devServer;
-  if (config.hmr) {
-    devServer.ws = new WebSocketServer({
-      port: config.hmr.port,
-      host: config.hmr.host,
-    });
-    devServer.app().use(hmr(devServer));
-    devServer.hmrEngine = new HmrEngine(
-      devServer.getCompiler(),
-      devServer,
-      logger
-    );
-  }
-}
+import { defineConfig } from "@farmfe/core";
+import compression from 'koa-compress';
+
+export default defineConfig({
+  server: {
+    middlewares: [
+      compression
+    ]
+  },
+});
 ```
 
-Then configure the plugin into `server.plugins`.
+Note that a `middleware` is a function that returns a koa middleware.
 
 ## writeToDisk
+- **default**: `false`
+
+By default the compiled resources are stored and served in memory, set `writeToDisk` to `true` to emitted dev resources to the disk.

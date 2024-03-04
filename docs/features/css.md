@@ -23,7 +23,7 @@ export function Comp() {
   color: green;
 }
 ```
-You can configuring css modules by [`css.modules`](/docs/config/farm-config#cssmodules). for example you can set `css.modules.paths` to `['.css|sass|less|scss']` then all css files will be treated as css modules.
+You can configuring css modules by [`css.modules`](/docs/config/compilation-options#cssmodules). for example you can set `css.modules.paths` to `['.css|sass|less|scss']` then all css files will be treated as css modules.
 
 ## Css Pre-Processor
 Farm provide official sass, less, postcss plugins to support css pre-processor.
@@ -35,21 +35,21 @@ Steps to compile `sass/scss` modules in Farm.
 1. Install dependencies
 ```sh
 # npm or yarn or pnpm, choose your favorite package manager
-npm install @farmfe/plugin-sass
+pnpm add -D @farmfe/plugin-sass
 ```
 
 2. Configure the plugin
 ```ts
-import type { UserConfig } from '@farmfe/core';
+import { defineConfig } from '@farmfe/core';
 
-export default <UserConfig> {
+export default defineConfig({
   // ...
   plugins: ['@farmfe/plugin-sass'] // to use a rust plugin, just configure its package name as a string
   // if you want to specify options for plugin-sass, use
   // plugins: [
   //   ['@farmfe/plugin-sass', { sourceMap: false }]
   // ]
-};
+});
 ```
 
 3. Import sass module
@@ -62,9 +62,9 @@ To use sass with css modules, change the file name from `index.scss` to `index.m
 `@farmfe/plugin-sass` supports a lot of options, use the array syntax of `plugins` to specify options for plugin sass:
 
 ```ts
-import type { UserConfig } from '@farmfe/core';
+import { defineConfig } from '@farmfe/core';
 
-export default <UserConfig> {
+export default defineConfig({
   // if you want to specify options for plugin-sass, use
   plugins: [
     [
@@ -82,7 +82,7 @@ export default <UserConfig> {
       }
     ]
   ]
-};
+});
 ```
 
 
@@ -92,18 +92,18 @@ Farm less plugin is a Js Plugin. Steps to compile `less` modules in Farm.
 1. Install dependencies
 ```sh
 # npm or yarn or pnpm, choose your favorite package manager
-npm install @farmfe/js-plugin-less
+pnpm add -D @farmfe/js-plugin-less
 ```
 
 2. Configure the plugin
 ```ts
-import type { UserConfig } from '@farmfe/core';
+import { defineConfig } from '@farmfe/core';
 import less from '@farmfe/js-plugin-less';
 
-export default <UserConfig> {
+export default defineConfig({
   // ...
   plugins: [less()] // pass argument to the less function like `less({ /* your options */ })` to specify less options
-};
+});
 ```
 
 3. Import sass module
@@ -119,18 +119,18 @@ The Farm postcss plugin is a JS plugin. The steps to introduce postcss in Farm a
 1. Install dependencies
 ```sh
 # npm or yarn or pnpm, choose your favorite package manager
-npm install @farmfe/js-plugin-postcss
+pnpm add -D @farmfe/js-plugin-postcss
 ```
 
 2. Configure the plugin
 ```ts
-import type { UserConfig } from '@farmfe/core';
+import { defineConfig } from '@farmfe/core';
 import postcss from '@farmfe/js-plugin-postcss';
 
-export default <UserConfig> {
+export default defineConfig({
    //...
    plugins: [postcss()] // pass argument to the less function like `less({ /* your options */ })` to specify less options
-};
+});
 ```
 
 3. Configure `postcss.config.js` and import the required postcss plugins
@@ -150,12 +150,12 @@ module.exports = {
 ## Css Prefixer
 Farm supports css prefixer out of box, you can configure it using `compilation.css.prefixer`.
 
-```ts title="farm.config.ts"
-import type { UserConfig } from '@farmfe/core';
+:::note
+`css.prefix.targets` will be set automatically when [`output.targetEnv`](/docs/config/compilation-options#output-targetenv). Normally set [`output.targetEnv`](/docs/config/compilation-options#output-targetenv) would be enough.
+:::
 
-function defineConfig(config: UserConfig) {
-   return config;
-}
+```ts title="farm.config.ts"
+import { defineConfig } from '@farmfe/core';
 
 export default defineConfig({
    compilation: {

@@ -48,11 +48,7 @@ The `script` and `link` can refer to any module types that farm support, for exa
 If you are building a Multi Page Application, just configure multiple html input, for example:
 
 ```ts title="farm.config.ts"
-import type { UserConfig } from "@farmfe/core";
-
-export function defineConfig(config: UserConfig) {
-  return config;
-}
+import { defineConfig } from "@farmfe/core";
 
 export default defineConfig({
   compilation: {
@@ -72,11 +68,7 @@ Farm will compile these pages in parallel, and all dependencies of these pages w
 Farm supports inherit html template by using `html.base` config, which is helpful when building a multi-page application with html shared.
 
 ```ts title="farm.config.ts"
-import type { UserConfig } from "@farmfe/core";
-
-export function defineConfig(config: UserConfig) {
-  return config;
-}
+import { defineConfig } from "@farmfe/core";
 
 export default defineConfig({
   // ...

@@ -17,7 +17,7 @@ Performance compare between cold start(without cache) and hot start(with cache) 
 
 ## Using Cache
 
-Using `compilation.persistentCache` to enable/disable Cache:
+Using [`compilation.persistentCache`](/docs/config/compilation-options#persistentcache) to `enable/disable` Cache:
 
 ```ts
 import { defineConfig } from "@farmfe/core";
@@ -52,7 +52,6 @@ export default defineConfig({
   },
 });
 ```
-
 :::
 
 Configuring `persistentCache` to `false` to disable cache.
@@ -62,10 +61,8 @@ Configuring `persistentCache` to `false` to disable cache.
 Cache will be validated when trying to reuse it by following conditions, if any of following conditions changed, all cache will be invalidated:
 
 
-- **Env Object**: configured by `persistentCache.envs`, default to `Farm Env Mode`(`process.env.NODE_ENV`, `process.env.DEV`, `process.env.PROD`), see `Farm Env`(https://farm-fe.github.io/docs/config/farm-config#environment-variable).
-
+- **Env Object**: configured by `persistentCache.envs`, default to `Farm Env Mode`(`process.env.NODE_ENV`, `process.env.DEV`, `process.env.PROD`), see **[`Environment Variables and Modes`](/docs/features/env)**.
 - **lockfile**: If your lockfile changed, means there are dependencies changes, the cache will be invalidated.
-- 
 * **Build Dependencies**: configured by `persistentCache.buildDependencies`, if any of the buildDependencies changed, all cache will be invalidated.
 * **Cache Namespace**: configured by `persistentCache.namespace`, cache under different namespaces won't be reused. If you want to invalidate all cache, you can configure a different namespace.
 * **Internal Cache Version**: Farm maintains a cache version internally, if Farm itself changed, for example, render optimization that affects the output between versions of Farm, Farm will bump the cache version and all cache will be invalidated.

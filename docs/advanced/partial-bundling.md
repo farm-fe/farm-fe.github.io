@@ -126,16 +126,20 @@ If you need to enforce modules in the same output files, you can use `enforceRes
 
 ### Using `enforceResources`
 To group all modules together and ignore all other conditions, you can use `enforceResources`, for example:
-```ts title="farm.config.ts" {4-9}
+```ts title="farm.config.ts"
+import { defineConfig } from '@farmfe/core';
+
 export default defineConfig({
   compilation: {
     partialBundling: {
+      // c-highlight-start
       enforceResources: [
         {
           name: 'index',
           test: ['.+'],
         }
       ]
+      // c-highlight-end
     },
   },
 });
@@ -165,3 +169,93 @@ export default defineConfig({
 });
 ```
 Immutable module can affect bundling and incoming persistent cache, be careful if you want to change it.
+
+## Examples
+:::note
+Normally you don't need to configure bundling manually, if you want to configure the bundles, make sure you really need it. And these examples are only illustrations to help you learn how to configure bundling strategy easily.
+:::
+
+### Grouping Files under Same Directory
+Grouping `modules` under `src/components` and output them in the same bundle **as possible**. 
+
+```ts title="farm.config.ts"
+import { defineConfig } from '@farmfe/core';
+
+export default defineConfig({
+  compilation: {
+    partialBundling: {
+      // c-highlight-start
+      groups: [
+        {
+          name: 'components',
+          test: ['./src/components'],
+        }
+      ]
+      // c-highlight-end
+    },
+  },
+});
+```
+
+### Configuring Bundle Numbers and Size
+```ts title="farm.config.ts"
+import { defineConfig } from '@farmfe/core';
+
+export default defineConfig({
+  compilation: {
+    partialBundling: {
+      // c-highlight-start
+      targetConcurrentRequests: 15,
+      targetMinSize: 200 * 1024 // 200 KB
+      // c-highlight-end
+    },
+  },
+});
+```
+
+In above example, Farm will try to bundle your project into `15` files **as possible**, with min size of each file larger than `200KB` **as possible**.
+
+### Bundle All Modules Together
+```ts
+import { defineConfig } from '@farmfe/core';
+
+export default defineConfig({
+  compilation: {
+    partialBundling: {
+      // c-highlight-start
+      enforceResources: [
+        {
+          name: 'index',
+          test: ['.+'],
+        }
+      ]
+      // c-highlight-end
+    },
+  },
+});
+```
+In above example, we enforce to bundle all modules together and ignore all other constraints(for example, request numbers, file size). You can also enforce to bundle some modules together using `enforceResources`:
+
+```ts
+import { defineConfig } from '@farmfe/core';
+
+export default defineConfig({
+  compilation: {
+    partialBundling: {
+      // c-highlight-start
+      enforceResources: [
+        {
+          name: 'index',
+          test: ['\\./src/components/.+'],
+        }
+      ]
+      // c-highlight-end
+    },
+  },
+});
+```
+
+We enforce to bundle all modules under `src/components` directory.
+:::note
+`enforceResources` would break internal optimization for bundles, be careful when you use it.
+:::

@@ -664,7 +664,7 @@ Immutable module can affect bundling and incoming persistent cache, be careful i
 
 - **default**: `0.8`
 
-默认为`0.8`，不可变模块将拥有 80%的请求数。 例如，如果`targetConcurrentRequest`为 25，则默认情况下不可变资源将采用`25 * 80% = 20`。 该选项是为了确保可变模块和不可变模块是隔离的，如果更改您的业务代码，node_modules 下的代码不会受到影响。
+Default to `0.8`, means the output bundles of immutable module takes 80%. for example, if `targetConcurrentRequest` is `25`，then immutable bundles files numbers are `25 * 80% = 20`. This option is used isolate your mutable and immutable module, if you modified your business code, bundles generating from `node_modules` won't be affected.
 
 ### lazyCompilation
 
@@ -682,7 +682,15 @@ Whether to enable tree shake, set to false to close. See [Tree Shake](/docs/feat
 
 - **default**: `false` in development mode, `true` in build mode
 
-Whether to enable compression, the product will be compressed and confused after it is turned on. See [Compression](/docs/features/tree-shake).
+Whether to enable compression, the product will be compressed and confused after it is turned on. See [Minification](/docs/advanced/minification).
+
+```ts
+type MinifyOptions = boolean | {
+  compress?: ToSnakeCaseProperties<TerserCompressOptions> | boolean;
+  mangle?: ToSnakeCaseProperties<TerserMangleOptions> | boolean;
+};
+```
+The `compress` and `mangle` options is the same as [swc's minify config](https://swc.rs/docs/configuration/minification).
 
 ### presetEnv
 

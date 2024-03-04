@@ -1,6 +1,6 @@
 # Static Assets
-> Since v0.4
-Farm supports three resource loading methods: `url`, `inline`, `raw` 。
+
+Farm treat modules that is not treated as `code` as `Static Assets`, for example, images like `png/svg/etc`, text files like `txt/xlsx/etc`. This document describes how Farm deal with these assets.
 
 ## url
 Import a image：
@@ -16,7 +16,7 @@ Default to use url method when import a image. When using url methods to import 
 ```js
 export default '/rocket.<content hash>.svg'
 ```
-using `compilation.output.assetFilename` to config your asset name。
+using [`compilation.output.assetFilename`](/docs/config/compilation-options#outputassetsfilename) to config your asset name。
 
 ## inline
 Using query `?inline` to tell Farm that you want to inline your assets，then the assets will be transformed to base64，for example：
@@ -40,11 +40,13 @@ export default 'MIT xxxx';
 ```
 
 ## Configuring Assets
-* Using `compilation.output.assetFileName` to control the production file name
-* using `compilation.assets.include` to treat more kind of files as asset modules.
+* Using [`compilation.output.assetFileName`](/docs/config/compilation-options#outputassetsfilename) to control the production file name
+* using [`compilation.assets.include`](/docs/config/compilation-options#assetsinclude) to treat more kind of files as asset modules.
 
 ```js
-export default {
+import { defineConfig } from '@farmfe/core';
+
+export default defineConfig({
   compilation: {
     output: {
       assetFilename: 'assets/[resourceName].[hash].[ext]', // [] is a placeholder, Farm currently only these three kind of placeholders
@@ -53,5 +55,5 @@ export default {
       include: ['txt'] // extra static asset extension
     }
   }
-}
+});
 ```

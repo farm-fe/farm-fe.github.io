@@ -1,6 +1,6 @@
 # Environment Variables and Modes
 
-`Farm` distinguishes between development and production environments through `Farm` process.env.NODE\_ ENV`.
+`Farm` distinguishes between `development` and `production` environments through `process.env.NODE\_ENV`.
 
 In different environments, environment variables are replaced statically, so use static constants to represent environment variables instead of dynamic expressions.
 

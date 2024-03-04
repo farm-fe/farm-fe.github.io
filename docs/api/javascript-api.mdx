@@ -129,7 +129,27 @@ try {
 }
 ```
 
-### createDevServer
+## loadEnv
+Load environment variables from the .env file.
+
+```ts
+type LoadEnvFunc = (
+  mode: string,
+  envDir: string,
+  prefixes: string | string[] = ['FARM_', 'VITE_']
+) => [env: Record<string, string>, existsEnvFiles: string[]];
+```
+
+* `mode` is `development`, `production` or any string. `loadEnv` will try load `[``.env``, ``.env.local``, ``.env.${mode}``, ``.env.${mode}.local``]` for `envDir`.
+* `envDir` is the directory where the `.env` file is located.
+* `prefixes` is the prefix of the environment variable. The default value is `['FARM_', 'VITE_']`. Env variables with these prefixes will be injected into `define` automatically.
+
+```js
+const [env, files] = loadEnv('development', '/path/to/project/env');
+// use env
+```
+
+## createDevServer
 The createDevServer method is used to start a local development server. You need to instantiate the Server object first and pass the compiler as a parameter.
 
 Type:
@@ -145,7 +165,7 @@ const server = new Server();
 await server.createDevServer(options);
 server.listen()
 ```
-### createPreviewServer
+## createPreviewServer
 Create a preview server for previewing production artifacts.
 
 Type:
@@ -161,7 +181,7 @@ import { Server } from "@farmfe/core";
 const server = new Server();
 await server.createPreviewServer(options);
 ```
-### getCompiler
+## getCompiler
 Get the current development server's compiler instance. Pass the compiler as a parameter when instantiating the Server.
 
 Type:
@@ -181,7 +201,7 @@ const server = new Server({
 });
 const compilerInstance = server.getCompiler();
 ```
-### close
+## close
 Close all servers and WebSocket services opened by createDevServer.
 
 Basic example:
