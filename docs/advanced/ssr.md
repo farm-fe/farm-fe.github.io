@@ -28,7 +28,7 @@ A [SSR typical application](https://github.com/farm-fe/farm/tree/main/examples/r
 ```
 
 * **`index.html`**: Entry html of the application that running on the client(browser)
-* **`farm.config.ts`**: farm config that builds the project to client
+* **`farm.config.ts`**: Farm config that builds the project to client
 * **`farm.config.server.ts`**: Farm config that builds the project to Node.js(server)
 * **`server.js`**: Server script that should be deployed for production
 * **`src/index-client.tsx`**: Client entry scripts
@@ -107,10 +107,9 @@ export default defineConfig({
 ```
 
 In above example, a `middleware` is required for rendering the application to markup and serve it as html. Normal workflow for SSR in the `middleware`:
-* **Load compiled server entry:** A `index-server` entry which exports a `render` function is required, we need to `import(server_entry_path)` to get the `render` function.
-* **Get compiled client index.html:** All client bundles and Farm runtime are injected to `index.html`, so the client can `hydrate` successfully.
-* **Replace the placeholder to rendered markup:** Replace the placeholder and return the `final html`.
-.0
+* **Load compiled server entry**: A `index-server` entry which exports a `render` function is required, we need to `import(server_entry_path)` to get the `render` function.
+* **Get compiled client index.html**: All client bundles and Farm runtime are injected to `index.html`, so the client can `hydrate` successfully.
+* **Replace the placeholder to rendered markup**: Replace the placeholder and return the `final html`.
 
 :::note
 In this example, we are building a `SPA` SSR application with `if (ctx.path === '/' || ctx.status === 404) {`, if you are building a `MPA` SSR application, guard `ctx.path` to your pages.
