@@ -6,18 +6,15 @@ import styled from "./index.module.css";
 export default function Card(props) {
   const cardRef = useRef(null);
   const config = useControls({
-    mass: 1,
-    tension: 170,
-    friction: 26,
-    clamp: false,
-    precision: 0.01,
-    velocity: 0,
+    // mass: 1,
+    // tension: 170,
+    // friction: 26,
+    // clamp: false,
+    // precision: 0.01,
+    // velocity: 0,
   });
 
-  const [{ xys }, api] = useSpring(
-    () => ({ xys: [0, 0, 1], config }),
-    [config]
-  );
+  const [{ xys }, api] = useSpring(() => ({ xys: [0, 0, 1] }), [config]);
 
   const handleMouseLeave = () =>
     api.start({
@@ -27,7 +24,7 @@ export default function Card(props) {
   const handleMouseMove = (e) => {
     const rect = cardRef.current.getBoundingClientRect();
     api.start({
-      xys: calc(e.clientX, e.clientY, rect),
+      xys: calc(e.clientX / 1.2, e.clientY / 1.2, rect),
     });
   };
 
@@ -38,7 +35,9 @@ export default function Card(props) {
         style={{ transform: xys.to(trans) }}
         onMouseLeave={handleMouseLeave}
         onMouseMove={handleMouseMove}
-      >{props.children}</animated.div>
+      >
+        {props.children}
+      </animated.div>
     </div>
   );
 }
