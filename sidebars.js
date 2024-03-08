@@ -115,7 +115,7 @@ const sidebars = {
         "api/js-plugin-api",
         "api/rust-plugin-api",
         "api/javascript-api",
-        "api/rust-api",
+        // "api/rust-api",
       ],
     },
   ],

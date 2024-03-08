@@ -51,7 +51,7 @@ const FeatureList = [
     Img: Plug,
     description: (
       <Translate>
-        Fully Pluggable: Everything inside Farm is powered by plugins, Supports both Rust and
+        Everything inside Farm is powered by plugins, Supports both Rust and
         JavaScript plugins. Support Vite plugins out of box.
       </Translate>
     ),
@@ -71,11 +71,11 @@ const FeatureList = [
       "w-full rounded-lg sm:block sm:col-span-2 md:col-span-1 lg:row-start-2 lg:col-span-2",
   },
   {
-    title: "Consistency and Compatibility",
+    title: <Translate>Consistency and Compatibility</Translate>,
     Img: Compatibility,
     description: (
       <Translate>
-        Consistency & Compatibility: What you see in development will be the same as what you
+        What you see in development will be the same as what you
         get in production. Supports both legacy (ES5) and modern browsers.
       </Translate>
     ),

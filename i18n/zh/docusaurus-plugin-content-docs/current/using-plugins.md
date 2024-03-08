@@ -1,8 +1,8 @@
 # 使用插件
 Farm支持4种插件：
-* **`Farm Compilation Plugins`**：支持 Rust 插件和 Js 插件，采用 rollup 风格的 hooks。
+* **`Farm 编译插件`**：支持 Rust 插件和 Js 插件，采用 rollup 风格的 hooks。
 * **`Vite/Rollup/Unplugin 插件`**：Farm 开箱即用支持 Vite/Rollup/Unplugin 插件
-* **`Farm Runtime Plugin`**：为 Farm 的运行时系统添加功能。
+* **`Farm 运行时插件`**：为 Farm 的运行时系统添加功能。
 * **`Swc 插件`**：Farm 开箱即用支持 Swc 插件。
 
 :::tip
@@ -68,7 +68,7 @@ export default defineConfig({
 * **`@farmfe/plugin-sass`**：用于 scss 文件编译的 Farm rust 插件，内部使用 `sass-embedded`。
 
 :::tip
-要了解有关 rust 插件的更多信息，请参阅 [Rust 插件](/docs/plugins/official-plugins/overview)
+要了解有关 rust 插件的更多信息，请参阅 [Rust 插件](/docs/plugins/official-plugins/overview#rust-插件)
 :::
 
 ### 使用 Js 插件
@@ -143,7 +143,7 @@ Farm 中的 js 插件需要 `filters`。 因为Js Plugin实在是太慢了，我
 :::
 
 :::tip
-了解更多关于 Farm Js 插件的信息，请参考 [JS 插件](/docs/plugins/official-plugins/overview)
+了解更多关于 Farm Js 插件的信息，请参考 [JS 插件](/docs/plugins/official-plugins/overview#js-插件)
 :::
 
 ## 使用 Vite/Rollup/Unplugin 插件
@@ -234,10 +234,10 @@ export default defineConfig({
   }
 });
 ```
-您必须配置指向运行时插件条目的路径。 推荐使用绝对路径以避免路径问题。
+您必须配置指向运行时插件的路径。 推荐使用 **绝对路径** 以避免路径问题。
 
 :::tip
-要了解有关运行时插件的更多信息，请参阅[运行时插件](/docs/plugins/runtime-plugin)
+要了解有关运行时插件的更多信息，请参阅 [运行时插件](/docs/plugins/writing-plugins/runtime-plugin)
 :::
 
 ## 使用 SWC 插件
@@ -245,10 +245,7 @@ Swc Plugin 也可以直接在Farm中使用，配置`compilation.script.plugins`�
 ```ts
 import jsPluginVue from '@farmfe/js-plugin-vue';
 
-/**
-  * @type {import('@farmfe/core').UserConfig}
-  */
-export default {
+export default defineConfig({
    compilation: {
      script: {
        plugins: [{
@@ -268,7 +265,7 @@ export default {
      }
    },
    plugins: [jsPluginVue()],
-};
+});
 ```
 
 数组的每个插件项包含三个字段：

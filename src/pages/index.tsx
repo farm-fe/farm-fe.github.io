@@ -52,13 +52,10 @@ function HomepageHeader() {
         <p className="font-semibold brand-color mb-6 text-1xl sm:text-2xl lg:text-xl tracking-wide text-left  flex flex-col gap-2">
           <div>
             <span className={clsx(styles.banner, "font-extrabold")}>
-              <translate>Farm </translate>
+              <Translate>Farm </Translate>
             </span>
             <span className="font-sans">
-              <translate>
-                is a Rust-Based Web Building Engine to Facilitate Your Web and
-                Node Program Development
-              </translate>
+              <Translate>is a Rust-Based Web Building Engine to Facilitate Your Web and Node Program Development</Translate>
             </span>
           </div>
         </p>

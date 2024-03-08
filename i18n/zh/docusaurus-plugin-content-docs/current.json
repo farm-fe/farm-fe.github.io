@@ -1,7 +1,7 @@
 {
   "version.label": {
-    "message": "Next",
-    "description": "The label for version current"
+    "message": "1.0.0-beta",
+    "description": "当前文档版本"
   },
   "sidebar.tutorialSidebar.category.Features": {
     "message": "编译能力",

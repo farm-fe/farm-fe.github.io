@@ -205,7 +205,7 @@ export default function Benchmark() {
                       rel="stylesheet"
                       href="https://github.com/farm-fe/performance-compare"
                     >
-                      See benchmark details
+                      <Translate>See benchmark details</Translate>
                     </Link>
                   </div>
                 </div>
