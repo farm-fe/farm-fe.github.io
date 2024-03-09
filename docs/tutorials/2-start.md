@@ -240,7 +240,7 @@ export default defineConfig({
   // ...
 });
 ```
-When building for production, the injected resources url would be `https://cdn.com/index-s2f3.s14dqwa.js`. For example, in your output html, all `<script>` and `<link`> would be:
+When building, the injected resources url would be `https://cdn.com/index-s2f3.s14dqwa.js`. For example, in your output html, all `<script>` and `<link`> would be:
 
 ```html {4,8}
 <html>
