@@ -438,10 +438,10 @@
     "message": "超级快"
   },
   "Extremely": {
-    "message": "超级"
+    "message": "极速"
   },
   " Fast ": {
-    "message": "快的"
+    "message": "的"
   },
   " Build Tool .": {
     "message": "构建工具"
@@ -458,8 +458,8 @@
   "Get to know our team": {
     "message": "认识我们的团队"
   },
-  "is a Rust-Based Web Building Engine to Facilitate Your Web and Node Program Development": {
-    "message": "是一个基于 Rust 实现的极速构建引擎，帮助您更快地构建 Web 和 Node 程序。"
+  "is a Rust-Based Web Building Engine to Facilitate Your Web Program and JavaScript Library": {
+    "message": "是一个基于 Rust 实现的极速构建引擎，帮助您更快地构建 Web 程序 和 JavaScript 库。"
   },
   "Written in Rust, start a React / Vue project in milliseconds and perform an HMR update within 10ms for most situations.": {
     "message": "用Rust编写，可以在毫秒内启动React/Vue项目，并在大多数情况下在10毫秒内进行热模块替换（HMR）更新。"

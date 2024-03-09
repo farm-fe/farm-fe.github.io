@@ -55,7 +55,7 @@ function HomepageHeader() {
               <Translate>Farm </Translate>
             </span>
             <span className="font-sans">
-              <Translate>is a Rust-Based Web Building Engine to Facilitate Your Web and Node Program Development</Translate>
+              <Translate>is a Rust-Based Web Building Engine to Facilitate Your Web Program and JavaScript Library</Translate>
             </span>
           </div>
         </p>
