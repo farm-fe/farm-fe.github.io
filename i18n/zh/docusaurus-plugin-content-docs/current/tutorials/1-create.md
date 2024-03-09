@@ -2,7 +2,7 @@
 在本章中，我们将从头开始创建一个新的 Farm React 项目，并以开发模式启动它。
 
 :::note
-在本教程中，我们使用`pnpm`作为默认包管理器。 本章是`从头开始构建 Farm React 项目`，如果您想快速启动一个新的 Farm 项目，请使用我们的官方模板和命令`pnpm create farm`。
+在本教程中，我们使用 `pnpm` 作为默认包管理器。 本章将 `从头开始构建 Farm React 项目`，如果您想快速启动一个新的 Farm 项目，请使用我们的官方模板和命令 `pnpm create farm`。
 :::
 
 ## 创建一个 Npm 包
@@ -115,7 +115,7 @@ const root = createRoot(container);
 root.render(<div>A React Page compiled by Farm</div>);
 ```
 
-## Start Your Farm Project!
+## 启动 Farm 项目!
 现在一切都准备好了，将启动脚本添加到您的`package.json`中：
 ```json title="package.json" {6}
 {
