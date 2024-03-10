@@ -1,9 +1,9 @@
 # Hmr Api
 :::note
-The HMR API is compatible with [Vite's HMR API](https://vitejs.dev/guide/api-hmr.html).
+The Farm HMR API is compatible with [Vite's HMR API](https://vitejs.dev/guide/api-hmr.html).
 :::
 
-Farm exposes its manual HMR API via the special `import.meta.hot` object(compatible with Vite):
+Farm exports its HMR API via the special `import.meta.hot` object(compatible with Vite):
 ```ts
 export interface ViteHotContext {
   readonly data: any;

@@ -55,7 +55,7 @@ export default {
 
 请注意，如果您的项目不需要浏览器兼容性，您可以为 `targets` 设置一个较宽松的值，那么注入的 polyfills 会更少，产物体积也会更小
 
-有关更多选项，请参阅[compilation.presetEnv](/zh/docs/config/farm-config#presetenv)
+有关更多选项，请参阅[compilation.presetEnv](/docs/config/compilation-options#presetenv)
 
 ### 配置 `script.target`
 

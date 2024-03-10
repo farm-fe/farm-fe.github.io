@@ -1,6 +1,6 @@
 # CLI 选项
 ## create
-创建一个新的农场项目。
+创建一个新的Farm项目。
 
 ````bash
 pnpm create farm
@@ -26,7 +26,7 @@ farm build
 ````
 
 ## preview
-预览“build”命令的结果。
+预览 `build` 命令的结果。
 
 ````bash
 farm build && farm preview

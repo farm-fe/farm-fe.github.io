@@ -1,8 +1,8 @@
 # 服务端渲染 (SSR)
-Server-Side Rendering（SSR）意味着在Node.js（服务器端）中将前端框架（例如React、Vue、Solid等）渲染为 `html` ，并在客户端对已经渲染好的HTML（ `rendered html` ）进行水合作用。
+Server-Side Rendering（SSR）意味着在Node.js（服务器端）中将前端框架（例如React、Vue、Solid等）渲染为 `html` ，并在客户端对已经渲染好的HTML（ `rendered html` ）进行注水 (hydrate)。
 
 :::note
-本文档描述了如何从头开始在Farm上构建SSR应用程序。
+本文档描述了如何从头开始在 Farm 上构建 SSR 应用程序。
 :::
 
 ## 示例项目
@@ -116,8 +116,8 @@ export default defineConfig({
 在这个示例中，我们使用 `if (ctx.path === '/' || ctx.status === 404) {` 来构建一个 `SPA` SSR应用程序，如果你需要构建一个 `MPA` SSR应用程序，请将 `ctx.path` 传递到你的页面。
 :::
 
-## Building for Node.js
-`farm.config.server.ts` 用于**构建Node.js端项目**，生成编译后的服务端入口，可用于在服务端将应用渲染为标记（`markup`）。
+## 构建 Node.js 服务端产物
+`farm.config.server.ts` 用于**构建 Node.js 端产物**，生成编译后的服务端入口，可用于在服务端将应用渲染为标记（`markup`）。
 
 ```ts title="farm.config.server.ts"
 import { defineConfig } from '@farmfe/core';
@@ -168,10 +168,10 @@ export default defineConfig({
 }
 ```
 
-当你开发SSR项目时，你需要在不同的终端中运行 `npm run start` 和 `npm run start:server` 。
+当你开发SSR项目时，你需要在不同的终端中运行 `npm run start` 和 `npm run start:server` 。同时监听 server 和 client 的变动并重新编译。
 
 ## 生产环境构建
-你需要同时为客户端和服务器构建项目，例如，你可能需要在 `scripts`中添加以下命令：
+你需要同时为客户端和服务器构建项目，例如，你可能需要在 `scripts` 中添加以下命令：
 
 ```json title="package.json"
 {
@@ -276,6 +276,6 @@ for (const page of pages) {
     markup
   );
   // 输出静态生成的页面，例如将其写入硬盘
-    emitPage(page, html);
+  emitPage(page, html);
 }
 ```

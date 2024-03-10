@@ -9,6 +9,8 @@ Farm's goal of Partial Bundling is to:
 
 For traditional bundlers, we may have a hard time to configure complex `splitChunks` or `manualChunks` to achieve the goal above, but in Farm, it is supported natively through `Partial Bundling`.
 
+Note that the default bundling strategy is designed for browser, but it also works well for Node.js. Try [Configuring Partial Bundling](#configuring-partial-bundling) if want to change bundling strategy for Node.js.
+
 :::tip
 Refer to [RFC-003 Partial Bundling](https://github.com/farm-fe/rfcs/blob/main/rfcs/003-partial-bundling/rfc.md) to get more technical details.
 :::

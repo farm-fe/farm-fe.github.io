@@ -92,7 +92,7 @@ The priority of this plugins, default to `100`. `priority` controls the executio
 export default function MyPlugin() {
   return {
     name: 'my-plugin',
-    priority: 1000, // make this plugins execute bebore all other plugins
+    priority: 1000, // make this plugins execute before all other plugins
     // ...
   }
 }
@@ -507,7 +507,7 @@ For filters:
 * `filters.moduleTypes` is **NOT** `regex`, it must exactly match the `ModuleType` like `css`, `js`, `tsx`, etc.
 
 :::note
-`transform` hook is **content to content**. There is a similar hook called `process_module`, `process_module` is **ast to ast**. Js plugin does not support `process_module` hook due to performance issues, if you want **ast to ast** transformations, try [`Rust Plugin`](/docs/plugins/writing-plugins/runtime-plugin) instead.
+`transform` hook is **content to content**. There is a similar hook called `process_module`, `process_module` is **ast to ast**. Js plugin does not support `process_module` hook due to performance issues, if you want **ast to ast** transformations, try [`Rust Plugin`](/docs/plugins/writing-plugins/rust-plugin) instead.
 :::
 
 ### buildEnd

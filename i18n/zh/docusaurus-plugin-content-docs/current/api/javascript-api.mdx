@@ -143,6 +143,26 @@ try {
 }
 ```
 
+## loadEnv
+从 .env 文件加载环境变量。
+
+```ts
+type LoadEnvFunc = (
+  mode: string,
+  envDir: string,
+  prefixes: string | string[] = ['FARM_', 'VITE_']
+) => [env: Record<string, string>, existsEnvFiles: string[]];
+```
+
+* `mode` 是 `development`、`Production` 或任何字符串。 `loadEnv` 将尝试加载 `[``.env``, ``.env.local``, ``.env.${mode}``, ``.env.${mode}.local``] ` 为 `envDir`。
+* `envDir` 是 `.env` 文件所在的目录。
+* `prefixes` 是环境变量的前缀。 默认值为 `['FARM_', 'VITE_']` 。 带有这些前缀的环境变量将自动注入到`define`中。
+
+```js
+const [env, files] = loadEnv('development', '/path/to/project/env');
+// use env
+```
+
 ### createDevServer
 
 `createDevServer` 方法用于启动本地开发服务器, 需要先实例化 `Server` 对象, 传递参数需要 `farm` 的 `compiler` 

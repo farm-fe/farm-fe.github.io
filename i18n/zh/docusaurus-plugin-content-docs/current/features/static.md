@@ -44,8 +44,8 @@ export default 'MIT xxxx';
 ```
 
 ## 相关配置
-* 使用`compilation.output.assetFileName`来控制生产文件名
-* 使用`compilation.assets.include`将更多类型的文件视为资产模块。
+* 使用 `compilation.output.assetFileName` 来控制产物文件名
+* 使用 `compilation.assets.include` 将更多类型的文件视为静态资源。
 
 ```js
 export default {

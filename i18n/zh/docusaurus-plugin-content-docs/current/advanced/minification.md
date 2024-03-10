@@ -1,4 +1,4 @@
-# Minification
+# 产物压缩
 
 Farm 支持开箱即用的生产压缩，默认情况下在生产中自动启用，可以通过[compilation.minify](/zh/docs/config/compilation-options#minify) 选项启用或禁用。
 

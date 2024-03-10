@@ -69,16 +69,16 @@ export default defineConfig({
 ```
 
 ## Hot Module Replacement(HMR)
-Farm提供了一个与[Vite兼容的HMR API](/zh/docs/api/hmr-api)。如果你是框架作者，可以利用这个API来更新你的应用实例，而无需重新加载页面。
+Farm提供了一个与 [兼容 Vite 的HMR API](/zh/docs/api/hmr-api)。如果你是框架作者，可以利用这个 API 来更新你的应用实例，而无需重新加载页面。
 
 HMR API允许你在应用运行时接收模块的更新，并应用这些更新，而无需重新加载整个页面。这可以极大地提高开发效率，因为它允许你在不丢失应用状态的情况下看到代码更改的效果。
 
-* 对于React，官方插件@farmfe/plugin-react会自动启用[@farmfe/plugin-react](/zh/docs/plugins/official-plugins/react)。
+* 对于React，官方插件 [@farmfe/plugin-react](/docs/plugins/official-plugins/react)会自动启用 HMR。
 * 对于Vue、Solid等框架，它们的插件如 `@vitejs/plugin-vue` 、 `vite-plugin-solid` 等都支持HMR。
 
 Farm提供了官方模板，这些模板已经设置好了所有这些能力，你可以通过create-farm创建应用，然后所有的HMR能力就可用了。
 
 :::note
-* 对于应用用户，HMR通常是开箱即用的，如果你需要自定义HMR行为，可以参考[Vite兼容的HMR API](/zh/docs/api/hmr-api)。
+* 对于应用用户，HMR通常是开箱即用的，如果你需要自定义HMR行为，可以参考 **[兼容 Vite 的 HMR API](/zh/docs/api/hmr-api)**。
 * 如果你是框架作者，可以参考 [HMR选项](/zh/docs/config/dev-server#hmr) 来配置HMR。
 :::

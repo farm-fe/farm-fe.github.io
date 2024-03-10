@@ -1,4 +1,4 @@
-# Script
+# TS/TSX
 
 Farm 支持开箱即用地编译`Js/Jsx/Ts/Tsx`，并默认将`Jsx/Tsx`编译为 React。
 

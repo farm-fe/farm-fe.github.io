@@ -1,4 +1,4 @@
-## DevServer 选项 - server
+# DevServer 配置 - server
 配置 Farm Dev Server 的行为。示例：
 
 ```ts

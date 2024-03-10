@@ -80,7 +80,7 @@ const sidebars = {
       collapsed: true,
       items: ["migration/from-vite"],
     },
-    "comparisons",
+    // "comparisons",
     "benchmark",
   ],
   configSidebar: [
@@ -93,7 +93,7 @@ const sidebars = {
         "config/compilation-options",
         "config/dev-server",
         "config/shared",
-        "config/plugins-options",
+        // "config/plugins-options",
       ],
     },
     {

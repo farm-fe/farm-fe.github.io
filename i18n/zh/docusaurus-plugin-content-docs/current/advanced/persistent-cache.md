@@ -58,11 +58,11 @@ export default defineConfig({
 
 缓存在尝试重用时会通过以下条件进行验证，如果以下任何条件发生变化，所有缓存都将失效
 
-- **Env Object**：由`persistentCache.envs`配置，默认为`Farm Env Mode`(`process.env.NODE_ENV`, `process.env.DEV`, `process.env.PROD`)，参见 **[`Environment Variables and Modes`](/zh/docs/features/env)**。
+- **Env Object**：由`persistentCache.envs`配置，默认为`Farm Env Mode`(`process.env.NODE_ENV`, `process.env.DEV`, `process.env.PROD`)，参见 **[`环境变量和模式`](/zh/docs/features/env)**。
 
-- **lockfile**:如果你的 lockfile 改变了，意味着有依赖项改变，缓存将失效。.
+- **lockfile**:如果你的 lockfile (例如 pnpm-lock.yaml) 改变了，意味着有依赖项改变，缓存将失效。
 
-- **构建依赖项**：由`persistentCache.buildDependencies`配置，如果任何 buildDependency 更改，所有缓存将无效。
+- **构建依赖项**：由`persistentCache.buildDependencies`配置，如果任何 buildDependency 更改，所有缓存将失效。
 
 - **Cache 命名空间**：由`persistentCache.namespace`配置，不同命名空间下的缓存不会重复使用。如果要使所有缓存失效，可以配置不同的命名空间。
 

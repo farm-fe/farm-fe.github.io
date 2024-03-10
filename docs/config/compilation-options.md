@@ -141,7 +141,7 @@ and when loading dynamic scripts and css, the dynamic fetched resources url woul
 
 The filename configuration for static resource output, the placeholder is the same as `output.filename`.
 
-#### `output. targetEnv`
+#### `output.targetEnv`
 
 - **default**: `"browser-es2017"`
 
@@ -161,7 +161,7 @@ Targeting `node`:
 * **`node`**: Alias of `node16`
 
 
-#### `output. format`
+#### `output.format`
 
 - **default**: `"esm"`
 
@@ -186,7 +186,7 @@ interface ResolveOptions {
 }
 ```
 
-#### `resolve. extensions`
+#### `resolve.extensions`
 
 - **default**: `["tsx", "ts", "jsx", "js", "mjs", "json", "html", "css"]`
 
@@ -260,13 +260,6 @@ export default defineConfig({
   },
 });
 ```
-
-:::note
-
-1. In order to enhance performance, define uses the injection form of global variables, which means that variables in the form of objects cannot be injected, for example, variables in the form of `process.env.XXX` cannot be injected, and only variables in the form of `XXX` can be configured .
-2. If multiple Farm projects are mounted under the same window, the defines with the same name in multiple projects will overwrite each other.
-3. The injection is a string. If it needs to be converted to another type, it needs to be manually converted in the runtime code, such as `Number(MY_VAR)`
-   :::
 
 ### external
 
