@@ -429,24 +429,57 @@
     "message": "完全可插拔"
   },
   "Partial Bundling": {
-    "message": "部分捆绑"
+    "message": "局部打包"
   },
   "Consistency": {
     "message": "一致性"
   },
+  "Extremely Fast": {
+    "message": "超级快"
+  },
+  "Extremely": {
+    "message": "极速"
+  },
+  " Fast ": {
+    "message": "的"
+  },
+  " Build Tool .": {
+    "message": "构建工具"
+  },
+  "Written in": {
+    "message": "用 "
+  },
+  " Rust": {
+    "message": "Rust 编写"
+  },
+  "Incremental Building": {
+    "message": "增量构建"
+  },
+  "Get to know our team": {
+    "message": "认识我们的团队"
+  },
+  "is a Rust-Based Web Building Engine to Facilitate Your Web Program and JavaScript Library": {
+    "message": "是一个基于 Rust 实现的极速构建引擎，帮助您更快地构建 Web 程序 和 JavaScript 库。"
+  },
   "Written in Rust, start a React / Vue project in milliseconds and perform an HMR update within 10ms for most situations.": {
     "message": "用Rust编写，可以在毫秒内启动React/Vue项目，并在大多数情况下在10毫秒内进行热模块替换（HMR）更新。"
   },
-  "Consistency & Compatibility: What you see in development will be the same as what you get in production. Supports both legacy (ES5) and modern browsers.": {
+  "What you see in development will be the same as what you get in production. Supports both legacy (ES5) and modern browsers.": {
     "message": "一致性: 开发环境和生产环境的表现一致，所见即所得。支持传统（ES5）和现代浏览器。"
   },
   "Incremental Building: Support persistent cache, module level cache enabled by default, any module won't be compiled twice until it's changed!": {
     "message": "增量构建：默认启用, 支持持久缓存，模块级别缓存，任何模块在未发生变化之前不会被重新编译！"
   },
   "Farm support compiling Html, Css, Css Modules, Js/Jsx/Ts/Tsx, Json, Static Assets out of box, support sass, less, postcss, vue, react, solid by official plugins, support lazy compiling, partial bundling and more": {
-    "message": "丰富的编译能力支持: 开箱即用, Farm 内置了 Js/Ts/Jsx/Tsx、Css/Css Modules/Sass/Less、HTML 和静态资源，可以通过官方插件支持 sass、less、postcss、react、vue、solid 等常用技术栈，支持惰性编译、局部打包等。"
+    "message": "丰富的编译能力支持: 开箱即用, Farm 内置了 Js/Ts/Jsx/Tsx、Css/Css Modules/Sass/Less、HTML 和静态资源，可以通过官方插件支持 sass、less、postcss、react、vue、solid 等常用技术栈，支持懒编译、局部打包等海量特性。"
   },
-  "Fully Pluggable: Everything inside Farm is powered by plugins, achieve anything you want by creating a plugin. Supports both Rust and JavaScript plugins. Support Vite plugins out of box.": {
+  "Fully Pluggable and Vite Compatible": {
+    "message": "完全可插拔 & 兼容 Vite 生态"
+  },
+  "Consistency and Compatibility": {
+    "message": "一致性 & 兼容性"
+  },
+  "Everything inside Farm is powered by plugins, Supports both Rust and JavaScript plugins. Support Vite plugins out of box.": {
     "message": "Farm 由插件驱动, 通过创建插件来实现任何您想要的功能, 同时支持 Rust 和 JavaScript 两种插件模式, 开箱即用支持 Vite 插件。"
   },
   "Partial Bundling: Bundle your project into a few reasonable bundles, speeding up resource loading without losing caching granularity.": {
@@ -472,5 +505,8 @@
   },
   "HotBuild": {
     "message": "热构建"
+  },
+  "See benchmark details": {
+    "message": "查看 benchmark 详情"
   }
 }

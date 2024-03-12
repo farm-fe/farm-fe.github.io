@@ -16,11 +16,13 @@ Note that it is important to use the `dynamic import` properly to make `lazy com
 ## Configuring Lazy Compilation
 Using `compilation.lazyCompilation` to enable or disable it:
 ```ts title="farm.config.ts"
-export default {
+import { defineConfig } from '@farmfe/core';
+
+export default defineConfig({
    compilation: {
      lazyCompilation: true,
    },
-};
+});
 ```
 
 ## How Lazy Compilation Work

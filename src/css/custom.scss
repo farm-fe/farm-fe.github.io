@@ -12,6 +12,10 @@
 
 /* You can override the default Infima variables here. */
 :root {
+  --sans-serif: -apple-system, BlinkMacSystemFont, san-francisco, Avenir Next,
+    Segoe UI, Roboto, Noto Sans, Helvetica Neue;
+  --serif: Iowan Old Style, Apple Garamond, Baskerville, Times New Roman;
+  --monospaced: Menlo;
   --border: rgb(3, 169, 244);
   --g1: rgba(0, 0, 0, 0.2);
   --g2: rgba(143, 26, 127, 0.2);
@@ -25,6 +29,7 @@
   --ifm-color-primary-lighter: #af1a9f;
   --ifm-color-primary-lightest: #bf1aaf;
   --ifm-code-font-size: 95%;
+  --ifm-border-color: rgba(0, 0, 0, 0.05);
   --ifm-background: rgba(0, 0, 0, 0.01);
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   --ifm-announcementBar-height: 40px;
@@ -79,7 +84,7 @@
   --ifm-menu-color-background-active: #ff9ff330;
   --ifm-menu-color-background: #ff9ff340;
   --ifm-background: rgba(0, 0, 0, 0.3);
-  --ifm-f-white: #181818;
+  --ifm-f-white: #c74040;
   --ifm-f-re-white: #ffffff;
   --ifm-f-white-soft: #222222;
   --ifm-f-white-mute: #282828;
@@ -126,6 +131,10 @@
 
 .color {
   color: var(--ifm-f-white);
+}
+
+.token.color {
+  color: #c44cac;
 }
 
 .color-re {
@@ -201,12 +210,14 @@ a {
   border-radius: 8px !important;
 }
 
-.main-wrapper > div {
-  // max-width: var(--max-layout-width);
+.dropdown > .navbar__link:after {
+  top: 4px;
 }
 
-.navbar,
-.main-wrapper {
-  // display: flex;
-  // align-items: center;
+.theme-admonition-warning {
+  color: var(--c-yellow-120)
+}
+
+.theme-admonition-danger {
+  color: var(--c-red-90)
 }

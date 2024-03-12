@@ -9,7 +9,7 @@ import TabItem from "@theme/TabItem";
 # 快速开始
 
 :::note
-Farm 需要 **Node 16 及以上**。
+Farm 需要 **Node 16.18.0 及更高版本**。
 :::
 
 ## 在线体验
@@ -31,11 +31,11 @@ Farm 需要 **Node 16 及以上**。
               </TabItem>
           </Tabs>
 </>
-然后按照提示操作即可！
 
-:::note
+:::note{title="然后按照提示操作！"}
 您还可以通过附加命令行选项直接指定项目名称和要使用的模板：
 :::
+
 <>
     <Tabs>
           <TabItem value="npm 6.x" label="npm 6.x">
@@ -55,18 +55,18 @@ Farm 需要 **Node 16 及以上**。
 
 ## 2.启动项目
 
-选择您喜欢的包管理器，然后依赖项将自动安装。
+选择您喜欢的包管理器，安装依赖项，然后启动项目。
 然后，启动项目：
 <>
     <Tabs>
           <TabItem value="npm" label="npm">
-              <CodeBlock>cd farm-project && npm start</CodeBlock>
+              <CodeBlock>cd farm-project && npm i && npm start</CodeBlock>
               </TabItem>
   <TabItem value="yarn" label="yarn">
-          <CodeBlock>cd farm-project && yarn start</CodeBlock>
+          <CodeBlock>cd farm-project && yarn && yarn start</CodeBlock>
               </TabItem>
   <TabItem value="pnpm" label="pnpm">
-          <CodeBlock>cd farm-project && pnpm start</CodeBlock>
+          <CodeBlock>cd farm-project && pnpm i && pnpm start</CodeBlock>
               </TabItem>
           </Tabs>
 </>
@@ -104,7 +104,7 @@ export default defineConfig({
 ```
 
 :::note
-Farm 配置的细节，参考 **[配置](/docs/config/farm-config)**。
+配置详情请参阅 **[配置 Farm](/docs/config/configuring-farm)**。
 :::
 
 ## 4. 构建项目
@@ -114,12 +114,12 @@ Farm 配置的细节，参考 **[配置](/docs/config/farm-config)**。
 npm run build
 ```
 
-构建后的产物默认降级到 ES5，同时会对产物进行压缩和 Tree Shake。如果希望本地预览 Build 的产物，可以执行 `npm run preview` 或者 `npx farm preview`。
+构建的产品默认降级为`ES2017`，并且产品将被压缩和Tree Shake。 如果您想在本地预览构建产品，可以执行`npm run Preview`或`npx farm Preview`。
 
 ## 下一步
 
 - [为什么需要 Farm？](/docs/why-farm)
-- [特性](/docs/features/html)
-- [配置参考](/docs/config/farm-config)
+- [特性](/docs/features/dev-server)
+- [配置参考](/docs/config/configuring-farm)
 - [插件](/docs/plugins/official-plugins/overview)
 ---

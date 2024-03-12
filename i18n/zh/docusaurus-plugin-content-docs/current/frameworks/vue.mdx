@@ -1,0 +1,56 @@
+import CodeBlock from "@theme/CodeBlock";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+# Vue
+
+基于 `Farm` 创建一个 `Vue` 项目。
+
+`Farm` 提供两种方案来支持创建 `Vue` 项目: 
+- 使用 `create-farm` 脚手架创建脚手架项目
+- 你可以根据当前文档手动创建一个 `Vue` 项目
+
+### 创建 Vue 项目
+
+<>
+    <Tabs>
+          <TabItem value="npm" label = "npm" >
+              <CodeBlock>npm create farm@latest</CodeBlock>
+              </TabItem>
+
+  <TabItem value = "yarn" label = "yarn" >
+          <CodeBlock>yarn create farm</CodeBlock>
+              </TabItem>
+  <TabItem value = "pnpm" label = "pnpm" >
+          <CodeBlock>pnpm create farm</CodeBlock>
+              </TabItem>
+          </Tabs>
+</>
+
+在 `Select Framework` 中选择 `Vue` 模版
+
+:::warning Vue
+目前 `Farm` 只支持  `Vue3`,
+对于 `Vue` 插件 `Farm` 推荐使用 `Vite` 插件, 目前也正在进行原生插件 [fervid](https://github.com/phoenix-ru/fervid)的开发。
+:::
+
+```javascript title="farm.config.ts"
+import { defineConfig } from '@farmfe/core';
+import Vue from '@vite/plugin-vue'
+
+export default defineConfig({
+  plugins: [Vue()],
+});
+```
+
+### 集成 jsx
+
+```javascript title="farm.config.ts"
+import { defineConfig } from '@farmfe/core';
+import Vue from '@vite/plugin-vue-jsx'
+
+export default defineConfig({
+  plugins: [Vue()],
+});
+```
+如若想查看示例详情: [Vue 示例](https://github.com/farm-fe/farm/tree/main/examples/vite-adapter-vue)

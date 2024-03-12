@@ -71,6 +71,15 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl: "https://github.com/farm-fe/farm-fe.github.io/tree/main/",
+          lastVersion: "current",
+          versions: {
+            current: {
+              label: "1.0.0-beta",
+            },
+            "0.x": {
+              label: "0.15",
+            },
+          },
         },
         theme: {
           customCss: require.resolve("./src/css/custom.scss"),
@@ -93,32 +102,72 @@ const config = {
         items: [
           {
             type: "custom-documate",
-            position: "right",
+            position: "left",
             endpoint: "https://8gw8jajsc1.us.aircode.run/ask",
             style: {
               marginRight: "2rem",
               marginLeft: "2rem",
               marginTop: "0.3rem",
               width: "8rem",
-            }
+            },
           },
           {
             type: "doc",
             docId: "quick-start",
-            position: "right",
+            position: "left",
             label: "Guides",
           },
           {
             type: "doc",
-            docId: "config/compilation-options",
-            position: "right",
+            docId: "config/configuring-farm",
+            position: "left",
             label: "Config",
           },
           {
             type: "doc",
+            docId: "api/rust-plugin-api",
+            position: "left",
+            label: "API",
+          },
+          {
+            type: "doc",
             docId: "plugins/official-plugins/overview",
-            position: "right",
+            position: "left",
             label: "Plugins",
+          },
+          {
+            position: "left",
+            label: "Community",
+            items: [
+              {
+                label: "Team",
+                to: "/team",
+              },
+              {
+                label: "Blog",
+                to: "/blog/index",
+              },
+              {
+                label: "Awesome Farm",
+                href: "https://github.com/farm-fe",
+              },
+              {
+                label: "Discord",
+                href: "https://discord.com/invite/mDErq9aFnF",
+              },
+              {
+                label: "Twitter",
+                href: "https://twitter.com/fe_farm",
+              },
+              {
+                label: "WeChat Group",
+                href: "https://github.com/farm-fe/farm?tab=readme-ov-file#chat-with-us",
+              },
+            ],
+          },
+          {
+            type: "docsVersionDropdown",
+            position: "right",
           },
           {
             type: "localeDropdown",
@@ -190,7 +239,7 @@ const config = {
       },
       announcementBar: {
         id: "announcementBar-2", // Increment on change
-        content: `🎉 Farm will release 1.0 soon. If you like Farm, give it a ⭐️ on <a target="_blank" rel="noopener noreferrer" href="https://github.com/farm-fe/farm">GitHub</a>`,
+        content: `🎉 Farm is now in 1.0.0-beta. If you like Farm, give it a ⭐️ on <a target="_blank" rel="noopener noreferrer" href="https://github.com/farm-fe/farm">GitHub</a>`,
       },
       prism: {
         theme: prismThemes.nightOwlLight,

@@ -10,7 +10,7 @@ const BENChMARK_DATA = {
   ColdStart: [
     {
       name: "Farm",
-      time: 0.410,
+      time: 0.41,
     },
     {
       name: "Rspack",
@@ -46,7 +46,7 @@ const BENChMARK_DATA = {
   HmrRoot: [
     {
       name: "Farm",
-      time: 0.020,
+      time: 0.02,
     },
     {
       name: "Rspack",
@@ -90,7 +90,7 @@ const BENChMARK_DATA = {
     },
     {
       name: "Vite",
-      time: 2.020,
+      time: 2.02,
     },
     {
       name: "Webpack",
@@ -156,7 +156,7 @@ export default function Benchmark() {
   function PillTabs({ SCENE, children }) {
     return (
       <div>
-        <div className="inline-flex mb-4 items-center rounded-lg bg text-sm  lg:text-base">
+        <div className="inline-flex mb-4 items-center rounded-lg text-sm  lg:text-base">
           {SCENE.map((item, index) => {
             return <Pill section={item} key={index}></Pill>;
           })}
@@ -205,7 +205,7 @@ export default function Benchmark() {
                       rel="stylesheet"
                       href="https://github.com/farm-fe/performance-compare"
                     >
-                      See benchmark details
+                      <Translate>See benchmark details</Translate>
                     </Link>
                   </div>
                 </div>

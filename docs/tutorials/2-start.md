@@ -57,7 +57,7 @@ root.render(
 ```
 Then execute `npm start` and open `http://localhost:9000` in browser:
 
-<img src="/img/2023-10-10-21-41-45.png" width="500" /> &nbsp;<img src="/img/2023-10-10-21-34-33.png" width="580" /> 
+<img src="/img/2023-10-10-21-34-33.png" width="680" /> 
 
 ## Styling the Project
 Now we have successfully introduced a component library into our project. Next we'll learn how to styling.
@@ -194,11 +194,68 @@ export default defineConfig({
   ]
 });
 ```
-Now postcss is fully supported in Farm, we won't cover postcss details here, refer to postcss docs for more details.
+Now postcss is fully supported in Farm, you can use popular postcss plugins `tailwind`, `px2rem`, etc. We won't cover postcss details here, refer to postcss docs for more details.
 
 :::tip
 Refer to [Farm Plugins](/docs/plugins/overview) to learn more about Farm plugins.
 :::
+
+## Using Public Directory
+For assets that don't need compilation, you can put them under `public` directory. Add a `favicon.ico` under `public`:
+
+```text {3-4}
+.
+├── ...
+└── public
+    └── favicon.icon
+```
+Then the `favicon` is available for your website. And you can also put some static assets that can be directly fetched, for example, images:
+
+```text {5-6}
+.
+├── ...
+└── public
+    ├── favicon.icon
+    └── images
+        └── background.png
+```
+then you can use `/images/background.png` to fetch the image, for example, `<img src="/images/background.png">`. 
+
+:::note
+Using config option **[publicDir](/docs/config/shared#publicdir)** to custom your public directory.
+:::
+
+## Configuring publicPath
+Use `compilation.output.publicPath` to configuring url `prefix` for dynamic resources loading and when inject `<script>` and `<link>` tags into html. We add following config in `farm.config.ts`
+
+```ts title="farm.config.ts" {5-7}
+// ...
+
+export default defineConfig({
+  compilation: {
+    output: {
+      publicPath: process.env.NODE_ENV === 'production' ? 'https://cdn.com' : '/'
+    }
+  }
+  // ...
+});
+```
+When building, the injected resources url would be `https://cdn.com/index-s2f3.s14dqwa.js`. For example, in your output html, all `<script>` and `<link`> would be:
+
+```html {4,8}
+<html>
+  <head>
+    <!-- ... -->
+    <link href="https://cdn.com/index-a23e.s892s1.css" />
+  </head>
+  <body>
+    <!-- ... -->
+    <script src="https://cdn.com/index-s2f3.s14dqwa.js"></script>
+  </body>
+</html>
+```
+
+and when loading dynamic scripts and css, the dynamic fetched resources url would also be: `https://cdn.com/<asset-path>`
 
 ## Configuring Alias And Externals
 Alias and externals are also most useful configurations, we can use `compilation.resolve.alias` and `compilation.externals` in Farm:
@@ -212,26 +269,22 @@ export default defineConfig({
       alias: {
         '@/': path.join(process.cwd(), 'src')
       },
-      externals: [
-        'node:fs'
-      ]
-    }
+    },
+    externals: [
+      'node:fs'
+    ]
   }
   // ...
 });
 ```
 
 ## Configuring DevServer
-You can find server configuration in [Farm Dev Server Config](/docs/config/farm-config#devserver-options---server).
+You can find server configuration in [Farm Dev Server Options](/docs/config/dev-server).
 
 ### Useful Configuration
 Example configuration:
 ```ts
-import type { UserConfig } from '@farmfe/core';
-
-function defineConfig(config: UserConfig) {
-   return config;
-}
+import { defineConfig } from '@farmfe/core';
 
 export default defineConfig({
    // All dev server options are under server
@@ -260,22 +313,34 @@ For above examples, we used following options:
 Configure server proxy. Based on [koa-proxies](https://www.npmjs.com/package/koa-proxies) implementation, specific options refer to its documentation, example:
 
 ```ts
-import type { UserConfig } from '@farmfe/core';
-
-function defineConfig(config: UserConfig) {
-   return config;
-}
+import { defineConfig } from '@farmfe/core';
 
 export default defineConfig({
-    server: {
-     proxy: {
-       '/api': {
-         target: 'https://music-erkelost.vercel.app/banner',
-         changeOrigin: true,
-         rewrite: (path: any) => path.replace(/^\/api/, ''),
-       },
-     },
-   },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://music-erkelost.vercel.app/banner',
+        changeOrigin: true,
+        rewrite: (path: any) => path.replace(/^\/api/, ''),
+      },
+    },
+  },
 });
-
 ```
+
+## Configuring root and envDir
+Use `root` and `envDir` to specify your project root and the directory to load env variables. Add following options in `farm.config.ts`:
+
+```ts title="farm.config.ts"
+import path from 'node:path';
+import { defineConfig } from '@farmfe/core';
+
+export default defineConfig({
+  root: path.join(process.cwd(), 'client'),
+  envDir: 'my-env-dir'
+});
+```
+
+:::note
+For details about `envDir`, see [Environment Variables and Modes](/docs/features/env)
+:::

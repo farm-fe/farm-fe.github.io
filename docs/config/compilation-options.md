@@ -1,8 +1,8 @@
-# Configuration Reference
+# Compiler Options
 
 By default, Farm reads the configuration from the `farm.config.ts|js|mjs` file in the project root directory, an example configuration file:
 
-```ts title="farm.config.ts"
+```ts title="farm.config.ts" {5-7}
 import { defineConfig } from "@farmfe/core";
 export default defineConfig({
   root: process.cwd(), // compiled root directory
@@ -19,6 +19,8 @@ export default defineConfig({
   plugins: [],
 });
 ```
+
+This document only covers details `compilation` options. For `server` or `shared` options, refer to [server](/docs/config/dev-server) or [shared](/docs/config/shared)
 
 ## Compilation options - compilation
 
@@ -60,8 +62,8 @@ interface OutputOptions {
   publicPath?: string;
   // Static resource file name configuration
   assetsFilename?: string;
-  // Target execution environment, browser or Node
-  targetEnv?: "browser" | "node";
+  // Target execution environment, polyfill and syntax downgrade will be enabled if the target env is not `node-next` or `browser-esnext`
+  targetEnv?: 'browser' | 'node' | 'node16' | 'node-legacy' | 'node-next' | 'browser-legacy' | 'browser-es2015' | 'browser-es2017' | 'browser-esnext';
   // output module format
   format?: "cjs" | "esm";
 }
@@ -102,7 +104,36 @@ directory of output resources
 
 - **Default value**: `"/"`
 
-The resource url load prefix. For example URL `https://xxxx`, or a absolute path `/xxx/`.
+The resource url load prefix. For example URL `https://xxxx`, or a absolute path `/xxx/`. For example config:
+
+```ts title="farm.config.ts" {5-7}
+// ...
+
+export default defineConfig({
+  compilation: {
+    output: {
+      publicPath: process.env.NODE_ENV === 'production' ? 'https://cdn.com' : '/'
+    }
+  }
+  // ...
+});
+```
+When building for production, the injected resources url would be `https://cdn.com/index-s2f3.s14dqwa.js`. For example, in your output html, all `<script>` and `<link`> would be:
+
+```html {4,8}
+<html>
+  <head>
+    <!-- ... -->
+    <link href="https://cdn.com/index-a23e.s892s1.css" />
+  </head>
+  <body>
+    <!-- ... -->
+    <script src="https://cdn.com/index-s2f3.s14dqwa.js"></script>
+  </body>
+</html>
+```
+
+and when loading dynamic scripts and css, the dynamic fetched resources url would also be: `https://cdn.com/<asset-path>`
 
 #### `output.assetsFileName`
 
@@ -110,13 +141,27 @@ The resource url load prefix. For example URL `https://xxxx`, or a absolute path
 
 The filename configuration for static resource output, the placeholder is the same as `output.filename`.
 
-#### `output. targetEnv`
+#### `output.targetEnv`
 
-- **default**: `"browser"`
+- **default**: `"browser-es2017"`
 
-Configure the execution environment of the product, which can be `"browser"` or `"node"`.
+Configure the execution environment of the product, which can be `"browser"` or `"node"`. Farm will automatically inject polyfill and downgrade syntax(for both script and css) for your specified targetEnv, the supported `targetEnv`s is below:
 
-#### `output. format`
+Targeting `browser`:
+* **`browser-es2017`**: Compiling the project to browsers that support `async await` natively.
+* **`browser-es2015`**: Compiling the project to browsers that support `es6 features` natively.
+* **`browser-legacy`**: Compile the project to `ES5`, for example, `IE9`. Note that this may introduce lots of polyfills which makes production size larger. Make sure you really need to support legacy browsers like `IE9`.
+* **`browser-esnext`**: Compile the project to latest modern browsers, no polyfill will be injected. 
+* **`browser`**: Alias of `browser-es2017`
+
+Targeting `node`:
+* **`node16`**: Compile the project to `Node 16`.
+* **`node-legacy`**: Compile the project to `Node 10`.
+* **`node-next`**: Compile the project to latest Node Version, no polyfill will be injected.
+* **`node`**: Alias of `node16`
+
+
+#### `output.format`
 
 - **default**: `"esm"`
 
@@ -141,7 +186,7 @@ interface ResolveOptions {
 }
 ```
 
-#### `resolve. extensions`
+#### `resolve.extensions`
 
 - **default**: `["tsx", "ts", "jsx", "js", "mjs", "json", "html", "css"]`
 
@@ -216,13 +261,6 @@ export default defineConfig({
 });
 ```
 
-:::note
-
-1. In order to enhance performance, define uses the injection form of global variables, which means that variables in the form of objects cannot be injected, for example, variables in the form of `process.env.XXX` cannot be injected, and only variables in the form of `XXX` can be configured .
-2. If multiple Farm projects are mounted under the same window, the defines with the same name in multiple projects will overwrite each other.
-3. The injection is a string. If it needs to be converted to another type, it needs to be manually converted in the runtime code, such as `Number(MY_VAR)`
-   :::
-
 ### external
 
 - **default**: `[]`
@@ -239,17 +277,25 @@ export default defineConfig({
 });
 ```
 
+### externalNodeBuiltins
+- **default**: `true`
+
+External `module.builtinModules` or not, by default, all builtin modules like `fs` will be external. You can also set `externalNodeBuiltins` as `array` to specify the modules to external manually:
+
+```ts
+export default defineConfig({
+  compilation: {
+    externalNodeBuiltins: ["^stream$"],
+  },
+});
+```
+
 ### mode
 
 - **default**: `development` for start, watch commands, `production` for build commands
 
 Configure the compilation mode. In order to optimize the performance during development, if there is no manual configuration of production optimization related options (minify, tree shake, etc.), the production environment optimization such as compression and tree shake will be disabled by default under `development`. In `production` mode enabled.
 
-### root
-
-- **default**: `process.cwd()`
-
-Configure the root directory for project compilation. This option will affect the search path of the default configuration file, the search of compiled module dependencies, etc.
 
 ### runtime
 
@@ -624,7 +670,7 @@ Immutable module can affect bundling and incoming persistent cache, be careful i
 
 - **default**: `0.8`
 
-默认为`0.8`，不可变模块将拥有 80%的请求数。 例如，如果`targetConcurrentRequest`为 25，则默认情况下不可变资源将采用`25 * 80% = 20`。 该选项是为了确保可变模块和不可变模块是隔离的，如果更改您的业务代码，node_modules 下的代码不会受到影响。
+Default to `0.8`, means the output bundles of immutable module takes 80%. for example, if `targetConcurrentRequest` is `25`，then immutable bundles files numbers are `25 * 80% = 20`. This option is used isolate your mutable and immutable module, if you modified your business code, bundles generating from `node_modules` won't be affected.
 
 ### lazyCompilation
 
@@ -642,7 +688,15 @@ Whether to enable tree shake, set to false to close. See [Tree Shake](/docs/feat
 
 - **default**: `false` in development mode, `true` in build mode
 
-Whether to enable compression, the product will be compressed and confused after it is turned on. See [Compression](/docs/features/tree-shake).
+Whether to enable compression, the product will be compressed and confused after it is turned on. See [Minification](/docs/advanced/minification).
+
+```ts
+type MinifyOptions = boolean | {
+  compress?: ToSnakeCaseProperties<TerserCompressOptions> | boolean;
+  mangle?: ToSnakeCaseProperties<TerserMangleOptions> | boolean;
+};
+```
+The `compress` and `mangle` options is the same as [swc's minify config](https://swc.rs/docs/configuration/minification).
 
 ### presetEnv
 
@@ -752,3 +806,16 @@ How to generate cache key when trying to reuse cache. if `timestamp` is true and
 Envs used to invalidate cache, if the configured env changed, then all cache will be invalidated.
 
 <!-- #### `presetEnv.assuptions` -->
+
+### progress
+- **default**: `true`
+
+Enable progress bar or not.
+
+### comments
+- **default**: `license`
+
+Preserve comments or not:
+* `true`: Preserve all comments
+* `false`: Remove all comments
+* `license`: Preserve all **LICENSE comments**, and remove the others

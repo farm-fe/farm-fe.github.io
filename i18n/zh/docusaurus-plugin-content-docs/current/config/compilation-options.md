@@ -1,4 +1,4 @@
-# 配置参考
+# 编译配置 - compilation
 
 Farm 默认从项目根目录的 `farm.config.ts|js|mjs` 文件中读取配置，配置文件示例:
 
@@ -20,6 +20,8 @@ export default defineConfig({
   plugins: [],
 });
 ```
+
+本文档仅介绍 `编译` 选项的详细信息。 对于 `server` 或 `shared` 选项，请参阅 [server](/docs/config/dev-server) 或 [shared](/docs/config/shared)
 
 ## 编译选项 - compilation
 
@@ -103,7 +105,36 @@ interface OutputOptions {
 
 - **默认值**: `"/"`
 
-资源 url 加载的前缀. 比如 URL `https://xxxx`，或者一个路径 `/xxx`.
+资源 url 加载前缀。 例如 URL `https://xxxx` 或绝对路径 `/xxx/`。 例如配置：
+
+```ts title="farm.config.ts" {5-7}
+// ...
+
+export default defineConfig({
+  compilation: {
+    output: {
+      publicPath: process.env.NODE_ENV === 'production' ? 'https://cdn.com' : '/'
+    }
+  }
+  // ...
+});
+```
+在构建时，注入的资源 URL 将为 `https://cdn.com/index-s2f3.s14dqwa.js` 。 例如，在输出 html 中，所有 `<script>` 和 `<link`> 将为：
+
+```html {4,8}
+<html>
+  <head>
+    <!-- ... -->
+    <link href="https://cdn.com/index-a23e.s892s1.css" />
+  </head>
+  <body>
+    <!-- ... -->
+    <script src="https://cdn.com/index-s2f3.s14dqwa.js"></script>
+  </body>
+</html>
+```
+
+当加载动态脚本和CSS时，动态获取的资源url也将是：`https://cdn.com/<asset-path>`
 
 #### `output.assetsFileName`
 
@@ -113,9 +144,22 @@ interface OutputOptions {
 
 #### `output.targetEnv`
 
-- **默认值**: `"browser"`
+- **默认**：`"browser-es2017"`
 
-配置产物的执行环境，可以是 `"browser"` 或者 `"node"`.
+配置产物的执行环境，可以是 `浏览器` 或 `节点` 。 Farm 会自动为您指定的 `targetEnv` 注入 `polyfill` 和降级语法（对于脚本和 css），支持的 `targetEnv` 如下：
+
+针对 `浏览器` ：
+* **`browser-es2017`**：将项目编译到原生支持 `async wait` 的浏览器。
+* **`browser-es2015`**：将项目编译到原生支持 `es6 features` 的浏览器。
+* **`browser-legacy`**：将项目编译为`ES5`，例如`IE9`。 请注意，这可能会引入大量的填充，从而使生产规模更大。 确保您确实需要支持 `IE9` 等旧版浏览器。
+* **`browser-esnext`**：将项目编译到最新的现代浏览器，不会注入任何polyfill。
+* **`浏览器`**：`browser-es2017`的别名
+
+针对 `Node.js` ：
+* **`node16`**：将项目编译到`Node 16`。
+* **`node-legacy`**：将项目编译到 `Node 10` 。
+* **`node-next`**：将项目编译到最新的 Node 版本，不会注入任何 polyfill。
+* **`node`**：`node16`的别名
 
 #### `output.format`
 
@@ -217,13 +261,6 @@ export default defineConfig({
 });
 ```
 
-:::note
-
-1. define 为了强化性能，使用的是全局变量的注入形式，这意味着，对象形式的变量无法注入，例如 `process.env.XXX` 形式的变量无法注入，只能配置 `XXX` 形式的变量。
-2. 如果在同一个 window 下挂载多个 Farm 项目，多个项目同名的 define 会相互覆盖。
-3. 注入的是字符串，如果需要转为其他类型，需要在运行时代码中手动转换，例如 `Number(MY_VAR)`
-   :::
-
 ### external
 
 - **默认值**: `[]`
@@ -237,6 +274,19 @@ export default defineConfig({
   compilation: {
     external: ["^stream$"],
   },
+});
+```
+
+### externalNodeBuiltins
+- **默认**：`true`
+
+无论是否外部 `module.builtinModules`，默认情况下，所有内置模块（如 `fs`）都将是外部的。 您还可以将 `externalNodeBuiltins` 设置为 `array` 以手动将模块指定为外部：
+
+```ts
+export default defineConfig({
+   compilation: {
+     externalNodeBuiltins: ["^stream$"],
+   },
 });
 ```
 
@@ -488,7 +538,7 @@ export default defineConfig({
 
 ### partialBundling
 
-配置 Farm 局部打包的行为，详情可以参考 [局部打包](/docs/features/partial-bundling)
+配置 Farm 局部打包的行为，详情可以参考 [局部打包](/docs/advanced/partial-bundling)
 
 ```ts
 export interface FarmPartialBundlingConfig {
@@ -633,13 +683,13 @@ Default to `0.8`, immutable module will have 80% request numbers. For example, i
 
 - **默认值**: 在开发模式是 `false`，构建模式是 `true`
 
-是否启用 tree shake，配置为 false 关闭。参考 [Tree Shake](/docs/features/tree-shake)。
+是否启用 tree shake，配置为 false 关闭。参考 [Tree Shake](/docs/advanced/tree-shake)。
 
 ### minify
 
 - **默认值**: 在开发模式是 `false`，构建模式是 `true`
 
-是否启用压缩，开启后将会对产物进行压缩和混淆。参考 [压缩](/docs/features/tree-shake)。
+是否启用压缩，开启后将会对产物进行压缩和混淆。参考 [压缩](/docs/advanced/tree-shake)。
 
 ### presetEnv
 
@@ -681,7 +731,7 @@ type FarmPresetEnvConfig =
 
 - **default**: `true`
 
-[增量构建](/docs/features/persistent-cache) 的缓存配置选项. 配置成 `false` 来禁用缓存.
+[增量构建](/docs/advanced/persistent-cache) 的缓存配置选项. 配置成 `false` 来禁用缓存.
 
 ```ts
 export type PersistentCache =
@@ -744,8 +794,21 @@ export default defineConfig({
 
 #### `persistentCache.envs`
 
-- **default**: [Farm Env](https://farm-fe.github.io/docs/config/farm-config#environment-variable)
+- **default**: [Farm Env](/docs/features/env)
 
 可能影响构建过程的环境变量，如果任意一个环境变化了，缓存将会过期。
 
 <!-- #### `presetEnv.assuptions` -->
+
+### progress
+- **default**: `true`
+
+是否启动进度条
+
+### comments
+- **default**: `license`
+
+配置如何处理注释:
+* `true`: 保留所有注释
+* `false`: 删除所有注释
+* `license`: 保留所有 **LICENSE 注释**, 移除所有非 LICENSE 注释

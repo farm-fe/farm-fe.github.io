@@ -1,8 +1,8 @@
 # Create A Project
-In this chapter, we will create a new Farm React project from scratch, and launch it in development mode.
+In this chapter, we will create a new Farm React project **from scratch**, and launch it in development mode.
 
 :::note
-In this tutorial, we use `pnpm` as default package manager. This chapter is `build a Farm react project from scratch`, If you are trying to init a new Farm Project rapidly, use our official template with command `pnpm create farm`.
+In this tutorial, we use `pnpm` as default package manager. This chapter is `build a Farm react project from scratch`, If you are trying to init a new Farm Project rapidly, use our official template with command `pnpm create farm`. See **[Quick Start](/docs/quick-start)**.
 :::
 
 ## Create A Package
@@ -41,11 +41,7 @@ Create a `farm.config.ts` file under project root:
 ```
 and add following configuration:
 ```ts
-import { UserConfig } from '@farmfe/core';
-
-function defineConfig(config: UserConfig): UserConfig {
-  return config;
-}
+import { defineConfig } from '@farmfe/core';
 
 export default defineConfig({
   compilation: {
@@ -65,16 +61,16 @@ export default defineConfig({
 ```
 For configuration file above, we use `input`, `output` and `plugins`, which is the most basic configuration in Farm.
 * **`input`**: Configure the entry point. Farm will compile and build a module graph from the entries.
-* **`output`**: Confiture the output dir, file name and so on. For full options, see [compilation.output](/docs/config/farm-config#output).
+* **`output`**: Confiture the output dir, file name and so on. For full options, see [compilation.output](/docs/config/compilation-options#output).
 * **`plugins`**: Configure farm plugins, all extended abilities like React, Vue SFC are supported by plugins. Here we use a Rust Plugin(`@farmfe/plugin-react`) to support compiling React jsx.
 
-Check [config reference](/docs/config/farm-config) for more options.
+Check [Configuring Farm](/docs/config/configuring-farm) for more options.
 
 :::note
 In above example, we config input as `index: './src/index.html'`, if we do not configure `input`, it's default to `index: './index.html'`. And we can configure multiple entries in `input`, see [Multi Page App](/docs/features/html#multi-page-app) for details
 :::
 
-## Create A Entry Html and Js
+## Create A Entry Html and Tsx File
 Create 2 files `src/index.html` and `src/index.tsx` under project root:
 ```text {5-7}
 .
@@ -139,22 +135,11 @@ $ npm start
 
 [ Farm ] Using config file at /home/tutorials/1-create-a-project/farm.config.ts
 
-   ╭──────────────────────────────────────────────────╮
-   │                                                  │
-   │              _____ _    ____  __  __             │
-   │             |  ___/ \  |  _ \|  \/  |            │
-   │             | |_ / _ \ | |_) | |\/| |            │
-   │             |  _/ ___ \|  _ <| |  | |            │
-   │             |_|/_/   \_\_| \_\_|  |_|            │
-   │                                                  │
-   │                   Version 0.11.0                 │
-   │                                                  │
-   │     🔥 Ready on http://localhost:9000 in 61ms.   │
-   │                                                  │
-   │                                                  │
-   ╰──────────────────────────────────────────────────╯
+ ϟ  Farm  v0.16.0
+ ✓  Ready in 20ms ⚡️ FULL EXTREME ! 
 
-[ Farm ] HMR enabled, watching for file changes under /home/tutorials/1-create-a-project
+[ Farm ] > Local:   http://localhost:9000/
+[ Farm ] > Network: http://192.168.1.3:9000/
 ```
 
 Open `http://localhost:9000` in browser.

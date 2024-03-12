@@ -1,14 +1,14 @@
 # Using Plugins
 There are 4 kinds of plugins supported in Farm:
-* **`Farm Compilation Plugins`**: Both Rust plugins and Js Plugins, which adopt a rollup-style hooks.
-* **`Vite/Rollup/Unplugin Plugin`**: Vite/Rollup/Unplugin plugins are supported in Farm out of Box
+* **`Farm Compilation Plugins`**: Support both Rust Plugins and Js Plugins, which adopt a rollup-style hooks.
+* **`Vite/Rollup/Unplugin Plugin`**: Vite/Rollup/Unplugin plugins are supported in Farm out of Box.
 * **`Farm Runtime Plugin`**: Adding abilities for Farm's runtime system.
 * **`Swc Plugins`**: Swc plugins are supported in Farm out of Box.
 
 Farm adopt Vite/Rollup ecosystem, Vite/Rollup Plugins can be used directly in Farm.
 
 :::tip
-For how to write your own plugins, refer to [Plugins](/docs/plugins/writing-plugins/overview)
+For how to write your own plugins, refer to [Writing Plugins](/docs/plugins/writing-plugins/overview)
 :::
 
 ## Farm Compilation Plugins
@@ -71,7 +71,7 @@ Currently Farm supports 2 rust plugins officially:
 * **`@farmfe/plugin-sass`**: Farm rust plugin for scss files compilation, uses `sass-embedded` internally.
 
 :::tip
-To learn more about rust plugins, see [Rust Plugins](/docs/plugins/official-plugins/overview)
+To learn more about rust plugins, see [Rust Plugins](/docs/plugins/official-plugins/overview#rust-plugins)
 :::
 
 ### Using Js Plugins
@@ -143,12 +143,12 @@ export default defineConfig({
   ],
 });
 ```
-:::warning
+:::note
 `filters` is required in Farm for js plugins. Because Js Plugin is really slow and we should avoid executing it as much as possible. For those modules that don't match the filters, Farm won't trigger js plugin hook for them at all! Which means Farm can handle them only on Rust side safely and concurrently.
 :::
 
 :::tip
-To learn more about Farm Js Plugins, refer to [JS Plugin](/docs/plugins/official-plugins/overview)
+To learn more about Farm Js Plugins, refer to [JS Plugin](/docs/plugins/official-plugins/overview#js-plugins)
 :::
 
 ## Using Vite/Rollup/Unplugin Plugins In Farm
@@ -190,7 +190,7 @@ function configureVitePluginVue() {
 export default defineConfig({
   // configuring vite plugins
   vitePlugins: [
-    configureVitePluginVue
+    configureVitePluginVue()
   ]
 });
 ```
@@ -244,7 +244,7 @@ export default defineConfig({
 you have to configure a path that point to your runtime plugin's entry. Recommend to a absolute path to avoid path issue.
 
 :::tip
-To learn more about runtime plugin refer to [Runtime Plugin](/docs/plugins/runtime-plugin)
+To learn more about runtime plugin refer to [Runtime Plugin](/docs/plugins/writing-plugins/runtime-plugin)
 :::
 
 ## Using SWC Plugins
@@ -284,5 +284,5 @@ Each plugin item of the array contains three fields:
 * **filters**: Which modules to execute the plug-in, must be configured, support `resolvedPaths` and `moduleTypes` these two filter items, if both are specified at the same time, take the union.
 
 :::note
-SWC plugin may not be compatible with the SWC version that Farm uses. If a error occurred, try upgrade the plugin. 
+`SWC plugin` may not be compatible with the `SWC version` that Farm uses. If a error occurred, try upgrade the plugin version. 
 :::

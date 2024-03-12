@@ -198,6 +198,64 @@ export default defineConfig({
 请参阅 [使用 Farm 插件](/docs/using-plugins) 了解有关 Farm 插件的更多信息。
 :::
 
+## 配置 public 目录
+对于不需要编译的资源，可以将它们放在 public 目录下。 在`public`下添加`favicon.ico`：
+
+```text {3-4}
+.
+├── ...
+└── public
+    └── favicon.icon
+```
+
+然后`favicon`即可用于您的网站。 你还可以放入一些可以直接获取的静态资源，例如图片：
+
+```text {5-6}
+.
+├── ...
+└── public
+    ├── favicon.icon
+    └── images
+        └── background.png
+```
+
+:::note
+使用配置选项 **[publicDir](/docs/config/shared#publicdir)** 自定义您的公共目录。
+:::
+
+## 配置 publicPath
+使用 `compilation.output.publicPath` 配置动态资源加载的 `url 前缀` 以及将 `<script>` 和 `<link>` 标签注入到 `html` 中时。 我们在 `farm.config.ts` 中添加以下配置:
+
+```ts title="farm.config.ts" {5-7}
+// ...
+export default defineConfig({
+  compilation: {
+    output: {
+      publicPath: process.env.NODE_ENV === 'production' ? 'https://cdn.com' : '/'
+    }
+  }
+  // ...
+});
+```
+
+在构建时，注入的资源 URL 将类似 `https://cdn.com/index-s2f3.s14dqwa.js`。 例如，在输出 html 中，所有 `<script>` 和 `<link`> 将为：
+
+```html {4,8}
+<html>
+  <head>
+    <!-- ... -->
+    <link href="https://cdn.com/index-a23e.s892s1.css" />
+  </head>
+  <body>
+    <!-- ... -->
+    <script src="https://cdn.com/index-s2f3.s14dqwa.js"></script>
+  </body>
+</html>
+```
+
+当加载动态脚本和CSS时，动态获取的资源url也将是：`https://cdn.com/<asset-path>`
+
+
 ## 配置 Alias 以及 Externals
 Alias 和 externals 是最常用的配置之一, 在 Farm 中，可以使用 `compilation.resolve.alias` 和 `compilation.externals` 配置项:
 
@@ -225,11 +283,7 @@ export default defineConfig({
 ### 常用配置
 配置示例：
 ```ts
-import type { UserConfig } from '@farmfe/core';
-
-function defineConfig(config: UserConfig) {
-   return config;
-}
+import { defineConfig } from '@farmfe/core';
 
 export default defineConfig({
    // 所有开发服务器选项都在 server 下
@@ -249,7 +303,7 @@ export default defineConfig({
 ```
 对于上面的示例，我们使用了以下选项：
 * **打开**：自动打开指定端口的浏览器
-* **端口**：将开发服务器端口设置为“9001”
+* **端口**：将开发服务器端口设置为`9001`
 * **hmr**：设置 hmr 端口和监视文件，我们忽略 `auto_generate` 目录下的文件更改。
 
 
@@ -257,11 +311,7 @@ export default defineConfig({
 配置服务器代理。 基于[koa-proxies](https://www.npmjs.com/package/koa-proxies)实现，具体选项参考其文档，示例：
 
 ```ts
-import type { UserConfig } from '@farmfe/core';
-
-function defineConfig(config: UserConfig) {
-   return config;
-}
+import { defineConfig } from '@farmfe/core';
 
 export default defineConfig({
     server: {
@@ -274,5 +324,21 @@ export default defineConfig({
      },
    },
 });
-
 ```
+
+## 配置 root 和 envDir
+使用`root`和`envDir`指定项目根目录和加载环境变量的目录。 在`farm.config.ts`中添加以下选项：
+
+```ts title="farm.config.ts"
+import path from 'node:path';
+import { defineConfig } from '@farmfe/core';
+
+export default defineConfig({
+  root: path.join(process.cwd(), 'client'),
+  envDir: 'my-env-dir'
+});
+```
+
+:::note
+有关 `envDir` 的详细信息，请参阅[环境变量和模式](/docs/features/env)
+:::

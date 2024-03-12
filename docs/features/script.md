@@ -1,5 +1,4 @@
-# Script
-
+# TS/TSX
 Farm support compiling `Js/Jsx/Ts/Tsx` out of box, and compile `Jsx/Tsx` to React by default.
 
 ```tsx title="./button.tsx"
@@ -16,16 +15,18 @@ function ButtonGroup(props: ButtonProps) {
 }
 ```
 
-Farm using SWC to compile scripts, and Farm has set reasonable default configurations for script compilation. Also, you can use `compilation.script` to configure how to compile your script file. see [compilation.script](/docs/config/farm-config#compilation-options) for details.
+Farm using SWC to compile scripts, and Farm has set reasonable default configurations for script compilation. Also, you can use `compilation.script` to configure how to compile your script file. see [compilation.script](/docs/config/compilation-options#script) for details.
 
 ## Configuring Swc Parser
 
 You can configuring the SWC Parser through `compilation.script.parser`. Refer to https://swc.rs/docs/configuration/compilation#jscparser.
 
-For example, if you want to enable decorator, you can set `compilation.script.parser.esConfig.decorators`(or tsConfig.decorators if the module is TS):
+For example, if you want to enable decorator, you can set `compilation.script.parser.esConfig.decorators`(or `tsConfig.decorators` if the module is TS):
 
 ```ts title="farm.config.ts"
-export default {
+import { defineConfig } from '@farmfe/core';
+
+export default defineConfig({
   compilation: {
     script: {
       // for .js/.jsx files
@@ -38,29 +39,34 @@ export default {
       },
     },
   },
-};
+});
 ```
 
 By default Farm set `jsx: true` for `.jsx|.tsx` files. Other field are default to SWC's defaults.
 
 ## Configuring Target
 
-Using `compilation.script.target` to configure your target env when running your project, Farm set it default to `ESNext`.
+Using `compilation.script.target` to configure your target env when running your project, Farm set it based on [`output.targetEnv`](/docs/config/compilation-options#output-targetenv).
+:::note
+Farm set `compilation.script.target` automatically based on [`output.targetEnv`](/docs/config/compilation-options#output-targetenv). Normally you should not set `target` manually, use [`output.targetEnv`](/docs/config/compilation-options#output-targetenv) would be enough.
+:::
 
 This option can be used along with `compilation.presetEnv` to gracefully downgrade your project for old browsers. For example, you can set target to `ES5` and enable `presetEnv`, then your project will be fully downgrade to ES5.
 
 ```ts title="farm.config.ts"
-export default {
+import { defineConfig } from '@farmfe/core';
+
+export default defineConfig({
   compilation: {
     script: {
       target: "ES5",
     },
     presetEnv: true,
   },
-};
+});
 ```
 
-Refer to [Polyfill](/docs/features/polyfill) for more about `presetEnv`.
+Refer to [Syntax Downgrade and Polyfill](/docs/advanced/polyfill) for more about `presetEnv` and `target`.
 
 
 ## Decorators
@@ -93,7 +99,7 @@ export default defineConfig({
 ```
 
 > Farm provide a example for supporting decorators, see https://github.com/farm-fe/farm/tree/main/examples/decorators
-> By default, Farm won't transform decorators for modules under `node_modules`, refer to [compilation.script.decorators.excludes](/docs/config/farm-config#scriptdecorators).
+> By default, Farm won't transform decorators for modules under `node_modules`, refer to [compilation.script.decorators.excludes](/docs/config/compilation-options#scriptdecorators).
 
 
 ## Using SWC Plugins
@@ -101,12 +107,10 @@ export default defineConfig({
 SWC Plugins can be used directly in Farm, for example, we use `swc-plugin-vue-jsx` to compiling vue jsx in Farm:
 
 ```ts title="farm.config.ts"
+import { defineConfig } from '@farmfe/core';
 import jsPluginVue from "@farmfe/js-plugin-vue";
 
-/**
- * @type {import('@farmfe/core').UserConfig}
- */
-export default {
+export default defineConfig({
   compilation: {
     script: {
       plugins: [
@@ -125,7 +129,7 @@ export default {
     },
   },
   plugins: [jsPluginVue()],
-};
+});
 ```
 
 Refer to [Using Plugins](/docs/using-plugins#using-swc-plugins) for more details.

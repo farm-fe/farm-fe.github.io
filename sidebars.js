@@ -26,12 +26,6 @@ const sidebars = {
     },
     {
       type: "category",
-      label: "Benchmark",
-      collapsed: false,
-      items: ["benchmark"],
-    },
-    {
-      type: "category",
       label: "Tutorial",
       collapsed: false,
       items: [
@@ -46,19 +40,48 @@ const sidebars = {
       label: "Features",
       collapsed: false,
       items: [
+        "features/dev-server",
         "features/html",
         "features/css",
         "features/script",
         "features/static",
+        "features/env",
         "features/lazy-compilation",
-        "features/partial-bundling",
         "features/sourcemap",
-        "features/tree-shake",
-        "features/minification",
-        "features/polyfill",
-        "features/persistent-cache",
       ],
     },
+    {
+      type: "category",
+      label: "Advanced",
+      collapsed: true,
+      items: [
+        "advanced/ssr",
+        "advanced/partial-bundling",
+        "advanced/tree-shake",
+        "advanced/minification",
+        "advanced/polyfill",
+        "advanced/persistent-cache"
+      ],
+    },
+    {
+      type: "category",
+      label: "Frameworks",
+      collapsed: true,
+      items: [
+        "frameworks/react",
+        "frameworks/vue",
+        "frameworks/solid",
+        "frameworks/svelte",
+      ],
+    },
+    {
+      type: "category",
+      label: "Migration",
+      collapsed: true,
+      items: ["migration/from-vite"],
+    },
+    // "comparisons",
+    "benchmark",
   ],
   configSidebar: [
     {
@@ -66,22 +89,11 @@ const sidebars = {
       label: "Configuration Reference",
       collapsed: false,
       items: [
+        "config/configuring-farm",
         "config/compilation-options",
         "config/dev-server",
-        "config/environment-variable",
-        "config/plugins-options",
-      ],
-    },
-    {
-      type: "category",
-      label: "Api Reference",
-      collapsed: false,
-      items: [
-        "api/hmr-api",
-        "api/js-plugin-api",
-        "api/rust-plugin-api",
-        "api/javascript-api",
-        "api/rust-api",
+        "config/shared",
+        // "config/plugins-options",
       ],
     },
     {
@@ -92,6 +104,21 @@ const sidebars = {
     },
     // "config/farm-config",
     // "config/cli",
+  ],
+  apiSidebar: [
+    {
+      type: "category",
+      label: "Api Reference",
+      collapsed: false,
+      items: [
+        "api/hmr-api",
+        "api/js-plugin-api",
+        "api/rust-plugin-api",
+        "api/runtime-plugin-api",
+        "api/javascript-api",
+        "api/rust-api",
+      ],
+    },
   ],
   pluginSidebar: [
     {
@@ -131,6 +158,7 @@ const sidebars = {
         "plugins/writing-plugins/overview",
         "plugins/writing-plugins/rust-plugin",
         "plugins/writing-plugins/js-plugin",
+        "plugins/writing-plugins/runtime-plugin",
       ],
     },
   ],
