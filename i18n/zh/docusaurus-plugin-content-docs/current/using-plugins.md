@@ -87,6 +87,7 @@ export default defineConfig({
 `farmPostcssPlugin()`返回一个插件对象，您可以通过其参数传递任何 postcss 选项。
 
 您可以使用`priority`来控制插件的顺序，例如：
+
 ```ts title="farm.config.ts" {10,11}
 import farmPostcssPlugin from "@farmfe/js-plugin-postcss";
 
@@ -102,9 +103,11 @@ export default defineConfig({
   ],
 });
 ```
+
 内部插件的优先级都是100，如果想让插件先执行，就设置大于100，否则设置小于100。
 
 如果你想快速添加 Farm JS 插件，只需配置一个插件对象即可：
+
 ```ts title="farm.config.ts"
 import readFileSync from 'fs';
 
@@ -138,6 +141,7 @@ export default defineConfig({
   ],
 });
 ```
+
 :::warning
 Farm 中的 js 插件需要 `filters`。 因为Js Plugin实在是太慢了，我们应该尽量避免执行它。配置 filters 后，对于那些不符合过滤器的模块，Farm 根本不会为它们触发 js 插件钩子！ 这意味着 Farm 只在 Rust 侧就能安全、并发地进行处理，以最大化提升编译性能。
 :::
@@ -147,7 +151,9 @@ Farm 中的 js 插件需要 `filters`。 因为Js Plugin实在是太慢了，我
 :::
 
 ## 使用 Vite/Rollup/Unplugin 插件
+
 Farm 兼容 Vite 插件，Vite 插件可以直接在 Farm 中配置使用。 首先需要安装 vite 插件，例如：
+
 ```bash
 pnpm add @vitejs/plugin-vue @vitejs/plugin-vue-jsx vite -D
 ```
@@ -166,6 +172,7 @@ export default defineConfig({
   ]
 });
 ```
+
 为了提高 vite 插件的性能，您可以使用返回`过滤器`的`函数语法`，例如：
 
 ```ts title="farm.config.ts"
@@ -190,11 +197,13 @@ export default defineConfig({
 ```
 
 使用 unplugin：
+
 ```bash
 pnpm add unplugin-auto-import unplugin-vue-components -D
 ```
+
 在 `vitePlugins` 中配置，通过 `unplugin/vite` 或者 `unplugin/rollup` 支持:
-```ts title="farm.config.ts"
+
 import vue from '@vitejs/plugin-vue',
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
@@ -213,12 +222,15 @@ export default defineConfig({
   ]
 });
 ```
+
 :::note
-当前可用 `unplugin/vite` 或者 `unplugin/rollup`. `unplugin/farm` 在 [这个 PR](https://github.com/unjs/unplugin/pull/341) 合进 unplugin 后可用
+目前，您可以在 Farm 中使用`unplugin/farm`、`unplugin/vite`和`unplugin/rollup`。如果您使用的是`unplugin/vite`或`unplugin/Rolup`，有些属性可能还没有完全适配，或者 Farm 团队认为该 `api` 不具备适配条件，可以提供[issues](https://github.com/farm-fe/farm/issues/new/choose).
 :::
 
 ## Farm 运行时插件
+
 Farm有一个运行时模块系统来控制如何加载和执行模块。 配置 `compilation.runtime.plugins` 以添加更多运行时插件，例如：
+
 ```ts
 export default defineConfig({
   compilation: {
@@ -234,6 +246,7 @@ export default defineConfig({
   }
 });
 ```
+
 您必须配置指向运行时插件的路径。 推荐使用 **绝对路径** 以避免路径问题。
 
 :::tip
@@ -241,7 +254,9 @@ export default defineConfig({
 :::
 
 ## 使用 SWC 插件
+
 Swc Plugin 也可以直接在Farm中使用，配置`compilation.script.plugins`来添加SWC插件，例如：
+
 ```ts
 import jsPluginVue from '@farmfe/js-plugin-vue';
 
@@ -269,6 +284,7 @@ export default defineConfig({
 ```
 
 数组的每个插件项包含三个字段：
+
 * **name**：swc插件的包名
 * **options**：传递给swc插件的配置项
 * **filters**：执行插件的哪些模块，必须配置，支持`resolvedPaths`和`moduleTypes`这两个过滤项，如果两者同时指定，则取并集。
