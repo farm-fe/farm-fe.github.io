@@ -1,4 +1,5 @@
 # Community Plugins
+
 Farm support `Vite/Rollup` plugins out of box. So `Vite/Rollup` or `unplugin` plugins can be used in Farm directly.
 
 :::tip
@@ -8,64 +9,67 @@ Farm recommends to write Farm Plugins instead of `Vite/Rollup` plugins for Farm.
 Current tested compatible `Vite/Rollup/unplugin` plugins as below:
 
 ## Vite/Rollup Plugins
+
 using `vitePlugins` in `farm.config.ts` to configure `Vite/Rollup` plugins.
 
 ```ts
-import { UserConfig } from '@farmfe/core';
-import vue from '@vitejs/plugin-vue';
-import vueJsx from '@vitejs/plugin-vue-jsx';
+import { UserConfig } from "@farmfe/core";
+import vue from "@vitejs/plugin-vue";
+import vueJsx from "@vitejs/plugin-vue-jsx";
 
 const config: UserConfig = {
-  vitePlugins: [
-    vue(),
-    vueJsx(),
-  ]
-}
+  vitePlugins: [vue(), vueJsx()],
+};
 ```
 
-* **[`@vitejs/plugin-vue`](https://github.com/vitejs/vite-plugin-vue/blob/main/packages/plugin-vue/README.md)**: Vue support.
-* **[`@vitejs/plugin-vue-jsx`](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue-jsx)**: Vue Jsx/Tsx support.
-* **[`vite-plugin-solid`](https://www.npmjs.com/package/vite-plugin-solid)**: Solid support for Farm.
-* **[`vite-plugin-mock`](https://www.npmjs.com/package/vite-plugin-solid)**: Mock data in both dev and prod.
-* ...
+- **[`@vitejs/plugin-vue`](https://github.com/vitejs/vite-plugin-vue/blob/main/packages/plugin-vue/README.md)**: Vue support.
+- **[`@vitejs/plugin-vue-jsx`](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue-jsx)**: Vue Jsx/Tsx support.
+- **[`vite-plugin-solid`](https://www.npmjs.com/package/vite-plugin-solid)**: Solid support for Farm.
+- **[`vite-plugin-mock`](https://www.npmjs.com/package/vite-plugin-solid)**: Mock data in both dev and prod.
+- ...
 
 ## unplugin
+
 :::note
-Currently you can use `unplugin/vite` or `unplugin/rollup` in Farm. `unplugin/farm` will be available when [this PR](https://github.com/unjs/unplugin/pull/341) are merged into unplugin
+Currently you can use `unplugin/farm`, `unplugin/vite` and `unplugin/rollup` in Farm. If you are using `unplugin/vite` or `unplugin/rollup`, some attributes may not have been fully adapted, or the Farm team believes that the api does not have the adaptation conditions, you can provide [issues](https://github.com/farm-fe/farm/issues/new/choose).
 :::
 
 ```ts
-import Icons from 'unplugin-icons/vite';
-import IconsResolver from 'unplugin-icons/resolver';
-import Components from 'unplugin-vue-components/rollup';
-import { NaiveUiResolver } from 'unplugin-vue-components/resolvers';
-import { FileSystemIconLoader } from 'unplugin-icons/loaders';
+import Icons from "unplugin-icons/vite";
+import IconsResolver from "unplugin-icons/resolver";
+import Components from "unplugin-vue-components/rollup";
+import { NaiveUiResolver } from "unplugin-vue-components/resolvers";
+import { FileSystemIconLoader } from "unplugin-icons/loaders";
 
 const config: UserConfig = {
   vitePlugins: [
     Icons({
-      compiler: 'vue3',
+      compiler: "vue3",
       customCollections: {
-        [collectionName]: FileSystemIconLoader(localIconPath, svg =>
+        [collectionName]: FileSystemIconLoader(localIconPath, (svg) =>
           svg.replace(/^<svg\s/, '<svg width="1em" height="1em" ')
-        )
+        ),
       },
       scale: 1,
-      defaultClass: 'inline-block'
+      defaultClass: "inline-block",
     }),
     Components({
-      dts: 'src/typings/components.d.ts',
-      types: [{ from: 'vue-router', names: ['RouterLink', 'RouterView'] }],
+      dts: "src/typings/components.d.ts",
+      types: [{ from: "vue-router", names: ["RouterLink", "RouterView"] }],
       resolvers: [
         NaiveUiResolver(),
-        IconsResolver({ customCollections: [collectionName], componentPrefix: VITE_ICON_PREFIX })
-      ]
-    })
-  ]
-}
+        IconsResolver({
+          customCollections: [collectionName],
+          componentPrefix: VITE_ICON_PREFIX,
+        }),
+      ],
+    }),
+  ],
+};
 ```
 
 All unplugin are supported in Farm:
+
 - [unplugin-auto-import](https://github.com/antfu/unplugin-auto-import)
 - [unplugin-vue2-script-setup](https://github.com/antfu/unplugin-vue2-script-setup)
 - [unplugin-icons](https://github.com/antfu/unplugin-icons)

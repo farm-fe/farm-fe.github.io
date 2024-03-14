@@ -214,7 +214,7 @@ export default defineConfig({
 });
 ```
 :::note
-当前可用 `unplugin/vite` 或者 `unplugin/rollup`. `unplugin/farm` 在 [这个 PR](https://github.com/unjs/unplugin/pull/341) 合进 unplugin 后可用
+目前，您可以在 Farm 中使用`unplugin/farm`、`unplugin/vite`和`unplugin/rollup`。如果您使用的是`unplugin/vite`或`unplugin/Rolup`，有些属性可能还没有完全适配，或者 Farm 团队认为该 `api` 不具备适配条件，可以提供[issues](https://github.com/farm-fe/farm/issues/new/choose) .
 :::
 
 ## Farm 运行时插件
