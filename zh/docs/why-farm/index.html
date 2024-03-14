@@ -9,7 +9,7 @@
 
 
 <link rel="search" type="application/opensearchdescription+xml" title="Farm" href="/zh/opensearch.xml"><link rel="stylesheet" href="/zh/assets/css/styles.4abb6b25.css">
-<script src="/zh/assets/js/runtime~main.f6c5fade.js" defer="defer"></script>
+<script src="/zh/assets/js/runtime~main.28813aed.js" defer="defer"></script>
 <script src="/zh/assets/js/main.3415d0d6.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -36,9 +36,9 @@
 <h2 class="anchor anchorWithStickyNavbar_PvKQ" id="farm-设计理念">Farm 设计理念<a href="#farm-设计理念" class="hash-link" aria-label="Farm 设计理念的直接链接" title="Farm 设计理念的直接链接">​</a></h2>
 <ul>
 <li><strong>性能优先</strong>：一切都会用 Rust 编写，只有少数不是性能瓶颈的部分会用 JS 编写</li>
-<li><strong>一致性有限</strong>：默认情况下确保开发和生产完全相同，您在开发中看到的将与您在生产中得到的相同。</li>
-<li><strong>局部打包</strong>：Farm 的打包目标不是将所有东西打包在一起，而是限制资源的请求数量。 Farm会根据依赖关系和资源大小将您的项目捆绑成20-30个小资源，在不损失缓存粒度的情况下获得最佳的资源加载性能。</li>
-<li><strong>所有资源视为一等公民</strong>：Farm 不再需要将所有内容转换为 Javascript，它将任何内容视为一等公民，如 <code>html</code>、<code>js/jsx/ts/tsx</code>、<code>css/scss</code>、<code>png/svg/...</code>都是Farm支持的基础模块，更多类型的模块可以通过插件支持。</li>
+<li><strong>一致性</strong>：默认情况下确保开发和生产完全相同，您在开发中看到的将与您在生产中得到的相同。</li>
+<li><strong>局部打包</strong>：Farm 的打包目标不是将所有东西打包在一起，而是限制资源的请求数量。 Farm 会根据依赖关系和资源大小将您的项目捆绑成 20-30 个小资源，在不损失缓存粒度的情况下获得最佳的资源加载性能。</li>
+<li><strong>所有资源视为一等公民</strong>：Farm 不再需要将所有内容转换为 Javascript，它将任何内容视为一等公民，如 <code>html</code>、<code>js/jsx/ts/tsx</code>、<code>css/scss</code>、<code>png/svg/...</code>都是 Farm 支持的基础模块，更多类型的模块可以通过插件支持。</li>
 <li><strong>兼容性</strong>：Farm 将适用于旧版 (ES5) 和现代浏览器。</li>
 <li><strong>Rollup 风格的插件系统</strong>：轻松创建自己的插件，并轻松从 <code>rollup/vite/webpack</code> 迁移您的插件/项目。兼容 <code>Vite/Rollup/Unplugin</code> 插件</li>
 </ul>
