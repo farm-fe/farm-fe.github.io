@@ -673,7 +673,7 @@ How to generate cache key when trying to reuse cache. if `timestamp` is true and
 * `hash`: whether check content hash after load and transform
 
 #### `persistentCache.envs`
-* **default**: [Farm Env](https://farm-fe.github.io/docs/config/farm-config#environment-variable)
+* **default**: [Farm Env](/docs/config/farm-config#environment-variable)
 
 Envs used to invalidate cache, if the configured env changed, then all cache will be invalidated.
 

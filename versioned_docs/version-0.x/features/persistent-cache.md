@@ -62,7 +62,7 @@ Configuring `persistentCache` to `false` to disable cache.
 Cache will be validated when trying to reuse it by following conditions, if any of following conditions changed, all cache will be invalidated:
 
 
-- **Env Object**: configured by `persistentCache.envs`, default to `Farm Env Mode`(`process.env.NODE_ENV`, `process.env.DEV`, `process.env.PROD`), see `Farm Env`(https://farm-fe.github.io/docs/config/farm-config#environment-variable).
+- **Env Object**: configured by `persistentCache.envs`, default to `Farm Env Mode`(`process.env.NODE_ENV`, `process.env.DEV`, `process.env.PROD`), see `Farm Env`(/docs/config/farm-config#environment-variable).
 
 - **lockfile**: If your lockfile changed, means there are dependencies changes, the cache will be invalidated.
 - 

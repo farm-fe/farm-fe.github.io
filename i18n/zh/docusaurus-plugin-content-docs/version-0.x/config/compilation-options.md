@@ -744,7 +744,7 @@ export default defineConfig({
 
 #### `persistentCache.envs`
 
-- **default**: [Farm Env](https://farm-fe.github.io/docs/config/farm-config#environment-variable)
+- **default**: [Farm Env](/docs/config/farm-config#environment-variable)
 
 可能影响构建过程的环境变量，如果任意一个环境变化了，缓存将会过期。
 
