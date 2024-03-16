@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://farm-fe.github.io/blog</id>
+    <id>https://farmfe.org/blog</id>
     <title>Farm Blog</title>
-    <updated>2024-03-14T11:01:15.000Z</updated>
+    <updated>2024-03-16T07:48:12.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://farm-fe.github.io/blog"/>
+    <link rel="alternate" href="https://farmfe.org/blog"/>
     <subtitle>Farm Blog</subtitle>
-    <icon>https://farm-fe.github.io/img/favicon.ico</icon>
+    <icon>https://farmfe.org/img/favicon.ico</icon>
     <entry>
         <title type="html"><![CDATA[Blob]]></title>
-        <id>https://farm-fe.github.io/blog/index</id>
-        <link href="https://farm-fe.github.io/blog/index"/>
-        <updated>2024-03-14T11:01:15.000Z</updated>
+        <id>https://farmfe.org/blog/index</id>
+        <link href="https://farmfe.org/blog/index"/>
+        <updated>2024-03-16T07:48:12.000Z</updated>
         <summary type="html"><![CDATA[2024]]></summary>
-        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_PvKQ" id="2024">2024<a href="https://farm-fe.github.io/blog/index#2024" class="hash-link" aria-label="Direct link to 2024" title="Direct link to 2024">​</a></h2>]]></content>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_PvKQ" id="2024">2024<a href="https://farmfe.org/blog/index#2024" class="hash-link" aria-label="Direct link to 2024" title="Direct link to 2024">​</a></h2>]]></content>
     </entry>
 </feed>
