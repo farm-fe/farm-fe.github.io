@@ -59,7 +59,7 @@ export default defineConfig({
 
 当以下条件尝试重用缓存时，缓存将被验证，如果以下任何条件发生变化，所有缓存将失效：
 
-- **Env Object**：由`persistentCache.envs`配置，默认为`Farm Env Mode`(`process.env.NODE_ENV`, `process.env.DEV`, `process.env.PROD`)，参见 `Farm Env`(https://farm-fe.github.io/docs/config/farm-config#environment-variable)。
+- **Env Object**：由`persistentCache.envs`配置，默认为`Farm Env Mode`(`process.env.NODE_ENV`, `process.env.DEV`, `process.env.PROD`)，参见 `Farm Env`(/docs/config/farm-config#environment-variable)。
 - **lockfile**：如果您的`npm-lock.json`或者`yarn.lock`或者`pnpm-lock.yaml`发生更改，则意味着依赖项发生更改，缓存将失效。
 - **构建依赖项**：通过`persistentCache.buildDependency`配置，如果任何一个 buildDependency 发生变化，所有缓存都将失效。
 - **缓存命名空间**：通过`persistentCache.namespace`配置，不同命名空间下的缓存不会被重用。 如果想让所有缓存失效，可以配置不同的命名空间。
