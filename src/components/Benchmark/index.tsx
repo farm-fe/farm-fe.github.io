@@ -10,109 +10,109 @@ const BENChMARK_DATA = {
   ColdStart: [
     {
       name: "Farm",
-      time: 0.41,
+      time: 0.429,
     },
     {
       name: "Rspack",
-      time: 0.614,
+      time: 0.606,
     },
     {
       name: "Vite",
-      time: 3.407,
+      time: 3.285,
     },
     {
       name: "Webpack",
-      time: 7.857,
+      time: 6.870,
     },
   ],
   HotStart: [
     {
       name: "Farm",
-      time: 0.285,
+      time: 0.275,
     },
     {
       name: "Rspack",
-      time: 0.544,
+      time: 0.585,
     },
     {
       name: "Vite",
-      time: 3.251,
+      time: 2.955,
     },
     {
       name: "Webpack",
-      time: 1.047,
+      time: 1.197,
     },
   ],
   HmrRoot: [
     {
       name: "Farm",
-      time: 0.02,
+      time: 0.019,
     },
     {
       name: "Rspack",
-      time: 0.089,
+      time: 0.082,
     },
     {
       name: "Vite",
-      time: 0.029,
+      time: 0.032,
     },
     {
       name: "Webpack",
-      time: 0.317,
+      time: 0.211,
     },
   ],
   HmrLeaf: [
     {
       name: "Farm",
-      time: 0.01,
+      time: 0.014,
     },
     {
       name: "Rspack",
-      time: 0.104,
+      time: 0.065,
     },
     {
       name: "Vite",
-      time: 0.022,
+      time: 0.018,
     },
     {
       name: "Webpack",
-      time: 0.255,
+      time: 0.175,
     },
   ],
   ColdBuild: [
     {
       name: "Farm",
-      time: 0.475,
+      time: 0.323,
     },
     {
       name: "Rspack",
-      time: 0.724,
+      time: 0.532,
     },
     {
       name: "Vite",
-      time: 2.02,
+      time: 1.660,
     },
     {
       name: "Webpack",
-      time: 11.978,
+      time: 8.814,
     },
   ],
   HotBuild: [
     {
       name: "Farm",
-      time: 0.176,
+      time: 0.140,
     },
     {
       name: "Rspack",
-      time: 0.743,
+      time: 0.515,
     },
     {
       name: "Vite",
-      time: 2.085,
+      time: 1.650,
     },
     {
       name: "Webpack",
-      time: 0.924,
+      time: 1.197,
     },
   ],
 };
