@@ -7,7 +7,7 @@
     "message": "编译能力",
     "description": "Farm 的各项编译能力文档"
   },
-  "sidebar.tutorialSidebar.category.Benchmark": {
+  "sidebar.tutorialSidebar.category.Benchmarks": {
     "message": "基准测试",
     "description": "Farm 的各项编译能力以及其他框架基准测试的对比"
   },
@@ -18,6 +18,18 @@
   "sidebar.tutorialSidebar.category.Tutorial": {
     "message": "教程",
     "description": "Farm 的教程文档"
+  },
+  "sidebar.tutorialSidebar.category.Advanced": {
+    "message": "高级用法",
+    "description": "Farm 的进阶用法介绍"
+  },
+  "sidebar.tutorialSidebar.category.Frameworks": {
+    "message": "框架模版",
+    "description": "Farm 的框架支持模版"
+  },
+  "sidebar.tutorialSidebar.category.Migration": {
+    "message": "迁移指南",
+    "description": "从其他构建工具迁移到Farm 的指南"
   },
   "sidebar.pluginSidebar.category.Writing Plugins": {
     "message": "编写插件",
