@@ -1,10 +1,10 @@
 # Benchmarks
 
-Using Turbopack's bench cases (1000 React components), see https://turbo.build/pack/docs/benchmarks.
+使用 Turbopack 的基准案例（1000 个 React 组件），请参阅 https://turbo.build/pack/docs/benchmarks.
 
-> Test Repo：https://github.com/farm-fe/performance-compare
+> 测试仓库：https://github.com/farm-fe/performance-compare
 >
-> Test Machine（Linux Mint 21.1 Cinnamon， 11th Gen Intel© Core™ i5-11400 @ 2.60GHz × 6， 15.5 GiB）
+> 测试机器：(Linux Mint 21.1 Cinnamon， 11th Gen Intel© Core™ i5-11400 @ 2.60GHz × 6， 15.5 GiB)
 
 ![xx](/img/benchmark.png)
 
