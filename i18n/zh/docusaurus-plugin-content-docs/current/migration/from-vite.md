@@ -6,7 +6,7 @@ Vite 插件如 `unocss` 与 `Vite` 深度集成，由于内部设计的差异，
 
 从 Vite 迁移非常简单，因为 Farm 与 Vite 兼容。您需要做的就是将 `vite.config.ts` 转换为 `farm.config.ts`
 
-- 参考[Configuring Farm](/zh/docs/config/configuring-farm) 将 f farm 配置选项映射到 vite 配置
+- 参考[Configuring Farm](/zh/docs/config/configuring-farm) 将 farm 配置选项映射到 vite 配置
 - 对于 `Vite Plugins`，将 `vite.config.ts` 中的`plugins`移动到 `farm.config.ts` 中的 `vitePlugins`
 
 注意：
