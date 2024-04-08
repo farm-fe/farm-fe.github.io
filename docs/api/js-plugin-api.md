@@ -42,7 +42,7 @@ export default function MyPlugin(options: PluginOptions): JsPlugin {
       filters: {
         resolvedPaths: ['\\.test$'] // filter files to improve performance
       },
-      executor({ resolvedPath }) {
+      async executor({ resolvedPath }) {
         if (test && resolvedPath.endsWith('.test')) {
           return {
             content: 'test file',
@@ -151,7 +151,7 @@ const myPlugin = () => {
       filters: {
         moduleTypes: ['js']
       },
-      executor(param) {
+      async executor(param) {
         if (farmConfig.xxx) {
           // ...
         }
@@ -227,7 +227,7 @@ const myPlugin = () => {
   return {
     name: 'my-plugin',
     buildStart: {
-      executor() {
+      async executor() {
         // set up my plugin before compilation.
         myPluginContext.setup();
       }
@@ -526,7 +526,7 @@ const myPlugin = () => {
   return {
     name: 'my-plugin',
     buildEnd: {
-      executor() {
+      async executor() {
         // update my plugin status
         myPluginContext.updateStatus('module-graph-built');
       }
@@ -554,7 +554,7 @@ const myPlugin = () => {
   return {
     name: 'my-plugin',
     renderStart: {
-      executor() {
+      async executor() {
         // update my plugin status
         myPluginContext.updateStatus('render-start');
       }
@@ -736,7 +736,7 @@ Transform the final generated html(after all `<script>`, `<link>` tag are inject
 const myPlugin = () => ({
   name: 'my-plugin',
   transformHtml: {
-    executor({ htmlResource }) {
+    async executor({ htmlResource }) {
       const htmlCode = Buffer.from(htmlResource).toString();
   
       const newHtmlCode = htmlCode.replace('my-app-data', data);
@@ -786,7 +786,7 @@ const myPlugin = () => {
   return {
     name: 'my-plugin',
     pluginCacheLoaded: {
-      executor(bytes) {
+      async executor(bytes) {
         const str = Buffer.from(bytes).toString();
         cachedData = JSON.parse(str);
       }
@@ -818,7 +818,7 @@ const myPlugin = () => {
   return {
     name: 'my-plugin',
     writePluginCache: {
-      executor() {
+      async executor() {
         const bytes = [...Buffer.from(JSON.stringify(data))];
         return bytes;
       }
@@ -847,7 +847,7 @@ const myPlugin = () => {
   return {
     name: 'my-plugin',
     finish: {
-      executor() {
+      async executor() {
         // update my plugin status
         myPluginContext.updateStatus('finish');
       }
