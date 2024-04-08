@@ -41,7 +41,7 @@ export default function MyPlugin(options: PluginOptions): JsPlugin {
       filters: {
         resolvedPaths: ['\\.test$'] // 过滤文件以提高性能
       },
-      executor({ resolvedPath }) {
+      async executor({ resolvedPath }) {
         if (test && resolvedPath.endsWith('.test')) {
           return {
             content: 'test file',
@@ -150,7 +150,7 @@ const myPlugin = () => {
       filters: {
         moduleTypes: ['js']
       },
-      executor(param) {
+      async executor(param) {
         if (farmConfig.xxx) {
           // ...
         }
@@ -226,7 +226,7 @@ const myPlugin = () => {
   return {
     name: 'my-plugin',
     buildStart: {
-      executor() {
+      async executor() {
         // 在编译之前初始化插件上下文
         myPluginContext.setup();
       }
@@ -523,7 +523,7 @@ const myPlugin = () => {
   return {
     name: 'my-plugin',
     buildEnd: {
-      executor() {
+      async executor() {
         // 更新插件状态
         myPluginContext.updateStatus('module-graph-built');
       }
@@ -551,7 +551,7 @@ const myPlugin = () => {
   return {
     name: 'my-plugin',
     renderStart: {
-      executor() {
+      async executor() {
         // 更新插件状态
         myPluginContext.updateStatus('render-start');
       }
@@ -732,7 +732,7 @@ type TransformHtmlHook = {
 const myPlugin = () => ({
   name: 'my-plugin',
   transformHtml: {
-    executor({ htmlResource }) {
+    async executor({ htmlResource }) {
       const htmlCode = Buffer.from(htmlResource).toString();
   
       const newHtmlCode = htmlCode.replace('my-app-data', data);
@@ -782,7 +782,7 @@ const myPlugin = () => {
   return {
     name: 'my-plugin',
     pluginCacheLoaded: {
-      executor(bytes) {
+      async executor(bytes) {
         const str = Buffer.from(bytes).toString();
         cachedData = JSON.parse(str);
       }
@@ -814,7 +814,7 @@ const myPlugin = () => {
   return {
     name: 'my-plugin',
     writePluginCache: {
-      executor() {
+      async executor() {
         const bytes = [...Buffer.from(JSON.stringify(data))];
         return bytes;
       }
@@ -843,7 +843,7 @@ const myPlugin = () => {
   return {
     name: 'my-plugin',
     finish: {
-      executor() {
+      async executor() {
         // 更新插件的状态
         myPluginContext.updateStatus('finish');
       }
