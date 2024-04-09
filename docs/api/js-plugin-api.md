@@ -726,9 +726,14 @@ Note:
 - **type:**
 ```ts
 type TransformHtmlHook = {
+  order?: 0 | 1 | 2;
   executor: Callback<{ htmlResource: Resource }, Resource>;
 };
 ```
+
+The `order` is used to configure when to execute `transformHtml` hook:
+* `0`: means `pre`, executed before parse and generate resources. You can transform original html in this stage.
+* `1` and `2`: means `normal` and `post`, executed after parse and generate resources. In this stage, all `<script>`, `<link>` tag are injected.
 
 Transform the final generated html(after all `<script>`, `<link>` tag are injected).
 
@@ -736,6 +741,7 @@ Transform the final generated html(after all `<script>`, `<link>` tag are inject
 const myPlugin = () => ({
   name: 'my-plugin',
   transformHtml: {
+    order: 2,
     async executor({ htmlResource }) {
       const htmlCode = Buffer.from(htmlResource).toString();
   
