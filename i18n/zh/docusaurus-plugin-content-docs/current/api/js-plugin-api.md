@@ -722,9 +722,14 @@ export interface Resource {
 - **type:**
 ```ts
 type TransformHtmlHook = {
+  order?: 0 | 1 | 2；
   executor: Callback<{ htmlResource: Resource }, Resource>;
 };
 ```
+
+`order` 控制 `transformHtml` 执行时机:
+* `0`: 代表 `pre`, 在 parse 之前执行，在这里可以转换原始的 html。
+* `1` and `2`: 代表 `normal` and `post`, 在 parse 和 generate resources 之后执行. 在这个阶段, 所有的 `<script>`, `<link>` 标签都已经被注入。
 
 转换最终生成的html（注入所有`<script>`、`<link>`标签后）。
 
@@ -732,6 +737,7 @@ type TransformHtmlHook = {
 const myPlugin = () => ({
   name: 'my-plugin',
   transformHtml: {
+    order: 2,
     async executor({ htmlResource }) {
       const htmlCode = Buffer.from(htmlResource).toString();
   
