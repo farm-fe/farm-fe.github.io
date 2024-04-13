@@ -1,14 +1,16 @@
 # Community Plugins
 
+## Farm Plugins
+
+- [farm-pulgin-strip](https://github.com/CCherry07/farm-pulgin-strip): A Farm Rust plugin to remove `debugger` statements and functions like `assert.equal` and `console.log` from your code.
+
+## Vite/Rollup Plugins
+
 Farm support `Vite/Rollup` plugins out of box. So `Vite/Rollup` or `unplugin` plugins can be used in Farm directly.
 
 :::tip
 Farm recommends to write Farm Plugins instead of `Vite/Rollup` plugins for Farm. Because Farm Plugins have the best compatibility and performance. Still, PR welcome if you developed a Farm compatible plugin and you want to list it here.
 :::
-
-Current tested compatible `Vite/Rollup/unplugin` plugins as below:
-
-## Vite/Rollup Plugins
 
 using `vitePlugins` in `farm.config.ts` to configure `Vite/Rollup` plugins.
 
