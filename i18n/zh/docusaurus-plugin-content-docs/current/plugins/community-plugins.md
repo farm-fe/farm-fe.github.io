@@ -1,13 +1,17 @@
 # 社区插件
-Farm 支持开箱即用的“Vite/Rollup”插件。 所以 `Vite/Rollup` 或者 `unplugin` 插件可以直接在 Farm 中使用。
+
+## Farm Plugins
+
+- [farm-pulgin-strip](https://github.com/CCherry07/farm-pulgin-strip): 一个 Farm Rust 插件，用于从代码中删除 debugger 语句和函数，例如 assert.equal 和 console.log 。
+
+## Vite/Rollup Plugins
+
+Farm支持 `Vite/Rollup` 插件开箱即用。所以`Vite/Rollup`或`unplugin`插件可以直接在Farm中使用。
 
 :::tip
 如果您开发了兼容 Farm 的插件并且想在此处列出，欢迎 PR。
 :::
 
-目前测试兼容的`Vite/Rollup/unplugin`插件如下：
-
-## Vite/Rollup Plugins
 使用 `farm.config.ts` 中的 `vitePlugins` 来配置 `Vite/Rollup` 插件。
 
 ```ts
@@ -23,13 +27,14 @@ const config: UserConfig = {
 }
 ```
 
-* **[`@vitejs/plugin-vue`](https://github.com/vitejs/vite-plugin-vue/blob/main/packages/plugin-vue/README.md)**: Vue 支持.
-* **[`@vitejs/plugin-vue-jsx`](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue-jsx)**: Vue Jsx/Tsx 支持.
-* **[`vite-plugin-solid`](https://www.npmjs.com/package/vite-plugin-solid)**: Solid 支持
-* **[`vite-plugin-mock`](https://www.npmjs.com/package/vite-plugin-solid)**: Mock 数据.
-* ...
+- **[`@vitejs/plugin-vue`](https://github.com/vitejs/vite-plugin-vue/blob/main/packages/plugin-vue/README.md)**: Vue 支持.
+- **[`@vitejs/plugin-vue-jsx`](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue-jsx)**: Vue Jsx/Tsx 支持.
+- **[`vite-plugin-solid`](https://www.npmjs.com/package/vite-plugin-solid)**: Solid 支持
+- **[`vite-plugin-mock`](https://www.npmjs.com/package/vite-plugin-solid)**: Mock 数据.
+- ...
 
 ## unplugin
+
 :::note
 目前，您可以在 Farm 中使用“unplugin/vite”进行“unplugin/rollup”。 当[此 PR](https://github.com/unjs/unplugin/pull/341) 合并到 unplugin 时，`unplugin/farm` 将可用。
 :::
@@ -66,6 +71,7 @@ const config: UserConfig = {
 ```
 
 Farm 支持所有 unplugin 插件:
+
 - [unplugin-auto-import](https://github.com/antfu/unplugin-auto-import)
 - [unplugin-vue2-script-setup](https://github.com/antfu/unplugin-vue2-script-setup)
 - [unplugin-icons](https://github.com/antfu/unplugin-icons)
