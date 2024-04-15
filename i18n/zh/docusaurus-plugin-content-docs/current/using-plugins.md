@@ -121,7 +121,7 @@ export default defineConfig({
         // 为了提高性能，如果模块与过滤器不匹配，将被跳过。
         filters: {
           // 仅对 .png 文件执行。
-          resolvedPaths: ['\\.txt$']
+          resolvedPaths: ['\\.png$']
         },
         // 该钩子的执行回调
         executor: (params, context) => {
