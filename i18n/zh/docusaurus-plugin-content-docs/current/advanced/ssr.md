@@ -52,6 +52,7 @@ Farm为流行的框架提供了 SSR [示例](https://github.com/farm-fe/farm/tre
 对于上述示例， `farm.config.ts` 用于**构建浏览器端项目**并设置开发服务器进行服务器渲染。 `farm.config.ts` 的通常这样写：
 
 ```ts title="farm.config.ts"
+import path from 'path';
 import { defineConfig } from '@farmfe/core';
 
 export default defineConfig({
@@ -76,7 +77,7 @@ export default defineConfig({
           // 处理index.html或单页面应用路由设置
           if (ctx.path === '/' || ctx.status === 404) {
             // 加载服务端入口，并通过ctx.path渲染
-            const render = await import('./dist/index.js').then(
+            const render = await import(path.join(process.cwd(), 'dist', 'index.js')).then(
               (m) => m.default
             );
             const renderedHtml = render(ctx.path);
