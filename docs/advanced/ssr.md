@@ -51,6 +51,7 @@ We have to build the SSR application **twice**, one for `client`(browser) and on
 For above example, `farm.config.ts` is used to **build the project for browser** and setting up DevServer for server rendering. The content of `farm.config.ts` normally would be:
 
 ```ts title="farm.config.ts"
+import path from 'path';
 import { defineConfig } from '@farmfe/core';
 
 export default defineConfig({
@@ -75,7 +76,7 @@ export default defineConfig({
           // handle index.html or SPA fallback
           if (ctx.path === '/' || ctx.status === 404) {
             // loading the server entry, and render it by ctx.path
-            const render = await import('./dist/index.js').then(
+            const render = await import(path.join(process.cwd(), 'dist', 'index.js')).then(
               (m) => m.default
             );
             const renderedHtml = render(ctx.path);
