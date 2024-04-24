@@ -37,7 +37,7 @@ function HomepageHeader() {
           </div>
           <div>
             <span className={clsx(styles.banner)}>
-              <Translate> Build Tool .</Translate>
+              <Translate> Build Tool</Translate>
             </span>
           </div>
           <div>
