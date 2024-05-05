@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://farmfe.org/zh/blog</id>
     <title>Farm Blog</title>
-    <updated>2024-04-24T09:14:55.000Z</updated>
+    <updated>2024-05-05T10:17:03.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://farmfe.org/zh/blog"/>
     <subtitle>Farm Blog</subtitle>
@@ -11,7 +11,7 @@
         <title type="html"><![CDATA[Blob]]></title>
         <id>https://farmfe.org/zh/blog/index</id>
         <link href="https://farmfe.org/zh/blog/index"/>
-        <updated>2024-04-24T09:14:55.000Z</updated>
+        <updated>2024-05-05T10:17:03.000Z</updated>
         <summary type="html"><![CDATA[2024]]></summary>
         <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_PvKQ" id="2024">2024<a href="https://farmfe.org/zh/blog/index#2024" class="hash-link" aria-label="2024的直接链接" title="2024的直接链接">​</a></h2>]]></content>
     </entry>
