@@ -22,7 +22,7 @@ const sidebars = {
       type: "category",
       label: "Getting Started",
       collapsed: false,
-      items: ["why-farm", "quick-start", "using-plugins"],
+      items: ["why-farm", "quick-start", "using-plugins", 'contribution'],
     },
     {
       type: "category",
