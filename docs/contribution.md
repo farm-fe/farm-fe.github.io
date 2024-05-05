@@ -28,7 +28,7 @@ Please feel free to open an issue using the [feature request template](https://g
   
 - Run `cargo test` and make sure that it passes.
   
-- If you've changed some packages And prepare for an updated version, you should output `npx changset` in the root directory.
+- If you've changed some packages And prepare for an updated version, you should output `npx changeset` in the root directory. we should try our best to keep releasing the `patch version`. If there are no major changes, please choose to update the `patch version`.
 
 - When you are done with your work, verify that it works locally with `pnpm run ready`
 
