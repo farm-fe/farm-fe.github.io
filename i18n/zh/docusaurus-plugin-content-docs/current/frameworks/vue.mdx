@@ -30,8 +30,8 @@ import TabItem from "@theme/TabItem";
 在 `Select Framework` 中选择 `Vue` 模版
 
 :::warning Vue
-目前 `Farm` 只支持  `Vue3`,
-对于 `Vue` 插件 `Farm` 推荐使用 `Vite` 插件, 目前也正在进行原生插件 [fervid](https://github.com/phoenix-ru/fervid)的开发。
+目前 `Farm` 支持  `vue3`, `vue2`, `vue2.7`
+对于 `Vue` 插件 `Farm` 推荐使用 `Vite` 插件, 支持的三种 vue 版本需要安装对应的 `vite` 插件, 目前也正在进行原生插件 [fervid](https://github.com/phoenix-ru/fervid)的开发。
 :::
 
 ```javascript title="farm.config.ts"
@@ -39,7 +39,7 @@ import { defineConfig } from '@farmfe/core';
 import Vue from '@vite/plugin-vue'
 
 export default defineConfig({
-  plugins: [Vue()],
+  plugins: [Vue()], // vue3 plugin
 });
 ```
 
