@@ -151,7 +151,7 @@ Targeting `browser`:
 * **`browser-es2017`**: Compiling the project to browsers that support `async await` natively.
 * **`browser-es2015`**: Compiling the project to browsers that support `es6 features` natively.
 * **`browser-legacy`**: Compile the project to `ES5`, for example, `IE9`. Note that this may introduce lots of polyfills which makes production size larger. Make sure you really need to support legacy browsers like `IE9`.
-* **`browser-esnext`**: Compile the project to latest modern browsers, no polyfill will be injected. 
+* **`browser-esnext`**: Compile the project to latest modern browsers, no polyfill will be injected.
 * **`browser`**: Alias of `browser-es2017`
 
 Targeting `node`:
@@ -272,7 +272,7 @@ It needs to be configured in a regular way, for example:
 ```ts
 export default defineConfig({
   compilation: {
-    external: ["^stream$"],
+    external: ["^stream$", { jquery: "Jquery" }],
   },
 });
 ```

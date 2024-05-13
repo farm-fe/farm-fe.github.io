@@ -272,7 +272,7 @@ export default defineConfig({
 ```ts
 export default defineConfig({
   compilation: {
-    external: ["^stream$"],
+    external: ["^stream$", { jquery: "Jquery" }],
   },
 });
 ```
