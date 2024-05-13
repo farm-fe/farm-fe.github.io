@@ -264,6 +264,7 @@ export default defineConfig({
 ### external
 
 - **默认值**: `[]`
+- **类型**: `(string | Record<string, string>)[]`
 
 配置被 external 的导入，被 external 的导入不会出现在编译产物中。但是对应 import 语句不会删除，需要自定义 external 后如何处理，否则运行时会报错，对于 targetEnv 是 node 下的 external 模块，会自动尝试 require 该模块。
 
@@ -688,8 +689,46 @@ Default to `0.8`, immutable module will have 80% request numbers. For example, i
 ### minify
 
 - **默认值**: 在开发模式是 `false`，构建模式是 `true`
+- **类型**: `bool | JsMinifyOptions`
 
 是否启用压缩，开启后将会对产物进行压缩和混淆。参考 [压缩](/docs/advanced/tree-shake)。
+
+#### `minify.compress`
+
+- **默认值**: `{}`
+- **类型**: [`TerserCompressOptions`](https://swc.rs/docs/configuration/minification#jscminifycompress)
+
+压缩参数
+
+#### `minify.mangle`
+
+- **默认值**: `{}`
+- **类型**: [`TerserMangleOptions`](https://swc.rs/docs/configuration/minification#jscminifymangle)
+
+压缩变量参数
+
+#### `minify.include`
+
+- **默认值**: `[]`
+- **类型**: `string[]`
+
+包含需要压缩的模块，默认全部，仅在 `minify.mode` 为 `minify-module` 生效
+
+#### `minify.exclude`
+
+- **默认值**: `["*.min.(js|css|html)"]`
+- **类型**: `string[]`
+
+排除不需要压缩模块，仅在 `minify.mode` 为 `minify-module` 生效
+
+#### `minify.mode`
+
+- **默认值**: `'minify-module'`
+- **类型**: `'minify-module' | 'minify-resource-pot'`
+
+`minify-module` 模块级别 `minify`，可以通过参数控制需要 minify 哪些模块，压缩的更为精细，效率更好
+
+`minify-resource-pot` `ResourcePot` 级别 `minify`，无法通过参数控制具体的模块
 
 ### presetEnv
 

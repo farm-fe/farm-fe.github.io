@@ -264,6 +264,7 @@ export default defineConfig({
 ### external
 
 - **default**: `[]`
+- **type**: `(string | Record<string, string>)[]`
 
 Configure the imports that are external, and the imports that are external will not appear in the compiled product. However, the corresponding import statement will not be deleted. You need to customize how to deal with external, otherwise an error will be reported at runtime. If targetEnv is an external module under node, it will automatically try to require the module.
 
@@ -697,6 +698,43 @@ type MinifyOptions = boolean | {
 };
 ```
 The `compress` and `mangle` options is the same as [swc's minify config](https://swc.rs/docs/configuration/minification).
+
+#### `minify.compress`
+
+- **default**: `{}`
+- **type**: [`TerserCompressOptions`](https://swc.rs/docs/configuration/minification#jscminifycompress)
+
+compress option
+
+#### `minify.mangle`
+
+- **default**: `{}`
+- **type**: [`TerserMangleOptions`](https://swc.rs/docs/configuration/minification#jscminifymangle)
+
+compress variable parameters
+
+#### `minify.include`
+
+- **default**: `[]`
+- **type**: `string[]`
+
+contains modules that need to be compressed, defaults to all, only takes effect when `minify.mode` is `minify-module`.
+
+#### `minify.exclude`
+
+- **default**: `["*.min.js"]`
+- **type**: `string[]`
+
+exclude unnecessary compression modules, only takes effect when `minify.mode` is `minify-module`.
+
+#### `minify.mode`
+
+- **default**: `'minify-module'`
+- **type**: `'minify-module' | 'minify-resource-pot'`
+
+`minify-module` module level `minify`, you can control which modules need to be minified through parameters, the compression is more refined and the efficiency is better
+
+`minify-resource-pot` `ResourcePot` level `minify`, specific modules cannot be controlled through parameters
 
 ### presetEnv
 
