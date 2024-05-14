@@ -4,7 +4,7 @@
         <title>Farm Blog</title>
         <link>https://farmfe.org/zh/blog</link>
         <description>Farm Blog</description>
-        <lastBuildDate>Tue, 07 May 2024 04:05:21 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 14 May 2024 08:43:35 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
@@ -12,7 +12,7 @@
             <title><![CDATA[Blob]]></title>
             <link>https://farmfe.org/zh/blog/index</link>
             <guid>https://farmfe.org/zh/blog/index</guid>
-            <pubDate>Tue, 07 May 2024 04:05:21 GMT</pubDate>
+            <pubDate>Tue, 14 May 2024 08:43:35 GMT</pubDate>
             <description><![CDATA[2024]]></description>
             <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_PvKQ" id="2024">2024<a href="https://farmfe.org/zh/blog/index#2024" class="hash-link" aria-label="2024的直接链接" title="2024的直接链接">​</a></h2>]]></content:encoded>
         </item>
