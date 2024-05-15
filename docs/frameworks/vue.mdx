@@ -35,10 +35,10 @@ Currently, `Farm` uses `Vite` plugins for both `vue2` and `vue3` and `vue2.7` co
 
 ```javascript title="farm.config.ts"
 import { defineConfig } from '@farmfe/core';
-import Vue from '@vite/plugin-vue'
+import Vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
-  plugins: [Vue()],
+  vitePlugins: [Vue()],
 });
 ```
 
@@ -46,10 +46,10 @@ export default defineConfig({
 
 ```javascript title="farm.config.ts"
 import { defineConfig } from '@farmfe/core';
-import VueJsx from '@vite/plugin-vue-jsx'
+import VueJsx from '@vitejs/plugin-vue-jsx'
 
 export default defineConfig({
-  plugins: [VueJsx()],
+  vitePlugins: [VueJsx()],
 });
 ```
 
