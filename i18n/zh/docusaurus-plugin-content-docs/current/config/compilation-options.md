@@ -313,6 +313,7 @@ interface FarmRuntimeOptions {
     path: string;
     plugins?: string[];
     namespace?: string;
+    isolate?: boolean;
   };
 }
 ```
@@ -338,6 +339,14 @@ interface FarmRuntimeOptions {
 - **默认值**: 项目 package.json 的 name 字段
 
 配置 Farm Runtime 的命名空间，保证在同一个 window 或者 global 下不同产物的执行能够相互隔离。默认使用项目 package.json 的 name 字段作为 namespace。
+
+
+#### `runtime.isolate`
+
+- **默认值**: `false`
+
+默认情况下，html 中的运行时文件是内联写入的。如果您想以单独文件的形式弹出，从而减小 html 文件的大小，那么可以将此属性设为 true。
+如果设置为 true，农场入口脚本将以单独文件的形式发布。
 
 ### assets
 

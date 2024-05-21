@@ -18,6 +18,11 @@ Refer to [Using Plugins](/docs/using-plugins) for how to use plugins in Farm.
 * **[`@farmfe/js-plugin-dts`](./js-dts)**：Support compiling `*.d.ts` files.
 * **[`@farmfe/js-plugin-sass`](./js-sass)**：Support compiling `sass/scss` files.
 
-:::tip
+
+## Community Plugins
+
 If official plugins doesn't meet your needs, you can try [Community Plugins](../community-plugins)
-:::
+
+And of course check out [awesome-farm](https://github.com/farm-fe/awesome-farm) - you can also submit a PR to list your plugins there.
+
+
