@@ -308,6 +308,7 @@ interface FarmRuntimeOptions {
     path: string;
     plugins?: string[];
     namespace?: string;
+    isolate?: boolean;
   };
 }
 ```
@@ -333,6 +334,14 @@ Configure the Runtime plug-in, through the Runtime plug-in, you can intervene in
 - **default**: name field of project package.json
 
 Configure the namespace of Farm Runtime to ensure that the execution of different products under the same window or global can be isolated from each other. By default, the name field of the project package.json is used as the namespace.
+
+#### `runtime.isolate`
+
+- **default**: `false`
+
+By default, runtime files in html are written inline. If you want to reduce the size of the html file by popping it up as a separate file, then you can set this attribute to true.
+If set to true, the farm entry script will be emitted as a separate file.
+
 
 ### assets
 
