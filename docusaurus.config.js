@@ -149,7 +149,7 @@ const config = {
               },
               {
                 label: "Awesome Farm",
-                href: "https://github.com/farm-fe",
+                href: "https://github.com/farm-fe/awesome-farm",
               },
               {
                 label: "Discord",
