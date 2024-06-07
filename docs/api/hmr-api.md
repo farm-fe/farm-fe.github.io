@@ -45,7 +45,7 @@ if (import.meta.hot) {
 The same as Vite, Farm provides type definitions for `import.meta.hot` in `@farmfe/core/client.d.ts`. You can create an `env.d.ts` in the src directory so TypeScript picks up the type definitions:
 
 ```ts
-/// <reference types="@farmfe/client/client" />
+/// <reference types="@farmfe/core/client" />
 ```
 
 ## hot.accept()
