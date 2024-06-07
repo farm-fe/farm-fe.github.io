@@ -47,7 +47,7 @@ if (import.meta.hot) {
 和 Vite 一样，Farm 在 @farmfe/core/client.d.ts 中提供了 import.meta.hot 的类型定义。 您可以在 src 目录中创建一个 `env.d.ts` ，以便 TypeScript 获取类型定义：
 
 ```ts
-/// <reference types="@farmfe/client/client" />
+/// <reference types="@farmfe/core/client" />
 ```
 
 ## hot.accept()
