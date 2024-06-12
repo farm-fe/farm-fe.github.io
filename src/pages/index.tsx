@@ -155,7 +155,7 @@ export default function Home() {
 
 
         <div className="relative rounded-xl">
-          <NeonGradientCard className="w-full mt-40">
+          <NeonGradientCard className="w-full mt-32">
             <Benchmark />
           </NeonGradientCard>
           <BorderBeam size={350} duration={18} delay={9} />

@@ -13,6 +13,7 @@ import {
 interface NeonColorsProps {
   firstColor: string;
   secondColor: string;
+  thirdColor: string;
 }
 
 interface NeonGradientCardProps {
@@ -56,7 +57,7 @@ interface NeonGradientCardProps {
   borderRadius?: number;
 
   /**
-   * @default "{ firstColor: '#ff00aa', secondColor: '#00FFF1' }"
+   * @default "{ firstColor: '#ffaa40', secondColor: '#9c40ff' }"
    * @type string
    * @description
    * The colors of the neon gradient
@@ -74,6 +75,7 @@ const NeonGradientCard: React.FC<NeonGradientCardProps> = ({
   neonColors = {
     firstColor: "#ffaa40",
     secondColor: "#9c40ff",
+    thirdColor: "#00FFF1",
   },
   ...props
 }) => {
@@ -112,13 +114,14 @@ const NeonGradientCard: React.FC<NeonGradientCardProps> = ({
           "--border-radius": `${borderRadius}px`,
           "--neon-first-color": neonColors.firstColor,
           "--neon-second-color": neonColors.secondColor,
+          "--neon-third-color": neonColors.thirdColor,
           "--card-width": `${dimensions.width}px`,
           "--card-height": `${dimensions.height}px`,
           "--card-content-radius": `${borderRadius - borderSize}px`,
-          "--pseudo-element-background-image": `linear-gradient(0deg, ${neonColors.firstColor}, ${neonColors.secondColor})`,
+          "--pseudo-element-background-image": `linear-gradient(0deg, ${neonColors.firstColor}, ${neonColors.secondColor}, ${neonColors.thirdColor})`,
           "--pseudo-element-width": `${dimensions.width + borderSize * 2}px`,
           // "--pseudo-element-height": `${dimensions.height + borderSize * 2}px`,
-          "--pseudo-element-height": `22rem`,
+          "--pseudo-element-height": `26rem`,
           "--after-blur": `${dimensions.width / 3}px`,
         } as CSSProperties
       }
@@ -137,8 +140,9 @@ const NeonGradientCard: React.FC<NeonGradientCardProps> = ({
           "before:animate-backgroundPositionSpin",
           "after:absolute after:-left-[var(--border-size)] after:-top-[var(--border-size)] after:-z-10 after:block",
           "after:h-[var(--pseudo-element-height)] after:w-[var(--pseudo-element-width)] after:rounded-[var(--border-radius)] after:blur-[var(--after-blur)] after:content-['']",
-          "after:bg-[linear-gradient(0deg,var(--neon-first-color),var(--neon-second-color))] after:bg-[length:100%_200%] after:opacity-80",
+          "after:bg-[linear-gradient(0deg,var(--neon-first-color),var(--neon-second-color),var(--neon-third-color))] after:bg-[length:100%_200%] after:opacity-80",
           "after:animate-backgroundPositionSpin",
+          "after:animation-duration: 10s",
           // "dark:bg-transparent dark:before:bg-transparent dark:after:bg-transparent",
           "dark:bg-zinc-950",
           "navbar--fixed-top",

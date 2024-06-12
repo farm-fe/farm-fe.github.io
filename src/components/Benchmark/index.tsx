@@ -116,6 +116,24 @@ const BENChMARK_DATA = {
       time: 1.197,
     },
   ],
+  BundleSize: [
+    {
+      name: "Farm",
+      time: 0.14,
+    },
+    {
+      name: "Rspack",
+      time: 0.515,
+    },
+    {
+      name: "Vite",
+      time: 1.65,
+    },
+    {
+      name: "Webpack",
+      time: 1.197,
+    },
+  ],
 };
 
 export default function Benchmark() {
@@ -126,6 +144,7 @@ export default function Benchmark() {
     { name: <Translate>HmrLeaf</Translate>, title: "HmrLeaf" },
     { name: <Translate>ColdBuild</Translate>, title: "ColdBuild" },
     { name: <Translate>HotBuild</Translate>, title: "HotBuild" },
+    { name: <Translate>BundleSize</Translate>, title: "BundleSize" },
   ];
   const [activeScene, setActiveScene] = useState("ColdStart");
   const { ref, inView } = useInView();
@@ -157,7 +176,7 @@ export default function Benchmark() {
   function PillTabs({ SCENE, children }) {
     return (
       <div>
-        <div className="inline-flex w-full mb-4 items-center justify-center rounded-lg text-sm  lg:text-base">
+        <div className="inline-flex w-full mb-4 items-center gap-4 justify-center rounded-lg text-sm  lg:text-base">
           {SCENE.map((item, index) => {
             return <Pill section={item} key={index}></Pill>;
           })}
@@ -168,11 +187,11 @@ export default function Benchmark() {
   }
   return (
     <>
-      <div ref={ref} className="flex mx-10">
+      <div ref={ref} className="flex mx-12">
         {inView && (
           <>
             <div
-              className={`${styles.tabs} flex flex-col items-center my-4 z-1`}
+              className={`${styles.tabs} flex flex-col items-center mt-4 z-1`}
             >
               <div className="block text-4xl font-semibold h-auto whitespace-pre-wrap bg-gradient-to-br from-[#ffaa40] from-35% to-[#9c40ff] bg-clip-text tracking-tighter text-transparent dark:drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)]">
                 Performance Comparison
