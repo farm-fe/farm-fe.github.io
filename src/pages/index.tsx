@@ -11,7 +11,8 @@ import { TeamMembers } from "../components/TeamMembers";
 import Translate, { translate } from "@docusaurus/Translate";
 import { useThemeConfig } from "@docusaurus/theme-common";
 import { members } from "./data";
-
+import AnimatedGradientStarWithGithub from "../components/MagicUi/animated-shiny-text";
+import { cn } from "../lib/utils";
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
   return (
@@ -97,10 +98,11 @@ export default function Home() {
       title={`${siteConfig.title} Documentation`}
       description="Description will go into a meta tag in <head />"
     >
-      <StarrySky />
+      <AnimatedGradientStarWithGithub />
+      {/* <StarrySky /> */}
       <main className="mb-20 mt-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8max-w-6xl">
-        <HomepageHeader />
-        <HomepageFeatures />
+        {/* <HomepageHeader /> */}
+        {/* <HomepageFeatures /> */}
       </main>
     </Layout>
   );

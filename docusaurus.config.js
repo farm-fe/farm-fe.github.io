@@ -188,59 +188,59 @@ const config = {
         //   hideable: true,
         // },
       },
-      footer: {
-        links: [
-          {
-            title: "Guide",
-            items: [
-              {
-                label: "Quick Start",
-                to: "/docs/quick-start",
-              },
-              {
-                label: "Introduction",
-                to: "/docs/why-farm",
-              },
-            ],
-          },
-          {
-            title: "Community",
-            items: [
-              {
-                label: "WeChat Group",
-                href: "https://github.com/farm-fe/farm#chat-with-us",
-              },
-              {
-                label: "Discord",
-                href: "https://discord.com/invite/mDErq9aFnF",
-              },
-            ],
-          },
-          {
-            title: "More",
-            items: [
-              {
-                label: "GitHub",
-                href: "https://github.com/farm-fe/farm",
-              },
-              {
-                label: "Twitter",
-                href: "https://twitter.com/@farm-fe",
-              },
-            ],
-          },
-        ],
-        logo: {
-          alt: "Farm Logo",
-          src: "/img/logo-farm.png",
-          href: "https://github.com/farm-fe/farm",
-        },
-        copyright: `Copyright © ${new Date().getFullYear()} Farm, Inc. Built with Docusaurus.`,
-      },
-      announcementBar: {
-        id: "announcementBar-2", // Increment on change
-        content: `🎉 Farm is now in 1.0.0 stable and production ready. If you like Farm, give it a ⭐️ on <a target="_blank" rel="noopener noreferrer" href="https://github.com/farm-fe/farm">GitHub</a>`,
-      },
+      // footer: {
+      //   links: [
+      //     {
+      //       title: "Guide",
+      //       items: [
+      //         {
+      //           label: "Quick Start",
+      //           to: "/docs/quick-start",
+      //         },
+      //         {
+      //           label: "Introduction",
+      //           to: "/docs/why-farm",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       title: "Community",
+      //       items: [
+      //         {
+      //           label: "WeChat Group",
+      //           href: "https://github.com/farm-fe/farm#chat-with-us",
+      //         },
+      //         {
+      //           label: "Discord",
+      //           href: "https://discord.com/invite/mDErq9aFnF",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       title: "More",
+      //       items: [
+      //         {
+      //           label: "GitHub",
+      //           href: "https://github.com/farm-fe/farm",
+      //         },
+      //         {
+      //           label: "Twitter",
+      //           href: "https://twitter.com/@farm-fe",
+      //         },
+      //       ],
+      //     },
+      //   ],
+      //   logo: {
+      //     alt: "Farm Logo",
+      //     src: "/img/logo-farm.png",
+      //     href: "https://github.com/farm-fe/farm",
+      //   },
+      //   copyright: `Copyright © ${new Date().getFullYear()} Farm, Inc. Built with Docusaurus.`,
+      // },
+      // announcementBar: {
+      //   id: "announcementBar-2", // Increment on change
+      //   content: `🎉 Farm is now in 1.0.0 stable and production ready. If you like Farm, give it a ⭐️ on <a target="_blank" rel="noopener noreferrer" href="https://github.com/farm-fe/farm">GitHub</a>`,
+      // },
       prism: {
         theme: prismThemes.nightOwlLight,
         darkTheme: prismThemes.oneDark,

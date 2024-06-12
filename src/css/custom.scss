@@ -2,8 +2,10 @@
 @use "./admonition";
 @use "./token.css";
 /* @tailwind base; */
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 /**
  * Any CSS included here will be global. The classic template
  * bundles Infima by default. Infima is a CSS framework designed to
@@ -215,9 +217,16 @@ a {
 }
 
 .theme-admonition-warning {
-  color: var(--c-yellow-120)
+  color: var(--c-yellow-120);
 }
 
 .theme-admonition-danger {
-  color: var(--c-red-90)
+  color: var(--c-red-90);
+}
+
+.navbar--fixed-top {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(8px); /* Apply the blur effect */
+  -webkit-backdrop-filter: blur(8px); /* Safari support */
+  background: transparent;
 }
