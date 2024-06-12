@@ -72,8 +72,8 @@ const NeonGradientCard: React.FC<NeonGradientCardProps> = ({
   borderSize = 0,
   borderRadius = 20,
   neonColors = {
-    firstColor: "#ff00aa",
-    secondColor: "#00FFF1",
+    firstColor: "#ffaa40",
+    secondColor: "#9c40ff",
   },
   ...props
 }) => {
@@ -117,7 +117,8 @@ const NeonGradientCard: React.FC<NeonGradientCardProps> = ({
           "--card-content-radius": `${borderRadius - borderSize}px`,
           "--pseudo-element-background-image": `linear-gradient(0deg, ${neonColors.firstColor}, ${neonColors.secondColor})`,
           "--pseudo-element-width": `${dimensions.width + borderSize * 2}px`,
-          "--pseudo-element-height": `${dimensions.height + borderSize * 2}px`,
+          // "--pseudo-element-height": `${dimensions.height + borderSize * 2}px`,
+          "--pseudo-element-height": `22rem`,
           "--after-blur": `${dimensions.width / 3}px`,
         } as CSSProperties
       }
@@ -130,23 +131,16 @@ const NeonGradientCard: React.FC<NeonGradientCardProps> = ({
       <div
         className={cn(
           "relative h-full min-h-[inherit] w-full rounded-[var(--card-content-radius)] bg-gray-100 p-6",
-          // "before:absolute before:-left-[var(--border-size)] before:-top-[var(--border-size)] before:-z-10 before:block",
-          // "before:h-[var(--pseudo-element-height)] before:w-[var(--pseudo-element-width)] before:rounded-[var(--border-radius)] before:content-['']",
-          // "before:bg-[linear-gradient(0deg,var(--neon-first-color),var(--neon-second-color))] before:bg-[length:100%_200%]",
-          // "before:animate-backgroundPositionSpin",
           "before:absolute before:top-[-var(--border-size)] before:left-0 before:right-0 before:z-[-10] before:block",
           "before:h-[var(--pseudo-element-height)] before:w-full before:content-['']",
           "before:bg-[var(--pseudo-element-background-image)] before:bg-[length:200%_100%]",
           "before:animate-backgroundPositionSpin",
-          // "after:absolute after:-left-[var(--border-size)] after:-top-[var(--border-size)] after:-z-10 after:block",
-          // "after:h-[var(--pseudo-element-height)] after:w-[var(--pseudo-element-width)] after:rounded-[var(--border-radius)] after:blur-[var(--after-blur)] after:content-['']",
-          // "after:bg-[linear-gradient(0deg,var(--neon-first-color),var(--neon-second-color))] after:bg-[length:100%_200%] after:opacity-80",
-          // "after:animate-backgroundPositionSpin",
-          "after:absolute after:top-[-var(--border-size)] after:left-0 after:right-0 after:z-[-10] after:block",
-          "after:h-[var(--pseudo-element-height)] after:w-full after:content-['']",
-          "after:bg-[var(--pseudo-element-background-image)] after:bg-[length:200%_100%] after:blur-[var(--after-blur)] after:opacity-80",
+          "after:absolute after:-left-[var(--border-size)] after:-top-[var(--border-size)] after:-z-10 after:block",
+          "after:h-[var(--pseudo-element-height)] after:w-[var(--pseudo-element-width)] after:rounded-[var(--border-radius)] after:blur-[var(--after-blur)] after:content-['']",
+          "after:bg-[linear-gradient(0deg,var(--neon-first-color),var(--neon-second-color))] after:bg-[length:100%_200%] after:opacity-80",
           "after:animate-backgroundPositionSpin",
-          "dark:bg-neutral-900",
+          // "dark:bg-transparent dark:before:bg-transparent dark:after:bg-transparent",
+          "navbar--fixed-top"
         )}
       >
         {children}

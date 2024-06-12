@@ -18,6 +18,7 @@ import Particles from "../components/MagicUi/particles";
 import NeonGradientCard from "../components/MagicUi/neon-gradient-card";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import BorderBeam from "../components/MagicUi/border-beam";
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
   return (
@@ -126,7 +127,7 @@ export default function Home() {
 
         <div className="mb-10 max-w-md mx-auto w-full px-4 sm:px-6 lg:px-8max-w-6xl">
           <div className={clsx(styles.buttons, "flex items-center gap-7")}>
-            <Link to="/docs/quick-start" style={{ textDecoration: "none", zIndex: 999 }}>
+            <Link to="/docs/quick-start" style={{ textDecoration: "none", zIndex: 99 }}>
               <div
                 className={clsx(
                   styles.farmButton,
@@ -137,7 +138,7 @@ export default function Home() {
               </div>
             </Link>
             <Link
-              style={{ marginLeft: "20px", textDecoration: "none", zIndex: 999 }}
+              style={{ marginLeft: "20px", textDecoration: "none", zIndex: 99 }}
               to="/docs/why-farm"
             >
               <div
@@ -152,12 +153,13 @@ export default function Home() {
           </div>
         </div>
 
-        <NeonGradientCard className="w-full h-screen">
-          {/* <div className="block h-auto whitespace-pre-wrap bg-gradient-to-br from-[#ff2975] from-35% to-[#00FFF1] bg-clip-text tracking-tighter text-transparent dark:drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)]">
+
+        <div className="relative rounded-xl">
+          <NeonGradientCard className="w-full mt-40">
             <Benchmark />
-          </div> */}
-          <Benchmark />
-        </NeonGradientCard>
+          </NeonGradientCard>
+          <BorderBeam size={350} duration={18} delay={9} />
+        </div>
         {/* <ParticlesApp /> */}
         {/* <HomepageHeader /> */}
         {/* <HomepageFeatures /> */}

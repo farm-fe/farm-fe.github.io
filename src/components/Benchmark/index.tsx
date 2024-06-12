@@ -6,6 +6,7 @@ import Translate from "@docusaurus/Translate";
 import Link from "@docusaurus/Link";
 import React, { useState } from "react";
 import clsx from "clsx";
+import ShinyTextEx from "../MagicUi/shiny-text";
 const BENChMARK_DATA = {
   ColdStart: [
     {
@@ -22,7 +23,7 @@ const BENChMARK_DATA = {
     },
     {
       name: "Webpack",
-      time: 6.870,
+      time: 6.87,
     },
   ],
   HotStart: [
@@ -90,7 +91,7 @@ const BENChMARK_DATA = {
     },
     {
       name: "Vite",
-      time: 1.660,
+      time: 1.66,
     },
     {
       name: "Webpack",
@@ -100,7 +101,7 @@ const BENChMARK_DATA = {
   HotBuild: [
     {
       name: "Farm",
-      time: 0.140,
+      time: 0.14,
     },
     {
       name: "Rspack",
@@ -108,7 +109,7 @@ const BENChMARK_DATA = {
     },
     {
       name: "Vite",
-      time: 1.650,
+      time: 1.65,
     },
     {
       name: "Webpack",
@@ -156,7 +157,7 @@ export default function Benchmark() {
   function PillTabs({ SCENE, children }) {
     return (
       <div>
-        <div className="inline-flex mb-4 items-center rounded-lg text-sm  lg:text-base">
+        <div className="inline-flex w-full mb-4 items-center justify-center rounded-lg text-sm  lg:text-base">
           {SCENE.map((item, index) => {
             return <Pill section={item} key={index}></Pill>;
           })}
@@ -167,14 +168,21 @@ export default function Benchmark() {
   }
   return (
     <>
-      <div ref={ref} className="flex">
+      <div ref={ref} className="flex mx-10">
         {inView && (
           <>
             <div
               className={`${styles.tabs} flex flex-col items-center my-4 z-1`}
             >
-              <div className="flex h-20 w-full flex-1 items-center self-start lg:justify-end">
-                <div className="w-full">
+              <div className="block text-4xl font-semibold h-auto whitespace-pre-wrap bg-gradient-to-br from-[#ffaa40] from-35% to-[#9c40ff] bg-clip-text tracking-tighter text-transparent dark:drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)]">
+                Performance Comparison
+              </div>
+              <div className="mt-6 mb-3 mx-6 text-center sm:text-lg text-gray-500 max-w-3xl">
+                Testing multiple different frameworks on the same benchmark
+                project.
+              </div>
+              <div className="flex h-20 w-full flex-1 items-center justify-center">
+                <div className="w-full my-8">
                   <PillTabs SCENE={SCENE}>
                     {performanceInfoList.map((info) => (
                       <div
@@ -200,12 +208,15 @@ export default function Benchmark() {
                       </div>
                     ))}
                   </PillTabs>
-                  <div className="font-bold cursor-pointer">
+
+                  <div className="font-bold text-right cursor-pointer">
                     <Link
                       rel="stylesheet"
                       href="https://github.com/farm-fe/performance-compare"
                     >
-                      <Translate>See benchmark details</Translate>
+                      {/* <Translate>
+                      </Translate> */}
+                      <ShinyTextEx />
                     </Link>
                   </div>
                 </div>
