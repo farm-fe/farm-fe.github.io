@@ -126,7 +126,7 @@ export default function Home() {
 
         <div className="mb-10 max-w-md mx-auto w-full px-4 sm:px-6 lg:px-8max-w-6xl">
           <div className={clsx(styles.buttons, "flex items-center gap-7")}>
-            <Link to="/docs/quick-start" style={{ textDecoration: "none" }}>
+            <Link to="/docs/quick-start" style={{ textDecoration: "none", zIndex: 999 }}>
               <div
                 className={clsx(
                   styles.farmButton,
@@ -137,7 +137,7 @@ export default function Home() {
               </div>
             </Link>
             <Link
-              style={{ marginLeft: "20px", textDecoration: "none" }}
+              style={{ marginLeft: "20px", textDecoration: "none", zIndex: 999 }}
               to="/docs/why-farm"
             >
               <div
