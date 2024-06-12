@@ -140,7 +140,8 @@ const NeonGradientCard: React.FC<NeonGradientCardProps> = ({
           "after:bg-[linear-gradient(0deg,var(--neon-first-color),var(--neon-second-color))] after:bg-[length:100%_200%] after:opacity-80",
           "after:animate-backgroundPositionSpin",
           // "dark:bg-transparent dark:before:bg-transparent dark:after:bg-transparent",
-          "navbar--fixed-top"
+          "dark:bg-zinc-950",
+          "navbar--fixed-top",
         )}
       >
         {children}
