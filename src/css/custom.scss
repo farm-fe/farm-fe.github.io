@@ -230,3 +230,8 @@ a {
   -webkit-backdrop-filter: blur(8px); /* Safari support */
   background: transparent;
 }
+
+.font-sans {
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
