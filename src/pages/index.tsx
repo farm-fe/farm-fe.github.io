@@ -19,6 +19,9 @@ import NeonGradientCard from "../components/MagicUi/neon-gradient-card";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import BorderBeam from "../components/MagicUi/border-beam";
+import BentoCardFeature from './card'
+import Team from "../components/Team";
+import FeatureFarm from "../components/Feature";
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
   return (
@@ -154,16 +157,19 @@ export default function Home() {
         </div>
 
 
-        <div className="relative rounded-xl w-full flex justify-center mt-32 fKVWgc">
+        <div className="relative rounded-xl w-full flex justify-center my-32 fKVWgc">
           <NeonGradientCard className="w-full m-2">
             <Benchmark />
           </NeonGradientCard>
           <BorderBeam size={250} duration={12} delay={9} />
         </div>
-        {/* <ParticlesApp /> */}
+        <div>
+          <BentoCardFeature />
+        </div>
         {/* <HomepageHeader /> */}
         {/* <HomepageFeatures /> */}
       </main>
+      <Team />
     </Layout>
   );
 }
@@ -192,4 +198,6 @@ const ParticlesApp = () => {
     </div>
   );
 };
+
+
 

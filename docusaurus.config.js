@@ -188,6 +188,9 @@ const config = {
         //   hideable: true,
         // },
       },
+      customFields: {
+        customFooter: 'src/theme/Footer/index.tsx',
+      },
       // footer: {
       //   links: [
       //     {

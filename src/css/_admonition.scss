@@ -54,18 +54,18 @@ html[data-theme="light"] {
   --ifm-alert-caution-background-color: var(--c-green-10);
   body {
     --angle: 220deg;
-    background-image: linear-gradient(
-      var(--angle),
-      white 15%,
-      #ff9ff360 20%,
-      white 25%,
-      #f4eef8 30%,
-      white 35%,
-      #f8edf5 40%,
-      white 60%
-    );
-    background-attachment: fixed;
-    background-size: cover;
+    // background-image: linear-gradient(
+    //   var(--angle),
+    //   white 15%,
+    //   #ff9ff360 20%,
+    //   white 25%,
+    //   #f4eef8 30%,
+    //   white 35%,
+    //   #f8edf5 40%,
+    //   white 60%
+    // );
+    // background-attachment: fixed;
+    // background-size: cover;
   }
 }
 

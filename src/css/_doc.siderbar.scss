@@ -29,6 +29,7 @@ html[data-theme="dark"] {
 }
 
 //overrides
+
 #__docusaurus {
   .theme-doc-sidebar-container {
     background: var(--token-primary-bg-c);
@@ -104,9 +105,7 @@ html[data-theme="dark"] {
 
     &-item {
       &.theme-doc-sidebar-item-link-level-1 {
-        padding-inline-start: calc(
-          var(--dropdown-icon-width)
-        );
+        padding-inline-start: calc(var(--dropdown-icon-width));
 
         & > .menu__link {
           font-weight: 500;
