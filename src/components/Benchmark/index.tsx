@@ -159,7 +159,7 @@ export default function Benchmark() {
           className={clsx(
             "flex-1 cursor-pointer rounded-md py-2 px-2 sm:px-4 text-center font-jakarta text-sm font-semibold",
             visibleSection === section.title
-              ? "bg-fuchsia-600 text-white"
+              ? "bg-[#9c40ff] text-white"
               : "color-re"
           )}
           onClick={() => {

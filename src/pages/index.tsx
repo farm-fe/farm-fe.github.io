@@ -171,8 +171,19 @@ export default function Home() {
       </main>
       <div className="mb-32">
         <div className="text-center">
-          <h2 className="text-3xl font-bold leading-tight text-gray-900 sm:text-4xl xl:text-5xl font-pj">Make every step user-centric</h2>
-          <p className="mt-4 text-base leading-7 text-gray-600 sm:mt-8 font-pj">Lorem ipsum dolor sit amet, consectetur adipis elit</p>
+          <BlurIn
+            word="Get to know our team"
+            className="pointer-events-none bg-gradient-to-br md:text-6xl font-semibold text-transparent dark:from-white from-black from-30% dark:to-white/40 to-black/40  bg-clip-text "
+          />
+          <div className="mt-10 max-w-3xl mx-auto w-full px-4 sm:px-6 lg:px-8max-w-6xl">
+            <SeparateAway
+              upper_text="Farm team core members, the following are introductions of the members"
+              duration={2}
+              hidden_opacity={0}
+              visible_opacity={1}
+              className="pointer-events-none font-display text-center text-xs font-bold tracking-[-0.02em] text-black dark:text-gray-400 md:text-2xl"
+            />
+          </div>
         </div>
         <Team />
       </div>
