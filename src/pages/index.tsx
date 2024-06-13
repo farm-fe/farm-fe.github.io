@@ -169,35 +169,32 @@ export default function Home() {
         {/* <HomepageHeader /> */}
         {/* <HomepageFeatures /> */}
       </main>
-      <Team />
+      <div className="mb-32">
+        <div className="text-center">
+          <h2 className="text-3xl font-bold leading-tight text-gray-900 sm:text-4xl xl:text-5xl font-pj">Make every step user-centric</h2>
+          <p className="mt-4 text-base leading-7 text-gray-600 sm:mt-8 font-pj">Lorem ipsum dolor sit amet, consectetur adipis elit</p>
+        </div>
+        <Team />
+      </div>
+      {/* <div className="relative mb-32">
+        <Team />
+        <div className="absolute top-1/2 left-1/2 z-10" style={{ transform: "translate(-50%, -50%)" }}>
+          <div className="mx-auto size-24 rounded-[2rem] border bg-white/10 p-3 shadow-2xl backdrop-blur-md dark:bg-black/10 lg:size-32">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-heart-handshake mx-auto size-16 text-black dark:text-white lg:size-24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path><path d="M12 5 9.04 7.96a2.17 2.17 0 0 0 0 3.08v0c.82.82 2.13.85 3 .07l2.07-1.9a2.82 2.82 0 0 1 3.79 0l2.96 2.66"></path><path d="m18 15-2-2"></path><path d="m15 18-2-2"></path></svg></div>
+          <div className="z-10 mt-4 flex flex-col items-center text-center text-primary">
+            <h1 className="text-3xl font-bold lg:text-4xl">Stop wasting time on design.</h1>
+            <p className="mt-2">Start your 7-day free trial. No credit card required.</p>
+            <a className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-10 group mt-4 rounded-[2rem] px-6" href="#">Get Started<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-chevron-right ml-1 size-4 transition-all duration-300 ease-out group-hover:translate-x-1"><path d="m9 18 6-6-6-6"></path>
+            </svg>
+            </a>
+          </div>
+          <div className="absolute inset-0 -z-10 rounded-full  bg-backtround opacity-40 blur-xl dark:bg-background"></div>
+        </div>
+        <div className="absolute inset-x-0 bottom-0 h-full bg-gradient-to-b from-transparent to-backtround to-70% dark:to-background"></div>
+      </div> */}
     </Layout>
   );
 }
-
-
-
-
-const ParticlesApp = () => {
-  const { theme } = useTheme();
-  const [color, setColor] = useState("#fba");
-
-  useEffect(() => {
-    setColor(theme === "dark" ? "#fab" : "#fba");
-  }, [theme]);
-
-  return (
-    <div className="relative flex h-[400px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background p-4 md:shadow-xl">
-
-      <Particles
-        className="absolute inset-0"
-        quantity={100}
-        ease={800}
-        color={"#fab"}
-        refresh
-      />
-    </div>
-  );
-};
 
 
 
