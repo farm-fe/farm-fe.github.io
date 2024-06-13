@@ -108,6 +108,12 @@
   }
 }
 
+.fKVWgc {
+  position: absolute;
+  inset: 0px;
+  mask-image: linear-gradient(black, transparent);
+}
+
 .farmButton2 {
   height: 50px;
   border: none;

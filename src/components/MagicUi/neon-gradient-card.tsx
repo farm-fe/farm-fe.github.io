@@ -144,7 +144,7 @@ const NeonGradientCard: React.FC<NeonGradientCardProps> = ({
           "after:animate-backgroundPositionSpin",
           "after:animation-duration: 10s",
           // "dark:bg-transparent dark:before:bg-transparent dark:after:bg-transparent",
-          "dark:bg-zinc-950",
+          "dark:bg-[rgb(2,2,2)]",
           "navbar--fixed-top",
         )}
       >

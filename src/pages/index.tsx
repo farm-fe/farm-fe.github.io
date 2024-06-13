@@ -154,11 +154,11 @@ export default function Home() {
         </div>
 
 
-        <div className="relative rounded-xl">
-          <NeonGradientCard className="w-full mt-32">
+        <div className="relative rounded-xl w-full flex justify-center mt-32 fKVWgc">
+          <NeonGradientCard className="w-full m-2">
             <Benchmark />
           </NeonGradientCard>
-          <BorderBeam size={350} duration={18} delay={9} />
+          <BorderBeam size={250} duration={12} delay={9} />
         </div>
         {/* <ParticlesApp /> */}
         {/* <HomepageHeader /> */}
