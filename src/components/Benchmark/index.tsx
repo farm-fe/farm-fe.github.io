@@ -188,7 +188,7 @@ export default function Benchmark() {
   return (
     <>
       <div ref={ref} className="flex mx-12">
-        {inView && (
+        {(
           <>
             <div
               className={`${styles.tabs} flex flex-col items-center mt-4 z-1`}
