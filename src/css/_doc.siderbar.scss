@@ -30,6 +30,15 @@ html[data-theme="dark"] {
 
 //overrides
 
+[class^="docRoot_"] {
+  width: 1440px !important;
+}
+
+[class^="docsWrapper_"] {
+  display: flex;
+  justify-content: center;
+}
+
 #__docusaurus {
   .theme-doc-sidebar-container {
     background: var(--token-primary-bg-c);
@@ -121,8 +130,7 @@ html[data-theme="dark"] {
           padding-inline-start: calc(
             var(--dropdown-icon-width) + var(--dropdown-icon-gap)
           );
-          padding-top: 5px;
-          padding-bottom: 5px;
+          padding: 7px 10px;
         }
       }
       &-collapsible {
@@ -207,3 +215,10 @@ html[data-theme="dark"] {
     }
   }
 }
+// .badge {
+//   margin: 0 0 16px 0;
+// }
+// .breadcrumbs__item {
+//   display: flex;
+//   align-items: center;
+// }

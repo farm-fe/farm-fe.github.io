@@ -189,7 +189,7 @@ const config = {
         // },
       },
       customFields: {
-        customFooter: 'src/theme/Footer/index.tsx',
+        customFooter: "src/theme/Footer/index.tsx",
       },
       // footer: {
       //   links: [
@@ -276,9 +276,11 @@ const config = {
       return {
         name: "docusaurus-tailwindcss",
         configurePostCss(postcssOptions) {
-          // Appends TailwindCSS and AutoPrefixer.
-          postcssOptions.plugins.push(require("tailwindcss"));
-          postcssOptions.plugins.push(require("autoprefixer"));
+          postcssOptions.plugins = [
+            require("postcss-import"),
+            require("tailwindcss"),
+            require("autoprefixer"),
+          ];
           return postcssOptions;
         },
       };
