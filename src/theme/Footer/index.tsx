@@ -62,7 +62,7 @@ export default function FooterWrapper(props: Props): JSX.Element {
               </div>
             </div>
 
-            <hr className="mt-10 mb-10 border-gray-800" />
+            <div className="my-14" />
 
             <div className="flex flex-wrap items-center justify-between">
               <ul className="flex items-center space-x-3 md:order-1 gap-3">
