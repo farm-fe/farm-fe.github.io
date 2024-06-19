@@ -193,7 +193,7 @@ const features = [
       "Get notified when someone shares a file or mentions you in a comment.",
     href: "/",
     cta: "Learn more",
-    background: 123,
+    background: <></>,
     className: "lg:col-start-3 lg:col-end-3 lg:row-start-2 lg:row-end-3",
   },
 ];

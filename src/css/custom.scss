@@ -235,3 +235,13 @@ a {
   font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
+
+figure {
+  margin: 12px 12px;
+  // display: block;
+  // margin-block-start: 1em;
+  // margin-block-end: 1em;
+  // margin-inline-start: 40px;
+  // margin-inline-end: 40px;
+  // unicode-bidi: isolate;
+}
