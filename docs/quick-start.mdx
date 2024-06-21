@@ -2,99 +2,51 @@
 sidebar_position: 1
 ---
 
-import CodeBlock from "@theme/CodeBlock";
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
-import { PackageManagerTabs } from '../src/theme/PackageManagerTabs';
+import { PackageManagerTabs } from "../src/theme/PackageManagerTabs";
 
-# Quick Start
+# 快速开始
 
 :::note
-Farm needs **Node 16.18.0 and above**.
+Farm 需要 **Node 16.18.0 及更高版本**。
 :::
 
-## Online experience
+## 在线体验
 
 [![Edit Farm](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/p/github/ErKeLost/react/main)
 
-## Create a Farm Project
 
-<>
-    <Tabs>
-          <TabItem value="npm" label="npm">
-              <CodeBlock>npm create farm@latest</CodeBlock>
-              </TabItem>
+## 1. 创建一个 Farm 项目
 
-  <TabItem value="yarn" label="yarn">
-          <CodeBlock>yarn create farm</CodeBlock>
-              </TabItem>
-  <TabItem value="pnpm" label="pnpm">
-          <CodeBlock>pnpm create farm</CodeBlock>
-              </TabItem>
-          </Tabs>
-</>
+<PackageManagerTabs skip command="create farm@latest" />
 
-<PackageManagerTabs command="install tailwindcss -D" />
-
-
-:::note{title="Then follow the prompts!"}
-
-You can also directly specify the project name and the template you want to use via additional command line options:
+:::note{title="然后按照提示操作！"}
+您还可以通过附加命令行选项直接指定项目名称和要使用的模板：
 :::
-<>
-    <Tabs>
-          <TabItem value="npm 6.x" label="npm 6.x">
-              <CodeBlock>npm create farm@latest my-vue-app --template react</CodeBlock>
-              </TabItem>
 
-  <TabItem value="npm 7+" label="npm 7+">
-          <CodeBlock>npm create farm@latest my-vue-app -- --template vue</CodeBlock>
-              </TabItem>
-  <TabItem value="yarn" label="yarn">
-          <CodeBlock>yarn create farm my-vue-app --template react</CodeBlock>
-              </TabItem>
-  <TabItem value="pnpm" label="pnpm">
-          <CodeBlock>pnpm create farm my-vue-app --template vue</CodeBlock>
-              </TabItem>
-          </Tabs>
-</>
+<PackageManagerTabs command="create farm my-react-app --template react" />
 
 
-## 2. Start the Project
+## 2.启动项目
 
-Choose the package manager you like, install dependencies, then start the project.
-Then, start the project:
+选择您喜欢的包管理器，安装依赖项，然后启动项目。
+然后，启动项目：
 
-<>
-    <Tabs>
-          <TabItem value="npm" label="npm">
-              <CodeBlock>cd farm-project && npm i && npm start</CodeBlock>
-              </TabItem>
+<PackageManagerTabs command="install && pnpm start" />
 
-  <TabItem value="yarn" label="yarn">
-          <CodeBlock>cd farm-project && yarn && yarn start</CodeBlock>
-              </TabItem>
-  <TabItem value="pnpm" label="pnpm">
-          <CodeBlock>cd farm-project && pnpm i && pnpm start</CodeBlock>
-              </TabItem>
-          </Tabs>
-</>
+默认情况下，该项目将从`http://localhost:9000`启动。
 
+## 3. 配置项目
 
-The project will start at `http://localhost:9000` by default.
-
-## 3. Configuring the Project
-
-The project is configured by `farm.config.ts/js/mjs` file in the root directory of the project.
+该项目由项目根目录中的“farm.config.ts/js/mjs”文件进行配置。
 
 ```ts title="farm.config.ts"
 import { defineConfig } from "@farmfe/core";
 
 export default defineConfig({
-  // Options related to the compilation
+  // 编译相关配置
   compilation: {
     input: {
-      // can be a relative path or an absolute path
+      // 可以配置相对或者绝对路径
       index: "./index.html",
     },
     output: {
@@ -103,37 +55,33 @@ export default defineConfig({
     },
     // ...
   },
-  // Options related to the dev server
+  // Dev Server 相关配置
   server: {
     port: 9000,
     // ...
   },
-  // Additional plugins
+  // 插件配置
   plugins: [],
 });
 ```
 
 :::note
-See **[Configuring Farm](/docs/config/configuring-farm)** for details.
+配置详情请参阅 **[配置 Farm](/docs/config/configuring-farm)**。
 :::
 
-## 4. Building the project
-
-Build the Farm project as production-ready static files:
+## 4. 构建项目
+将 Farm 项目构建为生产环境可用的静态文件：
 
 ```bash
 npm run build
 ```
 
-The built product is downgraded to `ES2017` by default, and the product will be compressed and Tree Shake. If you want to preview the build product locally, you can execute `npm run preview` or `npx farm preview`.
+构建的产品默认降级为`ES2017`，并且产品将被压缩和Tree Shake。 如果您想在本地预览构建产品，可以执行`npm run Preview`或`npx farm Preview`。
 
-:::note
-See **[Build For Production](/docs/tutorials/build)** for details.
-:::
+## 下一步
 
-## Next Steps
-
-- [Why Farm?](/docs/why-farm)
-- [Features](/docs/features/html)
-- [Configuring Farm](/docs/config/configuring-farm)
-- [Plugins](/docs/plugins/official-plugins/overview)
+- [为什么需要 Farm？](/docs/why-farm)
+- [特性](/docs/features/dev-server)
+- [配置参考](/docs/config/configuring-farm)
+- [插件](/docs/plugins/official-plugins/overview)
+---

@@ -1,27 +1,26 @@
 .container {
-  background-color: var(--rp-code-block-bg);
+  /* background-color: var(--rp-code-block-bg); */
   contain: content;
-  border-radius: var(--rp-radius);
+  border-radius: 6px;
 
   :global(div[class*='language-']) {
     margin: 6px 0;
 
     code {
-      background-color: var(--rp-c-bg);
+      /* background-color: var(--rp-c-bg); */
     }
   }
 }
 
 .tab-list {
-  padding-left: 8px;
-  padding-top: 4px;
   display: flex;
   min-width: 100%;
   overflow-x: scroll;
+  padding: 4px 0 8px 8px;
 }
 
 .tab {
-  color: var(--rp-c-text-2);
+  /* color: var(--rp-c-text-2); */
   border-bottom: 2px solid transparent;
   box-sizing: border-box;
   margin-right: 10px;
@@ -37,12 +36,12 @@
 }
 
 .not-selected:hover {
-  color: var(--rp-c-text-1);
-  border-color: var(--rp-c-gray);
+  /* color: var(--rp-c-text-1); */
+  /* border-color: var(--rp-c-gray); */
 }
 
 .selected {
-  color: var(--rp-c-link);
+  /* color: var(--rp-c-link); */
   border-color: currentColor;
 }
 

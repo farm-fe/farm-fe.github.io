@@ -6,14 +6,15 @@ import { Pnpm } from './icons/Pnpm';
 import { Bun } from './icons/Bun';
 
 export interface PackageManagerTabProps {
+  skip?: boolean;
   command:
-    | string
-    | {
-        npm?: string;
-        yarn?: string;
-        pnpm?: string;
-        bun?: string;
-      };
+  | string
+  | {
+    npm?: string;
+    yarn?: string;
+    pnpm?: string;
+    bun?: string;
+  };
   additionalTabs?: {
     tool: string;
     icon?: React.ReactNode;
@@ -36,8 +37,22 @@ function normalizeCommand(command: string): string {
   return command.replace('install', 'add');
 }
 
+
+function replaceTool(command, tool) {
+  const tools = ['npm', 'yarn', 'pnpm', 'bun'];
+  let newCommand = command;
+
+  tools.forEach(t => {
+    const regex = new RegExp(`\\b${t}\\b`, 'g');
+    newCommand = newCommand.replace(regex, tool);
+  });
+
+  return newCommand;
+}
+
 export function PackageManagerTabs({
   command,
+  skip = true,
   additionalTabs = [],
 }: PackageManagerTabProps) {
   let commandInfo: {
@@ -68,7 +83,11 @@ export function PackageManagerTabs({
       bun: `bun ${command}`,
     };
     additionalTabs.forEach(tab => {
-      commandInfo[tab.tool] = `${tab.tool} ${command}`;
+      if (skip) {
+        commandInfo[tab.tool] = replaceTool(command, tab.tool);
+      } else {
+        commandInfo[tab.tool] = `${tab.tool} ${command}`;
+      }
     });
   } else {
     commandInfo = command;
@@ -77,7 +96,12 @@ export function PackageManagerTabs({
   // Normalize yarn/bun command
   commandInfo.yarn && (commandInfo.yarn = normalizeCommand(commandInfo.yarn));
   commandInfo.bun && (commandInfo.bun = normalizeCommand(commandInfo.bun));
-
+  if (skip) {
+    const tools = ['npm', 'yarn', 'pnpm', 'bun'];
+    tools.forEach(tool => {
+      commandInfo[tool] = replaceTool(command, tool);
+    });
+  }
   return (
     <Tabs
       groupId="package.manager"

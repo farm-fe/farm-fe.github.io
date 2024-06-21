@@ -105,6 +105,9 @@ importers:
       framer-motion:
         specifier: ^11.2.10
         version: 11.2.10(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      shiki:
+        specifier: ^1.7.0
+        version: 1.7.0
       shikiji:
         specifier: ^0.9.10
         version: 0.9.10
@@ -1441,6 +1444,9 @@ packages:
     peerDependenciesMeta:
       react-dom:
         optional: true
+
+  '@shikijs/core@1.7.0':
+    resolution: {integrity: sha512-O6j27b7dGmJbR3mjwh/aHH8Ld+GQvA0OQsNO43wKWnqbAae3AYXrhFyScHGX8hXZD6vX2ngjzDFkZY5srtIJbQ==}
 
   '@sideway/address@4.1.4':
     resolution: {integrity: sha512-7vwq+rOHVWjyXxVlR76Agnvhy8I9rpzjosTESvmhNeXOXdZZB15Fl+TI9x1SiHZH5Jv2wTGduSxFDIaq0m3DUw==}
@@ -5131,6 +5137,9 @@ packages:
     engines: {node: '>=4'}
     hasBin: true
 
+  shiki@1.7.0:
+    resolution: {integrity: sha512-H5pMn4JA7ayx8H0qOz1k2qANq6mZVCMl1gKLK6kWIrv1s2Ial4EmD4s4jE8QB5Dw03d/oCQUxc24sotuyR5byA==}
+
   shikiji-core@0.9.10:
     resolution: {integrity: sha512-s+aC66Fh343wpm7VyQTg+htdHM/tUb8R+yxdAdUpCtKkRWbSBIpqQ3xTSNjbCTnGv10xsT164SW0r1VV1N6ToA==}
 
@@ -7902,6 +7911,8 @@ snapshots:
       zustand: 3.7.2(react@18.2.0)
     optionalDependencies:
       react-dom: 18.2.0(react@18.2.0)
+
+  '@shikijs/core@1.7.0': {}
 
   '@sideway/address@4.1.4':
     dependencies:
@@ -12287,6 +12298,10 @@ snapshots:
       glob: 7.2.3
       interpret: 1.4.0
       rechoir: 0.6.2
+
+  shiki@1.7.0:
+    dependencies:
+      '@shikijs/core': 1.7.0
 
   shikiji-core@0.9.10: {}
 

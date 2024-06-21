@@ -1,3 +1,7 @@
+/*
+Use the rspress tabs component to rewrite tabs
+https://rspress.dev/
+*/
 import {
   Children,
   type ReactNode,
@@ -14,7 +18,7 @@ import {
 } from 'react';
 import { TabDataContext } from '../logic/TabDataContext';
 import { useStorageValue } from '../logic/useStorageValue';
-import styles from './index.module.scss';
+import styles from './index.module.css';
 
 type TabItem = {
   value?: string;
@@ -64,6 +68,7 @@ export const Tabs: ForwardRefExoticComponent<TabsProps> = forwardRef(
       child => !(typeof child === 'string' && child.trim() === ''),
     );
 
+
     let tabValues = values || [];
 
     if (tabValues.length === 0) {
@@ -104,6 +109,7 @@ export const Tabs: ForwardRefExoticComponent<TabsProps> = forwardRef(
       activeIndex,
     );
 
+
     const syncIndex = useMemo(() => {
       if (groupId) {
         if (tabData[groupId] !== undefined) {
@@ -127,14 +133,23 @@ export const Tabs: ForwardRefExoticComponent<TabsProps> = forwardRef(
       }
     }, [storageIndex]);
 
-    const currentIndex = groupId ? syncIndex : activeIndex;
+    // const currentIndex = groupId ? syncIndex : activeIndex;
+    useEffect(() => {
+      if (groupId) {
+        setCurrentIndex(syncIndex);
+      } else {
+        setCurrentIndex(activeIndex);
+      }
+    }, [groupId, syncIndex, activeIndex]);
+
+    const [currentIndex, setCurrentIndex] = useState(groupId ? syncIndex : activeIndex);
 
     return (
-      <div className={styles.container} ref={ref}>
+      <div className={styles['container']} ref={ref}>
         <div className={tabContainerClassName}>
           {tabValues.length ? (
             <div
-              className={`${styles.tabList} ${styles.noScrollbar}`}
+              className={`${styles['tab-list']} ${styles['no-scrollbar']}`}
               style={{
                 justifyContent:
                   tabPosition === 'center' ? 'center' : 'flex-start',
@@ -145,18 +160,20 @@ export const Tabs: ForwardRefExoticComponent<TabsProps> = forwardRef(
                   <div
                     // eslint-disable-next-line react/no-array-index-key
                     key={index}
-                    className={`${styles.tab} ${
-                      currentIndex === index
-                        ? styles.selected
-                        : styles.notSelected
-                    }`}
+                    className={`${styles['tab']} ${currentIndex === index
+                      ? styles['selected']
+                      : styles['not-selected']
+                      }`}
                     onClick={() => {
-                      onChange?.(index);
+                      const newIndex = index;
+                      onChange?.(newIndex);
+                      setCurrentIndex(newIndex);
+
                       if (groupId) {
-                        setTabData({ ...tabData, [groupId]: index });
-                        setStorageIndex(index);
+                        setTabData({ ...tabData, [groupId]: newIndex });
+                        setStorageIndex(newIndex);
                       } else {
-                        setActiveIndex(index);
+                        setActiveIndex(newIndex);
                       }
                     }}
                   >
