@@ -72,7 +72,7 @@ export default function FooterWrapper(props: Props): JSX.Element {
               </ul>
 
 
-              <p className="w-full mt-8 text-sm text-center text-gray-100 md:mt-0 md:w-auto md:order-2">Copyright © 2024 Farm, Inc. Built with Docusaurus.</p>
+              <p className="w-full mt-8 text-sm text-center text-gray-100 md:mt-0 md:w-auto md:order-2">Copyright © 2024 Farm Community. Built with Docusaurus.</p>
             </div>
           </div>
         </section>

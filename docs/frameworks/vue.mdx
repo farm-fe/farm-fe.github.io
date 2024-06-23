@@ -1,6 +1,4 @@
-import CodeBlock from "@theme/CodeBlock";
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
+import { PackageManagerTabs } from "../../src/theme/PackageManagerTabs";
 
 # Vue
 
@@ -12,20 +10,7 @@ Create a `Vue` project based on `Farm`.
 
 ### Creating a Vue Project
 
-<>
-    <Tabs>
-          <TabItem value="npm" label="npm">
-              <CodeBlock>npm create farm@latest</CodeBlock>
-              </TabItem>
-
-  <TabItem value="yarn" label="yarn">
-          <CodeBlock>yarn create farm</CodeBlock>
-              </TabItem>
-  <TabItem value="pnpm" label="pnpm">
-          <CodeBlock>pnpm create farm</CodeBlock>
-              </TabItem>
-          </Tabs>
-</>
+<PackageManagerTabs command="npm create farm@latest" />
 
 Select `Vue` template in `Select Framework`
 

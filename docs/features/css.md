@@ -1,3 +1,6 @@
+import { PackageManagerTabs } from "../../src/theme/PackageManagerTabs";
+
+
 # Css/Sass/Less
 Farm support Css out of box, just import the css file:
 
@@ -33,10 +36,9 @@ Farm sass plugin is a Rust Plugin and use `sass-embeded`(we may migrate to [gras
 
 Steps to compile `sass/scss` modules in Farm.
 1. Install dependencies
-```sh
-# npm or yarn or pnpm, choose your favorite package manager
-pnpm add -D @farmfe/plugin-sass
-```
+
+<PackageManagerTabs command="pnpm add -D @farmfe/plugin-sass" />
+
 
 2. Configure the plugin
 ```ts

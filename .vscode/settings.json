@@ -14,6 +14,7 @@
     "noreferrer",
     "oblador",
     "Pluggable",
+    "preact",
     "Preprocess",
     "PUFY",
     "raxjs",
@@ -27,6 +28,7 @@
     "svgr",
     "svgs",
     "tailwindcss",
+    "tauri",
     "Turbopack"
   ],
   "editor.inlineSuggest.showToolbar": "always"
