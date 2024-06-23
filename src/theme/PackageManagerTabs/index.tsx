@@ -1,4 +1,4 @@
-import { Tabs, Tab } from '../Tabs';
+import { Tabs, Tab } from '../ManagerTabs';
 import CodeBlock from "@theme/CodeBlock";
 import { Npm } from './icons/Npm';
 import { Yarn } from './icons/Yarn';
