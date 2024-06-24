@@ -121,7 +121,7 @@ export function PackageManagerTabs({
     >
       {Object.entries(commandInfo).map(([key, value]) => (
         <Tab key={key}>
-          <CodeBlock>{value}</CodeBlock>
+          <CodeBlock className='my-4'>{value}</CodeBlock>
         </Tab>
       ))}
     </Tabs>

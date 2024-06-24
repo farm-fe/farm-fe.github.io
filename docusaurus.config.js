@@ -245,7 +245,7 @@ const config = {
       //   content: `🎉 Farm is now in 1.0.0 stable and production ready. If you like Farm, give it a ⭐️ on <a target="_blank" rel="noopener noreferrer" href="https://github.com/farm-fe/farm">GitHub</a>`,
       // },
       prism: {
-        additionalLanguages: ['powershell'],
+        additionalLanguages: ["powershell"],
         theme: prismThemes.nightOwlLight,
         darkTheme: prismThemes.oneDark,
         magicComments: [

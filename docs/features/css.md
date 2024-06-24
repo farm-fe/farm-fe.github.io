@@ -92,10 +92,8 @@ export default defineConfig({
 Farm less plugin is a Js Plugin. Steps to compile `less` modules in Farm.
 
 1. Install dependencies
-```sh
-# npm or yarn or pnpm, choose your favorite package manager
-pnpm add -D @farmfe/js-plugin-less
-```
+
+<PackageManagerTabs command="pnpm add -D @farmfe/js-plugin-less" />
 
 2. Configure the plugin
 ```ts
@@ -119,10 +117,9 @@ To use sass with css modules, change the file name from `index.less` to `index.m
 The Farm postcss plugin is a JS plugin. The steps to introduce postcss in Farm are as follows:
 
 1. Install dependencies
-```sh
-# npm or yarn or pnpm, choose your favorite package manager
-pnpm add -D @farmfe/js-plugin-postcss
-```
+
+<PackageManagerTabs command="pnpm add -D @farmfe/js-plugin-postcss" />
+
 
 2. Configure the plugin
 ```ts
