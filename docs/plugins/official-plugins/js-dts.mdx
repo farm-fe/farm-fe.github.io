@@ -1,24 +1,14 @@
 import CodeBlock from "@theme/CodeBlock";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
+import { PackageManagerTabs } from "../../../src/theme/PackageManagerTabs";
 
 # @farmfe/js-plugin-dts
 Support `Generate .d.ts files` for Farm. This plugin is used for building tools and libraries, generate `.d.ts` for your typescript code.
 
 ## Installation
 
-<Tabs>
-  <TabItem value="npm" label="npm">
-    <CodeBlock>npm install @farmfe/js-plugin-dts</CodeBlock>
-  </TabItem>
-  <TabItem value="yarn" label="yarn">
-    <CodeBlock>yarn add @farmfe/js-plugin-dts</CodeBlock>
-  </TabItem>
-  <TabItem value="pnpm" label="pnpm">
-    <CodeBlock>pnpm add @farmfe/js-plugin-dts</CodeBlock>
-  </TabItem>
-</Tabs>
-
+<PackageManagerTabs command="pnpm add @farmfe/js-plugin-dts" />
 ## Usage
 ```ts {2,6}
 import { UserConfig } from '@farmfe/core';

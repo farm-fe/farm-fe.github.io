@@ -1,6 +1,7 @@
 import CodeBlock from "@theme/CodeBlock";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
+import { PackageManagerTabs } from "../../../src/theme/PackageManagerTabs";
 
 # @farmfe/plugin-react
 支持 `React Jsx` 和 `React Refresh`
@@ -18,6 +19,8 @@ import TabItem from "@theme/TabItem";
     <CodeBlock>pnpm add @farmfe/plugin-react</CodeBlock>
   </TabItem>
 </Tabs>
+
+<PackageManagerTabs command="npm create farm@latest" />
 
 ## Usage
 `@farmfe/plugin-react` 是一个 Rust 插件，你只需要在 `farm.config.ts` 的 `plugins` 字段中配置它的包名。
