@@ -29,7 +29,7 @@ You can configuring css modules by [`css.modules`](/docs/config/compilation-opti
 Farm provide official sass, less, postcss plugins to support css pre-processor.
 
 ### Sass
-Farm sass plugin is a Rust Plugin and use `sass-embeded`(we may migrate to [grass](https://github.com/connorskees/grass) in the feature).
+Farm sass plugin is a Rust Plugin and use `sass-embeded`(we may migrate to [grass](https://github.com/connorskees/grass) in the future).
 
 Steps to compile `sass/scss` modules in Farm.
 1. Install dependencies
