@@ -100,17 +100,17 @@ const config = {
           src: "img/logo.png",
         },
         items: [
-          {
-            type: "custom-documate",
-            position: "left",
-            endpoint: "https://8gw8jajsc1.us.aircode.run/ask",
-            style: {
-              marginRight: "2rem",
-              marginLeft: "2rem",
-              marginTop: "0.3rem",
-              width: "8rem",
-            },
-          },
+          // {
+          //   type: "custom-documate",
+          //   position: "left",
+          //   endpoint: "https://8gw8jajsc1.us.aircode.run/ask",
+          //   style: {
+          //     marginRight: "2rem",
+          //     marginLeft: "2rem",
+          //     marginTop: "0.3rem",
+          //     width: "8rem",
+          //   },
+          // },
           {
             type: "doc",
             docId: "quick-start",

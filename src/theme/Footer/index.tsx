@@ -22,7 +22,7 @@ export default function FooterWrapper(props: Props): JSX.Element {
                   <div>
                     <p className="text-base text-gray-500">Guide</p>
 
-                    <ul className="mt-8 space-y-4">
+                    <ul className="list-none mt-8 space-y-4 p-0">
                       <li>
                         <a href="#" title="" className="text-base text-white transition-all duration-200 hover:text-opacity-80 focus:text-opacity-80"> Quick Start </a>
                       </li>
@@ -35,7 +35,7 @@ export default function FooterWrapper(props: Props): JSX.Element {
                   <div>
                     <p className="text-base text-gray-500">Community</p>
 
-                    <ul className="mt-8 space-y-4">
+                    <ul className="list-none mt-8 space-y-4 p-0">
                       <li>
                         <a href="#" title="" className="text-base text-white transition-all duration-200 hover:text-opacity-80 focus:text-opacity-80"> WeChat Group </a>
                       </li>
@@ -48,7 +48,7 @@ export default function FooterWrapper(props: Props): JSX.Element {
                   <div>
                     <p className="text-base text-gray-500">More</p>
 
-                    <ul className="mt-8 space-y-4">
+                    <ul className=" list-none mt-8 space-y-4 p-0">
                       <li>
                         <a href="#" title="" className="text-base text-white transition-all duration-200 hover:text-opacity-80 focus:text-opacity-80"> Github </a>
                       </li>
@@ -65,7 +65,7 @@ export default function FooterWrapper(props: Props): JSX.Element {
             <div className="my-14" />
 
             <div className="flex flex-wrap items-center justify-between">
-              <ul className="flex items-center space-x-3 md:order-1 gap-3">
+              <ul className="flex items-center space-x-3 md:order-1 gap-3 p-0">
                 <GitHubLogoIcon className='h-6 w-6' />
                 <TwitterLogoIcon className='h-6 w-6' />
                 <DiscordLogoIcon className='h-6 w-6' />
