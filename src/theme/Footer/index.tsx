@@ -10,7 +10,7 @@ export default function FooterWrapper(props: Props): JSX.Element {
   return (
     <>
       <NeonGradientCard height='18rem' borderRadius={0}>
-        <section className="py-10 bg-zinc-950 sm:pt-12 lg:pt-20">
+        <section className="py-10 bg-zinc-950 sm:pt-12 lg:pt-20 text-white">
           <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
             <div className='flex justify-between'>
               <div className='flex-col flex gap-4'>

@@ -3,7 +3,6 @@ import clsx from "clsx";
 import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
-import HomepageFeatures from "@site/src/components/HomepageFeatures";
 import Benchmark from "../components/Benchmark";
 import StarrySky from "../components/StarrySky";
 import styles from "./index.module.css";
@@ -21,7 +20,7 @@ import { useEffect, useState } from "react";
 import BorderBeam from "../components/MagicUi/border-beam";
 import BentoCardFeature from './card'
 import Team from "../components/Team";
-import FeatureFarm from "../components/Feature";
+import { FAQ } from "../components/FAQ";
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
   return (
@@ -116,7 +115,6 @@ export default function Home() {
       <main className="mb-20 max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8max-w-6xl">
         <BlurIn
           word="Extremely Fast Web Bundler Written in Rust"
-          className="pointer-events-none bg-gradient-to-br md:text-8xl font-semibold text-transparent dark:from-white from-black from-30% dark:to-white/40 to-black/40  bg-clip-text "
         />
         <div className="mb-10 mt-10 max-w-3xl mx-auto w-full px-4 sm:px-6 lg:px-8max-w-6xl">
           <SeparateAway
@@ -124,7 +122,7 @@ export default function Home() {
             duration={2}
             hidden_opacity={0}
             visible_opacity={1}
-            className="pointer-events-none font-display text-center text-xs font-bold tracking-[-0.02em] text-black dark:text-gray-400 md:text-2xl"
+            className="pointer-events-none font-display text-center text-xs font-bold tracking-[-0.02em]  dark:text-gray-400 md:text-2xl"
           />
         </div>
 
@@ -173,7 +171,7 @@ export default function Home() {
         <div className="text-center">
           <BlurIn
             word="Get to know our team"
-            className="pointer-events-none bg-gradient-to-br md:text-6xl font-semibold text-transparent dark:from-white from-black from-30% dark:to-white/40 to-black/40  bg-clip-text "
+            className="pointer-events-none bg-gradient-to-br md:text-6xl font-semibold dark:from-white from-black from-30% dark:to-white/40 to-black/40  bg-clip-text"
           />
           <div className="mt-10 max-w-3xl mx-auto w-full px-4 sm:px-6 lg:px-8max-w-6xl">
             <SeparateAway
@@ -181,12 +179,13 @@ export default function Home() {
               duration={2}
               hidden_opacity={0}
               visible_opacity={1}
-              className="pointer-events-none font-display text-center text-xs font-bold tracking-[-0.02em] text-black dark:text-gray-400 md:text-2xl"
+              className="pointer-events-none font-display text-center text-xs font-bold tracking-[-0.02em] dark:text-gray-400 md:text-2xl"
             />
           </div>
         </div>
         <Team />
       </div>
+      <FAQ />
       {/* <div className="relative mb-32">
         <Team />
         <div className="absolute top-1/2 left-1/2 z-10" style={{ transform: "translate(-50%, -50%)" }}>
