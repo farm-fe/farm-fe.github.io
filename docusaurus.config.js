@@ -157,7 +157,7 @@ const config = {
               },
               {
                 label: "Twitter",
-                href: "https://twitter.com/fe_farm",
+                href: "https://twitter.com/FarmFe71928",
               },
               {
                 label: "WeChat Group",
