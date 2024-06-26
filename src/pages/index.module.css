@@ -175,3 +175,14 @@
     background-position: 0 0;
   }
 }
+
+.gradientText {
+  background: linear-gradient(
+    to bottom right,
+    black,
+    gray 40%,
+    white
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+}
