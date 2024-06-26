@@ -115,7 +115,7 @@ export default function Home() {
       <main className="mb-20 max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8max-w-6xl">
         <BlurIn
           word="Extremely Fast Web Bundler Written in Rust"
-          highlightWord="Rust"
+          highlightWord="Web"
           highlightColor="text-red-500"
           // className="pointer-events-none gradient-text dark:gradient-text-dark bg-gradient-to-br md:text-8xl font-semibold dark:from-white from-black from-30% dark:to-white/40 to-black/40  bg-clip-text"
           className={`pointer-events-none bg-gradient-to-br md:text-8xl font-semibold bg-clip-text ${styles.gradientText} dark:${styles.gradientTextDark}`}
@@ -171,7 +171,7 @@ export default function Home() {
         {/* <HomepageHeader /> */}
         {/* <HomepageFeatures /> */}
       </main>
-      <div className="mb-32">
+      <div className="mb-12">
         <div className="text-center">
           <BlurIn
             word="Get to know our team"

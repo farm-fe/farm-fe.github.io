@@ -191,7 +191,7 @@ export default function Benchmark() {
         {(
           <>
             <div
-              className={`${styles.tabs} flex flex-col items-center mt-4 z-1`}
+              className={`${styles.tabs} flex flex-col items-center mt-10 z-1`}
             >
               <div className="block text-5xl font-semibold h-auto whitespace-pre-wrap bg-gradient-to-br from-[#ffaa40] from-35% to-[#9c40ff] bg-clip-text tracking-tighter text-transparent dark:drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)]">
                 Performance Comparison

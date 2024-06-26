@@ -10,7 +10,7 @@ interface BlurInProps {
     visible: { filter: string; opacity: number };
   };
   duration?: number;
-  highlightWord?: string;
+  highlightWord?: string | string[];
   highlightColor?: string;
 }
 
