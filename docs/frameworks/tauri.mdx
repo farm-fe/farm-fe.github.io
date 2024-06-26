@@ -15,5 +15,26 @@ Create a `Tauri` project based on `Farm`.
 
 Select `Tauri` template in `Select Framework`
 
+1. project name
+
+2. choose sub template
+
+In your terminal, cd into the new Tauri project folder.
+
+Update the file with the following content:
+
+```ts
+import { defineConfig } from '@farmfe/core';
+
+export default defineConfig({
+  plugins: ['@farmfe/plugin-react'],
+  server: {
+    port: 1420
+  }
+});
+
+```
+
+then run `pnpm tauri dev`
 
 For more example details: [React Example](https://github.com/farm-fe/farm/tree/main/examples/Tauri)

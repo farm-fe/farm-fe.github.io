@@ -9,8 +9,8 @@ const FAQItem = ({ question, answer }) => {
   return (
     <div style={{
       boxSizing: "border-box",
-      width: "536px",
-      maxWidth: "600px",
+      width: "100%",
+      maxWidth: "800px",
       borderBottom: "1px solid rgb(228, 228, 231)"
     }}>
       <h3 style={{
@@ -82,11 +82,11 @@ export function FAQ() {
       category: "General",
       items: [
         {
-          question: "What is Magic UI?",
+          question: "Is farm a substitute for vite??",
           answer: "Magic UI is a modern, customizable UI component library for React applications."
         },
         {
-          question: "How can I get started with Magic UI?",
+          question: "What is the difference between farm and rspack?",
           answer: "You can start by installing Magic UI via npm or yarn, and then importing the components you need in your React project."
         }
       ]
@@ -95,7 +95,7 @@ export function FAQ() {
       category: "Support",
       items: [
         {
-          question: "Does Magic UI offer technical support?",
+          question: "What is the ultimate goal of farm?",
           answer: "Yes, Magic UI offers technical support through our documentation, community forums, and dedicated support channels for premium users."
         }
       ]
@@ -104,7 +104,7 @@ export function FAQ() {
       category: "Customization",
       items: [
         {
-          question: "Can I customize Magic UI components?",
+          question: "What is the ultimate goal of farm?",
           answer: "Absolutely! Magic UI components are highly customizable. You can modify their appearance using CSS, props, or theme configurations."
         }
       ]
@@ -113,7 +113,7 @@ export function FAQ() {
       category: "Integration",
       items: [
         {
-          question: "How do I integrate Magic UI with my existing project?",
+          question: "What is the ultimate goal of farm?",
           answer: "You can integrate Magic UI into your existing project by installing it as a dependency and then importing the desired components into your React files."
         }
       ]
@@ -154,8 +154,8 @@ export function FAQ() {
         boxSizing: "border-box",
         paddingLeft: "32px",
         paddingRight: "32px",
-        width: "600px",
-        maxWidth: "600px",
+        width: "800px",
+        maxWidth: "800px",
         margin: "48px 290px 48px 290px"
       }}>
         {faqData.map((category, index) => (
@@ -177,7 +177,7 @@ export function FAQ() {
             <div style={{
               boxSizing: "border-box",
               display: "flex",
-              width: "536px",
+              width: "100%",
               flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
