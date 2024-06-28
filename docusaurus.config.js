@@ -100,17 +100,17 @@ const config = {
           src: "img/logo.png",
         },
         items: [
-          {
-            type: "custom-documate",
-            position: "left",
-            endpoint: "https://8gw8jajsc1.us.aircode.run/ask",
-            style: {
-              marginRight: "2rem",
-              marginLeft: "2rem",
-              marginTop: "0.3rem",
-              width: "8rem",
-            },
-          },
+          // {
+          //   type: "custom-documate",
+          //   position: "left",
+          //   endpoint: "https://8gw8jajsc1.us.aircode.run/ask",
+          //   style: {
+          //     marginRight: "2rem",
+          //     marginLeft: "2rem",
+          //     marginTop: "0.3rem",
+          //     width: "8rem",
+          //   },
+          // },
           {
             type: "doc",
             docId: "quick-start",
@@ -157,7 +157,7 @@ const config = {
               },
               {
                 label: "Twitter",
-                href: "https://twitter.com/FarmFe71928",
+                href: "https://x.com/brightwwu46799",
               },
               {
                 label: "WeChat Group",
@@ -188,60 +188,64 @@ const config = {
         //   hideable: true,
         // },
       },
-      footer: {
-        links: [
-          {
-            title: "Guide",
-            items: [
-              {
-                label: "Quick Start",
-                to: "/docs/quick-start",
-              },
-              {
-                label: "Introduction",
-                to: "/docs/why-farm",
-              },
-            ],
-          },
-          {
-            title: "Community",
-            items: [
-              {
-                label: "WeChat Group",
-                href: "https://github.com/farm-fe/farm#chat-with-us",
-              },
-              {
-                label: "Discord",
-                href: "https://discord.com/invite/mDErq9aFnF",
-              },
-            ],
-          },
-          {
-            title: "More",
-            items: [
-              {
-                label: "GitHub",
-                href: "https://github.com/farm-fe/farm",
-              },
-              {
-                label: "Twitter",
-                href: "https://twitter.com/@farm-fe",
-              },
-            ],
-          },
-        ],
-        logo: {
-          alt: "Farm Logo",
-          src: "/img/logo-farm.png",
-          href: "https://github.com/farm-fe/farm",
-        },
-        copyright: `Copyright © ${new Date().getFullYear()} Farm, Inc. Built with Docusaurus.`,
+      customFields: {
+        customFooter: "src/theme/Footer/index.tsx",
       },
-      announcementBar: {
-        id: "announcementBar-2", // Increment on change
-        content: `🎉 Farm is now in 1.0.0 stable and production ready. If you like Farm, give it a ⭐️ on <a target="_blank" rel="noopener noreferrer" href="https://github.com/farm-fe/farm">GitHub</a>`,
-      },
+      // footer: {
+      //   links: [
+      //     {
+      //       title: "Guide",
+      //       items: [
+      //         {
+      //           label: "Quick Start",
+      //           to: "/docs/quick-start",
+      //         },
+      //         {
+      //           label: "Introduction",
+      //           to: "/docs/why-farm",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       title: "Community",
+      //       items: [
+      //         {
+      //           label: "WeChat Group",
+      //           href: "https://github.com/farm-fe/farm#chat-with-us",
+      //         },
+      //         {
+      //           label: "Discord",
+      //           href: "https://discord.com/invite/mDErq9aFnF",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       title: "More",
+      //       items: [
+      //         {
+      //           label: "GitHub",
+      //           href: "https://github.com/farm-fe/farm",
+      //         },
+      //         {
+      //           label: "Twitter",
+      //           href: "https://twitter.com/@farm-fe",
+      //         },
+      //       ],
+      //     },
+      //   ],
+      //   logo: {
+      //     alt: "Farm Logo",
+      //     src: "/img/logo-farm.png",
+      //     href: "https://github.com/farm-fe/farm",
+      //   },
+      //   copyright: `Copyright © ${new Date().getFullYear()} Farm, Inc. Built with Docusaurus.`,
+      // },
+      // announcementBar: {
+      //   id: "announcementBar-2", // Increment on change
+      //   content: `🎉 Farm is now in 1.0.0 stable and production ready. If you like Farm, give it a ⭐️ on <a target="_blank" rel="noopener noreferrer" href="https://github.com/farm-fe/farm">GitHub</a>`,
+      // },
       prism: {
+        additionalLanguages: ["powershell"],
         theme: prismThemes.nightOwlLight,
         darkTheme: prismThemes.oneDark,
         magicComments: [
@@ -273,9 +277,11 @@ const config = {
       return {
         name: "docusaurus-tailwindcss",
         configurePostCss(postcssOptions) {
-          // Appends TailwindCSS and AutoPrefixer.
-          postcssOptions.plugins.push(require("tailwindcss"));
-          postcssOptions.plugins.push(require("autoprefixer"));
+          postcssOptions.plugins = [
+            require("postcss-import"),
+            require("tailwindcss"),
+            require("autoprefixer"),
+          ];
           return postcssOptions;
         },
       };

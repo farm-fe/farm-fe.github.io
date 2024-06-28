@@ -54,18 +54,18 @@ html[data-theme="light"] {
   --ifm-alert-caution-background-color: var(--c-green-10);
   body {
     --angle: 220deg;
-    background-image: linear-gradient(
-      var(--angle),
-      white 15%,
-      #ff9ff360 20%,
-      white 25%,
-      #f4eef8 30%,
-      white 35%,
-      #f8edf5 40%,
-      white 60%
-    );
-    background-attachment: fixed;
-    background-size: cover;
+    // background-image: linear-gradient(
+    //   var(--angle),
+    //   white 15%,
+    //   #ff9ff360 20%,
+    //   white 25%,
+    //   #f4eef8 30%,
+    //   white 35%,
+    //   #f8edf5 40%,
+    //   white 60%
+    // );
+    // background-attachment: fixed;
+    // background-size: cover;
   }
 }
 
@@ -89,7 +89,7 @@ html[data-theme="dark"] {
   --admonition-danger-c-color: var(--c-red-50);
 
   --ifm-alert-tip-background-color: var(--c-green-50-a);
-  --admonition-code-note-c-bg: #3d2900;
+  --admonition-code-note-c-bg: #ff9ff350;
   --admonition-code-warning-c-bg: var(--c-yellow-50-a);
   --admonition-code-info-c-bg: #00163d;
   --admonition-code-tip-c-bg: #003d11;
@@ -111,7 +111,7 @@ html[data-theme="dark"] {
   --admonition-color-tip-c: var(--note-color);
   --admonition-color-note-c: var(--note-color);
   --admonition-link-caution-c: var(--c-orange-90);
-  --admonition-link-danger-c: var(--c-red-90);
+  --admonition-link-danger-c: var(--c-red-60);
 }
 
 .theme-admonition {

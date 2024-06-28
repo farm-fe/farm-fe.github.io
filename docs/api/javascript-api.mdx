@@ -1,3 +1,4 @@
+import { PackageManagerTabs } from "../../src/theme/PackageManagerTabs";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
@@ -8,21 +9,7 @@ import CodeBlock from "@theme/CodeBlock";
 
 Install the `@farmfe/core` package:
 
-<>
-    <Tabs>
-        <TabItem value="npm" label="npm">
-            <CodeBlock>npm install @farmfe/core@latest</CodeBlock>
-        </TabItem>
-
-        <TabItem value="yarn" label="yarn">
-            <CodeBlock>yarn add @farmfe/core@latest</CodeBlock>
-        </TabItem>
-
-        <TabItem value="pnpm" label="pnpm">
-            <CodeBlock>pnpm add @farmfe/core@latest</CodeBlock>
-        </TabItem>
-    </Tabs>
-</>
+<PackageManagerTabs command="pnpm add @farmfe/core@latest" />
 
 ## Start
 
@@ -40,12 +27,68 @@ Basic example:
 ```javascript
 import { start, logger } from "@farmfe/core";
 try {
-  await start(options);
+  await start({
+    compilation: {
+      output: {
+        publicPath: "/dist"
+      },
+      input: {
+        index: "./base.html"
+      }
+    },
+    server: {
+      port: 6532,
+      hmr: {
+        path: "/__farm_hmr",
+      }
+    },
+    plugins: [
+      '@farmfe/plugin-react',
+      '@farmfe/plugin-sass'
+    ],
+  });
 } catch (error) {
   logger.error(`Failed to start server:\n ${error.stack}`);
   process.exit(1);
 }
 ```
+
+another way is use more deep api to start server: 
+
+```javascript
+import {
+  createCompiler,
+  createDevServer,
+  resolveConfig
+} from '@farmfe/core';
+
+const resolveUserConfig = await resolveConfig({
+      compilation: {
+      output: {
+        publicPath: "/dist"
+      },
+      input: {
+        index: "./base.html"
+      }
+    },
+    server: {
+      port: 6532,
+      hmr: {
+        path: "/__farm_hmr",
+      }
+    },
+    plugins: [
+      '@farmfe/plugin-react',
+      '@farmfe/plugin-sass'
+    ],
+})
+
+// create compiler
+const compiler = await createCompiler(resolveUserConfig);
+const server = await createDevServer(compiler, resolveUserConfig);
+server.listen();
+```
+
 ## Build
 The build method is used to build for the production environment.
 
@@ -530,4 +573,5 @@ Basic example:
 import { Compiler } from "@farmfe/core";
 const compiler = new Compiler(config);
 const result = compiler.modules();
-```
+```import { create } from "ts-node";
+

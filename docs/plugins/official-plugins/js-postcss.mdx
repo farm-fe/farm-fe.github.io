@@ -1,23 +1,14 @@
 import CodeBlock from "@theme/CodeBlock";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
+import { PackageManagerTabs } from "../../../src/theme/PackageManagerTabs";
 
 # @farmfe/js-plugin-postcss
 Support `postcss` for Farm.
 
 ## Installation
 
-<Tabs>
-  <TabItem value="npm" label="npm">
-    <CodeBlock>npm install @farmfe/js-plugin-postcss postcss</CodeBlock>
-  </TabItem>
-  <TabItem value="yarn" label="yarn">
-    <CodeBlock>yarn add @farmfe/js-plugin-postcss postcss</CodeBlock>
-  </TabItem>
-  <TabItem value="pnpm" label="pnpm">
-    <CodeBlock>pnpm add @farmfe/js-plugin-postcss postcss</CodeBlock>
-  </TabItem>
-</Tabs>
+<PackageManagerTabs command="pnpm add @farmfe/js-plugin-postcss postcss" />
 
 ## Usage
 ```ts {2,6}

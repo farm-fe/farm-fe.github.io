@@ -1,6 +1,5 @@
-import CodeBlock from "@theme/CodeBlock";
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
+import { PackageManagerTabs } from "../../src/theme/PackageManagerTabs";
+
 
 # React
 
@@ -12,20 +11,8 @@ Create a `React` project based on `Farm`.
 
 ### Creating a React Project
 
-<>
-    <Tabs>
-          <TabItem value="npm" label="npm">
-              <CodeBlock>npm create farm@latest</CodeBlock>
-              </TabItem>
+<PackageManagerTabs command="npm create farm@latest" />
 
-  <TabItem value="yarn" label="yarn">
-          <CodeBlock>yarn create farm</CodeBlock>
-              </TabItem>
-  <TabItem value="pnpm" label="pnpm">
-          <CodeBlock>pnpm create farm</CodeBlock>
-              </TabItem>
-          </Tabs>
-</>
 
 Select `React` template in `Select Framework`
 
@@ -62,7 +49,7 @@ export default defineConfig({
       ],
     },
   },
-  plugins: [['@farmfe/plugin-react', { "runtime": "automatic", "importSource": "@emotion/react" }]],
+  plugins: [['@farmfe/plugin-react', { "importSource": "@emotion/react" }]],
 });
 
 ```
@@ -113,8 +100,17 @@ export default defineConfig(async (env) => {
     ]
   };
 });
-
-
 ```
+If you want to start DevServer
+
+<PackageManagerTabs command="pnpm dev" />
+
+If you need to run the build production environment product command
+
+<PackageManagerTabs command="pnpm build" />
+
+If you need to preview your build product
+
+<PackageManagerTabs command="pnpm preview" />
 
 For more example details: [React Example](https://github.com/farm-fe/farm/tree/main/examples/react)

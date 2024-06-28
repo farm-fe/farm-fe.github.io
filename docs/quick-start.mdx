@@ -2,9 +2,7 @@
 sidebar_position: 1
 ---
 
-import CodeBlock from "@theme/CodeBlock";
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
+import { PackageManagerTabs } from "../src/theme/PackageManagerTabs";
 
 # Quick Start
 
@@ -17,43 +15,13 @@ Farm needs **Node 16.18.0 and above**.
 [![Edit Farm](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/p/github/ErKeLost/react/main)
 
 ## Create a Farm Project
-
-<>
-    <Tabs>
-          <TabItem value="npm" label="npm">
-              <CodeBlock>npm create farm@latest</CodeBlock>
-              </TabItem>
-
-  <TabItem value="yarn" label="yarn">
-          <CodeBlock>yarn create farm</CodeBlock>
-              </TabItem>
-  <TabItem value="pnpm" label="pnpm">
-          <CodeBlock>pnpm create farm</CodeBlock>
-              </TabItem>
-          </Tabs>
-</>
+<PackageManagerTabs command="pnpm create farm@latest" />
 
 :::note{title="Then follow the prompts!"}
-
 You can also directly specify the project name and the template you want to use via additional command line options:
 :::
-<>
-    <Tabs>
-          <TabItem value="npm 6.x" label="npm 6.x">
-              <CodeBlock>npm create farm@latest my-react-app --template react</CodeBlock>
-              </TabItem>
 
-  <TabItem value="npm 7+" label="npm 7+">
-          <CodeBlock>npm create farm@latest my-react-app -- --template react</CodeBlock>
-              </TabItem>
-  <TabItem value="yarn" label="yarn">
-          <CodeBlock>yarn create farm my-react-app --template react</CodeBlock>
-              </TabItem>
-  <TabItem value="pnpm" label="pnpm">
-          <CodeBlock>pnpm create farm my-react-app --template react</CodeBlock>
-              </TabItem>
-          </Tabs>
-</>
+<PackageManagerTabs command="pnpm create farm farm-app --template react" />
 
 
 ## 2. Start the Project
@@ -61,21 +29,7 @@ You can also directly specify the project name and the template you want to use 
 Choose the package manager you like, install dependencies, then start the project.
 Then, start the project:
 
-<>
-    <Tabs>
-          <TabItem value="npm" label="npm">
-              <CodeBlock>cd farm-project && npm i && npm start</CodeBlock>
-              </TabItem>
-
-  <TabItem value="yarn" label="yarn">
-          <CodeBlock>cd farm-project && yarn && yarn start</CodeBlock>
-              </TabItem>
-  <TabItem value="pnpm" label="pnpm">
-          <CodeBlock>cd farm-project && pnpm i && pnpm start</CodeBlock>
-              </TabItem>
-          </Tabs>
-</>
-
+<PackageManagerTabs command="cd farm-app && pnpm install && pnpm start" />
 
 The project will start at `http://localhost:9000` by default.
 
@@ -117,9 +71,8 @@ See **[Configuring Farm](/docs/config/configuring-farm)** for details.
 
 Build the Farm project as production-ready static files:
 
-```bash
-npm run build
-```
+<PackageManagerTabs command="npm run build" />
+
 
 The built product is downgraded to `ES2017` by default, and the product will be compressed and Tree Shake. If you want to preview the build product locally, you can execute `npm run preview` or `npx farm preview`.
 
@@ -133,3 +86,4 @@ See **[Build For Production](/docs/tutorials/build)** for details.
 - [Features](/docs/features/html)
 - [Configuring Farm](/docs/config/configuring-farm)
 - [Plugins](/docs/plugins/official-plugins/overview)
+---

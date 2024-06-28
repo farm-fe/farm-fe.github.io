@@ -145,7 +145,7 @@ const myPlugin = () => {
     name: 'my-plugin',
     configResolved(resolvedConfig) {
       // get resolved config
-      farmConfig = resolvedConfig;
+      resolvedConfig = farmConfig;
     },
     transform: {
       filters: {

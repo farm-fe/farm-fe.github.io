@@ -1,3 +1,6 @@
+import { PackageManagerTabs } from "../../src/theme/PackageManagerTabs";
+
+
 # Develop With Farm
 In this chapter, we will introduce **commonly used configuration and plugins** to help you build complex production-ready web project with Farm.
 
@@ -16,14 +19,13 @@ A component library is often necessary when develop a web project, in this secti
 > We use ant design here only for illustration, you can introduce any component library. Farm does not have objection.
 
 First we need to install ant-design into our project:
-```bash
-pnpm add antd # execute under project root
-```
+
+<PackageManagerTabs skip command="pnpm add antd # execute under project root" />
+
 
 Ant Design needs Sass, so we also need to install plugins for compiling scss. We can use `@farmfe/plugin-sass` which is a Rust Plugin officially provided by Farm:
-```bash
-pnpm add @farmfe/plugin-sass -D
-```
+
+<PackageManagerTabs skip command="pnpm add @farmfe/plugin-sass -D" />
 
 Then add this plugin to `plugins`:
 ```ts title="farm.config.ts" {7}
@@ -177,9 +179,9 @@ Then your page should be updated like below:
 Farm provided official js plugins for `postcss`(`@farmfe/js-plugin-postcss`) and `less`(`@farmfe/js-plugin-less`) (We have already installed rust plugin `sass`(`@farmfe/plugin-sass`) above).
 
 To use postcss, First we need to install the plugin:
-```bash
-pnpm add -D @farmfe/js-plugin-postcss
-```
+
+<PackageManagerTabs command="pnpm add -D @farmfe/js-plugin-postcss" />
+
 then configure it in `plugins` of `farm.config.ts`:
 ```ts title="farm.config.ts" {7}
 // ...

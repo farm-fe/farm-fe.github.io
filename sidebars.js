@@ -52,6 +52,23 @@ const sidebars = {
     },
     {
       type: "category",
+      label: "Frameworks",
+      collapsed: true,
+      items: [
+        "frameworks/vanilla",
+        "frameworks/react",
+        "frameworks/vue",
+        "frameworks/solid",
+        "frameworks/svelte",
+        "frameworks/preact",
+        "frameworks/lit",
+        "frameworks/electron",
+        "frameworks/tauri",
+        "frameworks/nestjs",
+      ],
+    },
+    {
+      type: "category",
       label: "Advanced",
       collapsed: true,
       items: [
@@ -61,17 +78,6 @@ const sidebars = {
         "advanced/minification",
         "advanced/polyfill",
         "advanced/persistent-cache"
-      ],
-    },
-    {
-      type: "category",
-      label: "Frameworks",
-      collapsed: true,
-      items: [
-        "frameworks/react",
-        "frameworks/vue",
-        "frameworks/solid",
-        "frameworks/svelte",
       ],
     },
     {
@@ -133,6 +139,11 @@ const sidebars = {
           items: [
             "plugins/official-plugins/react",
             "plugins/official-plugins/sass",
+            "plugins/official-plugins/strip",
+            "plugins/official-plugins/dsv",
+            "plugins/official-plugins/yaml",
+            "plugins/official-plugins/virtual",
+            "plugins/official-plugins/react-components",
           ],
         },
         {

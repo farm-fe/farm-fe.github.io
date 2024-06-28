@@ -1,5 +1,7 @@
 # 使用插件
+
 Farm支持4种插件：
+
 * **`Farm 编译插件`**：支持 Rust 插件和 Js 插件，采用 rollup 风格的 hooks。
 * **`Vite/Rollup/Unplugin 插件`**：Farm 开箱即用支持 Vite/Rollup/Unplugin 插件
 * **`Farm 运行时插件`**：为 Farm 的运行时系统添加功能。
@@ -10,12 +12,15 @@ Farm支持4种插件：
 :::
 
 ## Farm 编译插件
+
 首先，安装您需要的插件，例如：
+
 ```bash
 pnpm add -D @farmfe/plugin-sass @farmfe/js-plugin-postcss
 ```
 
-使用 `plugins` 配置 Farm 编译插件：
+使用 `plugins` 配置 Farm 编译插件:
+
 ```ts title="farm.config.ts"
 import farmPostcssPlugin from "@farmfe/js-plugin-postcss";
 
@@ -31,11 +36,14 @@ export default defineConfig({
 ```
 
 Farm编译插件有2种：
+
 * **`Rust Plugins`**：用 Rust 编写，具有最佳性能。
 * **`Js Plugins`**：用JS/TS编写，用于兼容当前的JS生态系统
 
 ### 使用 Rust 插件
-使用 `package name` 来配置 Rust 插件，例如：
+
+使用 `package name` 来配置 Rust 插件，例如:
+
 ```ts title="farm.config.ts"
 export default defineConfig({
   // ...

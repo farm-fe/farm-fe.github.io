@@ -1,3 +1,5 @@
+import { PackageManagerTabs } from "../../src/theme/PackageManagerTabs";
+
 # Build For Production
 By default, Farm has enabled support for the following features for production builds:
 * **`Tree Shake`**: Crop and filter irrelevant modules and code
@@ -102,9 +104,7 @@ export default defineConfig({
 ```
 In above example, Farm will downgrade the syntax to `es5` and inject polyfill automatically. Then we have to install `core-js@3` to polyfill injection:
 
-```sh
-pnpm add -D core-js@3
-```
+<PackageManagerTabs command="pnpm add -D core-js@3" />
 
 :::note
 * You need to install `core-js@3` manually if your target to legacy browsers.
