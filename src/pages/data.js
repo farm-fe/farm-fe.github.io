@@ -2,7 +2,7 @@ export const members = [
   {
     avatar: "https://www.github.com/wre232114.png",
     name: "brightwu",
-    org: "@tencent",
+    org: "@bytedance",
     desc: "Author/Lead Maintainer of @farm-fe. Rust && TS && Java..",
     links: [
       { icon: "github", link: "https://github.com/wre232114" },
@@ -103,6 +103,17 @@ export const members = [
       { icon: "twitter", link: "https://twitter.com/NaturelLee" },
     ],
   },
+  {
+    avatar: "https://github.com/CCherry07.png",
+    name: "Cherry7",
+    org: "@bytedance",
+    title: "Open Source Developer",
+    orgLink: "https://github.com/CCherry07",
+    desc: "Core team member of Farm & Ant Design Vue.",
+    links: [
+      { icon: "github", link: "https://github.com/CCherry07" },
+    ],
+  }
 ];
 
 export default function Empty() {}
