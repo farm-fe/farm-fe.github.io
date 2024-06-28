@@ -20,10 +20,15 @@ For `Solid` support, `Farm` recommends using `Vite` plugins.
 
 ```javascript title="farm.config.ts"
 import { defineConfig } from '@farmfe/core';
-import Solid from "vite-plugin-solid";
+import solid from 'vite-plugin-solid';
 
 export default defineConfig({
-  plugins: [Solid()],
+  vitePlugins: [
+    () => ({
+      vitePlugin: solid(),
+      filters: ['\\.tsx$', '\\.jsx$']
+    })
+  ]
 });
 ```
 If you want to start DevServer
