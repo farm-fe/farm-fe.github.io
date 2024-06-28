@@ -133,6 +133,11 @@ const sidebars = {
           items: [
             "plugins/official-plugins/react",
             "plugins/official-plugins/sass",
+            "plugins/official-plugins/strip",
+            "plugins/official-plugins/dsv",
+            "plugins/official-plugins/yaml",
+            "plugins/official-plugins/virtual",
+            "plugins/official-plugins/react-components",
           ],
         },
         {
