@@ -22,7 +22,7 @@ const BENChMARK_DATA = {
     },
     {
       name: "Webpack",
-      time: 6.870,
+      time: 6.87,
     },
   ],
   HotStart: [
@@ -90,7 +90,7 @@ const BENChMARK_DATA = {
     },
     {
       name: "Vite",
-      time: 1.660,
+      time: 1.66,
     },
     {
       name: "Webpack",
@@ -100,7 +100,7 @@ const BENChMARK_DATA = {
   HotBuild: [
     {
       name: "Farm",
-      time: 0.140,
+      time: 0.14,
     },
     {
       name: "Rspack",
@@ -108,7 +108,7 @@ const BENChMARK_DATA = {
     },
     {
       name: "Vite",
-      time: 1.650,
+      time: 1.65,
     },
     {
       name: "Webpack",
@@ -155,8 +155,8 @@ export default function Benchmark() {
 
   function PillTabs({ SCENE, children }) {
     return (
-      <div>
-        <div className="inline-flex mb-4 items-center rounded-lg text-sm  lg:text-base">
+      <div className="overflow-x-auto">
+        <div className="inline-flex mb-4 items-center rounded-lg text-sm lg:text-base">
           {SCENE.map((item, index) => {
             return <Pill section={item} key={index}></Pill>;
           })}
