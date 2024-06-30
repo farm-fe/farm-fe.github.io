@@ -20,7 +20,7 @@ export default defineConfig({
 ```
 
 :::note
-If you are built tools on top of farm, refer to [Javascript API](http://localhost:1911/docs/api/javascript-api) for creating a Dev Server programmatically.
+If you are built tools on top of farm, refer to [Javascript API](/docs/api/javascript-api) for creating a Dev Server programmatically.
 :::
 
 ## Dev Server Middlewares
