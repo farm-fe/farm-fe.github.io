@@ -10,109 +10,109 @@ const BENChMARK_DATA = {
   ColdStart: [
     {
       name: "Farm",
-      time: 0.429,
+      time: 0.396,
     },
     {
-      name: "Rspack",
-      time: 0.606,
+      name: "RsBuild",
+      time: 0.468,
     },
     {
-      name: "Vite",
-      time: 3.285,
+      name: "Vite (swc)",
+      time: 1.700,
     },
     {
-      name: "Webpack",
-      time: 6.87,
+      name: "Webpack (swc)",
+      time: 2.078,
     },
   ],
   HotStart: [
     {
       name: "Farm",
-      time: 0.275,
+      time: 0.273,
     },
     {
-      name: "Rspack",
-      time: 0.585,
+      name: "RsBuild",
+      time: 0.468,
     },
     {
-      name: "Vite",
-      time: 2.955,
+      name: "Vite (swc)",
+      time: 1.426,
     },
     {
-      name: "Webpack",
-      time: 1.197,
+      name: "Webpack (swc)",
+      time: 0.945,
     },
   ],
   HmrRoot: [
     {
       name: "Farm",
-      time: 0.019,
+      time: 0.018,
     },
     {
-      name: "Rspack",
-      time: 0.082,
+      name: "RsBuild",
+      time: 0.087,
     },
     {
-      name: "Vite",
-      time: 0.032,
+      name: "Vite (swc)",
+      time: 0.022,
     },
     {
-      name: "Webpack",
-      time: 0.211,
+      name: "Webpack (swc)",
+      time: 0.532,
     },
   ],
   HmrLeaf: [
     {
       name: "Farm",
-      time: 0.014,
+      time: 0.013,
     },
     {
-      name: "Rspack",
-      time: 0.065,
+      name: "RsBuild",
+      time: 0.074,
     },
     {
-      name: "Vite",
-      time: 0.018,
+      name: "Vite (swc)",
+      time: 0.011,
     },
     {
-      name: "Webpack",
-      time: 0.175,
+      name: "Webpack (swc)",
+      time: 0.165,
     },
   ],
   ColdBuild: [
     {
       name: "Farm",
-      time: 0.323,
+      time: 0.313,
     },
     {
-      name: "Rspack",
-      time: 0.532,
+      name: "RsBuild",
+      time: 0.363,
     },
     {
-      name: "Vite",
-      time: 1.66,
+      name: "Vite (swc)",
+      time: 1.543,
     },
     {
-      name: "Webpack",
-      time: 8.814,
+      name: "Webpack (swc)",
+      time: 4.128,
     },
   ],
   HotBuild: [
     {
       name: "Farm",
-      time: 0.14,
+      time: 0.16,
     },
     {
-      name: "Rspack",
-      time: 0.515,
+      name: "RsBuild",
+      time: 0.363,
     },
     {
-      name: "Vite",
-      time: 1.65,
+      name: "Vite (swc)",
+      time: 1.540,
     },
     {
-      name: "Webpack",
-      time: 1.197,
+      name: "Webpack (swc)",
+      time: 0.527,
     },
   ],
 };
@@ -185,7 +185,7 @@ export default function Benchmark() {
                           <>
                             <div
                               className="flex items-center text-light-500  text-center font-bold"
-                              style={{ minWidth: "100px" }}
+                              style={{ minWidth: "120px" }}
                             >
                               {info.name}
                             </div>
