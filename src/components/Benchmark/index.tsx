@@ -17,11 +17,11 @@ const BENChMARK_DATA = {
       time: 0.468,
     },
     {
-      name: "Vite (swc)",
+      name: "Vite",
       time: 1.700,
     },
     {
-      name: "Webpack (swc)",
+      name: "Webpack",
       time: 2.078,
     },
   ],
@@ -35,11 +35,11 @@ const BENChMARK_DATA = {
       time: 0.468,
     },
     {
-      name: "Vite (swc)",
+      name: "Vite",
       time: 1.426,
     },
     {
-      name: "Webpack (swc)",
+      name: "Webpack",
       time: 0.945,
     },
   ],
@@ -53,11 +53,11 @@ const BENChMARK_DATA = {
       time: 0.087,
     },
     {
-      name: "Vite (swc)",
+      name: "Vite",
       time: 0.022,
     },
     {
-      name: "Webpack (swc)",
+      name: "Webpack",
       time: 0.532,
     },
   ],
@@ -71,11 +71,11 @@ const BENChMARK_DATA = {
       time: 0.074,
     },
     {
-      name: "Vite (swc)",
+      name: "Vite",
       time: 0.011,
     },
     {
-      name: "Webpack (swc)",
+      name: "Webpack",
       time: 0.165,
     },
   ],
@@ -89,11 +89,11 @@ const BENChMARK_DATA = {
       time: 0.363,
     },
     {
-      name: "Vite (swc)",
+      name: "Vite",
       time: 1.543,
     },
     {
-      name: "Webpack (swc)",
+      name: "Webpack",
       time: 4.128,
     },
   ],
@@ -107,11 +107,11 @@ const BENChMARK_DATA = {
       time: 0.363,
     },
     {
-      name: "Vite (swc)",
+      name: "Vite",
       time: 1.540,
     },
     {
-      name: "Webpack (swc)",
+      name: "Webpack",
       time: 0.527,
     },
   ],
@@ -185,7 +185,7 @@ export default function Benchmark() {
                           <>
                             <div
                               className="flex items-center text-light-500  text-center font-bold"
-                              style={{ minWidth: "120px" }}
+                              style={{ minWidth: "100px" }}
                             >
                               {info.name}
                             </div>
