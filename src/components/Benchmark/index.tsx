@@ -6,7 +6,7 @@ import Translate from "@docusaurus/Translate";
 import Link from "@docusaurus/Link";
 import React, { useState } from "react";
 import clsx from "clsx";
-const BENChMARK_DATA = {
+const BENCHMARK_DATA = {
   ColdStart: [
     {
       name: "Farm",
@@ -116,7 +116,6 @@ const BENChMARK_DATA = {
     },
   ],
 };
-
 export default function Benchmark() {
   const SCENE = [
     { name: <Translate>ColdStart</Translate>, title: "ColdStart" },
@@ -128,7 +127,7 @@ export default function Benchmark() {
   ];
   const [activeScene, setActiveScene] = useState("ColdStart");
   const { ref, inView } = useInView();
-  const performanceInfoList = BENChMARK_DATA[activeScene];
+  const performanceInfoList = BENCHMARK_DATA[activeScene];
 
   const [visibleSection, setVisibleSection] = useState("ColdStart");
 
