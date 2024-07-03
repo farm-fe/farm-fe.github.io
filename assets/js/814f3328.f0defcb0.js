@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkfarm_docs=self.webpackChunkfarm_docs||[]).push([[7472],{5513:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Blob","permalink":"/blog/index","unlisted":false}]}')}}]);
