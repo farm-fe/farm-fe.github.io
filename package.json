@@ -21,6 +21,7 @@
     "crowdin": "crowdin",
     "documate:upload": "documate upload"
   },
+  "packageManager": "pnpm@9.4.0",
   "dependencies": {
     "@crowdin/cli": "3",
     "@crowdin/crowdin-api-client": "^1.23.4",
