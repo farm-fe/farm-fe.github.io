@@ -12,7 +12,7 @@ Farm官方提供了很多有用的插件，包括Rust插件和JS插件。 Rust �
 * **[`@farmfe/plugin-sass`](./sass)**：支持编译`sass/scss`文件。
 * **[`@farmfe/plugin-strip`](./strip)**：一个Farm的Rust插件，用于从你的代码中移除`debugger`语句和类似`assert.equal`、`console.log`这样的函数。
 * **[`@farmfe/plugin-dsv`](./dsv)**：一个Farm插件，用于将`.csv`和`.tsv`文件转换为JavaScript模块。
-* **[`@farmfe/plugin-yaml`](./yaml)**：一个Farm插件，用于将YAML文件转换为ES6模块。
+* **[`@farmfe/plugin-yml`](./yaml)**：一个Farm插件，用于将YAML文件转换为ES6模块。
 * **[`@farmfe/plugin-virtual`](./virtual)**：一个方便在farm中使用虚拟模块的rust插件。
 * **[`@farmfe/plugin-react-components`](./react-components)**：用于React的按需组件自动导入。
 

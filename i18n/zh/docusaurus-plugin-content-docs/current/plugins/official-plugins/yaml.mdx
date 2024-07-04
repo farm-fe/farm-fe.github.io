@@ -2,7 +2,7 @@ import CodeBlock from "@theme/CodeBlock";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
-# @farmfe/plugin-yaml
+# @farmfe/plugin-yml
 
 受 [@rollup/plugin-yaml](https://www.npmjs.com/package/@rollup/plugin-yaml) 启发
 
@@ -12,13 +12,13 @@ import TabItem from "@theme/TabItem";
 
 <Tabs>
   <TabItem value="npm" label="npm">
-    <CodeBlock>npm install @farmfe/plugin-yaml</CodeBlock>
+    <CodeBlock>npm install @farmfe/plugin-yml</CodeBlock>
   </TabItem>
   <TabItem value="yarn" label="yarn">
-    <CodeBlock>yarn add @farmfe/plugin-yaml</CodeBlock>
+    <CodeBlock>yarn add @farmfe/plugin-yml</CodeBlock>
   </TabItem>
   <TabItem value="pnpm" label="pnpm">
-    <CodeBlock>pnpm add @farmfe/plugin-yaml</CodeBlock>
+    <CodeBlock>pnpm add @farmfe/plugin-yml</CodeBlock>
   </TabItem>
 </Tabs>
 
@@ -32,7 +32,7 @@ import { defineConfig } from '@farmfe/core';
 export default defineConfig({
   plugins: [
     [
-      '@farmfe/plugin-yaml',
+      '@farmfe/plugin-yml',
       {
         documentMode: 'single' | 'multi', // 默认 single
         include: Regex, // 默认 None
