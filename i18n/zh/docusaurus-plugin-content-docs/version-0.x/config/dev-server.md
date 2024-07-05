@@ -84,7 +84,7 @@ Web Socket 服务器监听的 Host
 ### proxy
 * **默认值**: `undefined`
 
-配置服务器代理。基于 [koa-proxies](https://www.npmjs.com/package/koa-proxies) 实现，具体选项参考其文档，示例：
+配置服务器代理。基于 [http-proxy](https://github.com/http-party/node-http-proxy?tab=readme-ov-file#options) 实现，具体选项参考其文档，示例：
 
 ```ts
 import type { UserConfig } from '@farmfe/core';
@@ -99,7 +99,7 @@ export default defineConfig({
       '/api': {
         target: 'https://music-erkelost.vercel.app/banner',
         changeOrigin: true,
-        rewrite: (path: any) => path.replace(/^\/api/, ''),
+        pathRewrite: (path: any) => path.replace(/^\/api/, ''),
       },
     },
   },
