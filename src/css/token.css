@@ -306,7 +306,7 @@
 }
 
 html[data-theme="dark"] {
-  --c-brand: #ff9ff3;
+  --c-brand: #ff73ec90;
   --c-yellow-50: #f9d76f;
   --c-yellow-50-a: #ffd75a60;
 }

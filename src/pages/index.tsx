@@ -7,10 +7,7 @@ import HomepageFeatures from "@site/src/components/HomepageFeatures";
 import Benchmark from "../components/Benchmark";
 import StarrySky from "../components/StarrySky";
 import styles from "./index.module.css";
-import { TeamMembers } from "../components/TeamMembers";
-import Translate, { translate } from "@docusaurus/Translate";
-import { useThemeConfig } from "@docusaurus/theme-common";
-import { members } from "./data";
+import Translate from "@docusaurus/Translate";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
