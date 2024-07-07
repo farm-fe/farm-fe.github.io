@@ -91,7 +91,7 @@ Host on which the Web Socket server listens
 
 - **Default value**: `undefined`
 
-Configure server proxy. Based on [koa-proxies](https://www.npmjs.com/package/koa-proxies) implementation, specific options refer to its documentation, example:
+Configure server proxy. farm uses `http-proxy` as a proxy for the development server. Based on [http-proxy](https://github.com/http-party/node-http-proxy?tab=readme-ov-file#options) implementation, specific options refer to its documentation, example:
 
 ```ts
 import { defineConfig } from "@farmfe/core";
@@ -106,7 +106,7 @@ export default defineConfig({
       "/api": {
         target: "https://music-erkelost.vercel.app/banner",
         changeOrigin: true,
-        rewrite: (path: any) => path.replace(/^\/api/, ""),
+        pathRewrite: (path: any) => path.replace(/^\/api/, ""),
       },
     },
   },
