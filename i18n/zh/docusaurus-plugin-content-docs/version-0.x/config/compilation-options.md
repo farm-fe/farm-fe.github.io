@@ -161,6 +161,7 @@ export default defineConfig({
       alias: {
         "/@": path.join(process.cwd(), "src"),
         stream$: "readable-stream",
+         "$__farm_regex:^/(utils)$": path.join(process.cwd(), "src/$1"),
       },
     },
   },
