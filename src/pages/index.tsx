@@ -96,7 +96,7 @@ export default function Home() {
       description="Description will go into a meta tag in <head />"
     >
       <StarrySky />
-      <main className="mb-20 mt-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8max-w-6xl">
+      <main className="mb-20 mt-6 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8max-w-6xl">
         <AnimatedGradientStarWithGithub />
         <HomepageHeader />
         <HomepageFeatures />
