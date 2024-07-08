@@ -205,13 +205,18 @@ export default defineConfig({
       alias: {
         "/@": path.join(process.cwd(), "src"),
         stream$: "readable-stream",
+         "$__farm_regex:^/(utils)$": path.join(process.cwd(), "src/$1"),
       },
     },
   },
 });
 ```
 
-alias 为前缀替换，对于上述例子 `/@/pages` 将会被替换为，`/root/src/pages`。如果希望精确匹配，可以加上 `$`，例如 `stream$` 只会替换 `stream`，而不会替换 `stream/xxx`。
+alias 为前缀替换，对于上述例子 `/@/pages` 将会被替换为，`/root/src/pages`。
+
+如果希望精确匹配，可以加上 `$`，例如 `stream$` 只会替换 `stream`，而不会替换 `stream/xxx`。
+
+当然也支持使用正则表达式，例如 `$__farm_regex:^/(utils)$`，将会匹配 `/utils`，并替换为 `/root/src/utils`。
 
 #### `resolve.mainFields`
 

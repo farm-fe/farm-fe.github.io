@@ -2,9 +2,7 @@
 sidebar_position: 1
 ---
 
-import CodeBlock from "@theme/CodeBlock";
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
+import { PackageManagerTabs } from "../../../../src/theme/PackageManagerTabs";
 
 # 快速开始
 
@@ -18,57 +16,23 @@ Farm 需要 **Node 16.18.0 及更高版本**。
 
 
 ## 1. 创建一个 Farm 项目
-<>
-    <Tabs>
-          <TabItem value="npm" label="npm">
-              <CodeBlock>npm create farm@latest</CodeBlock>
-              </TabItem>
-  <TabItem value="yarn" label="yarn">
-          <CodeBlock>yarn create farm</CodeBlock>
-              </TabItem>
-  <TabItem value="pnpm" label="pnpm">
-          <CodeBlock>pnpm create farm</CodeBlock>
-              </TabItem>
-          </Tabs>
-</>
+
+<PackageManagerTabs command="npm create farm@latest" />
+
 
 :::note{title="然后按照提示操作！"}
 您还可以通过附加命令行选项直接指定项目名称和要使用的模板：
 :::
 
-<>
-    <Tabs>
-          <TabItem value="npm 6.x" label="npm 6.x">
-              <CodeBlock>npm create farm@latest my-react-app --template react</CodeBlock>
-              </TabItem>
-  <TabItem value="npm 7+" label="npm 7+">
-          <CodeBlock>npm create farm@latest my-react-app -- --template react</CodeBlock>
-              </TabItem>
-  <TabItem value="yarn" label="yarn">
-          <CodeBlock>yarn create farm my-react-app --template react</CodeBlock>
-              </TabItem>
-  <TabItem value="pnpm" label="pnpm">
-          <CodeBlock>pnpm create farm my-react-app --template react</CodeBlock>
-              </TabItem>
-          </Tabs>
-</>
+<PackageManagerTabs command="pnpm create farm my-react-app --template react" />
+
 
 ## 2.启动项目
 
 选择您喜欢的包管理器，安装依赖项，然后启动项目。
-<>
-    <Tabs>
-          <TabItem value="npm" label="npm">
-              <CodeBlock>cd farm-project && npm i && npm start</CodeBlock>
-              </TabItem>
-  <TabItem value="yarn" label="yarn">
-          <CodeBlock>cd farm-project && yarn && yarn start</CodeBlock>
-              </TabItem>
-  <TabItem value="pnpm" label="pnpm">
-          <CodeBlock>cd farm-project && pnpm i && pnpm start</CodeBlock>
-              </TabItem>
-          </Tabs>
-</>
+
+<PackageManagerTabs command="cd farm-project && pnpm i && pnpm start" />
+
 
 默认情况下，该项目将从`http://localhost:9000`启动。
 
@@ -122,3 +86,4 @@ npm run build
 - [配置参考](/docs/config/configuring-farm)
 - [插件](/docs/plugins/official-plugins/overview)
 ---
+
