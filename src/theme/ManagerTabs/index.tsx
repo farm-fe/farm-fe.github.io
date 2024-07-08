@@ -152,6 +152,7 @@ export const Tabs: ForwardRefExoticComponent<TabsProps> = forwardRef(
             <div
               className={`${styles['tab-list']} ${styles['no-scrollbar']}`}
               style={{
+                display: 'flex',
                 justifyContent:
                   tabPosition === 'center' ? 'center' : 'flex-start',
               }}
