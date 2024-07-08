@@ -153,7 +153,11 @@ export default defineConfig({
    },
 });
 ```
-alias is prefix replacement, for the above example `/@/pages` will be replaced by `/root/src/pages`. If you want an exact match, you can add `$`, for example `stream$` will only replace `stream`, but not `stream/xxx`.
+alias is prefix replacement, for the above example `/@/pages` will be replaced by `/root/src/pages`.
+
+If you want an exact match, you can add `$`, for example `stream$` will only replace `stream`, but not `stream/xxx`.
+
+If you want to use regex, you can use `$__farm_regex:`, for example `$__farm_regex:^/(utils)$` will replace `/utils` to `/root/src/utils`.
 
 #### `resolve. mainFields`
 * **default**: `["exports", "browser", "module", "main"]`

@@ -28,6 +28,15 @@ html[data-theme="dark"] {
   --ifm-menu-color-background-hover: transparent;
 }
 
+[class^="docRoot_"] {
+  width: 1440px !important;
+}
+
+[class^="docsWrapper_"] {
+  display: flex;
+  justify-content: center;
+}
+
 //overrides
 #__docusaurus {
   .theme-doc-sidebar-container {
@@ -104,9 +113,7 @@ html[data-theme="dark"] {
 
     &-item {
       &.theme-doc-sidebar-item-link-level-1 {
-        padding-inline-start: calc(
-          var(--dropdown-icon-width)
-        );
+        padding-inline-start: calc(var(--dropdown-icon-width));
 
         & > .menu__link {
           font-weight: 500;
@@ -122,8 +129,7 @@ html[data-theme="dark"] {
           padding-inline-start: calc(
             var(--dropdown-icon-width) + var(--dropdown-icon-gap)
           );
-          padding-top: 5px;
-          padding-bottom: 5px;
+          padding: 7px 10px;
         }
       }
       &-collapsible {

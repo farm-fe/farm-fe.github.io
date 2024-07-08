@@ -7,11 +7,8 @@ import HomepageFeatures from "@site/src/components/HomepageFeatures";
 import Benchmark from "../components/Benchmark";
 import StarrySky from "../components/StarrySky";
 import styles from "./index.module.css";
-import { TeamMembers } from "../components/TeamMembers";
-import Translate, { translate } from "@docusaurus/Translate";
-import { useThemeConfig } from "@docusaurus/theme-common";
-import { members } from "./data";
-
+import Translate from "@docusaurus/Translate";
+import AnimatedGradientStarWithGithub from "../components/MagicUi/animated-shiny-text";
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
   return (
@@ -22,6 +19,7 @@ function HomepageHeader() {
         styles.heroBanner
       )}
     >
+
       <div className="container w-full flex flex-col my-1">
         <p className="font-extrabold text-3xl sm:text-6xl lg:text-6xl text-left mb-6 flex flex-col gap-2">
           <div>
@@ -76,7 +74,7 @@ function HomepageHeader() {
           >
             <div
               className={clsx(
-                styles.farmButton,
+                styles.farmButton2,
                 "flex w-36 sm:w-40  items-center justify-center font-bold"
               )}
             >
@@ -98,7 +96,8 @@ export default function Home() {
       description="Description will go into a meta tag in <head />"
     >
       <StarrySky />
-      <main className="mb-20 mt-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8max-w-6xl">
+      <main className="mb-20 mt-6 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8max-w-6xl">
+        <AnimatedGradientStarWithGithub />
         <HomepageHeader />
         <HomepageFeatures />
       </main>
