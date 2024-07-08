@@ -6,6 +6,7 @@ import Translate from "@docusaurus/Translate";
 import Link from "@docusaurus/Link";
 import React, { useState } from "react";
 import clsx from "clsx";
+import ShinyTextEx from "../MagicUi/shiny-text";
 const BENCHMARK_DATA = {
   ColdStart: [
     {
@@ -204,7 +205,8 @@ export default function Benchmark() {
                       rel="stylesheet"
                       href="https://github.com/farm-fe/performance-compare"
                     >
-                      <Translate>See benchmark details</Translate>
+                      {/* <Translate>See benchmark details</Translate> */}
+                      <ShinyTextEx />
                     </Link>
                   </div>
                 </div>

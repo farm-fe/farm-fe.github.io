@@ -1,8 +1,8 @@
 @use "./doc.siderbar";
 @use "./admonition";
 @use "./token.css";
-/* @tailwind base; */
 @tailwind components;
+@tailwind base;
 @tailwind utilities;
 /**
  * Any CSS included here will be global. The classic template

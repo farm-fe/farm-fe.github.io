@@ -3,7 +3,7 @@
  * and scoped locally.
  */
 
- .heroBanner {
+.heroBanner {
   padding: 4rem 0;
   text-align: center;
   position: relative;
@@ -177,12 +177,7 @@
 }
 
 .gradientText {
-  background: linear-gradient(
-    to bottom right,
-    black,
-    gray 40%,
-    white
-  );
+  background: linear-gradient(to bottom right, black, gray 40%, white);
   -webkit-background-clip: text;
   color: transparent;
 }
