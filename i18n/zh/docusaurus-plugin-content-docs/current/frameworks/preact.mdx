@@ -1,29 +1,30 @@
 import { PackageManagerTabs } from "../../../../../src/theme/PackageManagerTabs";
 
-# Solid
+# Preact
 
-基于 `Farm` 创建一个 `Solid` 项目。
 
-`Farm` 提供两种方案来支持创建 `Solid` 项目: 
+基于 `Farm` 创建一个 `Preact` 项目。
+
+`Farm` 提供两种方案来支持创建 `Preact` 项目: 
 - 使用 `create-farm` 脚手架创建脚手架项目
-- 你可以根据当前文档手动创建一个 `Solid` 项目
+- 你可以根据当前文档手动创建一个 `Preact` 项目
 
-### 创建 Solid 项目
+### 创建 Preact 项目
 
 <PackageManagerTabs command="npm create farm@latest" />
 
-在 `Select Framework` 中选择 `Solid` 模版
+在 `Select Framework` 中选择 `Preact` 模版
 
-:::warning Solid
-对于 `Solid` 的支持, `Farm` 推荐使用 `Vite` 插件。
+:::warning Preact
+对于 `Preact` 的支持, `Farm` 使用 `vite` 的 `preact` 插件
 :::
 
 ```javascript title="farm.config.ts"
 import { defineConfig } from '@farmfe/core';
-import Solid from "vite-plugin-solid";
+import Preact from "vite-plugin-preact";
 
 export default defineConfig({
-  plugins: [Solid()],
+  plugins: [Preact()],
 });
 ```
 
@@ -39,4 +40,4 @@ export default defineConfig({
 
 <PackageManagerTabs command="npm run preview" />
 
-如若想查看示例详情: [Solid 示例](https://github.com/farm-fe/farm/tree/main/examples/vite-adapter-solid)
+如若想查看示例详情: [Preact 示例](https://github.com/farm-fe/farm/tree/main/examples/preact)

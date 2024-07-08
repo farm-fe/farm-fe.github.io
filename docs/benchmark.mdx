@@ -1,3 +1,5 @@
+import { PackageManagerTabs } from "../src/theme/PackageManagerTabs";
+
 # Benchmarks
 
 ## Introduction
@@ -10,13 +12,15 @@ Using Turbopack's bench cases (1000 React components), see https://turbo.build/p
 >
 > Test Machine（Linux Mint 21.1 Cinnamon， 11th Gen Intel© Core™ i5-11400 @ 2.60GHz × 6， 15.5 GiB）
 
-```ts
-# Install dependencies
-pnpm install
 
-# run benchmark
-pnpm benchmark
-```
+#### Install dependencies
+
+<PackageManagerTabs command="pnpm install" />
+
+#### run benchmark
+
+<PackageManagerTabs command="pnpm benchmark" />
+
 
 ### Data
 
@@ -47,24 +51,16 @@ pnpm benchmark
 
 ### Benchmark for all metrics
 
-<!-- ![performance](/img/20231204223204.png) -->
-
 <img style={{width: '100%',borderRadius: '8px'}} src="/img/20231204223204.png" />
 
 ### Benchmark of HMR
-
-<!-- ![performance](/img/hmr-linux.png) -->
 
 <img style={{width: '100%',borderRadius: '8px'}} src="/img/hmr-linux.png" />
 
 ### Benchmark of Startup
 
-<!-- ![performance](/img/startup-linux.png) -->
-
 <img style={{width: '100%',borderRadius: '8px'}} src="/img/startup-linux.png" />
 
 ### Benchmark of Production Build
-
-<!-- ![performance](/img/build-linux.png) -->
 
 <img style={{width: '100%',borderRadius: '8px'}} src="/img/build-linux.png" />

@@ -1,7 +1,4 @@
-
-import CodeBlock from "@theme/CodeBlock";
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
+import { PackageManagerTabs } from "../../../../../src/theme/PackageManagerTabs";
 
 # React
 
@@ -13,20 +10,7 @@ import TabItem from "@theme/TabItem";
 
 ### 创建 React 项目
 
-<>
-    <Tabs>
-          <TabItem value="npm" label = "npm" >
-              <CodeBlock>npm create farm@latest</CodeBlock>
-              </TabItem>
-
-  <TabItem value = "yarn" label = "yarn" >
-          <CodeBlock>yarn create farm</CodeBlock>
-              </TabItem>
-  <TabItem value = "pnpm" label = "pnpm" >
-          <CodeBlock>pnpm create farm</CodeBlock>
-              </TabItem>
-          </Tabs>
-</>
+<PackageManagerTabs command="npm create farm@latest" />
 
 在 `Select Framework` 中选择 `React` 模版
 
@@ -114,6 +98,18 @@ export default defineConfig(async (env) => {
     ]
   };
 });
+
+开发环境时运行
+
+<PackageManagerTabs command="npm run dev" />
+
+在生产环境下进行打包
+
+<PackageManagerTabs command="npm run build" />
+
+预览生产环境打包之后构建的产物
+
+<PackageManagerTabs command="npm run preview" />
 
 
 如若想查看示例详情: [React 示例](https://github.com/farm-fe/farm/tree/main/examples/react)
