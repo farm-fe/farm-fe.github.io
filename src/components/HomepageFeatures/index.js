@@ -38,8 +38,8 @@ const FeatureList = [
     Img: FeaturePng,
     description: (
       <Translate>
-        Farm support compiling Html, Css, Css Modules, Js/Jsx/Ts/Tsx, Json, Static Assets out
-        of box, support sass, less, postcss, vue, react, solid by official plugins, support
+        Farm supports compiling HTML, CSS, CSS Modules, Js/Jsx/Ts/Tsx, JSON, Static Assets out
+        of the box, supports Sass, Less, PostCSS, Vue, React, Solid by way of official plugins, supports
         lazy compiling, partial bundling and more
       </Translate>
     ),
