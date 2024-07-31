@@ -9,6 +9,9 @@ import StarrySky from "../components/StarrySky";
 import styles from "./index.module.css";
 import Translate from "@docusaurus/Translate";
 import AnimatedGradientStarWithGithub from "../components/MagicUi/animated-shiny-text";
+import NeonGradientCard from '../components/MagicUi/neon-gradient-card';
+import BlurFade from "../components/MagicUi/blur-fade";
+
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
   return (
@@ -21,42 +24,48 @@ function HomepageHeader() {
     >
 
       <div className="container w-full flex flex-col my-1">
-        <p className="font-extrabold text-3xl sm:text-6xl lg:text-6xl text-left mb-6 flex flex-col gap-2">
-          <div>
-            <span>
-              <Translate>Extremely</Translate>
-            </span>
-            <span className={clsx(styles.banner)}>
-              <Translate> Fast </Translate>
-            </span>
-            <span>
-              <Translate>Web</Translate>
-            </span>
-          </div>
-          <div>
-            <span className={clsx(styles.banner)}>
-              <Translate> Build Tool</Translate>
-            </span>
-          </div>
-          <div>
-            <span>
-              <Translate>Written in</Translate>
-            </span>
-            <span className={clsx(styles.banner, "my-6")}>
-              <Translate> Rust</Translate>
-            </span>
-          </div>
-        </p>
-        <p className="font-semibold brand-color mb-6 text-1xl sm:text-2xl lg:text-xl tracking-wide text-left  flex flex-col gap-2">
-          <div>
-            <span className={clsx(styles.banner, "font-extrabold")}>
-              <Translate>Farm </Translate>
-            </span>
-            <span className="font-sans">
-              <Translate>is a Rust-Based Web Building Engine to Facilitate Your Web Program and JavaScript Library</Translate>
-            </span>
-          </div>
-        </p>
+
+        <BlurFade delay={0.25} inView>
+          <p className="font-extrabold text-3xl sm:text-6xl lg:text-6xl text-left mb-6 flex flex-col gap-2">
+            <div>
+              <span>
+                <Translate>Extremely</Translate>
+              </span>
+              <span className={clsx(styles.banner)}>
+                <Translate> Fast </Translate>
+              </span>
+              <span>
+                <Translate>Web</Translate>
+              </span>
+            </div>
+            <div>
+              <span className={clsx(styles.banner)}>
+                <Translate> Build Tool</Translate>
+              </span>
+            </div>
+            <div>
+              <span>
+                <Translate>Written in</Translate>
+              </span>
+              <span className={clsx(styles.banner, "my-6")}>
+                <Translate> Rust</Translate>
+              </span>
+            </div>
+          </p>
+        </BlurFade>
+
+        <BlurFade delay={0.3 * 2} inView>
+          <p className="font-semibold brand-color mb-6 text-1xl sm:text-2xl lg:text-xl tracking-wide text-left  flex flex-col gap-2">
+            <div>
+              <span className={clsx(styles.banner, "font-extrabold")}>
+                <Translate>Farm </Translate>
+              </span>
+              <span className="font-sans">
+                <Translate>is a Rust-Based Web Building Engine to Facilitate Your Web Program and JavaScript Library</Translate>
+              </span>
+            </div>
+          </p>
+        </BlurFade>
         <div className={clsx(styles.buttons, "my-2")}>
           <Link to="/docs/quick-start" style={{ textDecoration: "none" }}>
             <div
@@ -101,6 +110,8 @@ export default function Home() {
         <HomepageHeader />
         <HomepageFeatures />
       </main>
+      {/* <NeonGradientCard height='18rem' borderRadius={0}> */}
+      {/* </NeonGradientCard> */}
     </Layout>
   );
 }

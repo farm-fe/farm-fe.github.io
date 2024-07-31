@@ -168,52 +168,50 @@ export default function Benchmark() {
   return (
     <>
       <div ref={ref} className="flex">
-        {inView && (
-          <>
-            <div
-              className={`${styles.tabs} flex flex-col items-center my-4 z-1`}
-            >
-              <div className="flex h-20 w-full flex-1 items-center self-start lg:justify-end">
-                <div className="w-full">
-                  <PillTabs SCENE={SCENE}>
-                    {performanceInfoList.map((info) => (
-                      <div
-                        key={info.name}
-                        className="flex flex-center justify-start my-8 flex-col sm:flex-row"
-                      >
-                        {inView && (
-                          <>
-                            <div
-                              className="flex items-center text-light-500  text-center font-bold"
-                              style={{ minWidth: "100px" }}
-                            >
-                              {info.name}
-                            </div>
-                            <ProgressBar
-                              value={info.time}
-                              max={Math.max(
-                                ...performanceInfoList.map((info) => info.time)
-                              )}
-                            />
-                          </>
-                        )}
-                      </div>
-                    ))}
-                  </PillTabs>
-                  <div className="font-bold cursor-pointer">
-                    <Link
-                      rel="stylesheet"
-                      href="https://github.com/farm-fe/performance-compare"
+        <>
+          <div
+            className={`${styles.tabs} flex flex-col items-center my-4 z-1`}
+          >
+            <div className="flex h-20 w-full flex-1 items-center self-start lg:justify-end">
+              <div className="w-full">
+                <PillTabs SCENE={SCENE}>
+                  {performanceInfoList.map((info) => (
+                    <div
+                      key={info.name}
+                      className="flex flex-center justify-start my-8 flex-col sm:flex-row"
                     >
-                      {/* <Translate>See benchmark details</Translate> */}
-                      <ShinyTextEx />
-                    </Link>
-                  </div>
+                      {inView && (
+                        <>
+                          <div
+                            className="flex items-center text-light-500  text-center font-bold"
+                            style={{ minWidth: "100px" }}
+                          >
+                            {info.name}
+                          </div>
+                          <ProgressBar
+                            value={info.time}
+                            max={Math.max(
+                              ...performanceInfoList.map((info) => info.time)
+                            )}
+                          />
+                        </>
+                      )}
+                    </div>
+                  ))}
+                </PillTabs>
+                <div className="font-bold cursor-pointer">
+                  <Link
+                    rel="stylesheet"
+                    href="https://github.com/farm-fe/performance-compare"
+                  >
+                    {/* <Translate>See benchmark details</Translate> */}
+                    <ShinyTextEx />
+                  </Link>
                 </div>
               </div>
             </div>
-          </>
-        )}
+          </div>
+        </>
       </div>
     </>
   );
