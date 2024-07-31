@@ -15,8 +15,8 @@ const FeatureList = [
     Img: Rocket,
     description: (
       <Translate>
-        Written in Rust, start a React / Vue project in milliseconds
-        and perform an HMR update within 10ms for most situations.
+        Written in Rust, start a React / Vue project in milliseconds and perform
+        an HMR update within 10ms for most situations.
       </Translate>
     ),
     className:
@@ -27,7 +27,9 @@ const FeatureList = [
     Img: Box,
     description: (
       <Translate>
-        Incremental Building: Support persistent cache, module level cache enabled by default, any module won't be compiled twice until it's changed!
+        Incremental Building: Support persistent cache, module level cache
+        enabled by default, any module won't be compiled twice until it's
+        changed!
       </Translate>
     ),
     className:
@@ -38,9 +40,10 @@ const FeatureList = [
     Img: FeaturePng,
     description: (
       <Translate>
-        Farm supports compiling HTML, CSS, CSS Modules, Js/Jsx/Ts/Tsx, JSON, Static Assets out
-        of the box, supports Sass, Less, PostCSS, Vue, React, Solid by way of official plugins, supports
-        lazy compiling, partial bundling and more
+        Farm supports compiling HTML, CSS, CSS Modules, Js/Jsx/Ts/Tsx, JSON,
+        Static Assets out of the box, supports Sass, Less, PostCSS, Vue, React,
+        Solid by way of official plugins, supports lazy compiling, partial
+        bundling and more
       </Translate>
     ),
     className:
@@ -75,8 +78,8 @@ const FeatureList = [
     Img: Compatibility,
     description: (
       <Translate>
-        What you see in development will be the same as what you
-        get in production. Supports both legacy (ES5) and modern browsers.
+        What you see in development will be the same as what you get in
+        production. Supports both legacy (ES5) and modern browsers.
       </Translate>
     ),
     className:
@@ -124,7 +127,7 @@ function Feature({ Img, title, description, className }) {
 
 export default function FeatureSection() {
   return (
-    <section className="my-4">
+    <section>
       <div className="max-w-7xl mx-auto flex">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {FeatureList.map((feature, index) => (
