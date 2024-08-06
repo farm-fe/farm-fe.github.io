@@ -1,19 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import clsx from "clsx";
 import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import HomepageFeatures from "@site/src/components/HomepageFeatures";
 import Benchmark from "../components/Benchmark";
+import { useColorMode } from '@docusaurus/theme-common';
 import StarrySky from "../components/StarrySky";
 import styles from "./index.module.css";
 import Translate from "@docusaurus/Translate";
 import AnimatedGradientStarWithGithub from "../components/MagicUi/animated-shiny-text";
 import NeonGradientCard from '../components/MagicUi/neon-gradient-card';
 import BlurFade from "../components/MagicUi/blur-fade";
+import BentoGridCard from "../components/MagicUi/card";
+import { AuroraBackground } from "../components/ui/aurora-back";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
+
   return (
     <header
       className={clsx(
@@ -22,11 +26,10 @@ function HomepageHeader() {
         styles.heroBanner
       )}
     >
-
       <div className="container w-full flex flex-col my-1">
 
         <BlurFade delay={0.25} inView>
-          <p className="font-extrabold text-3xl sm:text-6xl lg:text-6xl text-left mb-6 flex flex-col gap-2">
+          <div className="font-extrabold text-3xl sm:text-6xl lg:text-6xl text-left mb-6 flex flex-col gap-2">
             <div>
               <span>
                 <Translate>Extremely</Translate>
@@ -51,11 +54,11 @@ function HomepageHeader() {
                 <Translate> Rust</Translate>
               </span>
             </div>
-          </p>
+          </div>
         </BlurFade>
 
         <BlurFade delay={0.3 * 2} inView>
-          <p className="font-semibold brand-color mb-6 text-1xl sm:text-2xl lg:text-xl tracking-wide text-left  flex flex-col gap-2">
+          <div className="font-semibold brand-color mb-6 text-1xl sm:text-2xl lg:text-xl tracking-wide text-left  flex flex-col gap-2">
             <div>
               <span className={clsx(styles.banner, "font-extrabold")}>
                 <Translate>Farm </Translate>
@@ -64,7 +67,7 @@ function HomepageHeader() {
                 <Translate>is a Rust-Based Web Building Engine to Facilitate Your Web Program and JavaScript Library</Translate>
               </span>
             </div>
-          </p>
+          </div>
         </BlurFade>
         <div className={clsx(styles.buttons, "my-2")}>
           <Link to="/docs/quick-start" style={{ textDecoration: "none" }}>
@@ -97,6 +100,32 @@ function HomepageHeader() {
   );
 }
 
+const HomeBase = () => {
+  const { colorMode } = useColorMode();
+  const MainContent = () => (
+    <main className="mb-20 my-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8max-w-6xl" >
+      <AnimatedGradientStarWithGithub />
+      <HomepageHeader />
+      <BentoGridCard />
+    </main>
+  );
+
+  if (colorMode === 'dark') {
+    return (
+      <>
+        <StarrySky />
+        <MainContent />
+      </>
+    );
+  } else {
+    return (
+      <AuroraBackground>
+        <MainContent />
+      </AuroraBackground>
+    );
+  }
+};
+
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   return (
@@ -104,14 +133,12 @@ export default function Home() {
       title={`${siteConfig.title} Documentation`}
       description="Description will go into a meta tag in <head />"
     >
-      <StarrySky />
-      <main className="mb-20 mt-6 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8max-w-6xl">
-        <AnimatedGradientStarWithGithub />
-        <HomepageHeader />
-        <HomepageFeatures />
-      </main>
+      <HomeBase />
       {/* <NeonGradientCard height='18rem' borderRadius={0}> */}
       {/* </NeonGradientCard> */}
-    </Layout>
+      {/* <HomepageFeatures /> */}
+    </Layout >
   );
 }
+
+
