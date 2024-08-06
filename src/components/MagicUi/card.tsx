@@ -331,7 +331,7 @@ const items = [
     title: "Rich Features and Fully Pluggable",
     description: (
       <span className="text-sm">
-        Farm supports compiling HTML, CSS, CSS Modules, Js/Jsx/Ts/Tsx, JSON, Static Assets out of the box, supports Sass, Less, PostCSS, Vue, React, Solid by way of official plugins, supports lazy compiling, partial bundling and more,Everything inside Farm is powered by plugins, Supports both Rust and JavaScript plugins. Support Vite plugins out of box.
+        Farm supports compiling HTML, CSS, CSS Modules, Js/Jsx/Ts/Tsx, JSON, Static Assets out of the box, supports Sass, Less, PostCSS, Vue, React, Solid by way of official plugins, supports lazy compiling, partial bundling and more. <br/> Everything inside Farm is powered by plugins, Supports both Rust and JavaScript plugins. Support Vite plugins out of box.
       </span>
     ),
     header: <SkeletonFour />,
