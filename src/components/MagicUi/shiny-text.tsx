@@ -46,7 +46,7 @@ export default function ShinyTextEx() {
           "group rounded-full h-9 border border-black/5 bg-soft text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800",
         )}
       >
-        <ShinyText className="inline-flex items-center justify-center px-4 py-1 transition ease-out hover:text-neutral-200 hover:duration-300 hover:dark-soft">
+        <ShinyText className="inline-flex items-center justify-center px-4 py-1 transition ease-out hover:text-neutral-600 text-neutral-400 hover:duration-300">
           <span>📈 See Benchmark Details</span>
           <ArrowRightIcon className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
         </ShinyText>

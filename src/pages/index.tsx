@@ -26,7 +26,7 @@ function HomepageHeader() {
         styles.heroBanner
       )}
     >
-      <div className="container w-full flex flex-col my-1 px-0">
+      <div className="container w-full flex flex-col my-1 px-2">
 
         <BlurFade delay={0.25} inView>
           <div className="font-extrabold text-3xl sm:text-6xl lg:text-6xl text-left mb-6 flex flex-col gap-2">
