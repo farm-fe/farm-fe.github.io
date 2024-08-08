@@ -55,6 +55,7 @@
   --ifm-navbar-link-hover-color: initial;
   --ifm-navbar-padding-vertical: 0;
   --ifm-navbar-item-padding-vertical: 0;
+  --ifm-color-soft: rgb(82 82 82 / var(--tw-text-opacity));
 
   --ifm-font-family-base: -apple-system, BlinkMacSystemFont, Inter, Helvetica,
     Arial, sans-serif, "Apple Color Emoji", "Segoe UI emoji";
@@ -72,6 +73,7 @@
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme="dark"] {
+  --ifm-color-soft: rgb(82 82 82 / var(--tw-text-opacity));
   --ifm-f-bg-soft: #252529;
   --ifm-background-color: #000 !important;
   --ifm-color-primary: #fff;
