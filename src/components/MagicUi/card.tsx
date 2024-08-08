@@ -21,7 +21,7 @@ import { AnimatedBeamPig } from "../ui/beam";
 
 export default function BentoGridCard() {
   return (
-    <BentoGrid className="max-w-full mx-auto md:auto-rows-[30rem] relative z-auto">
+    <BentoGrid className="max-w-full mx-auto md:auto-rows-[32rem] relative z-auto">
       {items.map((item, i) => (
         <BentoGridItem
           key={i}
