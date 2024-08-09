@@ -52,21 +52,21 @@ html[data-theme="light"] {
   --ifm-alert-note-background-color: #ff9ff360;
   --ifm-alert-info-background-color: var(--c-teal-10);
   --ifm-alert-caution-background-color: var(--c-green-10);
-  body {
-    --angle: 220deg;
-    background-image: linear-gradient(
-      var(--angle),
-      white 15%,
-      #ff9ff360 20%,
-      white 25%,
-      #f4eef8 30%,
-      white 35%,
-      #f8edf5 40%,
-      white 60%
-    );
-    background-attachment: fixed;
-    background-size: cover;
-  }
+  // body {
+  //   --angle: 220deg;
+  //   background-image: linear-gradient(
+  //     var(--angle),
+  //     white 15%,
+  //     #ff9ff360 20%,
+  //     white 25%,
+  //     #f4eef8 30%,
+  //     white 35%,
+  //     #f8edf5 40%,
+  //     white 60%
+  //   );
+  //   background-attachment: fixed;
+  //   background-size: cover;
+  // }
 }
 
 html[data-theme="dark"] {

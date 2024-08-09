@@ -1,15 +1,24 @@
+const {
+  default: flattenColorPalette,
+} = require("tailwindcss/lib/util/flattenColorPalette");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   corePlugins: {
     preflight: false,
   },
-  // darkMode: ["class", '[data-mode="dark"]'],
+  darkMode: ["class"],
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
       "brand-color": "#fea7df",
+      colors: {
+        soft: "var(--ifm-f-white-soft2)",
+      },
     },
+
     animation: {
+      aurora: "aurora 60s linear infinite",
       shimmer: "shimmer 8s infinite",
       "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
       marquee: "marquee var(--duration) linear infinite",
@@ -18,6 +27,14 @@ module.exports = {
         "background-position-spin 3000ms infinite alternate",
     },
     keyframes: {
+      aurora: {
+        from: {
+          backgroundPosition: "50% 50%, 50% 50%",
+        },
+        to: {
+          backgroundPosition: "350% 50%, 350% 50%",
+        },
+      },
       marquee: {
         from: { transform: "translateX(0)" },
         to: { transform: "translateX(calc(-100% - var(--gap)))" },
@@ -45,5 +62,16 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [addVariablesForColors],
 };
+
+function addVariablesForColors({ addBase, theme }) {
+  let allColors = flattenColorPalette(theme("colors"));
+  let newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+  );
+
+  addBase({
+    ":root": newVars,
+  });
+}
