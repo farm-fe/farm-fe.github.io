@@ -37,6 +37,7 @@
     "@react-three/fiber": "7.0.16",
     "@tabler/icons-react": "^3.11.0",
     "autoprefixer": "^10.4.14",
+    "class-variance-authority": "^0.7.0",
     "docusaurus-plugin-sass": "^0.2.4",
     "leva": "^0.9.35",
     "lucide-react": "^0.394.0",
