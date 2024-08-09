@@ -199,7 +199,7 @@ export default function Benchmark() {
                     </div>
                   ))}
                 </PillTabs>
-                <div className="font-bold cursor-pointer">
+                <div className="font-bold cursor-pointer mt-6">
                   <Link
                     rel="stylesheet"
                     href="https://github.com/farm-fe/performance-compare"
