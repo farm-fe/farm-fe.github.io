@@ -21,7 +21,7 @@ import { AnimatedBeamPig } from "../ui/beam";
 
 export default function BentoGridCard() {
   return (
-    <BentoGrid className="max-w-full mx-auto md:auto-rows-[32rem] relative z-auto">
+    <BentoGrid className="max-w-full mx-auto md:auto-rows-auto relative z-auto">
       {items.map((item, i) => (
         <BentoGridItem
           key={i}
@@ -187,7 +187,7 @@ const SkeletonFive = () => {
     <motion.div
       initial="initial"
       whileHover="animate"
-      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2"
+      className="flex flex-1 w-full h-full justify-center min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2"
     >
       <motion.div
         className="flex justify-center flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-2 items-center space-x-2 bg-soft dark:bg-soft"
@@ -207,7 +207,9 @@ const items = [
     title: <Translate>Extremely Fast</Translate>,
     description: (
       <span className="text-sm">
-        Written in Rust, start a React / Vue project in milliseconds and perform an HMR update within 10ms for most situations.
+        <Translate>
+          Written in Rust, start a React / Vue project in milliseconds and perform an HMR update within 10ms for most situations.
+        </Translate>
       </span>
     ),
     header: <SkeletonOne />,
@@ -215,10 +217,14 @@ const items = [
     icon: <IconClipboardCopy className="h-4 w-4 text-neutral-500" />,
   },
   {
-    title: "Incremental Building",
+    title: <Translate>Incremental Building</Translate>,
     description: (
       <span className="text-sm">
-        Incremental Building: Support persistent cache, module level cache enabled by default, any module won't be compiled twice until it's changed!
+        <Translate>
+          Incremental Building: Support persistent cache, module level cache
+          enabled by default, any module won't be compiled twice until it's
+          changed!
+        </Translate>
       </span>
     ),
     header: <SkeletonTwo />,
@@ -226,10 +232,13 @@ const items = [
     icon: <IconFileBroken className="h-4 w-4 text-neutral-500" />,
   },
   {
-    title: "Partial Bundling",
+    title: <Translate>Partial Bundling</Translate>,
     description: (
       <span className="text-sm">
-        Partial Bundling: Bundle your project into a few reasonable bundles, speeding up resource loading without losing caching granularity.
+        <Translate>
+          Partial Bundling: Bundle your project into a few reasonable bundles,
+          speeding up resource loading without losing caching granularity.
+        </Translate>
       </span>
     ),
     header: <SkeletonThree />,
@@ -237,10 +246,12 @@ const items = [
     icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
   },
   {
-    title: "Rich Features and Fully Pluggable",
+    title: <Translate>Rich Features and Fully Pluggable</Translate>,
     description: (
       <span className="text-sm">
-        Farm supports compiling HTML, CSS, CSS Modules, Js/Jsx/Ts/Tsx, JSON, Static Assets out of the box, supports Sass, Less, PostCSS, Vue, React, Solid by way of official plugins, supports lazy compiling, partial bundling and more. <br /> Everything inside Farm is powered by plugins, Supports both Rust and JavaScript plugins. Support Vite plugins out of box.
+        <Translate>
+          Farm supports compiling HTML, CSS, CSS Modules, Js/Jsx/Ts/Tsx, JSON, Static Assets out of the box, supports Sass, Less, PostCSS, Vue, React, Solid by way of official plugins, supports lazy compiling, partial bundling and more. Everything inside Farm is powered by plugins, Supports both Rust and JavaScript plugins. Support Vite plugins out of box.
+        </Translate>
       </span>
     ),
     header: <SkeletonFour />,
@@ -249,10 +260,13 @@ const items = [
   },
 
   {
-    title: "Consistency and Compatibility",
+    title: <Translate>Consistency and Compatibility</Translate>,
     description: (
       <span className="text-sm">
-        What you see in development will be the same as what you get in production. Supports both legacy (ES5) and modern browsers.
+        <Translate>
+          What you see in development will be the same as what you get in
+          production. Supports both legacy (ES5) and modern browsers.
+        </Translate>
       </span>
     ),
     header: <SkeletonFive />,
