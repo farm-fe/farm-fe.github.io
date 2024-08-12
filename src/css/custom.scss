@@ -46,6 +46,7 @@
   --ifm-f-white: #ffffff;
   --ifm-f-re-white: #181818;
   --ifm-f-white-soft: #f8f8f8;
+  --ifm-f-white-soft2: #fff;
   --ifm-f-white-mute: #f2f2f2;
   --ifm-f-bg-soft: #f6f6f7;
   --farm--border: rgba(86, 86, 86, 0.125);
@@ -54,6 +55,7 @@
   --ifm-navbar-link-hover-color: initial;
   --ifm-navbar-padding-vertical: 0;
   --ifm-navbar-item-padding-vertical: 0;
+  --ifm-color-soft: rgb(82 82 82 / var(--tw-text-opacity));
 
   --ifm-font-family-base: -apple-system, BlinkMacSystemFont, Inter, Helvetica,
     Arial, sans-serif, "Apple Color Emoji", "Segoe UI emoji";
@@ -71,6 +73,7 @@
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme="dark"] {
+  --ifm-color-soft: rgb(82 82 82 / var(--tw-text-opacity));
   --ifm-f-bg-soft: #252529;
   --ifm-background-color: #000 !important;
   --ifm-color-primary: #fff;
@@ -87,6 +90,7 @@
   --ifm-f-white: #c74040;
   --ifm-f-re-white: #ffffff;
   --ifm-f-white-soft: #222222;
+  --ifm-f-white-soft2: #111;
   --ifm-f-white-mute: #282828;
   --ifm-footer-background-color: #181818;
   --farm--border: #fafafa20;
