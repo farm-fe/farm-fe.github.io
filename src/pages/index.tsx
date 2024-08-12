@@ -14,6 +14,7 @@ import NeonGradientCard from '../components/MagicUi/neon-gradient-card';
 import BlurFade from "../components/MagicUi/blur-fade";
 import BentoGridCard from "../components/MagicUi/card";
 import { AuroraBackground } from "../components/ui/aurora-back";
+import BrowserOnly from "@docusaurus/BrowserOnly";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
@@ -101,9 +102,17 @@ function HomepageHeader() {
 }
 
 const HomeBase = () => {
+  return (
+    <BrowserOnly>
+      {() => <HomeBaseContent />}
+    </BrowserOnly>
+  );
+};
+
+const HomeBaseContent = () => {
   const { colorMode } = useColorMode();
   const MainContent = () => (
-    <main className="mb-20 my-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8max-w-6xl" >
+    <main className="mb-20 my-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8max-w-6xl">
       <AnimatedGradientStarWithGithub />
       <HomepageHeader />
       <BentoGridCard />
