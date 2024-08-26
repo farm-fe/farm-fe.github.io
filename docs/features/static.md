@@ -49,7 +49,7 @@ import { defineConfig } from '@farmfe/core';
 export default defineConfig({
   compilation: {
     output: {
-      assetFilename: 'assets/[resourceName].[hash].[ext]', // [] is a placeholder, Farm currently only these three kind of placeholders
+      assetsFilename: 'assets/[resourceName].[hash].[ext]', // [] is a placeholder, Farm currently only these three kind of placeholders
     },
     assets: {
       include: ['txt'] // extra static asset extension
