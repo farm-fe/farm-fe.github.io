@@ -126,12 +126,12 @@ const HomeBaseContent = () => {
 };
 
 export default function Home() {
-  // const { siteConfig } = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-    // //@ts-ignore
-    // title={`${siteConfig.title} Documentation`}
-    // description="Description will go into a meta tag in <head />"
+      //@ts-ignore
+      title={`${siteConfig.title} Documentation`}
+      description="Description will go into a meta tag in <head />"
     >
       <HomeBaseContent />
     </Layout>
