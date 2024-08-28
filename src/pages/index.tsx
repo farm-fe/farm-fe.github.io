@@ -1,24 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import clsx from "clsx";
 import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
-import HomepageFeatures from "@site/src/components/HomepageFeatures";
 import Benchmark from "../components/Benchmark";
 import { useColorMode } from '@docusaurus/theme-common';
 import StarrySky from "../components/StarrySky";
 import styles from "./index.module.css";
 import Translate from "@docusaurus/Translate";
 import AnimatedGradientStarWithGithub from "../components/MagicUi/animated-shiny-text";
-import NeonGradientCard from '../components/MagicUi/neon-gradient-card';
 import BlurFade from "../components/MagicUi/blur-fade";
 import BentoGridCard from "../components/MagicUi/card";
 import { AuroraBackground } from "../components/ui/aurora-back";
 import BrowserOnly from "@docusaurus/BrowserOnly";
 
 function HomepageHeader() {
-  const { siteConfig } = useDocusaurusContext();
-
   return (
     <header
       className={clsx(
@@ -143,9 +139,6 @@ export default function Home() {
       description="Description will go into a meta tag in <head />"
     >
       <HomeBase />
-      {/* <NeonGradientCard height='18rem' borderRadius={0}> */}
-      {/* </NeonGradientCard> */}
-      {/* <HomepageFeatures /> */}
     </Layout >
   );
 }
