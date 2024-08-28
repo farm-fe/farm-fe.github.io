@@ -262,6 +262,12 @@ a {
   background: transparent;
 }
 
+@media screen and (min-width: 1140px) {
+  .navbar--fixed-top {
+    backdrop-filter: blur(8px); /* Apply the blur effect */
+  }
+}
+
 .font-sans {
   font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
