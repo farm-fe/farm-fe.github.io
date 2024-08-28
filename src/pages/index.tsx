@@ -1,24 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import clsx from "clsx";
 import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
-import HomepageFeatures from "@site/src/components/HomepageFeatures";
 import Benchmark from "../components/Benchmark";
 import { useColorMode } from '@docusaurus/theme-common';
 import StarrySky from "../components/StarrySky";
 import styles from "./index.module.css";
 import Translate from "@docusaurus/Translate";
 import AnimatedGradientStarWithGithub from "../components/MagicUi/animated-shiny-text";
-import NeonGradientCard from '../components/MagicUi/neon-gradient-card';
 import BlurFade from "../components/MagicUi/blur-fade";
 import BentoGridCard from "../components/MagicUi/card";
 import { AuroraBackground } from "../components/ui/aurora-back";
 import BrowserOnly from "@docusaurus/BrowserOnly";
 
 function HomepageHeader() {
-  const { siteConfig } = useDocusaurusContext();
-
   return (
     <header
       className={clsx(
@@ -101,51 +97,48 @@ function HomepageHeader() {
   );
 }
 
-const HomeBase = () => {
-  return (
-    <BrowserOnly>
-      {() => <HomeBaseContent />}
-    </BrowserOnly>
-  );
-};
 
 const HomeBaseContent = () => {
-  const { colorMode } = useColorMode();
-  const MainContent = () => (
-    <main className="mb-20 my-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8max-w-6xl">
-      <AnimatedGradientStarWithGithub />
-      <HomepageHeader />
-      <BentoGridCard />
-    </main>
-  );
+  return (
+    <BrowserOnly>
+      {() => {
+        const { colorMode } = useColorMode();
+        const MainContent = () => (
+          <main className="mb-20 my-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8max-w-6xl">
+            <AnimatedGradientStarWithGithub />
+            <HomepageHeader />
+            <BentoGridCard />
+          </main>
+        );
 
-  if (colorMode === 'dark') {
-    return (
-      <>
-        <StarrySky />
-        <MainContent />
-      </>
-    );
-  } else {
-    return (
-      <AuroraBackground>
-        <MainContent />
-      </AuroraBackground>
-    );
-  }
+        if (colorMode === 'dark') {
+          return (
+            <>
+              <StarrySky />
+              <MainContent />
+            </>
+          );
+        } else {
+          return (
+            <AuroraBackground>
+              <MainContent />
+            </AuroraBackground>
+          );
+        }
+      }}
+    </BrowserOnly>
+  );
 };
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
+      //@ts-ignore
       title={`${siteConfig.title} Documentation`}
       description="Description will go into a meta tag in <head />"
     >
-      <HomeBase />
-      {/* <NeonGradientCard height='18rem' borderRadius={0}> */}
-      {/* </NeonGradientCard> */}
-      {/* <HomepageFeatures /> */}
+      <HomeBaseContent />
     </Layout >
   );
 }
