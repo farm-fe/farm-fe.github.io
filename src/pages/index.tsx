@@ -98,6 +98,7 @@ function HomepageHeader() {
   );
 }
 
+
 const HomeBaseContent = () => {
   const { colorMode } = useColorMode();
 
@@ -127,6 +128,7 @@ const HomeBaseContent = () => {
     );
   }
 };
+
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
