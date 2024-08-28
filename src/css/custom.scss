@@ -258,13 +258,13 @@ a {
 
 .navbar--fixed-top {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-  -webkit-backdrop-filter: blur(8px); /* Safari support */
-  background: transparent;
 }
 
 @media screen and (min-width: 1140px) {
   .navbar--fixed-top {
     backdrop-filter: blur(8px); /* Apply the blur effect */
+    -webkit-backdrop-filter: blur(8px); /* Safari support */
+    background: transparent;
   }
 }
 
