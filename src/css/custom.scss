@@ -258,7 +258,6 @@ a {
 
 .navbar--fixed-top {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-  backdrop-filter: blur(8px); /* Apply the blur effect */
   -webkit-backdrop-filter: blur(8px); /* Safari support */
   background: transparent;
 }

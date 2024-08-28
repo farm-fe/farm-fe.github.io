@@ -28,13 +28,15 @@ html[data-theme="dark"] {
   --ifm-menu-color-background-hover: transparent;
 }
 
-[class^="docRoot_"] {
-  width: 1440px !important;
-}
+@media screen and (min-width: 1140px) {
+  [class^="docRoot_"] {
+    width: 1440px !important;
+  }
 
-[class^="docsWrapper_"] {
-  display: flex;
-  justify-content: center;
+  [class^="docsWrapper_"] {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 //overrides
