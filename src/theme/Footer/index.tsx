@@ -4,6 +4,7 @@ import { FaXTwitter } from "react-icons/fa6";
 import type { WrapperProps } from '@docusaurus/types';
 import { GitHubLogoIcon, DiscordLogoIcon } from '@radix-ui/react-icons';
 
+
 type Props = WrapperProps<typeof FooterType>;
 
 export default function FooterWrapper(props: Props): JSX.Element {
@@ -70,7 +71,6 @@ export default function FooterWrapper(props: Props): JSX.Element {
               <DiscordLogoIcon className='h-5 w-5 sm:h-6 sm:w-6 text-white hover:text-gray-300' />
             </a>
           </ul>
-
           <p className="text-xs sm:text-sm text-center text-gray-100">Copyright © 2024 Farm Community. Built with Docusaurus.</p>
         </div>
       </div>
