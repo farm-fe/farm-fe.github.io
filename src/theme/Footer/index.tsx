@@ -9,7 +9,7 @@ type Props = WrapperProps<typeof FooterType>;
 
 export default function FooterWrapper(props: Props): JSX.Element {
   return (
-    <section className="py-8 bg-zinc-950 sm:py-10 lg:py-12 text-white">
+    <section className="py-8 bg-zinc-950 sm:py-10 lg:py-12 text-white z-50">
       <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
         <div className='flex flex-col items-center sm:items-start gap-8 sm:flex-row sm:justify-between'>
           <div className='flex flex-col items-center sm:items-start gap-4'>
