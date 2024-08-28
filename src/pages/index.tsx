@@ -97,38 +97,35 @@ function HomepageHeader() {
   );
 }
 
+const MainContent = () => (
+  <main className="mb-20 my-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8max-w-6xl">
+    <AnimatedGradientStarWithGithub />
+    <HomepageHeader />
+    <BentoGridCard />
+  </main>
+);
 
-const HomeBaseContent = () => {
-  return (
-    <BrowserOnly>
-      {() => {
-        const { colorMode } = useColorMode();
-        const MainContent = () => (
-          <main className="mb-20 my-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8max-w-6xl">
-            <AnimatedGradientStarWithGithub />
-            <HomepageHeader />
-            <BentoGridCard />
-          </main>
-        );
+const AuroraBackContent = () => (
+  <AuroraBackground>
+    <MainContent />
+  </AuroraBackground>
+)
 
-        if (colorMode === 'dark') {
-          return (
-            <>
-              <StarrySky />
-              <MainContent />
-            </>
-          );
-        } else {
-          return (
-            <AuroraBackground>
-              <MainContent />
-            </AuroraBackground>
-          );
-        }
-      }}
-    </BrowserOnly>
-  );
-};
+const skyContent = () => (
+  <>
+    <StarrySky />
+    <MainContent />
+  </>
+)
+
+const HomePage = () => {
+  const { colorMode } = useColorMode();
+  if (colorMode === 'dark') {
+    return skyContent();
+  } else {
+    return AuroraBackContent();
+  }
+}
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
@@ -138,9 +135,11 @@ export default function Home() {
       title={`${siteConfig.title} Documentation`}
       description="Description will go into a meta tag in <head />"
     >
-      <HomeBaseContent />
+      <HomePage />
     </Layout >
   );
 }
+
+
 
 
