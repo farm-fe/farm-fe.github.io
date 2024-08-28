@@ -1,18 +1,17 @@
-import React from "react";
-import clsx from "clsx";
 import Link from "@docusaurus/Link";
+import { useColorMode } from "@docusaurus/theme-common";
+import Translate from "@docusaurus/Translate";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
+import clsx from "clsx";
+import React from "react";
 import Benchmark from "../components/Benchmark";
-import { useColorMode } from '@docusaurus/theme-common';
-import StarrySky from "../components/StarrySky";
-import styles from "./index.module.css";
-import Translate from "@docusaurus/Translate";
 import AnimatedGradientStarWithGithub from "../components/MagicUi/animated-shiny-text";
 import BlurFade from "../components/MagicUi/blur-fade";
 import BentoGridCard from "../components/MagicUi/card";
+import StarrySky from "../components/StarrySky";
 import { AuroraBackground } from "../components/ui/aurora-back";
-import BrowserOnly from "@docusaurus/BrowserOnly";
+import styles from "./index.module.css";
 
 function HomepageHeader() {
   return (
@@ -24,7 +23,6 @@ function HomepageHeader() {
       )}
     >
       <div className="container w-full flex flex-col my-1 px-2">
-
         <BlurFade delay={0.25} inView>
           <div className="font-extrabold text-3xl sm:text-6xl lg:text-6xl text-left mb-6 flex flex-col gap-2">
             <div>
@@ -61,7 +59,10 @@ function HomepageHeader() {
                 <Translate>Farm </Translate>
               </span>
               <span className="font-sans">
-                <Translate>is a Rust-Based Web Building Engine to Facilitate Your Web Program and JavaScript Library</Translate>
+                <Translate>
+                  is a Rust-Based Web Building Engine to Facilitate Your Web
+                  Program and JavaScript Library
+                </Translate>
               </span>
             </div>
           </div>
@@ -97,35 +98,37 @@ function HomepageHeader() {
   );
 }
 
-const MainContent = () => (
-  <main className="mb-20 my-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8max-w-6xl">
-    <AnimatedGradientStarWithGithub />
-    <HomepageHeader />
-    <BentoGridCard />
-  </main>
-);
 
-const AuroraBackContent = () => (
-  <AuroraBackground>
-    <MainContent />
-  </AuroraBackground>
-)
-
-const skyContent = () => (
-  <>
-    <StarrySky />
-    <MainContent />
-  </>
-)
-
-const HomePage = () => {
+const HomeBaseContent = () => {
   const { colorMode } = useColorMode();
-  if (colorMode === 'dark') {
-    return skyContent();
+
+  const mainContent = React.useMemo(() => {
+    return (
+      <main className="mb-20 my-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8max-w-6xl">
+        <AnimatedGradientStarWithGithub />
+        <HomepageHeader />
+        <BentoGridCard />
+      </main>
+    );
+  }, []);
+
+  if (colorMode === "dark") {
+    return (
+      <>
+        <StarrySky />
+        {mainContent}
+      </>
+    );
   } else {
-    return AuroraBackContent();
+    return (
+      <>
+        <AuroraBackground />
+        {mainContent}
+      </>
+    );
   }
-}
+};
+
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
@@ -135,11 +138,7 @@ export default function Home() {
       title={`${siteConfig.title} Documentation`}
       description="Description will go into a meta tag in <head />"
     >
-      <HomePage />
-    </Layout >
+      <HomeBaseContent />
+    </Layout>
   );
 }
-
-
-
-

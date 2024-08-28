@@ -3,13 +3,12 @@ import { cn } from "../../lib/utils";
 import React, { ReactNode } from "react";
 
 interface AuroraBackgroundProps extends React.HTMLProps<HTMLDivElement> {
-  children: ReactNode;
   showRadialGradient?: boolean;
+  className?: string;
 }
 
 export const AuroraBackground = ({
   className,
-  children,
   showRadialGradient = true,
   ...props
 }: AuroraBackgroundProps) => {
@@ -17,7 +16,7 @@ export const AuroraBackground = ({
     <main>
       <div
         className={cn(
-          "relative flex flex-col items-center justify-center bg-zinc-50 dark:bg-zinc-900  text-slate-950 transition-bg",
+          "flex flex-col items-center justify-center bg-zinc-50 dark:bg-zinc-900  text-slate-950 transition-bg fixed inset-0",
           className
         )}
         {...props}
@@ -43,11 +42,10 @@ export const AuroraBackground = ({
             absolute -inset-[10px] opacity-50 will-change-transform`,
 
               showRadialGradient &&
-              `[mask-image:radial-gradient(ellipse_at_100%_0%,black_10%,var(--transparent)_70%)]`
+                `[mask-image:radial-gradient(ellipse_at_100%_0%,black_10%,var(--transparent)_70%)]`
             )}
           ></div>
         </div>
-        {children}
       </div>
     </main>
   );
