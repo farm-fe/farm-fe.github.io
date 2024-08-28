@@ -4,7 +4,7 @@ import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import Benchmark from "../components/Benchmark";
-import { useColorMode } from '@docusaurus/theme-common';
+import { useColorMode } from "@docusaurus/theme-common";
 import StarrySky from "../components/StarrySky";
 import styles from "./index.module.css";
 import Translate from "@docusaurus/Translate";
@@ -24,7 +24,6 @@ function HomepageHeader() {
       )}
     >
       <div className="container w-full flex flex-col my-1 px-2">
-
         <BlurFade delay={0.25} inView>
           <div className="font-extrabold text-3xl sm:text-6xl lg:text-6xl text-left mb-6 flex flex-col gap-2">
             <div>
@@ -61,7 +60,10 @@ function HomepageHeader() {
                 <Translate>Farm </Translate>
               </span>
               <span className="font-sans">
-                <Translate>is a Rust-Based Web Building Engine to Facilitate Your Web Program and JavaScript Library</Translate>
+                <Translate>
+                  is a Rust-Based Web Building Engine to Facilitate Your Web
+                  Program and JavaScript Library
+                </Translate>
               </span>
             </div>
           </div>
@@ -97,50 +99,41 @@ function HomepageHeader() {
   );
 }
 
-
 const HomeBaseContent = () => {
-  return (
-    <BrowserOnly>
-      {() => {
-        const { colorMode } = useColorMode();
-        const MainContent = () => (
-          <main className="mb-20 my-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8max-w-6xl">
-            <AnimatedGradientStarWithGithub />
-            <HomepageHeader />
-            <BentoGridCard />
-          </main>
-        );
-
-        if (colorMode === 'dark') {
-          return (
-            <>
-              <StarrySky />
-              <MainContent />
-            </>
-          );
-        } else {
-          return (
-            <AuroraBackground>
-              <MainContent />
-            </AuroraBackground>
-          );
-        }
-      }}
-    </BrowserOnly>
+  const { colorMode } = useColorMode();
+  const MainContent = () => (
+    <main className="mb-20 my-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8max-w-6xl">
+      <AnimatedGradientStarWithGithub />
+      <HomepageHeader />
+      <BentoGridCard />
+    </main>
   );
+
+  if (colorMode === "dark") {
+    return (
+      <>
+        <StarrySky />
+        <MainContent />
+      </>
+    );
+  } else {
+    return (
+      <AuroraBackground>
+        <MainContent />
+      </AuroraBackground>
+    );
+  }
 };
 
 export default function Home() {
-  const { siteConfig } = useDocusaurusContext();
+  // const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      //@ts-ignore
-      title={`${siteConfig.title} Documentation`}
-      description="Description will go into a meta tag in <head />"
+    // //@ts-ignore
+    // title={`${siteConfig.title} Documentation`}
+    // description="Description will go into a meta tag in <head />"
     >
       <HomeBaseContent />
-    </Layout >
+    </Layout>
   );
 }
-
-
