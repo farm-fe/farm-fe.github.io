@@ -1,5 +1,5 @@
 # Tree Shake
-Farm 支持 Tree Shake，在默认 Production 环境下自动开启。通过 `compilation.treeShake` 选项可控制开启或者关闭。
+Farm 支持 Tree Shake，在默认 Production 环境下自动开启。通过 `compilation.treeShaking` 选项可控制开启或者关闭。
 
 Tree Shake 时，会自动读取 package.json 中的 sideEffects 字段，有 sideEffect 的模块将不会进行 Tree Shake。
 
@@ -27,12 +27,12 @@ export b1 = "B1";
 `b2`未使用，将在`a.js`和`b.js`中删除
 
 ## 配置 Tree Shake
-默认情况下，在生产模式下启用 Tree Shake，要禁用 Tree Shake，请使用`compilation.treeShake`：
+默认情况下，在生产模式下启用 Tree Shake，要禁用 Tree Shake，请使用`compilation.treeShaking`：
 
 ```ts title="farm.config.ts"
 export default {
    compilation: {
-     treeShake: false,
+     treeShaking: false,
    },
 };
 ```

@@ -1,5 +1,5 @@
 # Tree Shake
-Farm supports Tree Shake, which is automatically enabled in the default Production environment. It can be turned on or off by the `compilation.treeShake` option.
+Farm supports Tree Shake, which is automatically enabled in the default Production environment. It can be turned on or off by the `compilation.treeShaking` option.
 
 During Tree Shake, the sideEffects field in package.json will be automatically read, and modules with sideEffects will not perform Tree Shake.
 
@@ -27,12 +27,12 @@ export b1 = "B1";
 `b2` is not used and will be removed in both `a.js` and `b.js`
 
 ## Configuring Tree Shake
-Tree Shake is enabled in production mode by default, to disable tree shake, use `compilation.treeShake`:
+Tree Shake is enabled in production mode by default, to disable tree shake, use `compilation.treeShaking`:
 
 ```ts title="farm.config.ts"
 export default {
    compilation: {
-     treeShake: false,
+     treeShaking: false,
    },
 };
 ```

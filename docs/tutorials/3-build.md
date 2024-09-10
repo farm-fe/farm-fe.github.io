@@ -112,7 +112,7 @@ pnpm add -D core-js@3
 :::
 
 ## Configure Tree Shake and Minify
-Production optimization like `treeShake` and `minify` are **disabled** by default in `development` for performance reasons, and **enabled** by default in `production`. But if `treeShake` or `minify` are configured manually, the default value will be used regardless of `development` or `production`.
+Production optimization like `treeShaking` and `minify` are **disabled** by default in `development` for performance reasons, and **enabled** by default in `production`. But if `treeShaking` or `minify` are configured manually, the default value will be used regardless of `development` or `production`.
 
 For details about tree shake and minify, see:
 * [Tree Shake](/docs/advanced/tree-shake)
