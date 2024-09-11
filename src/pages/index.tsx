@@ -5,7 +5,6 @@ import clsx from "clsx";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import Benchmark from "../components/Benchmark";
-import { useColorMode } from '@docusaurus/theme-common';
 import StarrySky from "../components/StarrySky";
 import styles from "./index.module.css";
 import Translate from "@docusaurus/Translate";
@@ -25,7 +24,6 @@ function HomepageHeader() {
       )}
     >
       <div className="container w-full flex flex-col my-1 px-2">
-
         <BlurFade delay={0.25} inView>
           <div className="font-extrabold text-3xl sm:text-6xl lg:text-6xl text-left mb-6 flex flex-col gap-2">
             <div>
@@ -62,7 +60,10 @@ function HomepageHeader() {
                 <Translate>Farm </Translate>
               </span>
               <span className="font-sans">
-                <Translate>is a Rust-Based Web Building Engine to Facilitate Your Web Program and JavaScript Library</Translate>
+                <Translate>
+                  is a Rust-Based Web Building Engine to Facilitate Your Web
+                  Program and JavaScript Library
+                </Translate>
               </span>
             </div>
           </div>
@@ -110,14 +111,14 @@ const AuroraBackContent = () => (
   <AuroraBackground>
     <MainContent />
   </AuroraBackground>
-)
+);
 
 const skyContent = () => (
   <>
     <StarrySky />
     <MainContent />
   </>
-)
+);
 
 const HomePage = () => {
   const { colorMode } = useColorMode();
@@ -126,7 +127,7 @@ const HomePage = () => {
   } else {
     return AuroraBackContent();
   }
-}
+};
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
@@ -139,6 +140,6 @@ export default function Home() {
       <ColorModeProvider>
         <HomePage />
       </ColorModeProvider>
-    </Layout >
+    </Layout>
   );
 }
