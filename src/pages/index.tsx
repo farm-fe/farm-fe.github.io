@@ -1,5 +1,5 @@
 import Link from "@docusaurus/Link";
-import { useColorMode } from "@docusaurus/theme-common";
+import { useColorMode, ColorModeProvider } from "@docusaurus/theme-common";
 import Translate from "@docusaurus/Translate";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
