@@ -138,7 +138,9 @@ export default function Home() {
       title={`${siteConfig.title} Documentation`}
       description="Description will go into a meta tag in <head />"
     >
-      <HomeBaseContent />
+      <ColorModeProvider>
+        <HomeBaseContent />
+      </ColorModeProvider>
     </Layout>
   );
 }
