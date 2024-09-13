@@ -23,6 +23,7 @@
     "documate:upload": "documate upload"
   },
   "dependencies": {
+    "postcss-preset-env": "^10.0.3",
     "@crowdin/cli": "3",
     "@crowdin/crowdin-api-client": "^1.23.4",
     "@docusaurus/core": "3.4.0",

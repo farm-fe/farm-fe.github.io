@@ -4,6 +4,7 @@ on:
   pull_request:
     branches:
       - main
+  workflow_dispatch:
     # Review gh actions docs if you want to further define triggers, paths, etc
     # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
 
@@ -19,6 +20,6 @@ jobs:
       - name: Install pnpm
         run: npm install -g pnpm@8
       - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
+        run: pnpm i --no-frozen-lockfile --unsafe-perm --ignore-scripts
       - name: Test build website
         run: pnpm build
