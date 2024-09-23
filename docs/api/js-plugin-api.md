@@ -743,7 +743,7 @@ const myPlugin = () => ({
   transformHtml: {
     order: 2,
     async executor({ htmlResource }) {
-      const htmlCode = Buffer.from(htmlResource).toString();
+      const htmlCode = Buffer.from(htmlResource.bytes).toString();
   
       const newHtmlCode = htmlCode.replace('my-app-data', data);
       htmlResource.bytes = [...Buffer.from(newHtmlCode)];
