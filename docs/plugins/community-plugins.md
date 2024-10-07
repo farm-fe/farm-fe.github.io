@@ -23,7 +23,7 @@ const config: UserConfig = {
 - **[`@vitejs/plugin-vue`](https://github.com/vitejs/vite-plugin-vue/blob/main/packages/plugin-vue/README.md)**: Vue support.
 - **[`@vitejs/plugin-vue-jsx`](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue-jsx)**: Vue Jsx/Tsx support.
 - **[`vite-plugin-solid`](https://www.npmjs.com/package/vite-plugin-solid)**: Solid support for Farm.
-- **[`vite-plugin-mock`](https://www.npmjs.com/package/vite-plugin-solid)**: Mock data in both dev and prod.
+- **[`vite-plugin-mock`](https://www.npmjs.com/package/vite-plugin-mock)**: Mock data in both dev and prod.
 - ...
 
 ## unplugin

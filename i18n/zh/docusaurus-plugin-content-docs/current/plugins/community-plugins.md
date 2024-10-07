@@ -30,7 +30,7 @@ const config: UserConfig = {
 - **[`@vitejs/plugin-vue`](https://github.com/vitejs/vite-plugin-vue/blob/main/packages/plugin-vue/README.md)**: Vue 支持.
 - **[`@vitejs/plugin-vue-jsx`](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue-jsx)**: Vue Jsx/Tsx 支持.
 - **[`vite-plugin-solid`](https://www.npmjs.com/package/vite-plugin-solid)**: Solid 支持
-- **[`vite-plugin-mock`](https://www.npmjs.com/package/vite-plugin-solid)**: Mock 数据.
+- **[`vite-plugin-mock`](https://www.npmjs.com/package/vite-plugin-mock)**: Mock 数据.
 - ...
 
 ## unplugin
