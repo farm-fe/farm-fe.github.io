@@ -155,6 +155,11 @@ const config = {
             ],
           },
           {
+            to: '/roadmap',
+            position: "left",
+            label: "Roadmap",
+          },
+          {
             type: "docsVersionDropdown",
             position: "right",
           },

@@ -109,7 +109,7 @@ importers:
         specifier: ^1.2.1
         version: 1.2.1
       framer-motion:
-        specifier: ^11.2.10
+        specifier: ^11.2.13
         version: 11.2.13(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       shiki:
         specifier: ^1.7.0
