@@ -20,6 +20,6 @@ jobs:
       - name: Install pnpm
         run: npm install -g pnpm@8
       - name: Install dependencies
-        run: pnpm i --no-frozen-lockfile --unsafe-perm --ignore-scripts
+        run: pnpm install --no-frozen-lockfile
       - name: Test build website
         run: pnpm build
