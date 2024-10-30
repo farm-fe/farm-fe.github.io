@@ -9,7 +9,7 @@ export default function Team() {
   return (
     <Layout
       title={`${siteConfig.title} Documentation`}
-      description="Description will go into a meta tag in <head />"
+      description={siteConfig.tagline}
     >
       <div className="w-9/12 m-auto">
         <TeamMembers members={members} />
