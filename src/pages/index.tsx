@@ -1,6 +1,6 @@
 import Link from "@docusaurus/Link";
 // import useBaseUrl from '@docusaurus/useBaseUrl';
-import ThemedImage from '@theme/ThemedImage';
+// import ThemedImage from '@theme/ThemedImage';
 import Translate from "@docusaurus/Translate";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
@@ -10,8 +10,8 @@ import Benchmark from "../components/Benchmark";
 import AnimatedGradientStarWithGithub from "../components/MagicUi/animated-shiny-text";
 import BlurFade from "../components/MagicUi/blur-fade";
 import BentoGridCard from "../components/MagicUi/card";
-import StarrySky from "../components/StarrySky";
-import { AuroraBackground } from "../components/ui/aurora-back";
+// import StarrySky from "../components/StarrySky";
+// import { AuroraBackground } from "../components/ui/aurora-back";
 import styles from "./index.module.css";
 
 function HomepageHeader() {
@@ -113,11 +113,6 @@ const HomeBaseContent = () => {
 
     return (
       <>
-        <ThemedImage sources={{
-            light: <StarrySky />,
-            dark: <AuroraBackground />,
-          }}
-        />
         {mainContent}
       </>
     );
@@ -130,7 +125,7 @@ export default function Home() {
     <Layout
       //@ts-ignore
       title={`${siteConfig.title} Documentation`}
-      description="Description will go into a meta tag in <head />"
+      description={siteConfig.tagline}
     >
       <HomeBaseContent />
     </Layout>
