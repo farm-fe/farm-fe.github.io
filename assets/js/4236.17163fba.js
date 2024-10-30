@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkfarm_docs=self.webpackChunkfarm_docs||[]).push([[4236],{4236:(a,c,s)=>{s.r(c),s.d(c,{DocSearchModal:()=>e.a1});var e=s(2954)}}]);
