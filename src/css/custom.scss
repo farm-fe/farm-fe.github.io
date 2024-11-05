@@ -169,6 +169,17 @@ div[class^="announcementBar_"] {
     var(--ifm-primary-hue-saturation) 95%
   );
 
+  .nightly-text {
+    padding: 2px 6px;
+    border-radius: 6px;
+    background: #c44cac;
+    // -webkit-background-clip: text;
+    // background-clip: text;
+    // -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+
   background: linear-gradient(
     45deg,
     #711a5f,

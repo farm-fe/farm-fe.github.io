@@ -177,7 +177,7 @@ const config = {
 
       announcementBar: {
         id: "announcementBar-2", // Increment on change
-        content: `🎉 Farm will continue to release nightly versions. Please check out for details <a target="_blank" rel="noopener noreferrer" href="https://farm-neightly.netlify.app/">Farm Nightly</a>`,
+        content: `🎉 Farm will continue to release nightly versions. Please check out for details <a target="_blank" rel="noopener noreferrer" href="https://farm-nightly.netlify.app/" class="nightly-text">Farm Nightly</a>`,
       },
       customFields: {
         customFooter: "src/theme/Footer/index.tsx",
