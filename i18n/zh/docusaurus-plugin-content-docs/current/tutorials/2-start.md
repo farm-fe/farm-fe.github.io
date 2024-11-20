@@ -266,13 +266,11 @@ export default defineConfig({
   compilation: {
     resolve: {
       alias: {
-        '@/': path.join(process.cwd(), 'src')
+        "@/": path.join(process.cwd(), "src"),
       },
-      externals: [
-        'node:fs'
-      ]
-    }
-  }
+    },
+    externals: ["node:fs"],
+  },
   // ...
 });
 ```
