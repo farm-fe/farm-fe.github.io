@@ -18,10 +18,10 @@ Farm官方提供了很多有用的插件，包括Rust插件和JS插件。 Rust �
 
 ## Js 插件
 
-* **[`@farmfe/js-plugin-postcss`](./js-postcss)**：支持 React `jsx` 和 `react-refresh`。
-* **[`@farmfe/js-plugin-less`](./js-less)**：支持编译 `sass/scss` 文件。
-* **[`@farmfe/js-plugin-svgr`](./js-svgr)**：支持编译`sass/scss`文件。
-* **[`@farmfe/js-plugin-dts`](./js-dts)**：支持编译`sass/scss`文件。
+* **[`@farmfe/js-plugin-postcss`](./js-postcss)**：支持 `postcss`。
+* **[`@farmfe/js-plugin-less`](./js-less)**：支持编译 `less` 文件。
+* **[`@farmfe/js-plugin-svgr`](./js-svgr)**：支持编译`svg`文件。
+* **[`@farmfe/js-plugin-dts`](./js-dts)**：支持编译`*.d.ts`文件。
 * **[`@farmfe/js-plugin-sass`](./js-sass)**：支持编译`sass/scss`文件。
 
 ## 社区插件
