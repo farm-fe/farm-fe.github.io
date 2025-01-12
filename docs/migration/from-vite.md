@@ -3,7 +3,8 @@
 Vite plugins like `unocss` are deeply integrated with `Vite`, these plugins may not be compatible with Farm due to the difference in internal design. You can try other methods like `unocss postcss plugin` as a workaround.
 :::
 
-Migrating from Vite is really simple as Farm is Vite-compatible. All you need to do is to rename `vite.config.ts` to `farm.config.ts`:
+Migrating from Vite is really simple as Farm is Vite-compatible. All you need to do is to:
+* Rename `vite.config.ts` to `farm.config.ts`
 * Refer to [Configuring Farm](/docs/config/configuring-farm) for mapping farm config options to vite config options.
 * For `Vite Plugins`, move `plugins` in `vite.config.ts` to `vitePlugins` in `farm.config.ts`.
 
