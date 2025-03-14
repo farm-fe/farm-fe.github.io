@@ -63,25 +63,25 @@ import {
 } from '@farmfe/core';
 
 const resolveUserConfig = await resolveConfig({
-      compilation: {
-      output: {
-        publicPath: "/dist"
-      },
-      input: {
-        index: "./base.html"
-      }
+  compilation: {
+    output: {
+      publicPath: "/dist"
     },
-    server: {
-      port: 6532,
-      hmr: {
-        path: "/__farm_hmr",
-      }
-    },
-    plugins: [
-      '@farmfe/plugin-react',
-      '@farmfe/plugin-sass'
-    ],
-})
+    input: {
+      index: "./base.html"
+    }
+  },
+  server: {
+    port: 6532,
+    hmr: {
+      path: "/__farm_hmr",
+    }
+  },
+  plugins: [
+    '@farmfe/plugin-react',
+    '@farmfe/plugin-sass'
+  ],
+});
 
 // create compiler
 const compiler = await createCompiler(resolveUserConfig);
