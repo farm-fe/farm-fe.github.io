@@ -144,6 +144,7 @@ const sidebars = {
             "plugins/official-plugins/yaml",
             "plugins/official-plugins/virtual",
             "plugins/official-plugins/react-components",
+            "plugins/official-plugins/auto-import",
           ],
         },
         {
