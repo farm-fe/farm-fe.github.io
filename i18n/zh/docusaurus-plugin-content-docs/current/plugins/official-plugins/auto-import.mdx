@@ -1,0 +1,148 @@
+import CodeBlock from "@theme/CodeBlock";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+# @farmfe/plugin-auto-import
+
+按需自动导入第三方库的方法
+
+## 安装
+
+
+<Tabs>
+  <TabItem value="npm" label="npm">
+    <CodeBlock>npm install @farmfe/plugin-auto-import</CodeBlock>
+  </TabItem>
+  <TabItem value="yarn" label="yarn">
+    <CodeBlock>yarn add @farmfe/plugin-auto-import</CodeBlock>
+  </TabItem>
+  <TabItem value="pnpm" label="pnpm">
+    <CodeBlock>pnpm add @farmfe/plugin-auto-import</CodeBlock>
+  </TabItem>
+    <TabItem value="bun" label="bun">
+    <CodeBlock>bun add @farmfe/plugin-auto-import</CodeBlock>
+  </TabItem>
+</Tabs>
+
+## 使用
+
+`@farmfe/plugin-auto-import` 是一个Rust插件,只需要在 `farm.config.(t|j|mj)s` 的的 `plugins` 字段中配置其包名即可。
+
+```ts {4}
+import { UserConfig } from '@farmfe/core';
+import AutoImport from '@farmfe/plugin-auto-import'
+
+const config: UserConfig = {
+  plugins: [
+    AutoImport({
+       /** 选项在此 */
+    })
+  ]
+}
+```
+## 功能
+
+- 💚 支持React和React-Router开箱即用
+- 🏝 树摇（Tree-shaking），只注册你使用的组件。
+- 🪐 文件夹名称作为命名空间。
+- 🦾 完整的TypeScript支持。
+
+## 使用
+
+和 `unplugin-auto-import`插件一样的用法,他讲自动引入组件 不再需要 `import`
+
+他会自动将这个
+
+```tsx
+export function Main() {
+  const [ops, setOps] = useState([])
+
+  return (<div>
+    {
+      ops.map(k => (<span key={`k`}>{k}</span>))
+    }
+  </div>)
+}
+```
+
+转化成这个
+
+```tsx
+import {useState} from "react"
+export function Main() {
+  const [ops, setOps] = useState([])
+
+  return (<div>
+    {
+      ops.map(k => (<span key={`k`}>{k}</span>))
+    }
+  </div>)
+}
+
+```
+
+:::warning
+1.该插件暂时不支持 `组件`，只支持 `function api`。对于第三方的`npm`包来说也是一样的
+
+2.该插件暂时不支持配置的热更新,如果在 `farm.cofnig.(t|j|mj|cj)s`中变更请重启 `farm server`
+:::
+
+## TypeScript
+
+为自动导入的组件获得TypeScript支持。
+
+```ts
+AutoImport({
+  dts: true, // 如果安装了`typescript`默认启用
+})
+```
+
+完成设置后，将自动生成一个`auto-import.d.ts`文件，并自动更新类型定义。你可以选择是否将其提交到git。
+
+> **确保你也将`auto-import.d.ts`添加到`tsconfig.json`的`include`中。**
+
+:::tip
+在 `JavaScript` 项目中，如果是用来该插件并且想获取完整的函数类型提示 需要配置 `jsconfig.json`文件
+
+
+:::
+```js
+
+```
+
+## 使用第三方库
+
+
+
+## 配置
+以下显示了配置的默认值
+```ts
+{
+
+  // 生成全局声明的`auto-import.d.ts`，
+  // 也接受自定义文件名的路径
+  // 默认：如果安装了typescript包则为`true`
+  dts: true,
+
+  // 转换目标（要插入自动导入的组件）的过滤器
+  // 注意，这不是关于包含/排除注册组件 - 使用`Regex`来做那个
+  include: ["src/components"],
+  exclude: ["node_modules"],
+  // 配置项
+  dirs: ['src/hooks', 'src/components'],
+  // 需要自动导入的模块
+  presets: [
+    "react", // 默认配置
+    "react-router", // 默认配置
+    {
+      from: "lodash-es", // lodash-es npm自动引入示例
+      imports: ["debounce", "throttle", "isEqual", "isEmpty", "isNil", "isFunction", "isObject", "isArray", "isString", "isNumber", "isBoolean", "isDate", "isRegExp", "isSymbol", "isMap", "isSet", "isWeakMap", "isWeakSet"],
+    }
+  ]
+}
+
+
+```
+当前默认配置有`presets`: `["pinia", "react", "react-router", "vue", "vue-router"]`, 也可以[点击](https://github.com/farm-fe/plugins/blob/main/rust-plugins/auto-import/src/presets/mod.rs)。
+
+想要查看 auto-import类型定义 请[点击](https://github.com/farm-fe/plugins/blob/main/rust-plugins/auto-import/options.d.ts)
