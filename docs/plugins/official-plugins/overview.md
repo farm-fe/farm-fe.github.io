@@ -15,6 +15,7 @@ Refer to [Using Plugins](/docs/using-plugins) for how to use plugins in Farm.
 * **[`@farmfe/plugin-yaml`](./yaml)**：A Farm plugin which Converts YAML files to ES6 modules.
 * **[`@farmfe/plugin-virtual`](./virtual)**：A rust plugin for farm to easily use virtual module.
 * **[`@farmfe/plugin-react-components`](./react-components)**：On-demand components auto importing for React.
+* **[`@farmfe/plugin-auto-import`](./auto-import)**: On-demand auto importing for npm packages.
 
 ## Js Plugins
 
