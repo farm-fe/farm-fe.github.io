@@ -43,13 +43,13 @@ const config: UserConfig = {
 ## 功能
 
 - 💚 支持React和React-Router开箱即用
-- 🏝 树摇（Tree-shaking），只注册你使用的组件。
+- 🏝 树摇（Tree-shaking），仅注册实际使用的组件，减少打包体积。
 - 🪐 文件夹名称作为命名空间。
 - 🦾 完整的TypeScript支持。
 
 ## 使用
 
-和 `unplugin-auto-import`插件一样的用法,他讲自动引入组件 不再需要 `import`
+和 `unplugin-auto-import`插件一样的用法, 自动引入组件 不再需要 `import`
 
 他会自动将这个
 
@@ -82,9 +82,10 @@ export function Main() {
 ```
 
 :::warning
-1.该插件暂时不支持 `组件`，只支持 `function api`。对于第三方的`npm`包来说也是一样的
 
-2.该插件暂时不支持配置的热更新,如果在 `farm.cofnig.(t|j|mj|cj)s`中变更请重启 `farm server`
+1.暂不支持组件：目前仅支持函数 API 的自动导入，组件暂不受支持。
+
+2.热更新限制：如果在 `farm.config.(t|j|mj|cj)s` 中修改了插件配置，请重启 `farm server
 :::
 
 ## TypeScript
@@ -103,15 +104,53 @@ AutoImport({
 
 :::tip
 在 `JavaScript` 项目中，如果是用来该插件并且想获取完整的函数类型提示 需要配置 `jsconfig.json`文件
-
-
 :::
-```js
 
+对于 JavaScript 项目，如果需要完整的函数类型提示，可以配置 jsconfig.json 文件：
+
+```json
+{
+  "compilerOptions": {、
+    "checkJs": false,
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["*"]
+    },
+    "typeRoots": ["auto-import.d.ts"]
+  },
+}
 ```
 
-## 使用第三方库
-
+## 第三方库支持
+```ts
+{
+  "react", // 默认配置
+  "react-router", // 默认配置
+  {
+    from: "lodash-es", // 自动导入 lodash-es 模块中的函数
+    imports: [
+      "debounce",
+      "throttle",
+      "isEqual",
+      "isEmpty",
+      "isNil",
+      "isFunction",
+      "isObject",
+      "isArray",
+      "isString",
+      "isNumber",
+      "isBoolean",
+      "isDate",
+      "isRegExp",
+      "isSymbol",
+      "isMap",
+      "isSet",
+      "isWeakMap",
+      "isWeakSet",
+    ],
+  },
+}
+```
 
 
 ## 配置
@@ -126,23 +165,19 @@ AutoImport({
 
   // 转换目标（要插入自动导入的组件）的过滤器
   // 注意，这不是关于包含/排除注册组件 - 使用`Regex`来做那个
-  include: ["src/components"],
-  exclude: ["node_modules"],
-  // 配置项
+  include: ["src/components"],// 包含的目录
+  exclude: ["node_modules"], // 排除的目录
+   // 自动扫描的目录
   dirs: ['src/hooks', 'src/components'],
   // 需要自动导入的模块
   presets: [
     "react", // 默认配置
     "react-router", // 默认配置
-    {
-      from: "lodash-es", // lodash-es npm自动引入示例
-      imports: ["debounce", "throttle", "isEqual", "isEmpty", "isNil", "isFunction", "isObject", "isArray", "isString", "isNumber", "isBoolean", "isDate", "isRegExp", "isSymbol", "isMap", "isSet", "isWeakMap", "isWeakSet"],
-    }
   ]
 }
 
 
 ```
-当前默认配置有`presets`: `["pinia", "react", "react-router", "vue", "vue-router"]`, 也可以[点击](https://github.com/farm-fe/plugins/blob/main/rust-plugins/auto-import/src/presets/mod.rs)。
+当前默认配置有`presets`: `["pinia", "react", "react-router", "vue", "vue-router"]`, 更多详情可参考[源码仓库](https://github.com/farm-fe/plugins/blob/main/rust-plugins/auto-import/src/presets/mod.rs)
 
-想要查看 auto-import类型定义 请[点击](https://github.com/farm-fe/plugins/blob/main/rust-plugins/auto-import/options.d.ts)
+如需查看完整类型定义，请参考[源码配置](https://github.com/farm-fe/plugins/blob/main/rust-plugins/auto-import/options.d.ts)
