@@ -15,6 +15,7 @@ Farm官方提供了很多有用的插件，包括Rust插件和JS插件。 Rust �
 * **[`@farmfe/plugin-yaml`](./yaml)**：一个Farm插件，用于将YAML文件转换为ES6模块。
 * **[`@farmfe/plugin-virtual`](./virtual)**：一个方便在farm中使用虚拟模块的rust插件。
 * **[`@farmfe/plugin-react-components`](./react-components)**：用于React的按需组件自动导入。
+* **[`@farmfe/plugin-auto-import`](./auto-import)**: 一个Farm插件，用于自动引入npm package以及本地函数的插件。
 
 ## Js 插件
 

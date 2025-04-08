@@ -1,0 +1,191 @@
+import CodeBlock from "@theme/CodeBlock";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+# @farmfe/plugin-auto-import
+
+Automatically import methods from third-party libraries on demand.
+
+## Installation
+
+<Tabs>
+  <TabItem value="npm" label="npm">
+    <CodeBlock>npm install @farmfe/plugin-auto-import</CodeBlock>
+  </TabItem>
+  <TabItem value="yarn" label="yarn">
+    <CodeBlock>yarn add @farmfe/plugin-auto-import</CodeBlock>
+  </TabItem>
+  <TabItem value="pnpm" label="pnpm">
+    <CodeBlock>pnpm add @farmfe/plugin-auto-import</CodeBlock>
+  </TabItem>
+  <TabItem value="bun" label="bun">
+    <CodeBlock>bun add @farmfe/plugin-auto-import</CodeBlock>
+  </TabItem>
+</Tabs>
+
+## Usage
+
+`@farmfe/plugin-auto-import`is a Rust plugin. You just need to configure its package name in the `plugins` field of the `farm.config.(t|j|mj)s` file.
+
+```ts {4}
+import { UserConfig } from "@farmfe/core";
+import AutoImport from "@farmfe/plugin-auto-import";
+
+const config: UserConfig = {
+  plugins: [
+    AutoImport({
+      /** Options go here */
+    }),
+  ],
+};
+```
+
+## Features
+
+- 💚 Supports React and React-Router out of the box.
+- 🏝 Tree-shaking: Only registers the components you actually use, reducing bundle size.
+- 🪐 Folder names as namespaces.
+- 🦾 Full TypeScript support.
+
+## Usage
+
+Similar to the `unplugin-auto-import plugin`, it automatically imports components so that you no longer need to manually `import`.
+
+It will automatically convert this:
+
+```tsx
+export function Main() {
+  const [ops, setOps] = useState([]);
+
+  return (
+    <div>
+      {ops.map((k) => (
+        <span key={`k`}>{k}</span>
+      ))}
+    </div>
+  );
+}
+```
+
+Into this:
+
+
+```tsx
+import { useState } from "react";
+export function Main() {
+  const [ops, setOps] = useState([]);
+
+  return (
+    <div>
+      {ops.map((k) => (
+        <span key={`k`}>{k}</span>
+      ))}
+    </div>
+  );
+}
+```
+
+:::warning 
+
+1.Components are not supported yet: Currently, only automatic imports for function APIs are supported; components are not supported.
+
+2.Hot reload limitation: If you modify the plugin configuration in farm.config.(t|j|mj|cj)s, please restart the farm server.
+:::
+
+## TypeScript
+
+Enable `TypeScript` support for automatically imported components.
+
+```ts
+AutoImport({
+  dts: true, // Enabled by default if `typescript` is installed.
+});
+```
+
+After setting up, an `auto-import.d.ts` file will be automatically generated and type definitions will be updated. You can choose whether to commit it to `Git`.
+
+> **Ensure that you also add `auto-import.d.ts` to the include section of your `tsconfig.json`.**
+
+:::tip
+
+For `JavaScript` projects, if you want complete function type hints when using this plugin, you need to configure the `jsconfig.json` file
+
+:::
+
+```js
+{
+  "compilerOptions": {
+    "checkJs": false,
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["*"]
+    },
+    "typeRoots": ["auto-import.d.ts"]
+  }
+}
+```
+
+## Third-Party Library Support
+```ts
+{
+  "react", // Default configuration
+  "react-router", // Default configuration
+  {
+    from: "lodash-es", // Automatically import functions from the lodash-es module
+    imports: [
+      "debounce",
+      "throttle",
+      "isEqual",
+      "isEmpty",
+      "isNil",
+      "isFunction",
+      "isObject",
+      "isArray",
+      "isString",
+      "isNumber",
+      "isBoolean",
+      "isDate",
+      "isRegExp",
+      "isSymbol",
+      "isMap",
+      "isSet",
+      "isWeakMap",
+      "isWeakSet",
+    ],
+  },
+}
+```
+
+## Configuration
+
+The following shows the default configuration:
+
+```ts
+{
+
+   // Generate a global declaration `auto-import.d.ts`.
+  // Also accepts custom file paths.
+  // Default: `true` if the `typescript` package is installed.
+  dts: true,
+
+  // Filters for conversion targets (components to insert automatic imports).
+  // Note: This is not about including/excluding registered components - use `Regex` for that.
+  include: ["src/components"], // Included directories
+  exclude: ["node_modules"], // Excluded directories
+
+  // Directories to scan automatically.
+  dirs: ['src/hooks', 'src/components'],
+
+  // Modules to automatically import.
+  presets: [
+    "react", // Default configuration
+    "react-router", // Default configuration
+  ]
+}
+
+
+```
+
+The current default`presets`: `["pinia", "react", "react-router", "vue", "vue-router"]`,  For more details, refer to the [source repository](https://github.com/farm-fe/plugins/blob/main/rust-plugins/auto-import/src/presets/mod.rs)。
+
+If you need to view the complete type definition, refer to the[source configuration](https://github.com/farm-fe/plugins/blob/main/rust-plugins/auto-import/options.d.ts)
