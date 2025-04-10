@@ -83,8 +83,8 @@ export function Main() {
 :::warning
 
 1.暂不支持组件：目前仅支持函数 API 的自动导入，组件暂不受支持。
+
 2.热更新限制：如果在 `farm.config.(t|j|mj|cj)s` 中修改了插件配置，请重启 `farm server`。
-2.热更新限制：如果在 `farm.config.(t|j|mj|cj)s` 中修改了插件配置，请重启 `farm server
 :::
 
 ## TypeScript
@@ -107,7 +107,16 @@ AutoImport({
 
 对于 JavaScript 项目，如果需要完整的函数类型提示，可以配置 jsconfig.json 文件：
 
-  },
+```js
+{
+  "compilerOptions": {
+    "checkJs": false,
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["*"]
+    },
+    "typeRoots": ["auto-import.d.ts"]
+  }
 }
 ```
 
