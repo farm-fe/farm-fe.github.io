@@ -71,7 +71,7 @@ Currently Farm supports 2 rust plugins officially:
 * **`@farmfe/plugin-sass`**: Farm rust plugin for scss files compilation, uses `sass-embedded` internally.
 
 
-If you are using version `Farm@1.3+` or above; you can use it in the same way as the `js-plugin` pluin. For example, `@farmfe/plugin-react`
+If you are using version `Farm@1.3+` or above; you can use it in the same way as the `js-plugin` plugin. For example, `@farmfe/plugin-react`
 
 
 ```ts title="farm.config.ts"
