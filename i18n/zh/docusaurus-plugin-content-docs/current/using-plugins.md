@@ -67,6 +67,22 @@ export default defineConfig({
 * **`@farmfe/plugin-react`**：Farm rust 插件，用于 React jsx 编译和 React-refresh 注入。
 * **`@farmfe/plugin-sass`**：用于 scss 文件编译的 Farm rust 插件，内部使用 `sass-embedded`。
 
+如果你使用的是 `Farm@1.3+`版本以上：可以像 `js-plugin`插件使用的方式那样驶入。比如说 `@farmfe/plugin-react`
+
+```ts title="farm.config.ts"
+import reactPlugin from "@farmfe/plugin-react";
+
+export default defineConfig({
+  plugins: [
+    //使用 函数的方式调用 Rust 插件
+    reactPlugin({
+      // 设置
+    })
+  ],
+});
+```
+
+
 :::tip
 要了解有关 rust 插件的更多信息，请参阅 [Rust 插件](/docs/plugins/official-plugins/overview#rust-插件)
 :::
