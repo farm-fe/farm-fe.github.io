@@ -60,7 +60,14 @@ export default defineConfig({
       "@farmfe/plugin-sass",
       // rust plugin's options
       {
-        additionalData: '@use "@/global-variables.scss";'
+       // sourceMap: true // bool
+       // sourceMapIncludeSources: true, // bool
+       // alertAscii: true, // bool
+       // alertColor: true, // bool
+       // charset: true, // bool
+       // quietDeps: true, // bool
+       // verbose: false, // bool
+       // style: 'expanded' | 'compressed' // output code style
       }
     ],
   ],
