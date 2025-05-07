@@ -77,6 +77,25 @@ Currently Farm supports 2 rust plugins officially:
 * **`@farmfe/plugin-react`**: Farm rust plugin for react jsx compilation and react-refresh injection.
 * **`@farmfe/plugin-sass`**: Farm rust plugin for scss files compilation, uses `sass-embedded` internally.
 
+
+If you are using version `Farm@1.3+` or above; you can use it in the same way as the `js-plugin` plugin. For example, `@farmfe/plugin-react`
+
+
+```ts title="farm.config.ts"
+import reactPlugin from "@farmfe/plugin-react";
+
+export default defineConfig({
+  plugins: [
+     // Use the function approach to call Rust plugins
+    reactPlugin({
+      // Settings
+    })
+  ],
+});
+```
+
+
+
 :::tip
 To learn more about rust plugins, see [Rust Plugins](/docs/plugins/official-plugins/overview#rust-plugins)
 :::
